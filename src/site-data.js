@@ -6,8 +6,14 @@ const byRankThenPrice = (a, b) =>
   (a.cheapest?.totalEur ?? 0) - (b.cheapest?.totalEur ?? 0) ||
   a.name.localeCompare(b.name);
 
+// Currencies the website can show prices in (EUR per unit comes from the scan's exchange rates).
+const DISPLAY_CURRENCIES = ['EUR', 'MDL', 'RON', 'USD'];
+
+const pickRates = (rates) =>
+  Object.fromEntries(DISPLAY_CURRENCIES.filter((code) => Number.isFinite(rates[code])).map((code) => [code, rates[code]]));
+
 /** The JSON the website reads from docs/data/deals.json. */
-export function buildSiteData({ now, origin, config, summaries, state, failed }) {
+export function buildSiteData({ now, origin, config, summaries, state, failed, rates, otherAirlinesActive }) {
   // dealSince: when this destination's current deal level first appeared (drives the "New" badge).
   const destinations = summaries.toSorted(byRankThenPrice).map((summary) => ({
     ...summary,
@@ -16,7 +22,10 @@ export function buildSiteData({ now, origin, config, summaries, state, failed })
 
   return {
     generatedAt: now.toISOString(),
-    source: 'Wizz Air',
+    sources: [
+      { id: 'wizz', name: 'Wizz Air', live: true },
+      ...(otherAirlinesActive ? [{ id: 'travelpayouts', name: 'Other airlines (Aviasales)', live: false }] : []),
+    ],
     origin,
     rules: {
       maxReturnPriceEur: config.maxReturnPriceEur,
@@ -24,6 +33,7 @@ export function buildSiteData({ now, origin, config, summaries, state, failed })
       maxNights: config.maxNights,
       daysAhead: config.daysAhead,
     },
+    rates: pickRates(rates),
     destinations,
     failed,
   };

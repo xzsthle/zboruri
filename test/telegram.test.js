@@ -64,6 +64,13 @@ test('formatAlerts splits many destinations over several messages so none is dro
   assert.match(messages[1].text, /See all deals/);
 });
 
+test('formatAlerts names the airline and links cached fares to Aviasales', () => {
+  const cached = { ...trip('2026-10-09', '2026-10-12', 45, 3), airline: 'Fly One', source: 'travelpayouts' };
+  const [message] = formatAlerts([alert(BUD, cached)], { ...context, siteUrl: '' });
+  assert.match(message.text, /Fri 9 Oct 16:30 → Mon 12 Oct · 3 nights · Fly One$/m);
+  assert.match(message.text, />Check price on Aviasales<\/a>/);
+});
+
 test('formatAlerts uses the singular for one deal and escapes departure times', () => {
   const odd = { ...trip('2026-10-09', '2026-10-12', 45, 1), outTimes: ['<x>'] };
   const [message] = formatAlerts([alert(BUD, odd)], { ...context, siteUrl: '' });

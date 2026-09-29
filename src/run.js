@@ -1,5 +1,8 @@
 import { addDays, dateWindows, toIsoDate } from './dates.js';
-import { flattenDeals, summarizeDestination } from './deals.js';
+import { flattenDeals, summarizeTrips, wizzTrips } from './deals.js';
+import { updateHistory } from './history.js';
+import { mergeSources } from './merge.js';
+import { scanOtherAirlines } from './other-airlines.js';
 import { scanAll } from './scan.js';
 import { buildSiteData } from './site-data.js';
 import { markAlerted, selectAlerts, updateState } from './state.js';
@@ -41,16 +44,9 @@ async function sendAlerts({ notifier, alerts, state, origin, config, siteUrl, lo
   return { state: current };
 }
 
-/**
- * One scan: fetch fares, build round trips, alert on new or cheaper destinations, publish the site data.
- * Site data and alert history are written even when Telegram fails, and unsent alerts are retried next run.
- */
-export async function run(deps) {
-  const { config, wizz, getRates, store, clock, pause, cooldown, log } = deps;
-  const now = clock.now();
-  const today = toIsoDate(now.getTime());
-
-  const [rates, version] = await Promise.all([getRates(), wizz.getApiVersion()]);
+/** Live Wizz Air scan: route map, fare calendars for every destination, then round trips. */
+async function scanWizz({ config, wizz, rates, today, pause, cooldown, log }) {
+  const version = await wizz.getApiVersion();
   const { origin, destinations } = await wizz.getRouteMap(version, config.origin);
   log.info(`Wizz Air API ${version}: ${destinations.length} destinations from ${origin.iata}`);
 
@@ -61,17 +57,38 @@ export async function run(deps) {
   assertEnoughScanned(results, destinations.length);
 
   const linkFor = (dest, outDate, backDate) => bookingUrl(origin.iata, dest, outDate, backDate);
-  const summaries = results.map((scan) => summarizeDestination(scan, { rates, config, linkFor }));
-  const bestPrices = Object.fromEntries(
-    summaries.filter((s) => s.deals.length > 0).map((s) => [s.iata, s.deals[0].totalEur]),
-  );
+  const priced = results.map((scan) => ({ dest: scan.dest, trips: wizzTrips(scan, { rates, config, linkFor }) }));
+  return { origin, priced, failed, window: { fromIso: windows[0].from, toIso: windows.at(-1).to } };
+}
+
+/**
+ * One scan: live Wizz Air fares plus (optionally) cached fares for other airlines, merged per destination;
+ * alert on new or cheaper destinations; publish site data and price history.
+ * Everything is written even when Telegram fails, and unsent alerts are retried next run.
+ */
+export async function run(deps) {
+  const { config, getRates, store, clock, log } = deps;
+  const now = clock.now();
+  const today = toIsoDate(now.getTime());
+
+  const rates = await getRates();
+  const { origin, priced, failed, window } = await scanWizz({ ...deps, rates, today });
+  const others = await scanOtherAirlines({ ...deps, origin: origin.iata, ...window });
+
+  const merged = mergeSources({ wizz: priced, others: others.found, originIata: origin.iata, ...others.reference });
+  const summaries = merged.map(({ dest, trips }) => summarizeTrips(dest, trips, config));
+  const bestPrices = Object.fromEntries(summaries.filter((s) => s.deals.length > 0).map((s) => [s.iata, s.deals[0].totalEur]));
+  const cheapest = Object.fromEntries(summaries.filter((s) => s.cheapest).map((s) => [s.iata, s.cheapest.totalEur]));
+
   const updated = updateState(await store.readState(), { bestPrices, failed, nowIso: now.toISOString() });
   const alertIatas = selectAlerts(updated, Object.keys(bestPrices));
   const alerts = flattenDeals(summaries).filter((deal) => alertIatas.includes(deal.destination.iata));
   const { state, error } = await sendAlerts({ ...deps, origin, alerts, state: updated });
 
-  await store.writeSiteData(buildSiteData({ now, origin, config, summaries, state, failed }));
+  const otherAirlinesActive = others.status.status === 'ok';
+  await store.writeSiteData(buildSiteData({ now, origin, config, summaries, state, failed, rates, otherAirlinesActive }));
+  await store.writeHistory(updateHistory(await store.readHistory(), cheapest, today));
   await store.writeState(state);
   if (error) throw error;
-  return { deals: flattenDeals(summaries).length, alerts: alertIatas.length, failed };
+  return { deals: flattenDeals(summaries).length, alerts: alertIatas.length, failed, otherAirlines: others.status };
 }

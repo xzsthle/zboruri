@@ -31,14 +31,19 @@ function groupByDestination(alerts) {
   return [...Map.groupBy(sorted, (alert) => alert.destination.iata).values()];
 }
 
+// Live Wizz Air fares are bookable as shown; cached fares for other airlines need a fresh check.
+const bookLabel = (trip) => (trip.source === 'travelpayouts' ? 'Check price on Aviasales' : 'Book on Wizz Air');
+
 function formatGroup([best, ...others]) {
   const { destination: place, trip } = best;
-  const more = others.length > 0 ? ` · +${plural(others.length, 'more date')}` : '';
+  const more = others.length > 0 ? `+${plural(others.length, 'more date')}` : '';
+  const link = trip.bookingUrl ? `<a href="${escapeHtml(trip.bookingUrl)}">${bookLabel(trip)}</a>` : '';
+  const airline = trip.airline ? ` · ${escapeHtml(trip.airline)}` : '';
   return [
     '',
     `${flagEmoji(place.countryCode)} <b>${escapeHtml(place.name)}</b>, ${escapeHtml(place.country)} — <b>${formatEur(trip.totalEur)}</b>`,
-    `${formatLeg(trip.outDate, trip.outTimes)} → ${formatLeg(trip.backDate, trip.backTimes)} · ${plural(trip.nights, 'night')}`,
-    `<a href="${escapeHtml(trip.bookingUrl)}">Book on Wizz Air</a>${more}`,
+    `${formatLeg(trip.outDate, trip.outTimes)} → ${formatLeg(trip.backDate, trip.backTimes)} · ${plural(trip.nights, 'night')}${airline}`,
+    ...[[link, more].filter(Boolean).join(' · ')].filter(Boolean),
   ];
 }
 

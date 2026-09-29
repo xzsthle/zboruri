@@ -7,6 +7,7 @@ import { loadConfig, validateConfig } from '../src/config.js';
 
 const valid = {
   origin: 'RMO', maxReturnPriceEur: 60, minNights: 2, maxNights: 10, daysAhead: 120, maxDealsPerDestination: 5, requestDelayMs: 0,
+  directFlightsOnly: true,
 };
 
 test('the shipped config.json is valid', async () => {

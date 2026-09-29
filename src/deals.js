@@ -39,21 +39,51 @@ export function roundTrips(outbound, inbound, { minNights, maxNights }) {
   );
 }
 
-export function summarizeDestination({ dest, outbound, inbound }, { rates, config, linkFor }) {
-  const trips = roundTrips(
+/** Every live Wizz Air round trip for one scanned destination, priced in euros. */
+export function wizzTrips({ dest, outbound, inbound }, { rates, config, linkFor }) {
+  return roundTrips(
     cheapestPerDate(toEurFares(outbound, rates)),
     cheapestPerDate(toEurFares(inbound, rates)),
     config,
-  )
-    .toSorted(byPriceThenDate)
-    .map((trip) => ({ ...trip, bookingUrl: linkFor(dest.iata, trip.outDate, trip.backDate) }));
-  const underLimit = trips.filter((trip) => trip.totalEur <= config.maxReturnPriceEur);
+  ).map((trip) => ({
+    ...trip,
+    bookingUrl: linkFor(dest.iata, trip.outDate, trip.backDate),
+    airline: 'Wizz Air',
+    airlineCode: 'W6',
+    stops: 0,
+    source: 'wizz',
+  }));
+}
 
+/** Cheapest first; the same dates on the same airline only once. */
+function uniqueSorted(trips) {
+  const seen = new Set();
+  return trips.toSorted(byPriceThenDate).filter((trip) => {
+    const key = `${trip.outDate}|${trip.backDate}|${trip.airlineCode}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/** Cheapest return starting on each outbound date, for the fare calendar: [[date, eur], …]. */
+function fareCalendar(trips) {
+  const byDate = new Map();
+  trips.forEach(({ outDate, totalEur }) => byDate.set(outDate, Math.min(byDate.get(outDate) ?? Infinity, totalEur)));
+  return [...byDate.entries()].sort(([a], [b]) => a.localeCompare(b));
+}
+
+/** Trips from any source → what the site and alerts need for one destination. */
+export function summarizeTrips(dest, trips, config) {
+  const sorted = uniqueSorted(trips);
+  const underLimit = sorted.filter((trip) => trip.totalEur <= config.maxReturnPriceEur);
   return {
     ...dest,
-    cheapest: trips[0] ?? null,
+    cheapest: sorted[0] ?? null,
     deals: underLimit.slice(0, config.maxDealsPerDestination),
     dealCount: underLimit.length,
+    calendar: fareCalendar(sorted),
+    airlines: [...new Set(sorted.map((trip) => trip.airline))].sort(),
   };
 }
 

@@ -10,6 +10,7 @@ const RULES = {
   daysAhead: (v) => isPositiveInt(v) && v <= 365,
   maxDealsPerDestination: isPositiveInt,
   requestDelayMs: (v) => Number.isInteger(v) && v >= 0,
+  directFlightsOnly: (v) => typeof v === 'boolean',
 };
 
 export function validateConfig(raw) {

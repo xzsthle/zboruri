@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { bookingUrl, createWizzClient, parseApiVersion, parseFares, parseRouteMap, timetableBody } from '../src/wizz.js';
 
 const city = (iata, shortName, extra = {}) => ({
-  iata, shortName, countryName: 'Country', countryCode: 'XX', isFakeStation: false, connections: [], ...extra,
+  iata, shortName, countryName: 'Country', countryCode: 'XX', isFakeStation: false, connections: [],
+  latitude: 1.5, longitude: 2.5, ...extra,
 });
 
 const routeMap = {
@@ -51,10 +52,10 @@ test('parseApiVersion explains when the version cannot be found', () => {
 
 test('parseRouteMap keeps real airports with direct flights, trimmed and sorted by name', () => {
   assert.deepEqual(parseRouteMap(routeMap, 'RMO'), {
-    origin: { iata: 'RMO', name: 'Chisinau', country: 'Moldova', countryCode: 'MD' },
+    origin: { iata: 'RMO', name: 'Chisinau', country: 'Moldova', countryCode: 'MD', lat: 1.5, lon: 2.5 },
     destinations: [
-      { iata: 'BUD', name: 'Budapest', country: 'Hungary', countryCode: 'HU' },
-      { iata: 'VCE', name: 'Venice', country: 'Italy', countryCode: 'IT' },
+      { iata: 'BUD', name: 'Budapest', country: 'Hungary', countryCode: 'HU', lat: 1.5, lon: 2.5 },
+      { iata: 'VCE', name: 'Venice', country: 'Italy', countryCode: 'IT', lat: 1.5, lon: 2.5 },
     ],
   });
 });

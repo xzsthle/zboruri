@@ -1,13 +1,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cheapestPerDate, flattenDeals, roundTrips, summarizeDestination, toEurFares } from '../src/deals.js';
+import { cheapestPerDate, flattenDeals, roundTrips, summarizeTrips, toEurFares, wizzTrips } from '../src/deals.js';
 
 const rates = { EUR: 1, MDL: 20 };
 const fare = (date, amount) => ({ date, times: ['10:00'], amount, currency: 'MDL' });
 const eurFare = (date, priceEur) => ({ date, times: ['10:00'], priceEur });
-const dest = { iata: 'BGY', name: 'Milan Bergamo', country: 'Italy', countryCode: 'IT' };
+const dest = { iata: 'BGY', name: 'Milan Bergamo', country: 'Italy', countryCode: 'IT', lat: 45.7, lon: 9.7 };
 const config = { minNights: 2, maxNights: 5, maxReturnPriceEur: 60, maxDealsPerDestination: 2 };
 const linkFor = (iata, outDate, backDate) => `https://book/${iata}/${outDate}/${backDate}`;
+const trip = (outDate, backDate, totalEur, airline = 'Wizz Air', airlineCode = 'W6') =>
+  ({ outDate, backDate, totalEur, airline, airlineCode, nights: 3 });
 
 test('toEurFares converts each fare and keeps date and times', () => {
   assert.deepEqual(toEurFares([fare('2026-10-01', 400)], rates), [eurFare('2026-10-01', 20)]);
@@ -37,39 +39,58 @@ test('roundTrips pairs outbound and return flights within the night range', () =
 });
 
 test('roundTrips rounds totals to cents', () => {
-  const [trip] = roundTrips([eurFare('2026-10-01', 10.1)], [eurFare('2026-10-03', 20.2)], { minNights: 1, maxNights: 5 });
-  assert.equal(trip.totalEur, 30.3);
+  const [pair] = roundTrips([eurFare('2026-10-01', 10.1)], [eurFare('2026-10-03', 20.2)], { minNights: 1, maxNights: 5 });
+  assert.equal(pair.totalEur, 30.3);
 });
 
-test('summarizeDestination returns the cheapest trip and capped, sorted deals under the limit', () => {
-  const scan = {
-    dest,
-    outbound: [fare('2026-10-01', 200), fare('2026-10-05', 200), fare('2026-10-08', 600)],
-    inbound: [fare('2026-10-04', 400), fare('2026-10-07', 200), fare('2026-10-11', 400)],
-  };
-  const summary = summarizeDestination(scan, { rates, config, linkFor });
+test('wizzTrips prices both directions in euros and tags every trip as live Wizz Air', () => {
+  const scan = { dest, outbound: [fare('2026-10-01', 200), fare('2026-10-01', 300)], inbound: [fare('2026-10-04', 400)] };
+  const [only, ...rest] = wizzTrips(scan, { rates, config, linkFor });
+  assert.equal(rest.length, 0);
+  assert.equal(only.totalEur, 30);
+  assert.equal(only.bookingUrl, 'https://book/BGY/2026-10-01/2026-10-04');
+  assert.equal(only.airline, 'Wizz Air');
+  assert.equal(only.airlineCode, 'W6');
+  assert.equal(only.source, 'wizz');
+  assert.equal(only.stops, 0);
+});
+
+test('summarizeTrips returns the cheapest trip, capped deals, a fare calendar and airlines', () => {
+  const trips = [
+    trip('2026-10-01', '2026-10-04', 30),
+    trip('2026-10-05', '2026-10-07', 20),
+    trip('2026-10-05', '2026-10-09', 26, 'Fly One', '5F'),
+    trip('2026-10-08', '2026-10-11', 100),
+  ];
+  const summary = summarizeTrips(dest, trips, config);
   assert.equal(summary.iata, 'BGY');
+  assert.equal(summary.lat, 45.7);
   assert.equal(summary.cheapest.totalEur, 20);
-  assert.equal(summary.cheapest.bookingUrl, 'https://book/BGY/2026-10-05/2026-10-07');
   assert.equal(summary.dealCount, 3);
-  assert.deepEqual(summary.deals.map((d) => [d.outDate, d.backDate, d.totalEur]), [
-    ['2026-10-05', '2026-10-07', 20],
-    ['2026-10-01', '2026-10-04', 30],
-  ]);
+  assert.deepEqual(summary.deals.map((d) => d.totalEur), [20, 26]);
+  assert.deepEqual(summary.calendar, [['2026-10-01', 30], ['2026-10-05', 20], ['2026-10-08', 100]]);
+  assert.deepEqual(summary.airlines, ['Fly One', 'Wizz Air']);
 });
 
-test('summarizeDestination returns no cheapest trip when nothing pairs up', () => {
-  const summary = summarizeDestination({ dest, outbound: [fare('2026-10-01', 100)], inbound: [] }, { rates, config, linkFor });
+test('summarizeTrips drops duplicate date pairs on the same airline, keeping the cheaper one', () => {
+  const summary = summarizeTrips(dest, [trip('2026-10-05', '2026-10-07', 25), trip('2026-10-05', '2026-10-07', 21)], config);
+  assert.deepEqual(summary.deals.map((d) => d.totalEur), [21]);
+  assert.equal(summary.dealCount, 1);
+});
+
+test('summarizeTrips handles a destination without any trips', () => {
+  const summary = summarizeTrips(dest, [], config);
   assert.equal(summary.cheapest, null);
   assert.deepEqual(summary.deals, []);
-  assert.equal(summary.dealCount, 0);
+  assert.deepEqual(summary.calendar, []);
+  assert.deepEqual(summary.airlines, []);
 });
 
 test('flattenDeals pairs every deal with its destination', () => {
-  const trip = { outDate: '2026-10-05', backDate: '2026-10-07', totalEur: 20 };
-  const summaries = [{ ...dest, cheapest: trip, dealCount: 1, deals: [trip] }, { iata: 'BUD', name: 'Budapest', deals: [] }];
-  const [deal, ...rest] = flattenDeals(summaries);
+  const deal = trip('2026-10-05', '2026-10-07', 20);
+  const summaries = [{ ...dest, cheapest: deal, dealCount: 1, deals: [deal] }, { iata: 'BUD', name: 'Budapest', deals: [] }];
+  const [first, ...rest] = flattenDeals(summaries);
   assert.equal(rest.length, 0);
-  assert.deepEqual(deal.destination, dest);
-  assert.equal(deal.trip, trip);
+  assert.deepEqual(first.destination, { iata: 'BGY', name: 'Milan Bergamo', country: 'Italy', countryCode: 'IT' });
+  assert.equal(first.trip, deal);
 });

@@ -5,6 +5,7 @@ import { createHttp, sleep } from './http.js';
 import { run } from './run.js';
 import { createFileStore } from './store.js';
 import { createTelegramNotifier } from './telegram.js';
+import { createTravelpayoutsClient } from './travelpayouts.js';
 import { createWizzClient } from './wizz.js';
 
 const fromRoot = (path) => fileURLToPath(new URL(`../${path}`, import.meta.url));
@@ -15,6 +16,15 @@ const WIZZ_HTTP = { retries: 2, backoffMs: 5_000, timeoutMs: 15_000 };
 const RETRY_COOLDOWN_MS = 60_000;
 // Never retry sendMessage: a retry after a timeout can deliver the same alert twice.
 const TELEGRAM_HTTP = { retries: 0, timeoutMs: 15_000 };
+// The Travelpayouts reference files are a few MB each.
+const TRAVELPAYOUTS_HTTP = { retries: 2, backoffMs: 3_000, timeoutMs: 60_000 };
+
+/** Other airlines are optional: they switch on once TRAVELPAYOUTS_TOKEN is set. */
+function createOtherAirlinesClient(env) {
+  const token = env.TRAVELPAYOUTS_TOKEN?.trim();
+  if (!token) return null;
+  return createTravelpayoutsClient(createHttp(TRAVELPAYOUTS_HTTP), { token, marker: env.TRAVELPAYOUTS_MARKER?.trim() ?? '' });
+}
 
 // wizzair.com expects a normal browser; plain Node's default user agent is more likely to be rejected.
 const BROWSER_HEADERS = {
@@ -38,9 +48,14 @@ async function main() {
   const result = await run({
     config,
     wizz: createWizzClient(http),
+    travelpayouts: createOtherAirlinesClient(process.env),
     getRates: () => fetchEurRates(http.getJson),
     notifier,
-    store: createFileStore({ statePath: fromRoot('data/state.json'), siteDataPath: fromRoot('docs/data/deals.json') }),
+    store: createFileStore({
+      statePath: fromRoot('data/state.json'),
+      siteDataPath: fromRoot('docs/data/deals.json'),
+      historyPath: fromRoot('docs/data/history.json'),
+    }),
     clock: { now: () => new Date() },
     pause: () => sleep(config.requestDelayMs),
     cooldown: () => sleep(RETRY_COOLDOWN_MS),
@@ -50,12 +65,15 @@ async function main() {
 
   log.info(
     `Done: ${result.deals} deal(s) ≤ €${config.maxReturnPriceEur}, ${result.alerts} new, ` +
-      `${result.failed.length} destination(s) failed`,
+      `${result.failed.length} destination(s) failed, other airlines: ${result.otherAirlines.status}`,
   );
 
-  // On GitHub, missing secrets would otherwise mean green runs and silently no alerts.
+  // On GitHub, missing or wrong secrets would otherwise mean green runs that silently do less.
   if (inActions && !notifier) {
     throw new Error('TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID secrets are missing — add them under Settings → Secrets and variables → Actions');
+  }
+  if (result.otherAirlines.auth) {
+    throw new Error(result.otherAirlines.message);
   }
 }
 

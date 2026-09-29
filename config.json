@@ -4,6 +4,7 @@
   "minNights": 2,
   "maxNights": 10,
   "daysAhead": 120,
-  "maxDealsPerDestination": 5,
-  "requestDelayMs": 1200
+  "maxDealsPerDestination": 10,
+  "requestDelayMs": 1200,
+  "directFlightsOnly": true
 }
