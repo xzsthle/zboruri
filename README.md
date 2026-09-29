@@ -94,7 +94,8 @@ src/
   telegram.js   message formatting + Bot API
   site-data.js  JSON for the website
   fx.js dates.js http.js config.js store.js
-docs/           the GitHub Pages site (index.html, styles.css, app.js, data/deals.json)
+docs/           the GitHub Pages site: index.html (+ SVG sprite), styles.css,
+                js/ (main, showcase, routes, chrome, art, data, format, dom) and data/deals.json
 data/state.json alert history (per destination), so you aren't told about the same deal twice
 test/           node:test unit tests
 ```

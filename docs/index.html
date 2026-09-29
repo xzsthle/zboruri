@@ -7,61 +7,184 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Zboruri — cheap flights from Chișinău</title>
   <meta name="description" content="Cheap Wizz Air return trips from Chișinău (RMO), checked every morning and evening.">
-  <meta name="theme-color" content="#f1ece1" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0a0c0f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#dfe3ea">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
   <link rel="stylesheet" href="styles.css">
-  <script src="app.js" type="module"></script>
+  <script src="js/main.js" type="module"></script>
 </head>
 <body>
-  <a class="skip-link" href="#deals">Skip to deals</a>
+  <a class="skip-link" href="#showcase">Skip to deals</a>
 
-  <header class="masthead">
-    <p class="brand">
-      <span class="brand-mark">Zboruri</span>
-      <span class="brand-route">RMO <span aria-hidden="true">→</span> anywhere</span>
-    </p>
-    <div class="masthead-copy">
-      <h1 id="headline">Where can <em>€60</em> take you from Chișinău?</h1>
-      <p class="lede" id="lede">Every morning and evening, every Wizz Air route out of RMO is checked for cheap return trips.</p>
+  <!-- Icon sprite + illustration symbols. Kept renderable (not display:none) so gradients resolve. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4fd0"/><stop offset="1" stop-color="#16207a"/></linearGradient>
+      <linearGradient id="g-navy-soft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d9ce6"/><stop offset="1" stop-color="#5263c2"/></linearGradient>
+      <linearGradient id="g-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1f4fb"/><stop offset="1" stop-color="#c7d1e8"/></linearGradient>
+      <linearGradient id="g-cloud" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6eef9"/></linearGradient>
+      <clipPath id="clip-fuse"><path d="M48 80 L122 76 L468 74 C508 74 532 84 541 94 C532 104 510 110 468 110 L150 110 C110 110 72 102 48 90 Z"/></clipPath>
+      <pattern id="p-windows" x="150" y="81" width="13" height="7" patternUnits="userSpaceOnUse"><rect width="6" height="7" rx="3" fill="#24338f"/></pattern>
+    </defs>
+
+    <symbol id="plane-art" viewBox="0 0 560 170">
+      <path d="M298 76 L354 76 L300 38 C298 36 295 35 292 35 L281 35 C278 35 277 38 279 40 Z" fill="url(#g-navy-soft)"/>
+      <path d="M54 80 L30 20 C29 16 32 13 36 13 L60 13 C64 13 67 15 69 18 L132 77 Z" fill="url(#g-navy)"/>
+      <path d="M42 46 L50 40 L108 78 L94 78 Z" fill="#5b78ff" opacity=".85"/>
+      <path d="M48 80 L122 76 L468 74 C508 74 532 84 541 94 C532 104 510 110 468 110 L150 110 C110 110 72 102 48 90 Z" fill="url(#g-body)"/>
+      <rect x="0" y="103" width="560" height="10" fill="url(#g-navy)" clip-path="url(#clip-fuse)"/>
+      <path d="M130 78 L460 76" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <rect x="150" y="81" width="310" height="7" fill="url(#p-windows)"/>
+      <path d="M506 84 L527 86.5 C530 87.5 531 90 529 91 L506 91 C503 91 503 84 506 84 Z" fill="#162065"/>
+      <rect x="474" y="80" width="11" height="21" rx="3" fill="none" stroke="#c9d2e8" stroke-width="1.5"/>
+      <rect x="128" y="80" width="10" height="20" rx="3" fill="none" stroke="#c9d2e8" stroke-width="1.5"/>
+      <text x="318" y="100" class="livery">Zboruri</text>
+      <path d="M64 90 L24 104 C19 106 21 110 26 110 L46 110 L108 96 Z" fill="url(#g-navy)"/>
+      <path d="M262 102 L346 102 L252 156 C249 158 245 159 242 159 L226 159 C222 159 221 156 223 154 Z" fill="url(#g-navy)"/>
+      <path d="M300 104 L322 104 L318 114 L304 114 Z" fill="#1b2670"/>
+      <path d="M284 114 L344 112 C356 112 358 134 344 134 L284 132 C274 131 274 115 284 114 Z" fill="url(#g-body)" stroke="#c9d2e8"/>
+      <path d="M282 123.5 L346 123" stroke="#1f2e86" stroke-width="3"/>
+      <ellipse cx="349" cy="123" rx="5" ry="10" fill="#1b2670"/>
+    </symbol>
+
+    <symbol id="cloud" viewBox="0 0 240 110">
+      <g fill="url(#g-cloud)">
+        <ellipse cx="62" cy="72" rx="50" ry="34"/>
+        <ellipse cx="118" cy="50" rx="58" ry="46"/>
+        <ellipse cx="176" cy="70" rx="48" ry="34"/>
+        <rect x="24" y="68" width="196" height="40" rx="20"/>
+      </g>
+    </symbol>
+
+    <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.42l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.64l-19 6.5a.5.5 0 0 0-.02.94l7.93 3.18a2 2 0 0 1 1.11 1.11z"/><path d="m21.85 2.15-10.94 10.94"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+  </svg>
+
+  <div class="shell">
+    <nav class="rail" aria-label="Sections">
+      <ul class="rail-list">
+        <li><a class="rail-link" href="#top" data-spy="top"><span class="rail-icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="rail-label">Find trips</span></a></li>
+        <li><a class="rail-link" href="#showcase" data-spy="showcase"><span class="rail-icon"><svg class="icon"><use href="#i-flame"/></svg></span><span class="rail-label">Cheapest now</span></a></li>
+        <li><a class="rail-link" href="#routes" data-spy="routes"><span class="rail-icon"><svg class="icon"><use href="#i-grid"/></svg></span><span class="rail-label">All routes</span></a></li>
+        <li><a class="rail-link" href="#best" data-spy="best"><span class="rail-icon"><svg class="icon"><use href="#i-tag"/></svg></span><span class="rail-label">Best deal</span></a></li>
+        <li><a class="rail-link" href="#about" data-spy="about"><span class="rail-icon"><svg class="icon"><use href="#i-info"/></svg></span><span class="rail-label">How it works</span></a></li>
+      </ul>
+      <div class="rail-status">
+        <span class="live-orb" aria-hidden="true"><span class="live-dot"></span></span>
+        <span class="rail-label"><strong>Live fares</strong><span id="status-updated">Loading…</span></span>
+      </div>
+    </nav>
+
+    <div class="main" id="top">
+      <header class="topbar">
+        <a class="logo" href="#top"><svg class="logo-mark" aria-hidden="true"><use href="#i-plane"/></svg>Zboruri</a>
+        <label class="search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <span class="sr-only">Search destinations</span>
+          <input id="search" type="search" placeholder="Search a city or country" autocomplete="off" spellcheck="false">
+        </label>
+        <nav class="tabs" id="months" aria-label="Filter deals by departure month"></nav>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-heading" data-section="top">
+        <div class="hero-sky" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <h1 id="hero-heading">Where can <span class="hero-price" id="limit">€60</span><br>take you?</h1>
+          <p id="hero-sub">Every Wizz Air route from Chișinău, checked each morning and evening for cheap return trips.</p>
+        </div>
+        <div class="route-pill">
+          <div class="field"><span class="field-label">From</span><span class="field-value">Chișinău (RMO)</span></div>
+          <svg class="icon swap" aria-hidden="true"><use href="#i-swap"/></svg>
+          <div class="field"><span class="field-label">To</span><span class="field-value">Anywhere</span></div>
+          <span class="divider" aria-hidden="true"></span>
+          <div class="field field-when">
+            <span class="field-label">When</span>
+            <span class="field-value"><span id="hero-when">Next 120 days</span><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          </div>
+          <a class="btn-search" href="#showcase" id="hero-cta">Show deals</a>
+        </div>
+        <svg class="hero-plane" viewBox="0 0 560 170" aria-hidden="true"><use href="#plane-art"/></svg>
+        <svg class="cloud cloud-1" aria-hidden="true"><use href="#cloud"/></svg>
+        <svg class="cloud cloud-2" aria-hidden="true"><use href="#cloud"/></svg>
+        <svg class="cloud cloud-3" aria-hidden="true"><use href="#cloud"/></svg>
+        <svg class="cloud cloud-4" aria-hidden="true"><use href="#cloud"/></svg>
+        <svg class="cloud cloud-5" aria-hidden="true"><use href="#cloud"/></svg>
+        <svg class="cloud cloud-6" aria-hidden="true"><use href="#cloud"/></svg>
+      </section>
+
+      <section class="showcase" id="showcase" aria-labelledby="showcase-heading" data-section="showcase">
+        <div class="section-head">
+          <div>
+            <h2 id="showcase-heading">Cheapest right now</h2>
+            <p class="section-meta" id="showcase-meta"></p>
+          </div>
+          <div class="carousel-nav">
+            <button class="nav-btn" type="button" id="carousel-prev" aria-label="Scroll deals left"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+            <button class="nav-btn" type="button" id="carousel-next" aria-label="Scroll deals right"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        </div>
+        <div class="carousel" id="carousel" aria-label="Destinations with deals"></div>
+        <article class="detail" id="detail" aria-live="polite"></article>
+      </section>
+
+      <div class="lower">
+        <section class="routes" id="routes" aria-labelledby="routes-heading" data-section="routes">
+          <div class="section-head">
+            <div>
+              <h2 id="routes-heading">All routes</h2>
+              <p class="section-meta">Cheapest return per destination</p>
+            </div>
+          </div>
+          <ul class="route-grid" id="route-grid"></ul>
+        </section>
+
+        <aside class="best" id="best" aria-labelledby="best-heading" data-section="best">
+          <div class="section-head"><h2 id="best-heading">Best deal</h2></div>
+          <article class="offer">
+            <p class="offer-kicker">Cheapest escape right now</p>
+            <p class="offer-price"><span id="offer-price">—</span><small>return</small></p>
+            <p class="offer-dest" id="offer-dest"></p>
+            <p class="offer-dates" id="offer-dates"></p>
+            <a class="offer-cta" id="offer-cta" href="#showcase" hidden>Grab it<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+            <svg class="offer-art" viewBox="0 0 220 220" aria-hidden="true">
+              <circle cx="132" cy="70" r="50" fill="#ff3d7f"/>
+              <g transform="translate(108 46) scale(2)" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></g>
+              <g fill="#e9edfb"><rect x="8" y="150" width="30" height="64" rx="3"/><rect x="40" y="126" width="34" height="88" rx="3"/><rect x="76" y="162" width="28" height="52" rx="3"/></g>
+              <g fill="#1f2e86" opacity=".22"><rect x="14" y="158" width="6" height="8" rx="1"/><rect x="26" y="158" width="6" height="8" rx="1"/><rect x="14" y="174" width="6" height="8" rx="1"/><rect x="47" y="136" width="7" height="9" rx="1"/><rect x="60" y="136" width="7" height="9" rx="1"/><rect x="47" y="152" width="7" height="9" rx="1"/><rect x="60" y="168" width="7" height="9" rx="1"/><rect x="83" y="172" width="6" height="8" rx="1"/></g>
+              <path d="M148 128 V112 a6 6 0 0 1 6 -6 h18 a6 6 0 0 1 6 6 V128" fill="none" stroke="#5b4ee6" stroke-width="7"/>
+              <rect x="130" y="126" width="66" height="82" rx="14" fill="#7b6cff"/>
+              <rect x="147" y="137" width="6" height="60" rx="3" fill="#6a5cf0"/>
+              <rect x="173" y="137" width="6" height="60" rx="3" fill="#6a5cf0"/>
+              <circle cx="145" cy="211" r="6" fill="#23285a"/><circle cx="181" cy="211" r="6" fill="#23285a"/>
+            </svg>
+          </article>
+        </aside>
+      </div>
+
+      <footer class="about" id="about" aria-labelledby="about-heading" data-section="about">
+        <h2 id="about-heading" class="sr-only">How it works</h2>
+        <ol class="steps">
+          <li class="step"><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span><strong id="step-routes">Scans every route</strong><span>Wizz Air’s fare calendar for each destination from Chișinău, both directions.</span></li>
+          <li class="step"><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg></span><strong id="step-trips">Pairs return trips</strong><span id="step-trips-text">Every out-and-back combination is priced in euros and kept if it’s under your limit.</span></li>
+          <li class="step"><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></span><strong>Pings you on Telegram</strong><span>Only when a destination newly has a deal or gets cheaper — twice a day.</span></li>
+        </ol>
+        <p class="fine-print">Prices are Wizz Air’s lowest Basic fare (one small under-seat bag) for one adult, converted from MDL at the day’s rate. They move fast — always confirm on wizzair.com before booking.</p>
+        <p class="fine-print failed" id="failed" hidden></p>
+      </footer>
     </div>
-    <dl class="stats" aria-live="polite">
-      <div class="stat"><dt>Deals</dt><dd id="stat-deals">—</dd></div>
-      <div class="stat"><dt>Cheapest</dt><dd id="stat-cheapest">—</dd></div>
-      <div class="stat"><dt>Routes</dt><dd id="stat-routes">—</dd></div>
-      <div class="stat"><dt>Checked</dt><dd id="stat-updated">—</dd></div>
-    </dl>
-  </header>
-
-  <main>
-    <section class="board" id="deals" aria-labelledby="deals-heading">
-      <div class="board-head">
-        <h2 id="deals-heading">Departures under €60</h2>
-        <nav class="months" id="months" aria-label="Filter deals by month"></nav>
-      </div>
-      <div class="board-columns" aria-hidden="true">
-        <span>Destination</span><span>Out</span><span>Back</span><span>Stay</span><span>Return</span><span></span>
-      </div>
-      <ol class="rows" id="deal-rows">
-        <li class="row row-status">Loading today’s fares…</li>
-      </ol>
-    </section>
-
-    <section class="routes" aria-labelledby="routes-heading">
-      <div class="routes-head">
-        <h2 id="routes-heading">Every route, cheapest return</h2>
-        <p class="routes-note" id="routes-note"></p>
-      </div>
-      <ol class="tiles" id="route-tiles"></ol>
-    </section>
-  </main>
-
-  <footer class="footnote">
-    <p id="footnote">Fares are Wizz Air’s lowest Basic price (one small under-seat bag) for one adult, converted to euros at today’s rate. Prices move fast — always confirm on wizzair.com before booking.</p>
-    <p id="failed" class="failed" hidden></p>
-  </footer>
+  </div>
 </body>
 </html>
