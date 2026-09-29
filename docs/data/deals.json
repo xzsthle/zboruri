@@ -1,0 +1,2510 @@
+{
+  "generatedAt": "2026-09-29T18:12:26.483Z",
+  "source": "Wizz Air",
+  "origin": {
+    "iata": "RMO",
+    "name": "Chisinau",
+    "country": "Moldova",
+    "countryCode": "MD"
+  },
+  "rules": {
+    "maxReturnPriceEur": 60,
+    "minNights": 2,
+    "maxNights": 10,
+    "daysAhead": 120
+  },
+  "destinations": [
+    {
+      "iata": "SOF",
+      "name": "Sofia",
+      "country": "Bulgaria",
+      "countryCode": "BG",
+      "cheapest": {
+        "outDate": "2026-10-24",
+        "outTimes": [
+          "16:20"
+        ],
+        "outEur": 15.83,
+        "backDate": "2026-10-26",
+        "backTimes": [
+          "11:55"
+        ],
+        "backEur": 15.83,
+        "nights": 2,
+        "totalEur": 31.66,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/SOF/2026-10-24/2026-10-26/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-24",
+          "outTimes": [
+            "16:20"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-10-26",
+          "backTimes": [
+            "11:55"
+          ],
+          "backEur": 15.83,
+          "nights": 2,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/SOF/2026-10-24/2026-10-26/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-24",
+          "outTimes": [
+            "16:20"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-02",
+          "backTimes": [
+            "11:55"
+          ],
+          "backEur": 15.83,
+          "nights": 9,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/SOF/2026-10-24/2026-11-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-30",
+          "outTimes": [
+            "13:55"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-02",
+          "backTimes": [
+            "11:55"
+          ],
+          "backEur": 15.83,
+          "nights": 3,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/SOF/2026-10-30/2026-11-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-30",
+          "outTimes": [
+            "13:55"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-09",
+          "backTimes": [
+            "11:55"
+          ],
+          "backEur": 15.83,
+          "nights": 10,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/SOF/2026-10-30/2026-11-09/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-02",
+          "outTimes": [
+            "13:55"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-09",
+          "backTimes": [
+            "11:55"
+          ],
+          "backEur": 15.83,
+          "nights": 7,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/SOF/2026-11-02/2026-11-09/1/0/0/null"
+        }
+      ],
+      "dealCount": 119,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "WRO",
+      "name": "Wroclaw",
+      "country": "Poland",
+      "countryCode": "PL",
+      "cheapest": {
+        "outDate": "2026-11-05",
+        "outTimes": [
+          "14:10"
+        ],
+        "outEur": 15.83,
+        "backDate": "2026-11-08",
+        "backTimes": [
+          "15:45"
+        ],
+        "backEur": 15.83,
+        "nights": 3,
+        "totalEur": 31.66,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WRO/2026-11-05/2026-11-08/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "14:10"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-08",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 15.83,
+          "nights": 3,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WRO/2026-11-05/2026-11-08/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "14:10"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-15",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 15.83,
+          "nights": 10,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WRO/2026-11-05/2026-11-15/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-08",
+          "outTimes": [
+            "14:10"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-15",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 15.83,
+          "nights": 7,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WRO/2026-11-08/2026-11-15/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-22",
+          "outTimes": [
+            "14:10"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-26",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 15.83,
+          "nights": 4,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WRO/2026-11-22/2026-11-26/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-22",
+          "outTimes": [
+            "14:10"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-29",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 15.83,
+          "nights": 7,
+          "totalEur": 31.66,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WRO/2026-11-22/2026-11-29/1/0/0/null"
+        }
+      ],
+      "dealCount": 37,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "BUD",
+      "name": "Budapest",
+      "country": "Hungary",
+      "countryCode": "HU",
+      "cheapest": {
+        "outDate": "2026-11-03",
+        "outTimes": [
+          "14:25"
+        ],
+        "outEur": 15.83,
+        "backDate": "2026-11-05",
+        "backTimes": [
+          "05:55"
+        ],
+        "backEur": 20.79,
+        "nights": 2,
+        "totalEur": 36.62,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BUD/2026-11-03/2026-11-05/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-03",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-05",
+          "backTimes": [
+            "05:55"
+          ],
+          "backEur": 20.79,
+          "nights": 2,
+          "totalEur": 36.62,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BUD/2026-11-03/2026-11-05/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-03",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-10",
+          "backTimes": [
+            "15:35"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 36.62,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BUD/2026-11-03/2026-11-10/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-03",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "05:55"
+          ],
+          "backEur": 20.79,
+          "nights": 9,
+          "totalEur": 36.62,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BUD/2026-11-03/2026-11-12/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "09:00"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-10",
+          "backTimes": [
+            "15:35"
+          ],
+          "backEur": 20.79,
+          "nights": 5,
+          "totalEur": 36.62,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BUD/2026-11-05/2026-11-10/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "09:00"
+          ],
+          "outEur": 15.83,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "05:55"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 36.62,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BUD/2026-11-05/2026-11-12/1/0/0/null"
+        }
+      ],
+      "dealCount": 73,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "GHV",
+      "name": "Brasov",
+      "country": "Romania",
+      "countryCode": "RO",
+      "cheapest": {
+        "outDate": "2027-01-12",
+        "outTimes": [
+          "13:10"
+        ],
+        "outEur": 20.79,
+        "backDate": "2027-01-14",
+        "backTimes": [
+          "11:40"
+        ],
+        "backEur": 18.8,
+        "nights": 2,
+        "totalEur": 39.59,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/GHV/2027-01-12/2027-01-14/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2027-01-12",
+          "outTimes": [
+            "13:10"
+          ],
+          "outEur": 20.79,
+          "backDate": "2027-01-14",
+          "backTimes": [
+            "11:40"
+          ],
+          "backEur": 18.8,
+          "nights": 2,
+          "totalEur": 39.59,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/GHV/2027-01-12/2027-01-14/1/0/0/null"
+        },
+        {
+          "outDate": "2027-01-14",
+          "outTimes": [
+            "13:10"
+          ],
+          "outEur": 18.8,
+          "backDate": "2027-01-21",
+          "backTimes": [
+            "11:40"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 39.59,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/GHV/2027-01-14/2027-01-21/1/0/0/null"
+        },
+        {
+          "outDate": "2027-01-19",
+          "outTimes": [
+            "13:10"
+          ],
+          "outEur": 18.8,
+          "backDate": "2027-01-21",
+          "backTimes": [
+            "11:40"
+          ],
+          "backEur": 20.79,
+          "nights": 2,
+          "totalEur": 39.59,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/GHV/2027-01-19/2027-01-21/1/0/0/null"
+        },
+        {
+          "outDate": "2027-01-12",
+          "outTimes": [
+            "13:10"
+          ],
+          "outEur": 20.79,
+          "backDate": "2027-01-21",
+          "backTimes": [
+            "11:40"
+          ],
+          "backEur": 20.79,
+          "nights": 9,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/GHV/2027-01-12/2027-01-21/1/0/0/null"
+        },
+        {
+          "outDate": "2027-01-19",
+          "outTimes": [
+            "13:10"
+          ],
+          "outEur": 18.8,
+          "backDate": "2027-01-26",
+          "backTimes": [
+            "11:40"
+          ],
+          "backEur": 25.26,
+          "nights": 7,
+          "totalEur": 44.06,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/GHV/2027-01-19/2027-01-26/1/0/0/null"
+        }
+      ],
+      "dealCount": 24,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "BLQ",
+      "name": "Bologna",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-10-30",
+        "outTimes": [
+          "13:00",
+          "19:05"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-09",
+        "backTimes": [
+          "15:00",
+          "21:05"
+        ],
+        "backEur": 20.79,
+        "nights": 10,
+        "totalEur": 41.58,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BLQ/2026-10-30/2026-11-09/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-30",
+          "outTimes": [
+            "13:00",
+            "19:05"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-09",
+          "backTimes": [
+            "15:00",
+            "21:05"
+          ],
+          "backEur": 20.79,
+          "nights": 10,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BLQ/2026-10-30/2026-11-09/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-04",
+          "outTimes": [
+            "12:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-09",
+          "backTimes": [
+            "15:00",
+            "21:05"
+          ],
+          "backEur": 20.79,
+          "nights": 5,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BLQ/2026-11-04/2026-11-09/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-04",
+          "outTimes": [
+            "12:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "14:55"
+          ],
+          "backEur": 20.79,
+          "nights": 8,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BLQ/2026-11-04/2026-11-12/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-04",
+          "outTimes": [
+            "12:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-13",
+          "backTimes": [
+            "15:10",
+            "21:10"
+          ],
+          "backEur": 20.79,
+          "nights": 9,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BLQ/2026-11-04/2026-11-13/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "12:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-09",
+          "backTimes": [
+            "15:00",
+            "21:05"
+          ],
+          "backEur": 20.79,
+          "nights": 4,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BLQ/2026-11-05/2026-11-09/1/0/0/null"
+        }
+      ],
+      "dealCount": 305,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "BTS",
+      "name": "Bratislava",
+      "country": "Slovakia",
+      "countryCode": "SK",
+      "cheapest": {
+        "outDate": "2026-11-25",
+        "outTimes": [
+          "14:25"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-12-02",
+        "backTimes": [
+          "15:45"
+        ],
+        "backEur": 20.79,
+        "nights": 7,
+        "totalEur": 41.58,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BTS/2026-11-25/2026-12-02/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-25",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-02",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BTS/2026-11-25/2026-12-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-12-02",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-09",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BTS/2026-12-02/2026-12-09/1/0/0/null"
+        },
+        {
+          "outDate": "2026-12-09",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-16",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BTS/2026-12-09/2026-12-16/1/0/0/null"
+        },
+        {
+          "outDate": "2027-01-15",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 20.79,
+          "backDate": "2027-01-18",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 20.79,
+          "nights": 3,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BTS/2027-01-15/2027-01-18/1/0/0/null"
+        },
+        {
+          "outDate": "2027-01-15",
+          "outTimes": [
+            "14:25"
+          ],
+          "outEur": 20.79,
+          "backDate": "2027-01-22",
+          "backTimes": [
+            "15:45"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BTS/2027-01-15/2027-01-22/1/0/0/null"
+        }
+      ],
+      "dealCount": 79,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "CRL",
+      "name": "Brussels Charleroi",
+      "country": "Belgium",
+      "countryCode": "BE",
+      "cheapest": {
+        "outDate": "2026-11-25",
+        "outTimes": [
+          "05:30"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-12-02",
+        "backTimes": [
+          "08:25"
+        ],
+        "backEur": 20.79,
+        "nights": 7,
+        "totalEur": 41.58,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CRL/2026-11-25/2026-12-02/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-25",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-02",
+          "backTimes": [
+            "08:25"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CRL/2026-11-25/2026-12-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-26",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-02",
+          "backTimes": [
+            "08:25"
+          ],
+          "backEur": 20.79,
+          "nights": 6,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CRL/2026-11-26/2026-12-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-12-07",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-09",
+          "backTimes": [
+            "08:25"
+          ],
+          "backEur": 20.79,
+          "nights": 2,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CRL/2026-12-07/2026-12-09/1/0/0/null"
+        },
+        {
+          "outDate": "2026-12-07",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-12-10",
+          "backTimes": [
+            "08:30"
+          ],
+          "backEur": 20.79,
+          "nights": 3,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CRL/2026-12-07/2026-12-10/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-13",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 24.26,
+          "backDate": "2026-11-18",
+          "backTimes": [
+            "08:25"
+          ],
+          "backEur": 20.79,
+          "nights": 5,
+          "totalEur": 45.05,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CRL/2026-11-13/2026-11-18/1/0/0/null"
+        }
+      ],
+      "dealCount": 90,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "TRN",
+      "name": "Turin",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-10-14",
+        "outTimes": [
+          "06:05"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-10-21",
+        "backTimes": [
+          "08:30"
+        ],
+        "backEur": 20.79,
+        "nights": 7,
+        "totalEur": 41.58,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/TRN/2026-10-14/2026-10-21/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-14",
+          "outTimes": [
+            "06:05"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-10-21",
+          "backTimes": [
+            "08:30"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/TRN/2026-10-14/2026-10-21/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-21",
+          "outTimes": [
+            "06:05"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-10-27",
+          "backTimes": [
+            "08:00"
+          ],
+          "backEur": 20.79,
+          "nights": 6,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/TRN/2026-10-21/2026-10-27/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-07",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-10",
+          "backTimes": [
+            "08:00"
+          ],
+          "backEur": 20.79,
+          "nights": 3,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/TRN/2026-11-07/2026-11-10/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-07",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-14",
+          "backTimes": [
+            "08:00"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/TRN/2026-11-07/2026-11-14/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "05:30"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-14",
+          "backTimes": [
+            "08:00"
+          ],
+          "backEur": 20.79,
+          "nights": 4,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/TRN/2026-11-10/2026-11-14/1/0/0/null"
+        }
+      ],
+      "dealCount": 40,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "VRN",
+      "name": "Verona",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-11-05",
+        "outTimes": [
+          "05:45"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-07",
+        "backTimes": [
+          "20:45"
+        ],
+        "backEur": 20.79,
+        "nights": 2,
+        "totalEur": 41.58,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VRN/2026-11-05/2026-11-07/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "05:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-07",
+          "backTimes": [
+            "20:45"
+          ],
+          "backEur": 20.79,
+          "nights": 2,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VRN/2026-11-05/2026-11-07/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "05:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-08",
+          "backTimes": [
+            "07:50"
+          ],
+          "backEur": 20.79,
+          "nights": 3,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VRN/2026-11-05/2026-11-08/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "05:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-10",
+          "backTimes": [
+            "07:50"
+          ],
+          "backEur": 20.79,
+          "nights": 5,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VRN/2026-11-05/2026-11-10/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "05:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-11",
+          "backTimes": [
+            "07:50"
+          ],
+          "backEur": 20.79,
+          "nights": 6,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VRN/2026-11-05/2026-11-11/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "05:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "07:50"
+          ],
+          "backEur": 20.79,
+          "nights": 7,
+          "totalEur": 41.58,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VRN/2026-11-05/2026-11-12/1/0/0/null"
+        }
+      ],
+      "dealCount": 191,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "ATH",
+      "name": "Athens",
+      "country": "Greece",
+      "countryCode": "GR",
+      "cheapest": {
+        "outDate": "2026-11-03",
+        "outTimes": [
+          "18:50"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-12",
+        "backTimes": [
+          "21:35"
+        ],
+        "backEur": 26.25,
+        "nights": 9,
+        "totalEur": 47.04,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ATH/2026-11-03/2026-11-12/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-03",
+          "outTimes": [
+            "18:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "21:35"
+          ],
+          "backEur": 26.25,
+          "nights": 9,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ATH/2026-11-03/2026-11-12/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-05",
+          "outTimes": [
+            "18:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "21:35"
+          ],
+          "backEur": 26.25,
+          "nights": 7,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ATH/2026-11-05/2026-11-12/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-07",
+          "outTimes": [
+            "05:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "21:35"
+          ],
+          "backEur": 26.25,
+          "nights": 5,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ATH/2026-11-07/2026-11-12/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "18:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-12",
+          "backTimes": [
+            "21:35"
+          ],
+          "backEur": 26.25,
+          "nights": 2,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ATH/2026-11-10/2026-11-12/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "18:50"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-19",
+          "backTimes": [
+            "21:35"
+          ],
+          "backEur": 26.25,
+          "nights": 9,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ATH/2026-11-10/2026-11-19/1/0/0/null"
+        }
+      ],
+      "dealCount": 48,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "BGY",
+      "name": "Milan Bergamo",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-10-28",
+        "outTimes": [
+          "06:05",
+          "09:50"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-11-05",
+        "backTimes": [
+          "06:25",
+          "08:15"
+        ],
+        "backEur": 20.79,
+        "nights": 8,
+        "totalEur": 47.04,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BGY/2026-10-28/2026-11-05/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-28",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-05",
+          "backTimes": [
+            "06:25",
+            "08:15"
+          ],
+          "backEur": 20.79,
+          "nights": 8,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BGY/2026-10-28/2026-11-05/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-02",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-05",
+          "backTimes": [
+            "06:25",
+            "08:15"
+          ],
+          "backEur": 20.79,
+          "nights": 3,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BGY/2026-11-02/2026-11-05/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-02",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-11",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 20.79,
+          "nights": 9,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BGY/2026-11-02/2026-11-11/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-03",
+          "outTimes": [
+            "06:05"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-05",
+          "backTimes": [
+            "06:25",
+            "08:15"
+          ],
+          "backEur": 20.79,
+          "nights": 2,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BGY/2026-11-03/2026-11-05/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-03",
+          "outTimes": [
+            "06:05"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-11",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 20.79,
+          "nights": 8,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BGY/2026-11-03/2026-11-11/1/0/0/null"
+        }
+      ],
+      "dealCount": 154,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "VCE",
+      "name": "Venice",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-11-04",
+        "outTimes": [
+          "19:15"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-11",
+        "backTimes": [
+          "21:15"
+        ],
+        "backEur": 26.25,
+        "nights": 7,
+        "totalEur": 47.04,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VCE/2026-11-04/2026-11-11/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-04",
+          "outTimes": [
+            "19:15"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-11",
+          "backTimes": [
+            "21:15"
+          ],
+          "backEur": 26.25,
+          "nights": 7,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VCE/2026-11-04/2026-11-11/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-04",
+          "outTimes": [
+            "19:15"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-14",
+          "backTimes": [
+            "21:15"
+          ],
+          "backEur": 26.25,
+          "nights": 10,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VCE/2026-11-04/2026-11-14/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "19:15"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-14",
+          "backTimes": [
+            "21:15"
+          ],
+          "backEur": 26.25,
+          "nights": 4,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VCE/2026-11-10/2026-11-14/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "19:15"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-16",
+          "backTimes": [
+            "21:15"
+          ],
+          "backEur": 26.25,
+          "nights": 6,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VCE/2026-11-10/2026-11-16/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "19:15"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-17",
+          "backTimes": [
+            "21:15"
+          ],
+          "backEur": 26.25,
+          "nights": 7,
+          "totalEur": 47.04,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VCE/2026-11-10/2026-11-17/1/0/0/null"
+        }
+      ],
+      "dealCount": 219,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "PRG",
+      "name": "Prague",
+      "country": "Czech Republic",
+      "countryCode": "CZ",
+      "cheapest": {
+        "outDate": "2026-11-12",
+        "outTimes": [
+          "18:45"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-22",
+        "backTimes": [
+          "20:25"
+        ],
+        "backEur": 31.21,
+        "nights": 10,
+        "totalEur": 52,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/PRG/2026-11-12/2026-11-22/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-12",
+          "outTimes": [
+            "18:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "20:25"
+          ],
+          "backEur": 31.21,
+          "nights": 10,
+          "totalEur": 52,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/PRG/2026-11-12/2026-11-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-14",
+          "outTimes": [
+            "18:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "20:25"
+          ],
+          "backEur": 31.21,
+          "nights": 8,
+          "totalEur": 52,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/PRG/2026-11-14/2026-11-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-21",
+          "outTimes": [
+            "18:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-27",
+          "backTimes": [
+            "20:25"
+          ],
+          "backEur": 31.21,
+          "nights": 6,
+          "totalEur": 52,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/PRG/2026-11-21/2026-11-27/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-21",
+          "outTimes": [
+            "18:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-28",
+          "backTimes": [
+            "20:25"
+          ],
+          "backEur": 31.21,
+          "nights": 7,
+          "totalEur": 52,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/PRG/2026-11-21/2026-11-28/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-23",
+          "outTimes": [
+            "18:45"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-27",
+          "backTimes": [
+            "20:25"
+          ],
+          "backEur": 31.21,
+          "nights": 4,
+          "totalEur": 52,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/PRG/2026-11-23/2026-11-27/1/0/0/null"
+        }
+      ],
+      "dealCount": 80,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "MXP",
+      "name": "Milan Malpensa",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-11-06",
+        "outTimes": [
+          "06:05",
+          "09:50"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-11-08",
+        "backTimes": [
+          "05:30",
+          "08:15"
+        ],
+        "backEur": 26.25,
+        "nights": 2,
+        "totalEur": 52.5,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MXP/2026-11-06/2026-11-08/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-06",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-08",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 26.25,
+          "nights": 2,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MXP/2026-11-06/2026-11-08/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-16",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-23",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 26.25,
+          "nights": 7,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MXP/2026-11-16/2026-11-23/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-23",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-12-02",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 26.25,
+          "nights": 9,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MXP/2026-11-23/2026-12-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-30",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-12-02",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 26.25,
+          "nights": 2,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MXP/2026-11-30/2026-12-02/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-30",
+          "outTimes": [
+            "06:05",
+            "09:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-12-06",
+          "backTimes": [
+            "05:30",
+            "08:15"
+          ],
+          "backEur": 26.25,
+          "nights": 6,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MXP/2026-11-30/2026-12-06/1/0/0/null"
+        }
+      ],
+      "dealCount": 22,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "WMI",
+      "name": "Warsaw Modlin",
+      "country": "Poland",
+      "countryCode": "PL",
+      "cheapest": {
+        "outDate": "2026-10-20",
+        "outTimes": [
+          "22:50"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-10-25",
+        "backTimes": [
+          "17:15"
+        ],
+        "backEur": 26.25,
+        "nights": 5,
+        "totalEur": 52.5,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WMI/2026-10-20/2026-10-25/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "22:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-10-25",
+          "backTimes": [
+            "17:15"
+          ],
+          "backEur": 26.25,
+          "nights": 5,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WMI/2026-10-20/2026-10-25/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "22:50"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-10-27",
+          "backTimes": [
+            "19:10"
+          ],
+          "backEur": 26.25,
+          "nights": 7,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WMI/2026-10-20/2026-10-27/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-21",
+          "outTimes": [
+            "09:05"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-10-25",
+          "backTimes": [
+            "17:15"
+          ],
+          "backEur": 26.25,
+          "nights": 4,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WMI/2026-10-21/2026-10-25/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-21",
+          "outTimes": [
+            "09:05"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-10-27",
+          "backTimes": [
+            "19:10"
+          ],
+          "backEur": 26.25,
+          "nights": 6,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WMI/2026-10-21/2026-10-27/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-21",
+          "outTimes": [
+            "09:05"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-10-31",
+          "backTimes": [
+            "19:10"
+          ],
+          "backEur": 26.25,
+          "nights": 10,
+          "totalEur": 52.5,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/WMI/2026-10-21/2026-10-31/1/0/0/null"
+        }
+      ],
+      "dealCount": 284,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "LCA",
+      "name": "Larnaca",
+      "country": "Cyprus",
+      "countryCode": "CY",
+      "cheapest": {
+        "outDate": "2026-11-14",
+        "outTimes": [
+          "17:35"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-11-22",
+        "backTimes": [
+          "22:45"
+        ],
+        "backEur": 31.21,
+        "nights": 8,
+        "totalEur": 57.46,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LCA/2026-11-14/2026-11-22/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-14",
+          "outTimes": [
+            "17:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "22:45"
+          ],
+          "backEur": 31.21,
+          "nights": 8,
+          "totalEur": 57.46,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LCA/2026-11-14/2026-11-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-15",
+          "outTimes": [
+            "19:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "22:45"
+          ],
+          "backEur": 31.21,
+          "nights": 7,
+          "totalEur": 57.46,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LCA/2026-11-15/2026-11-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-17",
+          "outTimes": [
+            "17:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "22:45"
+          ],
+          "backEur": 31.21,
+          "nights": 5,
+          "totalEur": 57.46,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LCA/2026-11-17/2026-11-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-18",
+          "outTimes": [
+            "19:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "22:45"
+          ],
+          "backEur": 31.21,
+          "nights": 4,
+          "totalEur": 57.46,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LCA/2026-11-18/2026-11-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-19",
+          "outTimes": [
+            "19:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-22",
+          "backTimes": [
+            "22:45"
+          ],
+          "backEur": 31.21,
+          "nights": 3,
+          "totalEur": 57.46,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LCA/2026-11-19/2026-11-22/1/0/0/null"
+        }
+      ],
+      "dealCount": 61,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "CGN",
+      "name": "Cologne",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-13",
+        "outTimes": [
+          "20:35"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-16",
+        "backTimes": [
+          "22:55"
+        ],
+        "backEur": 37.66,
+        "nights": 3,
+        "totalEur": 58.45,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CGN/2026-11-13/2026-11-16/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-13",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-16",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 37.66,
+          "nights": 3,
+          "totalEur": 58.45,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CGN/2026-11-13/2026-11-16/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-20",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-27",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 37.66,
+          "nights": 7,
+          "totalEur": 58.45,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CGN/2026-11-20/2026-11-27/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-20",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-30",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 37.66,
+          "nights": 10,
+          "totalEur": 58.45,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CGN/2026-11-20/2026-11-30/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-23",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-27",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 37.66,
+          "nights": 4,
+          "totalEur": 58.45,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CGN/2026-11-23/2026-11-27/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-23",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 20.79,
+          "backDate": "2026-11-30",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 37.66,
+          "nights": 7,
+          "totalEur": 58.45,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CGN/2026-11-23/2026-11-30/1/0/0/null"
+        }
+      ],
+      "dealCount": 6,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "OTP",
+      "name": "Bucharest Otopeni",
+      "country": "Romania",
+      "countryCode": "RO",
+      "cheapest": {
+        "outDate": "2026-10-20",
+        "outTimes": [
+          "07:50"
+        ],
+        "outEur": 25.26,
+        "backDate": "2026-10-22",
+        "backTimes": [
+          "06:15"
+        ],
+        "backEur": 33.69,
+        "nights": 2,
+        "totalEur": 58.95,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/OTP/2026-10-20/2026-10-22/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "07:50"
+          ],
+          "outEur": 25.26,
+          "backDate": "2026-10-22",
+          "backTimes": [
+            "06:15"
+          ],
+          "backEur": 33.69,
+          "nights": 2,
+          "totalEur": 58.95,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/OTP/2026-10-20/2026-10-22/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "07:50"
+          ],
+          "outEur": 25.26,
+          "backDate": "2026-10-23",
+          "backTimes": [
+            "06:15"
+          ],
+          "backEur": 33.69,
+          "nights": 3,
+          "totalEur": 58.95,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/OTP/2026-10-20/2026-10-23/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "07:50"
+          ],
+          "outEur": 25.26,
+          "backDate": "2026-10-25",
+          "backTimes": [
+            "13:15",
+            "22:30"
+          ],
+          "backEur": 33.69,
+          "nights": 5,
+          "totalEur": 58.95,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/OTP/2026-10-20/2026-10-25/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "07:50"
+          ],
+          "outEur": 25.26,
+          "backDate": "2026-10-26",
+          "backTimes": [
+            "13:15",
+            "22:30"
+          ],
+          "backEur": 33.69,
+          "nights": 6,
+          "totalEur": 58.95,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/OTP/2026-10-20/2026-10-26/1/0/0/null"
+        },
+        {
+          "outDate": "2026-10-20",
+          "outTimes": [
+            "07:50"
+          ],
+          "outEur": 25.26,
+          "backDate": "2026-10-27",
+          "backTimes": [
+            "13:15",
+            "22:30"
+          ],
+          "backEur": 33.69,
+          "nights": 7,
+          "totalEur": 58.95,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/OTP/2026-10-20/2026-10-27/1/0/0/null"
+        }
+      ],
+      "dealCount": 815,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "HHN",
+      "name": "Frankfurt Hahn",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-11",
+        "outTimes": [
+          "20:35"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-11-18",
+        "backTimes": [
+          "22:55"
+        ],
+        "backEur": 33.69,
+        "nights": 7,
+        "totalEur": 59.94,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HHN/2026-11-11/2026-11-18/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-11",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-18",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 33.69,
+          "nights": 7,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HHN/2026-11-11/2026-11-18/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-15",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-18",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 33.69,
+          "nights": 3,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HHN/2026-11-15/2026-11-18/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-15",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-25",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 33.69,
+          "nights": 10,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HHN/2026-11-15/2026-11-25/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-18",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-25",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 33.69,
+          "nights": 7,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HHN/2026-11-18/2026-11-25/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-22",
+          "outTimes": [
+            "20:35"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-25",
+          "backTimes": [
+            "22:55"
+          ],
+          "backEur": 33.69,
+          "nights": 3,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HHN/2026-11-22/2026-11-25/1/0/0/null"
+        }
+      ],
+      "dealCount": 15,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "HAM",
+      "name": "Hamburg",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-10",
+        "outTimes": [
+          "19:10"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-11-17",
+        "backTimes": [
+          "21:30"
+        ],
+        "backEur": 33.69,
+        "nights": 7,
+        "totalEur": 59.94,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HAM/2026-11-10/2026-11-17/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-11-10",
+          "outTimes": [
+            "19:10"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-11-17",
+          "backTimes": [
+            "21:30"
+          ],
+          "backEur": 33.69,
+          "nights": 7,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HAM/2026-11-10/2026-11-17/1/0/0/null"
+        },
+        {
+          "outDate": "2026-12-01",
+          "outTimes": [
+            "19:10"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-12-03",
+          "backTimes": [
+            "21:30"
+          ],
+          "backEur": 33.69,
+          "nights": 2,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HAM/2026-12-01/2026-12-03/1/0/0/null"
+        },
+        {
+          "outDate": "2026-12-01",
+          "outTimes": [
+            "19:10"
+          ],
+          "outEur": 26.25,
+          "backDate": "2026-12-08",
+          "backTimes": [
+            "21:30"
+          ],
+          "backEur": 33.69,
+          "nights": 7,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/HAM/2026-12-01/2026-12-08/1/0/0/null"
+        }
+      ],
+      "dealCount": 3,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "FMM",
+      "name": "Memmingen / Munich West",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-10-28",
+        "outTimes": [
+          "14:45"
+        ],
+        "outEur": 33.69,
+        "backDate": "2026-11-06",
+        "backTimes": [
+          "16:50"
+        ],
+        "backEur": 26.25,
+        "nights": 9,
+        "totalEur": 59.94,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FMM/2026-10-28/2026-11-06/1/0/0/null"
+      },
+      "deals": [
+        {
+          "outDate": "2026-10-28",
+          "outTimes": [
+            "14:45"
+          ],
+          "outEur": 33.69,
+          "backDate": "2026-11-06",
+          "backTimes": [
+            "16:50"
+          ],
+          "backEur": 26.25,
+          "nights": 9,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FMM/2026-10-28/2026-11-06/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-02",
+          "outTimes": [
+            "14:45"
+          ],
+          "outEur": 33.69,
+          "backDate": "2026-11-06",
+          "backTimes": [
+            "16:50"
+          ],
+          "backEur": 26.25,
+          "nights": 4,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FMM/2026-11-02/2026-11-06/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-02",
+          "outTimes": [
+            "14:45"
+          ],
+          "outEur": 33.69,
+          "backDate": "2026-11-09",
+          "backTimes": [
+            "16:50"
+          ],
+          "backEur": 26.25,
+          "nights": 7,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FMM/2026-11-02/2026-11-09/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-02",
+          "outTimes": [
+            "14:45"
+          ],
+          "outEur": 33.69,
+          "backDate": "2026-11-11",
+          "backTimes": [
+            "16:50"
+          ],
+          "backEur": 26.25,
+          "nights": 9,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FMM/2026-11-02/2026-11-11/1/0/0/null"
+        },
+        {
+          "outDate": "2026-11-09",
+          "outTimes": [
+            "14:45"
+          ],
+          "outEur": 33.69,
+          "backDate": "2026-11-11",
+          "backTimes": [
+            "16:50"
+          ],
+          "backEur": 26.25,
+          "nights": 2,
+          "totalEur": 59.94,
+          "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FMM/2026-11-09/2026-11-11/1/0/0/null"
+        }
+      ],
+      "dealCount": 25,
+      "dealSince": "2026-09-29T18:12:26.483Z"
+    },
+    {
+      "iata": "ALC",
+      "name": "Alicante",
+      "country": "Spain",
+      "countryCode": "ES",
+      "cheapest": {
+        "outDate": "2026-11-11",
+        "outTimes": [
+          "05:15"
+        ],
+        "outEur": 31.21,
+        "backDate": "2026-11-20",
+        "backTimes": [
+          "09:00"
+        ],
+        "backEur": 31.21,
+        "nights": 9,
+        "totalEur": 62.42,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/ALC/2026-11-11/2026-11-20/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "STR",
+      "name": "Stuttgart",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-04",
+        "outTimes": [
+          "19:15"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-11",
+        "backTimes": [
+          "21:25"
+        ],
+        "backEur": 42.13,
+        "nights": 7,
+        "totalEur": 62.92,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/STR/2026-11-04/2026-11-11/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "BVA",
+      "name": "Paris Beauvais",
+      "country": "France",
+      "countryCode": "FR",
+      "cheapest": {
+        "outDate": "2026-11-17",
+        "outTimes": [
+          "06:30"
+        ],
+        "outEur": 26.25,
+        "backDate": "2026-11-19",
+        "backTimes": [
+          "09:25",
+          "14:50"
+        ],
+        "backEur": 37.66,
+        "nights": 2,
+        "totalEur": 63.91,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BVA/2026-11-17/2026-11-19/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "BCN",
+      "name": "Barcelona El Prat",
+      "country": "Spain",
+      "countryCode": "ES",
+      "cheapest": {
+        "outDate": "2026-11-05",
+        "outTimes": [
+          "05:15"
+        ],
+        "outEur": 33.69,
+        "backDate": "2026-11-10",
+        "backTimes": [
+          "08:35"
+        ],
+        "backEur": 33.69,
+        "nights": 5,
+        "totalEur": 67.38,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BCN/2026-11-05/2026-11-10/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "BER",
+      "name": "Berlin Brandenburg",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-03",
+        "outTimes": [
+          "13:05"
+        ],
+        "outEur": 33.69,
+        "backDate": "2026-11-05",
+        "backTimes": [
+          "15:00"
+        ],
+        "backEur": 33.69,
+        "nights": 2,
+        "totalEur": 67.38,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/BER/2026-11-03/2026-11-05/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "MLH",
+      "name": "Basel-Mulhouse-Freiburg",
+      "country": "France",
+      "countryCode": "FR",
+      "cheapest": {
+        "outDate": "2026-11-03",
+        "outTimes": [
+          "06:00"
+        ],
+        "outEur": 20.79,
+        "backDate": "2026-11-07",
+        "backTimes": [
+          "08:30"
+        ],
+        "backEur": 48.08,
+        "nights": 4,
+        "totalEur": 68.87,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/MLH/2026-11-03/2026-11-07/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "NUE",
+      "name": "Nuremberg",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-03",
+        "outTimes": [
+          "14:55"
+        ],
+        "outEur": 37.66,
+        "backDate": "2026-11-05",
+        "backTimes": [
+          "16:55"
+        ],
+        "backEur": 33.69,
+        "nights": 2,
+        "totalEur": 71.35,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/NUE/2026-11-03/2026-11-05/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "CPH",
+      "name": "Copenhagen",
+      "country": "Denmark",
+      "countryCode": "DK",
+      "cheapest": {
+        "outDate": "2026-11-05",
+        "outTimes": [
+          "06:00"
+        ],
+        "outEur": 31.21,
+        "backDate": "2026-11-08",
+        "backTimes": [
+          "21:10"
+        ],
+        "backEur": 42.13,
+        "nights": 3,
+        "totalEur": 73.34,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/CPH/2026-11-05/2026-11-08/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "DTM",
+      "name": "Dortmund",
+      "country": "Germany",
+      "countryCode": "DE",
+      "cheapest": {
+        "outDate": "2026-11-03",
+        "outTimes": [
+          "12:25"
+        ],
+        "outEur": 37.66,
+        "backDate": "2026-11-05",
+        "backTimes": [
+          "14:50"
+        ],
+        "backEur": 37.66,
+        "nights": 2,
+        "totalEur": 75.32,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/DTM/2026-11-03/2026-11-05/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "VLC",
+      "name": "Valencia",
+      "country": "Spain",
+      "countryCode": "ES",
+      "cheapest": {
+        "outDate": "2026-12-17",
+        "outTimes": [
+          "21:50"
+        ],
+        "outEur": 37.66,
+        "backDate": "2026-12-22",
+        "backTimes": [
+          "16:20"
+        ],
+        "backEur": 37.66,
+        "nights": 5,
+        "totalEur": 75.32,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/VLC/2026-12-17/2026-12-22/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "LGW",
+      "name": "London Gatwick",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "cheapest": {
+        "outDate": "2027-01-14",
+        "outTimes": [
+          "01:10",
+          "11:55",
+          "12:00"
+        ],
+        "outEur": 38.86,
+        "backDate": "2027-01-16",
+        "backTimes": [
+          "06:00",
+          "06:05",
+          "19:15"
+        ],
+        "backEur": 38.86,
+        "nights": 2,
+        "totalEur": 77.72,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LGW/2027-01-14/2027-01-16/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "LTN",
+      "name": "London Luton",
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "cheapest": {
+        "outDate": "2027-01-18",
+        "outTimes": [
+          "01:10",
+          "12:00"
+        ],
+        "outEur": 38.86,
+        "backDate": "2027-01-20",
+        "backTimes": [
+          "06:05",
+          "15:30",
+          "19:15"
+        ],
+        "backEur": 38.86,
+        "nights": 2,
+        "totalEur": 77.72,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/LTN/2027-01-18/2027-01-20/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "NCE",
+      "name": "Nice",
+      "country": "France",
+      "countryCode": "FR",
+      "cheapest": {
+        "outDate": "2026-10-28",
+        "outTimes": [
+          "06:00"
+        ],
+        "outEur": 37.66,
+        "backDate": "2026-11-02",
+        "backTimes": [
+          "08:35"
+        ],
+        "backEur": 52.54,
+        "nights": 5,
+        "totalEur": 90.2,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/NCE/2026-10-28/2026-11-02/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "FCO",
+      "name": "Rome Fiumicino",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-10-13",
+        "outTimes": [
+          "09:35"
+        ],
+        "outEur": 48.08,
+        "backDate": "2026-10-16",
+        "backTimes": [
+          "05:20",
+          "12:40"
+        ],
+        "backEur": 48.08,
+        "nights": 3,
+        "totalEur": 96.16,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/FCO/2026-10-13/2026-10-16/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "NAP",
+      "name": "Naples",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": {
+        "outDate": "2026-10-16",
+        "outTimes": [
+          "19:00"
+        ],
+        "outEur": 42.13,
+        "backDate": "2026-10-23",
+        "backTimes": [
+          "21:10"
+        ],
+        "backEur": 83.8,
+        "nights": 7,
+        "totalEur": 125.93,
+        "bookingUrl": "https://www.wizzair.com/en-gb/booking/select-flight/RMO/NAP/2026-10-16/2026-10-23/1/0/0/null"
+      },
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "RHO",
+      "name": "Rhodes",
+      "country": "Greece",
+      "countryCode": "GR",
+      "cheapest": null,
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    },
+    {
+      "iata": "RMI",
+      "name": "Rimini",
+      "country": "Italy",
+      "countryCode": "IT",
+      "cheapest": null,
+      "deals": [],
+      "dealCount": 0,
+      "dealSince": null
+    }
+  ],
+  "failed": []
+}

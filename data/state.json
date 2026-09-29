@@ -1,0 +1,110 @@
+{
+  "version": 2,
+  "destinations": {
+    "ATH": {
+      "priceEur": 47.04,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "BLQ": {
+      "priceEur": 41.58,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "GHV": {
+      "priceEur": 39.59,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "BTS": {
+      "priceEur": 41.58,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "CRL": {
+      "priceEur": 41.58,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "OTP": {
+      "priceEur": 58.95,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "BUD": {
+      "priceEur": 36.62,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "CGN": {
+      "priceEur": 58.45,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "HHN": {
+      "priceEur": 59.94,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "HAM": {
+      "priceEur": 59.94,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "LCA": {
+      "priceEur": 57.46,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "FMM": {
+      "priceEur": 59.94,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "BGY": {
+      "priceEur": 47.04,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "MXP": {
+      "priceEur": 52.5,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "PRG": {
+      "priceEur": 52,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "SOF": {
+      "priceEur": 31.66,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "TRN": {
+      "priceEur": 41.58,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "VCE": {
+      "priceEur": 47.04,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "VRN": {
+      "priceEur": 41.58,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "WMI": {
+      "priceEur": 52.5,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    },
+    "WRO": {
+      "priceEur": 31.66,
+      "since": "2026-09-29T18:12:26.483Z",
+      "alerted": false
+    }
+  }
+}
