@@ -1,39 +1,35 @@
-// Page chrome: hero copy, live status, month tabs, footer notes and the side-rail scroll highlight.
+// Page chrome: hero copy, live status, data sources, footer notes and the side-rail scroll highlight.
 
 import { $, h } from './dom.js';
-import { monthCounts } from './data.js';
-import { fmtAgo, fmtEur, fmtMonth, ORIGIN_NAMES, plural } from './format.js';
+import { fmtAgo, fmtNextScan, ORIGIN_NAMES, plural } from './format.js';
 
-export function renderChrome(data, deals) {
+export function renderChrome(data, deals, money) {
   const { rules } = data;
   const origin = ORIGIN_NAMES[data.origin.iata] ?? data.origin.name;
-  const destinationsWithDeals = data.destinations.filter((d) => d.deals.length > 0).length;
+  const destinationsWithDeals = new Set(deals.map(({ dest }) => dest.iata)).size;
+  const otherAirlines = data.sources?.some((source) => source.id === 'travelpayouts');
 
-  $('limit').textContent = fmtEur(rules.maxReturnPriceEur);
+  $('limit').textContent = money.format(rules.maxReturnPriceEur);
+  $('hero-eyebrow').textContent = otherAirlines ? 'Every airline · checked twice a day' : 'Wizz Air · checked twice a day';
   $('hero-sub').textContent =
-    `All ${data.destinations.length} Wizz Air routes from ${origin}, checked each morning and evening ` +
-    `for ${rules.minNights}–${rules.maxNights} night return trips.`;
+    `All ${data.destinations.length} routes from ${origin}, checked each morning and evening ` +
+    `for ${rules.minNights}–${rules.maxNights} night return trips in the next ${rules.daysAhead} days.`;
   $('hero-when').textContent = `Next ${rules.daysAhead} days`;
   $('hero-cta').textContent = destinationsWithDeals > 0 ? `Show ${plural(destinationsWithDeals, 'deal')}` : 'See routes';
-  $('step-routes').textContent = `Scans all ${data.destinations.length} routes`;
   $('step-trips-text').textContent =
-    `Every ${rules.minNights}–${rules.maxNights} night out-and-back combination is priced in euros and kept if it’s ` +
-    `${fmtEur(rules.maxReturnPriceEur)} or less.`;
+    `Every ${rules.minNights}–${rules.maxNights} night out-and-back combination is priced and kept if it’s ` +
+    `${money.format(rules.maxReturnPriceEur)} or less.`;
+  $('sources-note').textContent = otherAirlines
+    ? 'Live fares from Wizz Air; other airlines via Aviasales (recently seen prices — check before booking).'
+    : 'Live fares from Wizz Air. Other airlines switch on once a Travelpayouts token is added.';
+
   $('status-updated').replaceChildren(
-    h('time', { datetime: data.generatedAt, title: new Date(data.generatedAt).toLocaleString() }, `Updated ${fmtAgo(data.generatedAt)}`),
-  );
+    h('time', { datetime: data.generatedAt, title: new Date(data.generatedAt).toLocaleString() }, `Updated ${fmtAgo(data.generatedAt)}`));
+  $('status-next').textContent = `Next check ${fmtNextScan()}`;
 
   const failed = data.failed ?? [];
   $('failed').hidden = failed.length === 0;
   $('failed').textContent = failed.length > 0 ? `Couldn’t check on the last run: ${failed.join(', ')}.` : '';
-}
-
-export function renderMonths(data, deals, active, onChange) {
-  const year = new Date(data.generatedAt).getUTCFullYear();
-  const tabs = [[null, 'All', deals.length], ...monthCounts(deals).map(([month, count]) => [month, fmtMonth(month, year), count])];
-  $('months').replaceChildren(...tabs.map(([month, label, count]) =>
-    h('button', { class: 'tab', type: 'button', 'aria-pressed': String(month === active), onclick: () => onChange(month) },
-      label, h('span', { class: 'tab-count' }, String(count)))));
 }
 
 /** Highlights the rail link for the section crossing the middle of the viewport. */
