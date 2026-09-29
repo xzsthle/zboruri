@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Zboruri — cheap flights from Chișinău</title>
+  <meta name="description" content="Cheap Wizz Air return trips from Chișinău (RMO), checked every morning and evening.">
+  <meta name="theme-color" content="#f1ece1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0c0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#deals">Skip to deals</a>
+
+  <header class="masthead">
+    <p class="brand">
+      <span class="brand-mark">Zboruri</span>
+      <span class="brand-route">RMO <span aria-hidden="true">→</span> anywhere</span>
+    </p>
+    <div class="masthead-copy">
+      <h1 id="headline">Where can <em>€60</em> take you from Chișinău?</h1>
+      <p class="lede" id="lede">Every morning and evening, every Wizz Air route out of RMO is checked for cheap return trips.</p>
+    </div>
+    <dl class="stats" aria-live="polite">
+      <div class="stat"><dt>Deals</dt><dd id="stat-deals">—</dd></div>
+      <div class="stat"><dt>Cheapest</dt><dd id="stat-cheapest">—</dd></div>
+      <div class="stat"><dt>Routes</dt><dd id="stat-routes">—</dd></div>
+      <div class="stat"><dt>Checked</dt><dd id="stat-updated">—</dd></div>
+    </dl>
+  </header>
+
+  <main>
+    <section class="board" id="deals" aria-labelledby="deals-heading">
+      <div class="board-head">
+        <h2 id="deals-heading">Departures under €60</h2>
+        <nav class="months" id="months" aria-label="Filter deals by month"></nav>
+      </div>
+      <div class="board-columns" aria-hidden="true">
+        <span>Destination</span><span>Out</span><span>Back</span><span>Stay</span><span>Return</span><span></span>
+      </div>
+      <ol class="rows" id="deal-rows">
+        <li class="row row-status">Loading today’s fares…</li>
+      </ol>
+    </section>
+
+    <section class="routes" aria-labelledby="routes-heading">
+      <div class="routes-head">
+        <h2 id="routes-heading">Every route, cheapest return</h2>
+        <p class="routes-note" id="routes-note"></p>
+      </div>
+      <ol class="tiles" id="route-tiles"></ol>
+    </section>
+  </main>
+
+  <footer class="footnote">
+    <p id="footnote">Fares are Wizz Air’s lowest Basic price (one small under-seat bag) for one adult, converted to euros at today’s rate. Prices move fast — always confirm on wizzair.com before booking.</p>
+    <p id="failed" class="failed" hidden></p>
+  </footer>
+</body>
+</html>

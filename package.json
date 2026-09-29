@@ -1,0 +1,16 @@
+{
+  "name": "zboruri",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Finds cheap return flights from Chișinău (RMO) twice a day, sends them to Telegram and publishes a deals page.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "scan": "node src/index.js",
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-exclude=test/** --test-coverage-exclude=src/index.js --test-coverage-lines=80 --test-coverage-branches=80 --test-coverage-functions=80",
+    "site": "python3 -m http.server 8080 --directory docs"
+  }
+}
