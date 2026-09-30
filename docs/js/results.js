@@ -1,15 +1,17 @@
-// Results page: header with a cheapest-month chart, sort tabs, a date strip, the filter sidebar and the list.
+// Results page: destination banner + cheapest months, sort tabs, a date strip, the filter sidebar and the list.
 
 import { $, h, icon } from './dom.js';
 import { destinationCard, resultCard } from './card.js';
 import { renderFilterSidebar } from './sidebar.js';
+import { colorBlock } from './art.js';
+import { monthBars } from './months.js';
 import { priceCalendar } from './pickers.js';
 import { describeDepart, describeStay, describeTravellers } from './widget.js';
 import { departSpec } from './query.js';
 import { flightInfo } from './flight.js';
 import { photoCredit, photoImg } from './photo.js';
 import { fmtDuration } from './geo.js';
-import { flagEmoji, fmtShort, ORIGIN_NAMES, parseDay, plural } from './format.js';
+import { fmtShort, ORIGIN_NAMES, parseDay, plural } from './format.js';
 
 const PAGE_SIZE = 12;
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -19,63 +21,59 @@ let lastKey = '';
 
 const tripKey = (trip) => `${trip.iata}|${trip.outDate}|${trip.backDate}|${trip.airline}`;
 
-function monthBars({ engine, query, money, navigate }) {
+function monthsTile({ engine, query, money, navigate }) {
   const prices = engine.pricesByMonth({ ...query, back: '' });
   if (prices.size < 2) return null;
-  const values = [...prices.values()];
-  const max = Math.max(...values);
-  const cheapest = Math.min(...values);
-  const active = departSpec(query.depart).month ?? query.depart.slice(0, 7);
-  return h('div', { class: 'month-bars', role: 'group', 'aria-label': 'Cheapest return by month' },
-    [...prices.entries()].map(([month, price]) => h('button', {
-      type: 'button',
-      class: ['month-bar', price === cheapest ? 'is-cheapest' : '', month === active ? 'is-active' : ''].filter(Boolean).join(' '),
-      style: { '--fill': String(0.25 + 0.75 * (price / max)) },
-      title: `${MONTHS[Number(month.slice(5)) - 1]}: from ${money.format(price)}`,
-      onclick: () => navigate({ ...query, depart: month, back: '' }),
-    }, h('span', { class: 'mb-price' }, money.format(price)), h('span', { class: 'mb-bar', 'aria-hidden': 'true' }), h('span', { class: 'mb-label' }, MONTHS[Number(month.slice(5)) - 1]))));
+  const spec = departSpec(query.depart);
+  const selected = spec.month ?? spec.date?.slice(0, 7) ?? null;
+  return h('div', { class: 'tile rh-months' },
+    h('h2', { class: 'rh-months-title' }, 'Cheapest months'),
+    monthBars({ prices, money, selected, label: 'Cheapest return by month', onPick: (month) => navigate({ ...query, depart: month, back: '' }) }));
 }
 
-function renderHead({ site, engine, query, money, navigate, photos }, count) {
-  const anywhere = query.to === 'anywhere';
-  const several = query.to.includes(',');
-  const dest = engine.destinations.get(query.to);
+/** One destination: a photo tile with the route and its facts. Several or everywhere: a title on the canvas. */
+function banner({ site, engine, query, photos }, count) {
+  const multi = query.to === 'anywhere' || query.to.includes(',');
   const origin = ORIGIN_NAMES[site.origin.iata] ?? site.origin.name;
+  if (multi) {
+    const where = query.label || (query.to === 'anywhere' ? 'everywhere' : `${query.to.split(',').length} destinations`);
+    return h('div', { class: 'rh-plain' },
+      h('h1', { class: 'rh-title' }, `${origin} → ${where}`),
+      h('p', { class: 'rh-sub' }, [describeDepart(query.depart), describeStay(query), describeTravellers(query.adults), plural(count, 'destination')].join(' · ')));
+  }
+  const dest = engine.destinations.get(query.to);
   const info = dest && flightInfo({ iata: dest.iata, outDate: '2026-01-01', backDate: '2026-01-02' }, site, engine);
-  const photo = !anywhere && photos[query.to];
-  const banner = photo && photoImg(photo, { width: 1200, height: 420, className: 'rh-img', eager: true, alt: `${dest?.name ?? query.to}` });
+  const photo = photos[query.to];
+  const facts = info ? ['Direct', info.minutes && `≈ ${fmtDuration(info.minutes)}`, info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean) : [];
+  return h('div', { class: 'rh-banner photo-tile has-scrim' },
+    photoImg(photo, { width: 1000, height: 400, className: 'cover rh-img', eager: true, alt: dest?.name ?? query.to }) ?? colorBlock(query.to, 'cover'),
+    dest && h('span', { class: 'tag-pill rh-country' }, dest.country),
+    photoCredit(photo),
+    h('div', { class: 'rh-body' },
+      h('h1', { class: 'rh-title' }, `${origin} → ${dest?.name ?? query.to}`),
+      facts.length > 0 && h('p', { class: 'stat-pill rh-facts' }, facts.map((fact) => h('span', {}, fact)))));
+}
+
+function renderHead(ctx, count) {
+  const { query } = ctx;
   $('ask-note').hidden = !query.note;
-  $('ask-note').replaceChildren(icon('i-sparkles'), h('p', {}, query.note));
-  $('results-head').replaceChildren(
-    h('div', { class: banner ? 'rh-text has-photo' : 'rh-text' },
-      banner,
-      banner && photoCredit(photo),
-      h('p', { class: 'eyebrow' }, anywhere || several ? 'Explore' : 'Flights'),
-      h('h1', { class: 'rh-title' }, anywhere || several
-        ? (query.label ? `${origin} → ${query.label}` : `${origin} to ${several ? `${query.to.split(',').length} destinations` : 'everywhere'}`)
-        : [`${origin} to ${dest?.name ?? query.to} `, h('span', { class: 'rh-flag', 'aria-hidden': 'true' }, flagEmoji(dest?.countryCode))]),
-      h('p', { class: 'rh-sub' }, [describeDepart(query.depart), describeStay(query), describeTravellers(query.adults), plural(count, anywhere ? 'destination' : 'result')].join(' · ')),
-      !anywhere && info && h('ul', { class: 'rh-facts' },
-        h('li', {}, icon('i-plane'), 'Direct flights'),
-        info.minutes && h('li', {}, icon('i-clock'), `≈ ${fmtDuration(info.minutes)} each way`),
-        info.km && h('li', {}, icon('i-map'), `${info.km.toLocaleString('en-US')} km`),
-        dest.localCurrency && h('li', {}, icon('i-tag'), `Pay locally in ${dest.localCurrency}`))),
-    monthBars({ engine, query, money, navigate }),
-    h('button', { type: 'button', class: 'btn-ghost filters-toggle', onclick: () => $('filters').classList.toggle('is-open') }, icon('i-sort'), 'Filters'));
+  $('ask-note').replaceChildren(h('span', { class: 'orb orb--sunk orb--sm', 'aria-hidden': 'true' }, icon('i-sparkles')), h('p', {}, query.note));
+  $('results-head').replaceChildren(...[banner(ctx, count), monthsTile(ctx)].filter(Boolean));
+  $('results-count').textContent = plural(count, query.to === 'anywhere' || query.to.includes(',') ? 'destination' : 'result');
+}
+
+function segment({ label, value, selected, onSelect }) {
+  return h('button', { type: 'button', role: 'tab', class: 'sort-tab', 'aria-selected': String(selected), onclick: onSelect },
+    h('span', { class: 'st-label' }, label), h('span', { class: 'st-value' }, value));
 }
 
 function sortTabs(ctx, tripsBySort) {
   const { filters, money, setFilters } = ctx;
-  const describe = {
-    best: (t) => `${money.format(t.pricePp)} · ${plural(t.nights, 'night')}`,
-    cheapest: (t) => money.format(t.pricePp),
-    soonest: (t) => `${fmtShort(t.outDate)} · ${money.format(t.pricePp)}`,
-  };
+  const describe = { best: (t) => money.format(t.pricePp), cheapest: (t) => money.format(t.pricePp), soonest: (t) => fmtShort(t.outDate) };
   const labels = { best: 'Best', cheapest: 'Cheapest', soonest: 'Soonest' };
   $('sort-tabs').replaceChildren(...Object.keys(labels).map((key) => {
     const top = tripsBySort[key][0];
-    return h('button', { type: 'button', role: 'tab', class: 'sort-tab', 'aria-selected': String(filters.sort === key), onclick: () => setFilters({ sort: key }) },
-      h('span', { class: 'st-label' }, labels[key]), h('span', { class: 'st-value' }, top ? describe[key](top) : '—'));
+    return segment({ label: labels[key], value: top ? describe[key](top) : '—', selected: filters.sort === key, onSelect: () => setFilters({ sort: key }) });
   }));
 }
 
@@ -90,31 +88,44 @@ function stripDays(query, prices) {
   return sorted.slice(0, 21);
 }
 
+function stripButton(direction, strip) {
+  const back = direction === 'prev';
+  return h('button', {
+    type: 'button', class: `orb orb--light strip-nav is-${direction}`, 'aria-label': back ? 'Earlier dates' : 'Later dates',
+    onclick: () => strip.scrollBy({ left: (back ? -1 : 1) * strip.clientWidth * 0.8, behavior: 'smooth' }),
+  }, icon(back ? 'i-chevron-left' : 'i-chevron-right'));
+}
+
 function dateStrip({ engine, query, money, navigate }) {
   const prices = engine.pricesByDepartDay({ ...query, back: '' });
   const days = stripDays(query, prices);
   const cheapest = Math.min(...days.map((d) => prices.get(d) ?? Infinity));
   const selected = departSpec(query.depart).date;
   const range = engine.dateRange();
+  const strip = h('div', { class: 'strip', role: 'group', 'aria-label': 'Departure dates' }, days.map((date) => {
+    const price = prices.get(date);
+    const d = parseDay(date);
+    return h('button', {
+      type: 'button',
+      class: ['strip-day', price === cheapest ? 'is-cheapest' : '', date === selected ? 'is-selected' : ''].filter(Boolean).join(' '),
+      disabled: price == null,
+      'aria-pressed': String(date === selected),
+      onclick: () => navigate({ ...query, depart: date, back: '' }),
+    }, h('span', { class: 'sd-day' }, `${WEEKDAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`), h('span', { class: 'sd-price' }, price == null ? '—' : money.format(price)));
+  }));
   $('date-strip').replaceChildren(
-    h('div', { class: 'strip', role: 'group', 'aria-label': 'Departure dates' }, days.map((date) => {
-      const price = prices.get(date);
-      const d = parseDay(date);
-      return h('button', {
-        type: 'button',
-        class: ['strip-day', price === cheapest ? 'is-cheapest' : '', date === selected ? 'is-selected' : ''].filter(Boolean).join(' '),
-        disabled: price == null,
-        'aria-pressed': String(date === selected),
-        onclick: () => navigate({ ...query, depart: date, back: '' }),
-      }, h('span', { class: 'sd-day' }, `${WEEKDAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`), h('span', { class: 'sd-price' }, price == null ? '—' : money.format(price)));
-    })),
+    h('div', { class: 'strip-wrap' }, stripButton('prev', strip), strip, stripButton('next', strip)),
     range && h('details', { class: 'calendar-toggle' },
-      h('summary', {}, icon('i-calendar'), 'Price calendar'),
-      priceCalendar({ prices, selected: selected ?? null, minDate: range.first, maxDate: range.last, money, onPick: (date) => navigate({ ...query, depart: date, back: '' }) })));
+      h('summary', { class: 'pill-orb pill-orb--canvas' }, 'Price calendar', h('span', { class: 'orb' }, icon('i-arrow'))),
+      h('div', { class: 'tile calendar-panel' },
+        priceCalendar({ prices, selected: selected ?? null, minDate: range.first, maxDate: range.last, money, onPick: (date) => navigate({ ...query, depart: date, back: '' }) }))));
+  // Centre the selected (or cheapest) day, scrolling only the strip, never the page.
+  const focus = strip.querySelector('.is-selected') ?? strip.querySelector('.is-cheapest');
+  if (focus) strip.scrollLeft = focus.offsetLeft - (strip.clientWidth - focus.offsetWidth) / 2;
 }
 
 /** When only the budget rules everything out, say what the cheapest option actually costs. */
-function budgetHint({ engine, query, filters, money }) {
+function budgetHint({ engine, query, filters }) {
   if (filters.maxPrice == null) return null;
   const open = { ...filters, maxPrice: null };
   const prices = query.to === 'anywhere' || query.to.includes(',')
@@ -123,31 +134,59 @@ function budgetHint({ engine, query, filters, money }) {
   return prices.length ? Math.min(...prices) : null;
 }
 
+function emptyTile(iconId, title, text, actions) {
+  return h('div', { class: 'tile empty' },
+    h('span', { class: 'orb orb--sunk orb--lg', 'aria-hidden': 'true' }, icon(iconId)),
+    h('h3', {}, title),
+    h('p', {}, text),
+    h('div', { class: 'empty-actions' }, actions));
+}
+
 function emptyState(ctx) {
   const { query, filters, money, navigate, setFilters } = ctx;
   const cheapest = budgetHint(ctx);
   if (cheapest != null) {
-    return h('div', { class: 'empty' },
-      icon('i-tag', 'icon empty-icon'),
-      h('h3', {}, `Nothing under ${money.format(filters.maxPrice)} for these dates`),
-      h('p', {}, `The cheapest option costs ${money.format(cheapest)} per person.`),
-      h('div', { class: 'empty-actions' },
-        h('button', { type: 'button', class: 'btn-primary', onclick: () => setFilters({ maxPrice: null }) }, `Show without the budget`),
-        h('button', { type: 'button', class: 'btn-ghost', onclick: () => navigate({ ...query, depart: 'anytime', back: '' }, filters) }, 'Keep the budget, any dates')));
+    return emptyTile('i-tag', `Nothing under ${money.format(filters.maxPrice)} for these dates`, `The cheapest option costs ${money.format(cheapest)} per person.`, [
+      h('button', { type: 'button', class: 'btn-primary', onclick: () => setFilters({ maxPrice: null }) }, 'Show without the budget'),
+      h('button', { type: 'button', class: 'btn-ghost is-sunk', onclick: () => navigate({ ...query, depart: 'anytime', back: '' }, filters) }, 'Keep the budget, any dates'),
+    ]);
   }
-  return h('div', { class: 'empty' },
-    icon('i-search', 'icon empty-icon'),
-    h('h3', {}, 'No flights match'),
-    h('p', {}, 'Try other dates, a longer stay, or fewer filters.'),
-    h('div', { class: 'empty-actions' },
-      h('button', { type: 'button', class: 'btn-ghost', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false }) }, 'Clear filters'),
-      h('button', { type: 'button', class: 'btn-primary', onclick: () => navigate({ ...query, depart: 'anytime', back: '' }) }, 'Search anytime')));
+  return emptyTile('i-search', 'No flights match', 'Try other dates, a longer stay, or fewer filters.', [
+    h('button', { type: 'button', class: 'btn-ghost is-sunk', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false }) }, 'Clear filters'),
+    h('button', { type: 'button', class: 'btn-primary', onclick: () => navigate({ ...query, depart: 'anytime', back: '' }) }, 'Search anytime'),
+  ]);
 }
 
 function moreButton(total, rerender) {
   const left = total - visibleCount;
   return left > 0 ? h('button', { type: 'button', class: 'btn-ghost btn-more', onclick: () => { visibleCount += PAGE_SIZE; rerender(); } },
     `Show ${Math.min(PAGE_SIZE, left)} more`, h('span', {}, ` (${left} left)`)) : null;
+}
+
+// ---------- filters bottom sheet (≤980px) ----------
+
+function setSheet(open) {
+  $('filters').classList.toggle('is-open', open);
+  $('filters-backdrop').hidden = !open;
+  $('filters-open').setAttribute('aria-expanded', String(open));
+  document.body.classList.toggle('has-sheet', open);
+  if (open) $('filters').querySelector('button, input')?.focus();
+  else $('filters-open').focus();
+}
+
+const sheetOpen = () => $('filters').classList.contains('is-open');
+let sheetWired = false;
+
+function wireFilterSheet(activeFilters) {
+  if (!sheetWired) {
+    sheetWired = true;
+    // The sidebar re-renders on every filter change, so listen on the document rather than inside it.
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && sheetOpen()) setSheet(false); });
+    window.matchMedia('(min-width: 981px)').addEventListener('change', (event) => { if (event.matches && sheetOpen()) setSheet(false); });
+  }
+  $('filters-open').onclick = () => setSheet(!sheetOpen());
+  $('filters-backdrop').onclick = () => setSheet(false);
+  $('filters-open').querySelector('span').textContent = activeFilters > 0 ? `Filters · ${activeFilters}` : 'Filters';
 }
 
 function renderFlights(ctx, rerender) {
@@ -164,7 +203,7 @@ function renderFlights(ctx, rerender) {
     onSelect: () => openTrip(trip),
   }))));
   $('results-more').replaceChildren(...[moreButton(trips.length, rerender)].filter(Boolean));
-  renderFilterSidebar(ctx, engine.tripsFor(query.to, query));
+  return renderFilterSidebar({ ...ctx, closeSheet: () => setSheet(false) }, engine.tripsFor(query.to, query));
 }
 
 function renderEverywhere(ctx, rerender) {
@@ -172,9 +211,12 @@ function renderEverywhere(ctx, rerender) {
   const rows = engine.explore(query, filters);
   const ordered = filters.sort === 'soonest' ? rows.toSorted((a, b) => a.best.outDate.localeCompare(b.best.outDate)) : rows;
   renderHead(ctx, rows.length);
-  $('sort-tabs').replaceChildren(...[['best', 'Cheapest'], ['soonest', 'Soonest']].map(([key, label]) =>
-    h('button', { type: 'button', role: 'tab', class: 'sort-tab', 'aria-selected': String((filters.sort === 'soonest') === (key === 'soonest')), onclick: () => ctx.setFilters({ sort: key }) },
-      h('span', { class: 'st-label' }, label), h('span', { class: 'st-value' }, rows.length ? (key === 'soonest' ? fmtShort(ordered[0].best.outDate) : money.format(rows[0].best.pricePp)) : '—'))));
+  $('sort-tabs').replaceChildren(...[['best', 'Cheapest'], ['soonest', 'Soonest']].map(([key, label]) => segment({
+    label,
+    value: rows.length ? (key === 'soonest' ? fmtShort(ordered[0].best.outDate) : money.format(rows[0].best.pricePp)) : '—',
+    selected: (filters.sort === 'soonest') === (key === 'soonest'),
+    onSelect: () => ctx.setFilters({ sort: key }),
+  })));
   $('date-strip').replaceChildren();
   $('result-list').replaceChildren(...(ordered.length === 0 ? [emptyState(ctx)] : [h('div', { class: 'dest-grid' }, ordered.slice(0, visibleCount).map((row) => destinationCard({
     ...row, money, photo: ctx.photos[row.dest.iata], info: flightInfo(row.best, site, engine),
@@ -182,7 +224,7 @@ function renderEverywhere(ctx, rerender) {
   })))]));
   $('results-more').replaceChildren(...[moreButton(ordered.length, rerender)].filter(Boolean));
   const scope = query.to === 'anywhere' ? [...engine.destinations.keys()] : query.to.split(',');
-  renderFilterSidebar(ctx, scope.flatMap((iata) => engine.tripsFor(iata, query)));
+  return renderFilterSidebar({ ...ctx, closeSheet: () => setSheet(false) }, scope.flatMap((iata) => engine.tripsFor(iata, query)));
 }
 
 export function renderResults(ctx) {
@@ -192,6 +234,6 @@ export function renderResults(ctx) {
     lastKey = key;
   }
   const rerender = () => renderResults(ctx);
-  if (ctx.query.to === 'anywhere' || ctx.query.to.includes(',')) renderEverywhere(ctx, rerender);
-  else renderFlights(ctx, rerender);
+  const activeFilters = ctx.query.to === 'anywhere' || ctx.query.to.includes(',') ? renderEverywhere(ctx, rerender) : renderFlights(ctx, rerender);
+  wireFilterSheet(activeFilters);
 }

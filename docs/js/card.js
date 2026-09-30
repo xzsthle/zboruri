@@ -26,24 +26,20 @@ function legRow(label, trip, leg) {
         `arrives ${leg.to.name ?? leg.to.iata} around ${leg.arr?.time ?? 'unknown time'}, ${duration}, ${trip.airline}.`));
 }
 
-const BADGES = {
-  best: ['Best', 'is-best'],
-  cheapest: ['Cheapest', 'is-cheapest'],
-  soonest: ['Soonest', 'is-soonest'],
-};
+const BADGES = { best: 'Best', cheapest: 'Cheapest', soonest: 'Soonest' };
 
 export function resultCard({ trip, info, money, adults, badges = [], onSelect }) {
-  const total = trip.pricePp * adults;
+  const live = trip.source === 'wizz';
   return h('article', { class: 'rc' },
     h('div', { class: 'rc-legs' }, legRow('Outbound', trip, info.out), legRow('Return', trip, info.back)),
     h('div', { class: 'rc-side' },
-      h('div', { class: 'rc-badges' },
-        badges.map((key) => h('span', { class: `badge ${BADGES[key][1]}` }, BADGES[key][0])),
-        h('span', { class: trip.source === 'wizz' ? 'badge is-live' : 'badge is-cached' }, trip.source === 'wizz' ? 'Live price' : 'Recent price')),
-      h('p', { class: 'rc-price' }, money.format(trip.pricePp), h('small', {}, ' per person')),
-      adults > 1 && h('p', { class: 'rc-total' }, `${money.format(total)} total for ${plural(adults, 'adult')}`),
-      h('p', { class: 'rc-stay' }, `${plural(trip.nights, 'night')} in ${info.dest.name}`),
-      h('button', { type: 'button', class: 'btn-select', onclick: onSelect }, 'Select', icon('i-arrow'))));
+      h('div', { class: 'rc-tags' },
+        badges[0] && h('span', { class: 'badge' }, BADGES[badges[0]]),
+        h('span', { class: live ? 'source' : 'source is-recent' }, live ? 'Live' : 'Recent', h('span', { class: 'sr-only' }, ' price'))),
+      h('p', { class: 'rc-price' }, money.format(trip.pricePp)),
+      h('p', { class: 'rc-meta' }, adults > 1 ? `per person · ${money.format(trip.pricePp * adults)} total for ${plural(adults, 'adult')}` : 'per person'),
+      h('p', { class: 'rc-meta' }, `${plural(trip.nights, 'night')} in ${info.dest.name}`),
+      h('button', { type: 'button', class: 'btn-select', onclick: onSelect }, 'Select')));
 }
 
 /** A photo tile: country and price pills on top, the city and a stat pill at the bottom. */

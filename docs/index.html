@@ -66,6 +66,7 @@
     <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
     <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 14.06A2 2 0 0 0 8.5 12.62l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 8.5a2 2 0 0 0 1.44-1.44l1.58-6.13a.5.5 0 0 1 .96 0l1.58 6.13A2 2 0 0 0 15.5 8.5l6.13 1.58a.5.5 0 0 1 0 .96L15.5 12.62a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
     <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   </svg>
 
@@ -237,8 +238,13 @@
       <div class="results-head" id="results-head"></div>
       <div class="results-layout">
         <aside class="filters" id="filters" aria-label="Filters"></aside>
+        <div class="sheet-backdrop" id="filters-backdrop" hidden></div>
         <div class="results-main">
-          <div class="sort-tabs" id="sort-tabs" role="tablist" aria-label="Sort results"></div>
+          <div class="results-toolbar">
+            <div class="segmented sort-tabs" id="sort-tabs" role="tablist" aria-label="Sort results"></div>
+            <p class="results-count" id="results-count"></p>
+            <button type="button" class="chip filters-toggle" id="filters-open" aria-controls="filters" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-sort"/></svg><span>Filters</span></button>
+          </div>
           <div id="date-strip"></div>
           <div id="result-list" class="result-list" aria-live="polite"></div>
           <div id="results-more" class="results-more"></div>

@@ -1,6 +1,6 @@
 // Results filter sidebar: stops, departure times (each direction), airlines, max price, weekend trips.
 
-import { $, h } from './dom.js';
+import { $, h, icon } from './dom.js';
 import { TIME_WINDOWS, windowOf } from './engine.js';
 
 const toggle = (list, value) => (list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
@@ -65,14 +65,18 @@ function priceGroup(trips, { filters, setFilters, money }) {
 const activeCount = (filters) =>
   filters.airlines.length + filters.outWin.length + filters.backWin.length + (filters.maxPrice != null ? 1 : 0) + (filters.weekend ? 1 : 0);
 
-/** `trips` are all trips for the current search before filters, so counts show what each filter would give. */
+/**
+ * `trips` are all trips for the current search before filters, so counts show what each filter would give.
+ * Returns how many filters are active.
+ */
 export function renderFilterSidebar(ctx, trips) {
-  const { filters, setFilters } = ctx;
+  const { filters, setFilters, closeSheet } = ctx;
   const active = activeCount(filters);
   $('filters').replaceChildren(
     h('div', { class: 'filters-head' },
       h('h2', {}, 'Filters'),
-      active > 0 && h('button', { type: 'button', class: 'link-btn', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false }) }, `Clear all (${active})`)),
+      active > 0 && h('button', { type: 'button', class: 'link-btn', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false }) }, `Clear all (${active})`),
+      closeSheet && h('button', { type: 'button', class: 'orb orb--sunk orb--sm filters-close', 'aria-label': 'Close filters', onclick: closeSheet }, icon('i-close'))),
     group('Stops', checkRow({ label: 'Direct', hint: 'Every flight shown is non-stop', checked: true, disabled: true, onChange: () => {} })),
     group('Trip type', checkRow({
       label: 'Weekend trips only', hint: 'Leave Thu–Sat, back Sun or Mon', checked: filters.weekend,
@@ -83,4 +87,5 @@ export function renderFilterSidebar(ctx, trips) {
       timeGroup('Return', 'backWin', trips, (trip) => trip.backTime, ctx)),
     priceGroup(trips, ctx),
     airlineGroup(trips, ctx));
+  return active;
 }
