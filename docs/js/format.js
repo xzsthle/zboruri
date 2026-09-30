@@ -60,11 +60,6 @@ export function fmtNextScan(now = new Date()) {
   return minutes < 60 ? `in ${minutes} min` : `in ${Math.round(minutes / 60)} h`;
 }
 
-export function flagEmoji(code) {
-  if (!/^[A-Z]{2}$/.test(code ?? '')) return '🌍';
-  return String.fromCodePoint(...[...code].map((ch) => 0x1f1e6 + ch.charCodeAt(0) - 65));
-}
-
 export const safeBookingUrl = (url) =>
   typeof url === 'string' && BOOKING_PREFIXES.some((prefix) => url.startsWith(prefix)) ? url : null;
 

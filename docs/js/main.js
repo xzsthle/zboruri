@@ -113,7 +113,7 @@ async function load() {
       fetchJson('data/deals.json'),
       fetchJson('data/fares.json').catch(() => ({ destinations: {} })),
       fetchJson('data/history.json').then((body) => body.destinations ?? {}).catch(() => ({})),
-      // Photos are optional: without them the drawn landscapes are used.
+      // Photos are optional: without them each destination gets a flat colour block.
       fetchJson('data/photos.json').then((body) => body.destinations ?? {}).catch(() => ({})),
     ]);
     start({ site, fares, priceHistory, photos });

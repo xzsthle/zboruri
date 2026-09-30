@@ -25,7 +25,7 @@ GitHub Actions (08:00 + 21:00)
 The site at `https://<you>.github.io/<repo>/` is a flight search in the style of Skyscanner, built over the scanner's data. The scanner publishes every day's one-way fares (`docs/data/fares.json`), so the page can pair any dates you choose.
 
 - **Search widget:** From · To · Depart · Return · Travellers.
-  - **To:** destination autocomplete (flags, airports, "from €X" prices), or "Everywhere".
+  - **To:** destination autocomplete (photos, airports, "from €X" prices), or "Everywhere".
   - **Depart:** a specific day on a two-month **price calendar** (cheap / average / higher days coloured), a whole month, or anytime.
   - **Return:** a trip-length range, or an exact return date on its own price calendar.
   - **Travellers:** number of adults; totals are shown for everyone.

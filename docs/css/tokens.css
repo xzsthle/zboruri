@@ -106,7 +106,6 @@ button:disabled { cursor: default; }
 [hidden] { display: none !important; }
 
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-.on-dark :focus-visible,
 .tile--dark :focus-visible,
 .tile--accent :focus-visible { outline-color: #fff; }
 
@@ -114,7 +113,6 @@ button:disabled { cursor: default; }
 .icon { width: 1.125em; height: 1.125em; flex: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .muted { color: var(--ink-3); }
-.num { font-variant-numeric: tabular-nums; }
 
 .skip-link { position: absolute; z-index: 90; left: var(--gutter); top: -4rem; padding: var(--space-2) var(--space-4); border-radius: var(--r-pill); background: var(--black); color: #fff; }
 .skip-link:focus { top: var(--space-3); }
@@ -124,15 +122,3 @@ button:disabled { cursor: default; }
   *, *::before, *::after { animation: none !important; transition-duration: 0ms !important; }
 }
 
-/* TEMPORARY aliases for stylesheets not yet rewritten — removed in the cleanup phase. */
-:root {
-  --page: var(--canvas); --surface: var(--tile); --surface-soft: var(--sunk); --surface-sunk: var(--sunk);
-  --line-strong: var(--ink-4); --navy: var(--black); --navy-2: var(--charcoal);
-  --primary: var(--accent); --primary-hover: var(--accent); --primary-soft: var(--accent-soft);
-  --good: var(--cheap); --good-soft: var(--sunk); --mid-soft: var(--sunk); --high-soft: var(--sunk); --yellow: var(--accent);
-  --text-xs: var(--fs-xs); --text-sm: var(--fs-sm); --text-base: var(--fs-base); --text-lg: var(--fs-lg); --text-xl: var(--fs-xl);
-  --text-h2: var(--fs-h2); --text-h1: var(--fs-h1);
-  --radius-sm: var(--r-inner); --radius-md: var(--r-card); --radius-lg: var(--r-tile); --radius-xl: var(--r-frame); --radius-pill: var(--r-pill);
-  --shadow-sm: none; --shadow-md: none; --shadow-lg: var(--shadow-float); --shadow-pop: var(--shadow-float);
-  --duration-fast: var(--t-fast); --duration-normal: var(--t-base); --ease-out-expo: var(--ease); --ease-spring: var(--ease);
-}

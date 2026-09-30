@@ -13,7 +13,7 @@ export const photoUrl = (photo, width, height) =>
 
 /**
  * A responsive, lazily loaded <img> with the photo's average colour as a placeholder,
- * or null when there is no usable photo (callers fall back to the drawn landscape).
+ * or null when there is no usable photo (callers fall back to a colour block, see art.js).
  */
 export function photoImg(photo, { width, height, className = '', eager = false, alt }) {
   if (!isSafe(photo)) return null;
