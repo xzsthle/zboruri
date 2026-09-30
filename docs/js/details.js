@@ -90,7 +90,7 @@ function photoTile(photo, info) {
   const { dest } = info;
   const facts = [stopsLabel(info.out.stops), durationLabel(info.out), info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean);
   return h('div', { class: 'dlg-photo photo-tile has-scrim' },
-    photoImg(photo, { width: 720, height: 260, className: 'cover dlg-img', eager: true, alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
+    photoImg(photo, { width: 720, height: 260, sizes: '(max-width: 980px) 100vw, 640px', className: 'cover dlg-img', eager: true, alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
     h('span', { class: 'tag-pill dlg-country' }, dest.country),
     h('p', { class: 'stat-pill dlg-facts' }, facts.map((fact) => h('span', {}, fact))));
 }

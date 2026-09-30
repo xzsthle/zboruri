@@ -44,8 +44,12 @@ export function resultCard({ trip, info, money, adults, badges = [], onSelect })
 /** A photo tile: country and price pills on top, the city and a stat pill at the bottom. */
 export function destinationCard({ dest, best, count, info, money, photo, onSelect, featured = false }) {
   const size = featured ? 760 : 520;
+  // Square crops drawn with object-fit: cover, so on phones (tiles 420px tall) the height can decide the width.
+  const sizes = featured
+    ? '(max-width: 760px) max(82vw, 420px), (max-width: 860px) 100vw, (max-width: 1100px) 66vw, 640px'
+    : '(max-width: 760px) max(82vw, 420px), (max-width: 980px) 50vw, 320px';
   return h('article', { class: featured ? 'dc photo-tile has-scrim is-featured' : 'dc photo-tile has-scrim' },
-    photoImg(photo, { width: size, height: size, className: 'cover dc-photo', alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
+    photoImg(photo, { width: size, height: size, sizes, className: 'cover dc-photo', alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
     h('button', { type: 'button', class: 'dc-hit', onclick: onSelect, 'aria-label': `${dest.name}, ${dest.country}: from ${money.format(best.pricePp)} return` }),
     h('span', { class: 'tag-pill dc-country' }, dest.country),
     h('span', { class: 'price-pill dc-price' }, h('small', {}, 'from'), money.format(best.pricePp)),

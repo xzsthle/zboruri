@@ -48,7 +48,7 @@ function banner({ site, engine, query, photos }, count) {
   const direct = dest?.direct !== false;
   const facts = info ? [direct ? 'Direct' : 'With a stop', direct && info.minutes && `≈ ${fmtDuration(info.minutes)}`, info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean) : [];
   return h('div', { class: 'rh-banner photo-tile has-scrim' },
-    photoImg(photo, { width: 1000, height: 400, className: 'cover rh-img', eager: true, alt: dest?.name ?? query.to }) ?? colorBlock(query.to, 'cover'),
+    photoImg(photo, { width: 1000, height: 400, sizes: '(max-width: 980px) 100vw, 850px', className: 'cover rh-img', eager: true, alt: dest?.name ?? query.to }) ?? colorBlock(query.to, 'cover'),
     dest && h('span', { class: 'tag-pill rh-country' }, dest.country),
     h('div', { class: 'rh-body' },
       h('h1', { class: 'rh-title' }, `${origin} → ${dest?.name ?? query.to}`),

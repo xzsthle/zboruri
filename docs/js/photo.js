@@ -11,16 +11,22 @@ const isSafe = (photo) => typeof photo?.base === 'string' && photo.base.startsWi
 export const photoUrl = (photo, width, height) =>
   `${photo.base}?auto=compress&cs=tinysrgb&fit=crop&w=${width}&h=${height}`;
 
+// Rendition widths as multiples of the layout size: up to 3× for high-density screens.
+const SCALES = [1, 1.5, 2, 3];
+
 /**
  * A responsive, lazily loaded <img> with the photo's average colour as a placeholder,
  * or null when there is no usable photo (callers fall back to a colour block, see art.js).
+ * `sizes` is how wide the image is drawn (default: `width` px), so the browser picks a sharp enough rendition.
  */
-export function photoImg(photo, { width, height, className = '', eager = false, alt }) {
+export function photoImg(photo, { width, height, sizes = `${width}px`, className = '', eager = false, alt }) {
   if (!isSafe(photo)) return null;
   return h('img', {
     class: className,
     src: photoUrl(photo, width, height),
-    srcset: `${photoUrl(photo, width, height)} 1x, ${photoUrl(photo, width * 2, height * 2)} 2x`,
+    // Pexels resizes the original on the fly.
+    srcset: SCALES.map((x) => `${photoUrl(photo, Math.round(width * x), Math.round(height * x))} ${Math.round(width * x)}w`).join(', '),
+    sizes,
     width: String(width),
     height: String(height),
     alt: alt ?? photo.alt ?? '',
