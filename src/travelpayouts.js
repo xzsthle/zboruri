@@ -10,6 +10,8 @@ const DATA_URL = 'https://api.travelpayouts.com/data/en';
 const SITE = 'https://www.aviasales.com';
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const IATA = /^[A-Z]{3}$/;
+// Journeys with three or more changes each way are left out.
+const MAX_STOPS = 2;
 
 export class TravelpayoutsAuthError extends Error {
   constructor() {
@@ -35,10 +37,21 @@ const localTimes = (value) => {
   return match ? [match[1]] : [];
 };
 
+/** Aviasales search link: the route path and ticket key only (the long tracking query is dropped), plus the marker. */
 function bookingLink(link, marker) {
   if (typeof link !== 'string' || !link.startsWith('/')) return null;
-  const url = `${SITE}${link}`;
-  return marker ? `${url}${url.includes('?') ? '&' : '?'}marker=${encodeURIComponent(marker)}` : url;
+  let parsed;
+  try {
+    parsed = new URL(`${SITE}${link}`);
+  } catch {
+    return null;
+  }
+  if (parsed.origin !== SITE) return null;
+  const params = new URLSearchParams();
+  if (parsed.searchParams.get('t')) params.set('t', parsed.searchParams.get('t'));
+  if (marker) params.set('marker', marker);
+  // Concatenated, never resolved: a path like "//other.site" stays a path on Aviasales.
+  return `${SITE}${parsed.pathname}${params.size ? `?${params}` : ''}`;
 }
 
 // Stops and minutes are per direction; anything unusable becomes 0 stops / unknown time.
@@ -54,6 +67,7 @@ function toTrip(row, { fromIso, toIso, minNights, maxNights, marker }) {
   if (outDate < fromIso || outDate > toIso) return null;
   const nights = daysBetween(outDate, backDate);
   if (nights < minNights || nights > maxNights) return null;
+  if (stopsOf(row.transfers) > MAX_STOPS || stopsOf(row.return_transfers) > MAX_STOPS) return null;
 
   return {
     destIata,

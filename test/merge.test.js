@@ -42,3 +42,15 @@ test('mergeSources keeps cached Wizz fares for routes the live Wizz scan could n
   assert.equal(merged[0].dest.iata, 'OTP');
   assert.equal(merged[0].trips[0].airline, 'Wizz Air');
 });
+
+test('mergeSources treats Wizz Air Malta (W4) and UK (W9) as Wizz Air: live data wins, and they are named Wizz Air', () => {
+  const merged = mergeSources({
+    originIata: 'RMO',
+    wizz: [{ dest: BUD, trips: [trip('W6', 32, { airline: 'Wizz Air', source: 'wizz' })] }],
+    others: [{ destIata: 'BUD', trip: trip('W4', 28) }, { destIata: 'OTP', trip: trip('W9', 44, { stops: 1 }) }],
+    placeFor,
+    airlineName: (code) => ({ W4: 'Wizz Air Malta', W9: 'Wizz Air UK' })[code] ?? null,
+  });
+  assert.equal(merged[0].trips.length, 1, 'the cached W4 fare to Budapest duplicates the live scan');
+  assert.deepEqual([merged[1].dest.iata, merged[1].trips[0].airline], ['OTP', 'Wizz Air']);
+});

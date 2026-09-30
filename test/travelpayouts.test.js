@@ -61,6 +61,17 @@ test('parsePrices keeps the stops and flight time of each direction; stops is th
   assert.deepEqual([odd.outStops, odd.outMinutes, odd.backMinutes], [0, null, 90]);
 });
 
+test('parsePrices drops itineraries with more than two stops in either direction', () => {
+  const trips = parsePrices({ success: true, data: [row({ transfers: 3 }), row({ return_transfers: 4 }), row({ transfers: 2, return_transfers: 2 })] }, options);
+  assert.deepEqual(trips.map(({ trip }) => [trip.outStops, trip.backStops]), [[2, 2]]);
+});
+
+test('parsePrices keeps only the route and ticket key of Aviasales links (the rest is tracking noise)', () => {
+  const link = '/search/RMO0311BUD10111?t=W417937159001793718&search_date=28092026&expected_price_uuid=01a0&static_fare_key=TY%7CP0&expected_price=28';
+  const [{ trip }] = parsePrices({ success: true, data: [row({ link })] }, { ...options, marker: '42' });
+  assert.equal(trip.bookingUrl, 'https://www.aviasales.com/search/RMO0311BUD10111?t=W417937159001793718&marker=42');
+});
+
 test('parsePrices adds the affiliate marker and refuses links that are not site paths', () => {
   const [marked] = parsePrices({ success: true, data: [row()] }, { ...options, marker: '12345' });
   assert.equal(marked.trip.bookingUrl, 'https://www.aviasales.com/search/RMO1010IST14101?t=abc&marker=12345');

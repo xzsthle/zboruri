@@ -1,6 +1,7 @@
 // Combines live Wizz Air round trips with cached fares for other airlines, per destination airport.
 
-const WIZZ_AIR = 'W6';
+// Wizz Air and its sister airlines (Malta, UK, Abu Dhabi): the same network the live scan reads.
+const WIZZ_GROUP = new Set(['W6', 'W4', 'W9', '5W']);
 
 /**
  * wizz:   [{ dest, trips }] for destinations the live Wizz scan reached.
@@ -14,10 +15,11 @@ export function mergeSources({ wizz, others, placeFor, airlineName, originIata }
 
   for (const { destIata, trip } of others) {
     if (destIata === originIata) continue;
-    if (live.has(destIata) && trip.airlineCode === WIZZ_AIR) continue;
+    const wizz = WIZZ_GROUP.has(trip.airlineCode);
+    if (live.has(destIata) && wizz) continue;
     const dest = live.get(destIata)?.dest ?? extra.get(destIata)?.dest ?? placeFor(destIata);
     if (!dest) continue;
-    const named = { ...trip, airline: airlineName(trip.airlineCode) ?? trip.airlineCode ?? 'Other airline' };
+    const named = { ...trip, airline: wizz ? 'Wizz Air' : airlineName(trip.airlineCode) ?? trip.airlineCode ?? 'Other airline' };
     extra.set(destIata, { dest, trips: [...(extra.get(destIata)?.trips ?? []), named] });
   }
 
