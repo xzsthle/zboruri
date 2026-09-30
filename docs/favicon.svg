@@ -1,14 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5068ff"/>
-      <stop offset=".55" stop-color="#2a36b6"/>
-      <stop offset="1" stop-color="#121a5e"/>
-    </linearGradient>
-  </defs>
-  <!-- Simplified mark for tiny sizes: a solid Z route and the pink origin pin. -->
-  <rect width="64" height="64" rx="18" fill="url(#bg)"/>
+  <!-- Simplified mark for tiny sizes: a solid Z route on black. -->
+  <rect width="64" height="64" rx="18" fill="#111113"/>
   <path d="M19 20 H45 L19 45 H45" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="19" cy="20" r="6.5" fill="#ff3d7f"/>
-  <circle cx="19" cy="20" r="2.4" fill="#fff"/>
 </svg>

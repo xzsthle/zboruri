@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preload" as="image" href="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" imagesrcset="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960 960w, https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/components.css">
@@ -36,46 +37,8 @@
 <body data-view="home">
   <a class="skip-link" href="#search-widget">Skip to search</a>
 
-  <!-- Icon sprite + illustration symbols. Kept renderable (not display:none) so gradients resolve. -->
+  <!-- Icon sprite. -->
   <svg class="sprite" aria-hidden="true" focusable="false">
-    <defs>
-      <linearGradient id="g-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4fd0"/><stop offset="1" stop-color="#16207a"/></linearGradient>
-      <linearGradient id="g-navy-soft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d9ce6"/><stop offset="1" stop-color="#5263c2"/></linearGradient>
-      <linearGradient id="g-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1f4fb"/><stop offset="1" stop-color="#c7d1e8"/></linearGradient>
-      <linearGradient id="g-cloud" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6eef9"/></linearGradient>
-      <clipPath id="clip-fuse"><path d="M48 80 L122 76 L468 74 C508 74 532 84 541 94 C532 104 510 110 468 110 L150 110 C110 110 72 102 48 90 Z"/></clipPath>
-      <pattern id="p-windows" x="150" y="81" width="13" height="7" patternUnits="userSpaceOnUse"><rect width="6" height="7" rx="3" fill="#24338f"/></pattern>
-    </defs>
-
-    <symbol id="plane-art" viewBox="0 0 560 170">
-      <path d="M298 76 L354 76 L300 38 C298 36 295 35 292 35 L281 35 C278 35 277 38 279 40 Z" fill="url(#g-navy-soft)"/>
-      <path d="M54 80 L30 20 C29 16 32 13 36 13 L60 13 C64 13 67 15 69 18 L132 77 Z" fill="url(#g-navy)"/>
-      <path d="M42 46 L50 40 L108 78 L94 78 Z" fill="#5b78ff" opacity=".85"/>
-      <path d="M48 80 L122 76 L468 74 C508 74 532 84 541 94 C532 104 510 110 468 110 L150 110 C110 110 72 102 48 90 Z" fill="url(#g-body)"/>
-      <rect x="0" y="103" width="560" height="10" fill="url(#g-navy)" clip-path="url(#clip-fuse)"/>
-      <path d="M130 78 L460 76" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-      <rect x="150" y="81" width="310" height="7" fill="url(#p-windows)"/>
-      <path d="M506 84 L527 86.5 C530 87.5 531 90 529 91 L506 91 C503 91 503 84 506 84 Z" fill="#162065"/>
-      <rect x="474" y="80" width="11" height="21" rx="3" fill="none" stroke="#c9d2e8" stroke-width="1.5"/>
-      <rect x="128" y="80" width="10" height="20" rx="3" fill="none" stroke="#c9d2e8" stroke-width="1.5"/>
-      <text x="318" y="100" class="livery">Zboruri</text>
-      <path d="M64 90 L24 104 C19 106 21 110 26 110 L46 110 L108 96 Z" fill="url(#g-navy)"/>
-      <path d="M262 102 L346 102 L252 156 C249 158 245 159 242 159 L226 159 C222 159 221 156 223 154 Z" fill="url(#g-navy)"/>
-      <path d="M300 104 L322 104 L318 114 L304 114 Z" fill="#1b2670"/>
-      <path d="M284 114 L344 112 C356 112 358 134 344 134 L284 132 C274 131 274 115 284 114 Z" fill="url(#g-body)" stroke="#c9d2e8"/>
-      <path d="M282 123.5 L346 123" stroke="#1f2e86" stroke-width="3"/>
-      <ellipse cx="349" cy="123" rx="5" ry="10" fill="#1b2670"/>
-    </symbol>
-
-    <symbol id="cloud" viewBox="0 0 240 110">
-      <g fill="url(#g-cloud)">
-        <ellipse cx="62" cy="72" rx="50" ry="34"/>
-        <ellipse cx="118" cy="50" rx="58" ry="46"/>
-        <ellipse cx="176" cy="70" rx="48" ry="34"/>
-        <rect x="24" y="68" width="196" height="40" rx="20"/>
-      </g>
-    </symbol>
-
     <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
     <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
     <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
@@ -102,81 +65,102 @@
       <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
     <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 14.06A2 2 0 0 0 8.5 12.62l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 8.5a2 2 0 0 0 1.44-1.44l1.58-6.13a.5.5 0 0 1 .96 0l1.58 6.13A2 2 0 0 0 15.5 8.5l6.13 1.58a.5.5 0 0 1 0 .96L15.5 12.62a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   </svg>
 
   <header class="topnav">
-    <div class="container topnav-inner">
-      <a class="brand" href="#/" aria-label="Zboruri — home">
-        <img class="brand-mark" src="assets/logo-mark.svg" width="40" height="40" alt="">
-        <span class="brand-text"><span class="brand-word">Zboruri</span><span class="brand-tag">Flights from Chișinău</span></span>
+    <div class="topnav-inner">
+      <a class="brand" href="#/" aria-label="Zboruri, home">
+        <img class="brand-mark" src="assets/logo-mark.svg" width="36" height="36" alt="">
+        <span class="brand-word">zboruri</span>
       </a>
       <nav class="topnav-links" aria-label="Main">
-        <a href="#/"><svg class="icon" aria-hidden="true"><use href="#i-plane"/></svg>Flights</a>
-        <a href="#" data-nav="explore"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>Explore everywhere</a>
-        <a href="#" data-nav="weekend"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg>Weekend deals</a>
-        <a href="#" data-nav="map-section"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg>Route map</a>
+        <a href="#/" data-nav-item="flights">Flights</a>
+        <a href="#" data-nav="explore" data-nav-item="explore">Explore everywhere</a>
+        <a href="#" data-nav="weekend" data-nav-item="weekend">Weekend deals</a>
+        <a href="#" data-nav="map-section">Route map</a>
       </nav>
       <div class="topnav-right">
-        <span class="live-pill"><span class="live-dot" aria-hidden="true"></span><span id="status-next">Live prices</span></span>
-        <label class="currency-select"><span class="sr-only">Currency</span><select id="currency"></select></label>
+        <span class="nav-pill nav-status" id="status-next">Live prices</span>
+        <label class="nav-pill currency-select"><span class="sr-only">Currency</span><select id="currency"></select></label>
       </div>
     </div>
   </header>
 
-  <section class="hero-band" aria-label="Search flights">
-    <svg class="hero-plane" viewBox="0 0 560 170" aria-hidden="true"><use href="#plane-art"/></svg>
-    <div class="container hero-inner">
-      <h1 class="hero-title">Find cheap flights from Chișinău<span> to anywhere.</span></h1>
-      <form class="ask" id="ask-form" role="search" aria-label="Describe your trip in English or Romanian" autocomplete="off">
-        <svg class="icon ask-icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
-        <label class="sr-only" for="ask-input">Describe your trip</label>
-        <input id="ask-input" class="ask-input" type="text" maxlength="300" spellcheck="false" placeholder="Describe your trip — “beach next week under €80” · „la mare săptămâna viitoare”">
-        <button type="submit" class="ask-submit"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg><span>Ask</span></button>
-      </form>
-      <div class="ask-meta">
-        <div class="ask-examples" id="ask-examples"></div>
-        <span class="ask-engine" id="ask-engine"></span>
+  <section class="hero" aria-label="Search flights">
+    <div class="hero-frame">
+      <img class="hero-photo" src="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" srcset="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=960 960w, https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920 1920w" sizes="100vw" width="1920" height="1440" alt="" fetchpriority="high">
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          <span class="sr-only">Zboruri: cheap return flights from Chișinău</span>
+          <span class="hero-kicker" aria-hidden="true">Return flights from Chișinău, checked every morning and evening.</span>
+          <span class="hero-wordmark" aria-hidden="true">Zboruri</span>
+        </h1>
       </div>
-      <p class="ask-status" id="ask-status" role="status" aria-live="polite"></p>
-      <p class="or-divider" aria-hidden="true"><span>or search by dates</span></p>
+      <a class="hero-credit" href="https://www.pexels.com/photo/white-and-red-plane-beside-clouds-low-angle-photography-46148/" target="_blank" rel="noopener noreferrer">Photo: Pixabay / Pexels</a>
+    </div>
+
+    <div class="container hero-search">
       <form class="search-widget" id="search-widget" role="search" autocomplete="off" novalidate>
         <div class="sw-fields">
           <div class="sw-field sw-from">
-            <span class="sw-label">From</span>
-            <span class="sw-value"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Chișinău (RMO)</span>
+            <svg class="icon sw-icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span class="sw-text">
+              <span class="sw-label">From</span>
+              <span class="sw-value">Chișinău (RMO)</span>
+            </span>
           </div>
           <div class="sw-field sw-to">
-            <label class="sw-label" for="sw-to">To</label>
-            <input id="sw-to" class="sw-input" data-pop="to" role="combobox" aria-expanded="false" aria-controls="sw-pop-to" aria-autocomplete="list" placeholder="Country, city or airport" spellcheck="false">
+            <svg class="icon sw-icon" aria-hidden="true"><use href="#i-plane"/></svg>
+            <span class="sw-text">
+              <label class="sw-label" for="sw-to">To</label>
+              <input id="sw-to" class="sw-input" data-pop="to" role="combobox" aria-expanded="false" aria-controls="sw-pop-to" aria-autocomplete="list" placeholder="Country, city or airport" spellcheck="false">
+            </span>
             <div class="sw-pop sw-pop-list" id="sw-pop-to" hidden></div>
           </div>
           <div class="sw-field sw-depart">
             <button type="button" class="sw-button" data-pop="depart" aria-expanded="false" aria-controls="sw-pop-depart" aria-haspopup="dialog">
-              <span class="sw-label">Depart</span><span class="sw-value" id="sw-depart-value">Anytime</span>
+              <svg class="icon sw-icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+              <span class="sw-text"><span class="sw-label">Depart</span><span class="sw-value" id="sw-depart-value">Anytime</span></span>
             </button>
             <div class="sw-pop sw-pop-cal" id="sw-pop-depart" role="dialog" aria-label="Choose departure date" hidden></div>
           </div>
           <div class="sw-field sw-back">
             <button type="button" class="sw-button" data-pop="back" aria-expanded="false" aria-controls="sw-pop-back" aria-haspopup="dialog">
-              <span class="sw-label">Return</span><span class="sw-value" id="sw-back-value">2–10 nights</span>
+              <svg class="icon sw-icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+              <span class="sw-text"><span class="sw-label">Return</span><span class="sw-value" id="sw-back-value">2–10 nights</span></span>
             </button>
             <div class="sw-pop sw-pop-cal sw-pop-right" id="sw-pop-back" role="dialog" aria-label="Choose return" hidden></div>
           </div>
           <div class="sw-field sw-pax">
             <button type="button" class="sw-button" data-pop="pax" aria-expanded="false" aria-controls="sw-pop-pax" aria-haspopup="dialog">
-              <span class="sw-label">Travellers</span><span class="sw-value" id="sw-pax-value">1 adult</span>
+              <svg class="icon sw-icon" aria-hidden="true"><use href="#i-user"/></svg>
+              <span class="sw-text"><span class="sw-label">Travellers</span><span class="sw-value" id="sw-pax-value">1 adult</span></span>
             </button>
             <div class="sw-pop sw-pop-small sw-pop-right" id="sw-pop-pax" role="dialog" aria-label="Travellers" hidden></div>
           </div>
-          <button type="submit" class="sw-submit">Search<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button type="submit" class="sw-submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Search</button>
         </div>
         <div class="sw-options">
-          <label class="sw-check"><input type="checkbox" checked disabled><span class="sw-box" aria-hidden="true"></span>Direct flights only</label>
-          <label class="sw-check"><input type="checkbox" id="sw-others" checked><span class="sw-box" aria-hidden="true"></span>Include other airlines</label>
+          <label class="check sw-check"><input type="checkbox" checked disabled><span class="check-box" aria-hidden="true"></span><span class="check-text">Direct flights only</span></label>
+          <label class="switch"><input type="checkbox" id="sw-others" checked><span class="switch-track" aria-hidden="true"></span>Include other airlines</label>
           <span class="sw-note">Return prices, per person</span>
         </div>
       </form>
+      <div class="ask-block">
+        <form class="ask" id="ask-form" role="search" aria-label="Describe your trip in English or Romanian" autocomplete="off">
+          <svg class="icon ask-icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
+          <label class="sr-only" for="ask-input">Describe your trip</label>
+          <input id="ask-input" class="ask-input" type="text" maxlength="300" spellcheck="false" placeholder="Describe your trip: “beach next week under €80”">
+          <button type="submit" class="ask-submit"><span>Ask</span></button>
+        </form>
+        <div class="ask-meta">
+          <div class="ask-examples" id="ask-examples"></div>
+          <span class="ask-engine" id="ask-engine"></span>
+        </div>
+        <p class="ask-status" id="ask-status" role="status" aria-live="polite"></p>
+      </div>
       <ul class="hero-stats" id="hero-stats"></ul>
     </div>
   </section>
@@ -273,9 +257,9 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a class="brand" href="#/" aria-label="Zboruri — home">
-          <img class="brand-mark" src="assets/logo-mark.svg" width="36" height="36" alt="">
-          <span class="brand-text"><span class="brand-word">Zboruri</span><span class="brand-tag">Flights from Chișinău</span></span>
+        <a class="brand" href="#/" aria-label="Zboruri, home">
+          <img class="brand-mark" src="assets/logo-mark.svg" width="32" height="32" alt="">
+          <span class="brand-word">zboruri</span>
         </a>
         <p>Cheap return flights from Chișinău, found twice a day. Free, no account, no ads.</p>
       </div>

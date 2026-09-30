@@ -59,6 +59,17 @@ function start({ site, fares, priceHistory, photos }) {
     };
   }
 
+  // The nav pill for where the viewer is: Everywhere, Weekend deals, or Flights for everything else.
+  function markNav() {
+    const { view, query, filters } = route;
+    const everywhere = view === 'search' && query.to === 'anywhere';
+    const current = everywhere ? (filters.weekend ? 'weekend' : 'explore') : 'flights';
+    document.querySelectorAll('[data-nav-item]').forEach((link) => {
+      if (link.dataset.navItem === current) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
   function render() {
     const isSearch = route.view === 'search';
     document.body.dataset.view = route.view;
@@ -66,6 +77,7 @@ function start({ site, fares, priceHistory, photos }) {
     $('view-search').hidden = !isSearch;
     widget.setQuery(route.query);
     $('currency').value = currency;
+    markNav();
     if (isSearch) renderResults(context());
     else renderHome(context());
   }

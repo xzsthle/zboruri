@@ -38,15 +38,6 @@
 .fg-sub { display: grid; gap: var(--space-1); }
 .fg-sub + .fg-sub { margin-top: var(--space-3); }
 .fg-subtitle { color: var(--ink-3); font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
-.check { position: relative; display: grid; grid-template-columns: 1.15rem minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: 0.3rem 0; cursor: pointer; }
-.check input { position: absolute; opacity: 0; }
-.check-box { width: 1.15rem; height: 1.15rem; border: 2px solid var(--line-strong); border-radius: 5px; transition: background-color var(--duration-fast), border-color var(--duration-fast); }
-.check input:checked + .check-box { border-color: var(--primary); background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 0.75rem no-repeat; }
-.check input:focus-visible + .check-box { outline: 3px solid color-mix(in srgb, var(--primary) 45%, transparent); outline-offset: 2px; }
-.check-text { display: grid; font-size: var(--text-sm); font-weight: 600; line-height: 1.3; }
-.check-text small { color: var(--ink-3); font-size: var(--text-xs); font-weight: 500; }
-.check-count { color: var(--ink-3); font-size: var(--text-xs); font-weight: 600; }
-.check.is-disabled { opacity: 0.5; cursor: default; }
 .range { width: 100%; accent-color: var(--primary); }
 .range-value { font-weight: 800; }
 .range-ends { display: flex; justify-content: space-between; color: var(--ink-3); font-size: var(--text-xs); }

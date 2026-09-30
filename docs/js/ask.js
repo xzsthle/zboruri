@@ -5,12 +5,12 @@ import { aiEnabled, understand } from './ai.js';
 import { intentToRoute } from './intent.js';
 
 const EXAMPLES = [
-  ['🏖️', 'Beach next week under €80'],
-  ['🇮🇹', 'Weekend în Italia pentru 2'],
-  ['🏙️', 'City break in November, 3 nights'],
-  ['🏔️', 'Munte în decembrie'],
-  ['🎄', 'Christmas markets in December'],
-  ['💸', 'Cel mai ieftin zbor la Londra'],
+  'Beach next week under €80',
+  'Weekend în Italia pentru 2',
+  'City break in November, 3 nights',
+  'Munte în decembrie',
+  'Christmas markets in December',
+  'Cel mai ieftin zbor la Londra',
 ];
 
 export function initAsk({ site, navigate }) {
@@ -46,8 +46,7 @@ export function initAsk({ site, navigate }) {
   }
 
   form.addEventListener('submit', (event) => { event.preventDefault(); ask(input.value); });
-  $('ask-examples').replaceChildren(...EXAMPLES.map(([emoji, text]) =>
-    h('button', { type: 'button', class: 'ask-chip', onclick: () => { input.value = text; ask(text); } },
-      h('span', { 'aria-hidden': 'true' }, emoji), text)));
+  $('ask-examples').replaceChildren(...EXAMPLES.map((text) =>
+    h('button', { type: 'button', class: 'chip ask-chip', onclick: () => { input.value = text; ask(text); } }, text)));
   $('ask-engine').textContent = aiEnabled() ? 'Powered by Gemini' : 'Understands English & Romanian';
 }
