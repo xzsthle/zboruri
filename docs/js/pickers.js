@@ -31,8 +31,17 @@ function monthView({ year, month }, { prices, sorted, selected, rangeStart, minD
     const iso = `${year}-${pad(month + 1)}-${pad(i + 1)}`;
     const price = prices.get(iso);
     const disabled = price == null || iso < minDate || iso > maxDate;
-    const inRange = rangeStart && selected && iso > rangeStart && iso < selected;
-    const classes = ['pc-day', disabled ? '' : tierOf(price, sorted), iso === selected ? 'is-selected' : '', iso === rangeStart ? 'is-start' : '', inRange ? 'in-range' : ''];
+    const hasRange = Boolean(rangeStart && selected && selected > rangeStart);
+    const inRange = hasRange && iso > rangeStart && iso < selected;
+    // Where the range band wraps (Monday / Sunday, or a month edge) its ends are rounded too.
+    const column = (blanks + i) % 7;
+    const classes = [
+      'pc-day', disabled ? '' : tierOf(price, sorted), iso === selected ? 'is-selected' : '', iso === rangeStart ? 'is-start' : '',
+      inRange ? 'in-range' : '',
+      // Half a band towards the range, unless the end sits at the row edge facing it.
+      hasRange && ((iso === rangeStart && column !== 6 && i !== days - 1) || (iso === selected && column !== 0 && i !== 0)) ? 'is-range-end' : '',
+      inRange && (column === 0 || i === 0) ? 'is-row-start' : '', inRange && (column === 6 || i === days - 1) ? 'is-row-end' : '',
+    ];
     return h('button', {
       type: 'button',
       class: classes.filter(Boolean).join(' '),
@@ -66,12 +75,15 @@ export function priceCalendar({ prices, selected, rangeStart = null, minDate, ma
   const root = h('div', { class: 'pc' });
   const options = { prices, sorted, selected, rangeStart, minDate, maxDate, money, onPick };
 
+  // Two months side by side; one on phones (matches the 760px breakpoint in responsive.css).
+  const perView = window.matchMedia('(max-width: 760px)').matches ? 1 : 2;
+
   const render = (index) => {
-    const visible = months.slice(index, index + 2);
+    const visible = months.slice(index, index + perView);
     root.replaceChildren(
       h('div', { class: 'pc-nav' },
-        h('button', { type: 'button', class: 'pc-arrow', disabled: index === 0, 'aria-label': 'Previous month', onclick: () => render(index - 1) }, icon('i-chevron-left')),
-        h('button', { type: 'button', class: 'pc-arrow', disabled: index + 2 >= months.length, 'aria-label': 'Next month', onclick: () => render(index + 1) }, icon('i-chevron-right'))),
+        h('button', { type: 'button', class: 'orb orb--sunk orb--sm pc-arrow', disabled: index === 0, 'aria-label': 'Previous month', onclick: () => render(index - 1) }, icon('i-chevron-left')),
+        h('button', { type: 'button', class: 'orb orb--sunk orb--sm pc-arrow', disabled: index + perView >= months.length, 'aria-label': 'Next month', onclick: () => render(index + 1) }, icon('i-chevron-right'))),
       h('div', { class: 'pc-months' }, visible.map((m) => monthView(m, options))),
       h('div', { class: 'pc-legend' },
         h('span', {}, h('i', { class: 'pc-swatch tier-1' }), 'Cheapest'),
@@ -79,7 +91,7 @@ export function priceCalendar({ prices, selected, rangeStart = null, minDate, ma
         h('span', {}, h('i', { class: 'pc-swatch tier-3' }), 'Higher'),
         h('span', { class: 'pc-note' }, `Return price per person · ${money.code}`)));
   };
-  render(Math.min(startIndex, Math.max(0, months.length - 2)));
+  render(Math.min(startIndex, Math.max(0, months.length - perView)));
   return root;
 }
 
@@ -88,14 +100,14 @@ export function monthChips({ prices, selected, money, onPick }) {
   const year = new Date().getUTCFullYear();
   return h('div', { class: 'month-chips' }, [...prices.entries()].map(([month, price]) => {
     const [y, m] = month.split('-').map(Number);
-    return h('button', { type: 'button', class: 'month-chip', 'aria-pressed': String(month === selected), onclick: () => onPick(month) },
+    return h('button', { type: 'button', class: 'chip month-chip', 'aria-pressed': String(month === selected), onclick: () => onPick(month) },
       h('strong', {}, fmtMonthLong(y, m - 1).replace(` ${year}`, '')),
       h('span', {}, `from ${money.format(price)}`));
   }));
 }
 
 export function tabs(items, active, onChange) {
-  return h('div', { class: 'pop-tabs', role: 'tablist' }, items.map(([key, label, disabled]) =>
+  return h('div', { class: 'segmented pop-tabs', role: 'tablist' }, items.map(([key, label, disabled]) =>
     h('button', { type: 'button', role: 'tab', class: 'pop-tab', disabled: Boolean(disabled), 'aria-selected': String(key === active), onclick: () => onChange(key) }, label)));
 }
 
@@ -103,9 +115,9 @@ export function stepper({ label, hint, value, min, max, onChange }) {
   return h('div', { class: 'stepper' },
     h('div', {}, h('p', { class: 'stepper-label' }, label), hint && h('p', { class: 'stepper-hint' }, hint)),
     h('div', { class: 'stepper-controls' },
-      h('button', { type: 'button', class: 'stepper-btn', disabled: value <= min, 'aria-label': `Fewer ${label.toLowerCase()}`, onclick: () => onChange(value - 1) }, '−'),
+      h('button', { type: 'button', class: 'orb orb--sunk stepper-btn', disabled: value <= min, 'aria-label': `Fewer ${label.toLowerCase()}`, onclick: () => onChange(value - 1) }, '−'),
       h('output', { class: 'stepper-value', 'aria-live': 'polite' }, String(value)),
-      h('button', { type: 'button', class: 'stepper-btn', disabled: value >= max, 'aria-label': `More ${label.toLowerCase()}`, onclick: () => onChange(value + 1) }, '+')));
+      h('button', { type: 'button', class: 'orb orb--sunk stepper-btn', disabled: value >= max, 'aria-label': `More ${label.toLowerCase()}`, onclick: () => onChange(value + 1) }, '+')));
 }
 
 export const STAY_PRESETS = [
@@ -119,6 +131,6 @@ export function stayPresets({ min, max, limits, onPick }) {
   return h('div', { class: 'preset-chips' }, STAY_PRESETS.map(([label, from, to]) => {
     const lo = Math.max(limits.min, from ?? limits.min);
     const hi = Math.min(limits.max, to ?? limits.max);
-    return h('button', { type: 'button', class: 'preset-chip', 'aria-pressed': String(lo === min && hi === max), onclick: () => onPick(lo, hi) }, label);
+    return h('button', { type: 'button', class: 'chip preset-chip', 'aria-pressed': String(lo === min && hi === max), onclick: () => onPick(lo, hi) }, label);
   }));
 }

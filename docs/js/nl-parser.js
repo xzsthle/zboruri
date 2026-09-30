@@ -226,8 +226,8 @@ function budgetText({ eur, amount, code }, lang) {
 
 function buildReply(parts, lang) {
   const t = lang === 'ro'
-    ? { none: 'Nu am înțeles detaliile — încearcă „la mare săptămâna viitoare sub 80 €”.', start: 'Caut', everywhere: 'toate destinațiile', under: (p) => `sub ${p}`, nights: (a, b) => (a === b ? `${a} nopți` : `${a}–${b} nopți`), adults: (n) => `pentru ${n} persoane`, weekend: 'doar weekenduri', cheapest: 'cele mai ieftine întâi' }
-    : { none: 'I didn’t catch the details — try “beach next week under €80”.', start: 'Searching', everywhere: 'every destination', under: (p) => `under ${p}`, nights: (a, b) => (a === b ? `${a} nights` : `${a}–${b} nights`), adults: (n) => `for ${n} people`, weekend: 'weekends only', cheapest: 'cheapest first' };
+    ? { none: 'Nu am înțeles detaliile. Încearcă „la mare săptămâna viitoare sub 80 €”.', start: 'Caut', everywhere: 'toate destinațiile', under: (p) => `sub ${p}`, nights: (a, b) => (a === b ? `${a} nopți` : `${a}–${b} nopți`), adults: (n) => `pentru ${n} persoane`, weekend: 'doar weekenduri', cheapest: 'cele mai ieftine întâi' }
+    : { none: 'I didn’t catch the details. Try “beach next week under €80”.', start: 'Searching', everywhere: 'every destination', under: (p) => `under ${p}`, nights: (a, b) => (a === b ? `${a} nights` : `${a}–${b} nights`), adults: (n) => `for ${n} people`, weekend: 'weekends only', cheapest: 'cheapest first' };
   if (!parts.understood) return t.none;
   const bits = [
     parts.label ? (parts.labelIsTheme ? parts.label.toLowerCase() : parts.label) : t.everywhere,

@@ -148,7 +148,7 @@
   .leg-airline { grid-column: 1 / -1; }
 }
 
-/* ---------- Not yet restyled (popovers, details): replaced in later phases ---------- */
+/* ---------- Popovers + details dialog ---------- */
 
 @media (max-width: 980px) {
   .dlg-body { grid-template-columns: minmax(0, 1fr); }
@@ -156,9 +156,21 @@
 }
 
 @media (max-width: 760px) {
-  .sw-pop { position: fixed; z-index: 80; inset: auto 0 0 0; top: auto; width: auto; max-height: 85vh; overflow-y: auto; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+  /* Popovers and the dialog become bottom sheets with a drag handle. */
+  .sw-pop { position: fixed; z-index: 80; inset: auto 0 0 0; width: auto; max-height: 85vh; overflow-y: auto; padding-top: 10px; border-radius: var(--r-tile) var(--r-tile) 0 0; }
+  .sw-pop::before { content: ''; display: block; width: 36px; height: 4px; margin: 0 auto; border-radius: var(--r-pill); background: var(--ink-4); }
   .pc-months { grid-template-columns: minmax(0, 1fr); }
-  .pc-month + .pc-month { display: none; }
-  .dlg-head,
-  .dlg-body { padding: var(--space-5); }
+  .details { width: 100%; max-width: 100%; max-height: 92vh; margin: auto 0 0; border-radius: var(--r-tile) var(--r-tile) 0 0; }
+  .dlg-handle { display: block; width: 36px; height: 4px; margin: 10px auto 0; border-radius: var(--r-pill); background: var(--ink-4); }
+  .dlg-head { padding: var(--space-3) var(--space-4); }
+  .dlg-title { font-size: var(--fs-h2); }
+  .dlg-body { padding: var(--space-1) var(--space-4) var(--space-6); }
+  .dlg-photo { height: 200px; }
+  .dlg-facts { min-height: 30px; padding: 0 var(--space-3); font-size: var(--fs-xs); }
+  .dlg-facts > span + span { margin-left: var(--space-2); padding-left: var(--space-2); }
+  .it-leg,
+  .info-card,
+  .history-card { padding: var(--space-5); }
+  .it-stop { grid-template-columns: 3.75rem minmax(0, 1fr); gap: var(--space-3); }
+  .it-flight { padding-left: calc(3.75rem + var(--space-3)); }
 }

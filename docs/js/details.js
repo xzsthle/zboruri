@@ -5,10 +5,11 @@ import { downloadIcs, shareTrip } from './actions.js';
 import { priceHistory } from './history-chart.js';
 import { priceCalendar } from './pickers.js';
 import { fmtDuration, hoursBetween, nowIn } from './geo.js';
-import { flagEmoji, fmtDay, ORIGIN_NAMES, plural } from './format.js';
+import { fmtDay, ORIGIN_NAMES, plural } from './format.js';
 import { bookingLink, bookLabel, flightInfo } from './flight.js';
 import { toHash } from './query.js';
 import { photoCredit, photoImg } from './photo.js';
+import { colorBlock } from './art.js';
 
 const WIZZ_BASIC = {
   included: ['One personal item under the seat (40 × 30 × 20 cm)', 'Direct flight, no stops'],
@@ -44,7 +45,8 @@ function fareRules(trip) {
   return h('section', { class: 'info-card' }, h('h4', {}, 'What’s included (Wizz Air Basic)'),
     h('ul', { class: 'rule-list' },
       WIZZ_BASIC.included.map((item) => h('li', { class: 'is-in' }, icon('i-check'), item)),
-      WIZZ_BASIC.extra.map((item) => h('li', { class: 'is-extra' }, h('span', { class: 'rule-plus', 'aria-hidden': 'true' }, '+'), `${item} — extra`))));
+      WIZZ_BASIC.extra.map((item) => h('li', { class: 'is-extra' },
+        h('span', { class: 'rule-plus', 'aria-hidden': 'true' }, '+'), item, h('span', { class: 'rule-tag' }, 'extra')))));
 }
 
 function destinationFacts(info, site) {
@@ -59,25 +61,38 @@ function destinationFacts(info, site) {
     ['Airport', dest.airportName ?? null],
   ].filter(([, value]) => value);
   return h('section', { class: 'info-card' },
-    h('h4', {}, `${flagEmoji(dest.countryCode)} About ${dest.name}`),
+    h('h4', {}, `About ${dest.name}`),
     h('dl', { class: 'facts' }, facts.map(([label, value]) => h('div', {}, h('dt', {}, label), h('dd', {}, value)))));
 }
 
 function priceBox({ trip, info, site, money, query }) {
   const url = bookingLink(trip, site, query.adults);
   const shareUrl = new URL(toHash({ ...query, to: trip.iata, depart: trip.outDate, back: trip.backDate }), location.href).href;
-  return h('section', { class: 'price-box' },
-    h('span', { class: trip.source === 'wizz' ? 'badge is-live' : 'badge is-cached' }, trip.source === 'wizz' ? 'Live price' : 'Recently seen price'),
-    h('p', { class: 'pb-price' }, money.format(trip.pricePp), h('small', {}, 'per person, return')),
-    query.adults > 1 && h('p', { class: 'pb-total' }, `${money.format(trip.pricePp * query.adults)} total for ${plural(query.adults, 'adult')}`),
-    trip.outEur != null && h('p', { class: 'pb-split' }, `Outbound ${money.format(trip.outEur)} · Return ${money.format(trip.backEur)}`),
-    url && h('a', { class: 'btn-primary btn-block', href: url, target: '_blank', rel: 'noopener noreferrer' }, bookLabel(trip), icon('i-external')),
+  const live = trip.source === 'wizz';
+  return h('section', { class: 'tile tile--dark price-box' },
+    h('span', { class: live ? 'source' : 'source is-recent' }, live ? 'Live price' : 'Recently seen price'),
+    h('p', { class: 'pb-price' }, money.format(trip.pricePp)),
+    h('p', { class: 'pb-meta' }, 'per person, return'),
+    query.adults > 1 && h('p', { class: 'pb-meta' }, `${money.format(trip.pricePp * query.adults)} total for ${plural(query.adults, 'adult')}`),
+    trip.outEur != null && h('p', { class: 'pb-meta' }, `Outbound ${money.format(trip.outEur)} · Return ${money.format(trip.backEur)}`),
+    url && h('a', { class: 'btn-accent btn-block pb-book', href: url, target: '_blank', rel: 'noopener noreferrer' }, bookLabel(trip), icon('i-external')),
     h('div', { class: 'pb-actions' },
-      h('button', { type: 'button', class: 'btn-ghost', onclick: () => shareTrip({ dest: info.dest, trip, money, url: shareUrl }) }, icon('i-share'), 'Share'),
-      h('button', { type: 'button', class: 'btn-ghost', onclick: () => downloadIcs({ dest: info.dest, trip, origin: site.origin, money, bookingUrl: url }) }, icon('i-calendar-plus'), 'Calendar')),
-    h('p', { class: 'pb-note' }, trip.source === 'wizz'
+      h('button', { type: 'button', class: 'btn-outline', onclick: () => shareTrip({ dest: info.dest, trip, money, url: shareUrl }) }, icon('i-share'), 'Share'),
+      h('button', { type: 'button', class: 'btn-outline', onclick: () => downloadIcs({ dest: info.dest, trip, origin: site.origin, money, bookingUrl: url }) }, icon('i-calendar-plus'), 'Calendar')),
+    h('p', { class: 'pb-note' }, live
       ? 'Wizz Air’s lowest fare when we last checked. Arrival times are estimated from distance.'
-      : 'Seen by other travellers recently — confirm the price before booking.'));
+      : 'Seen by other travellers recently. Confirm the price before booking.'));
+}
+
+/** The destination photo (or its colour block) with the route's facts in a stat pill. */
+function photoTile(photo, info) {
+  const { dest } = info;
+  const facts = ['Direct', info.minutes && `≈ ${fmtDuration(info.minutes)}`, info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean);
+  return h('div', { class: 'dlg-photo photo-tile has-scrim' },
+    photoImg(photo, { width: 720, height: 260, className: 'cover dlg-img', eager: true, alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
+    h('span', { class: 'tag-pill dlg-country' }, dest.country),
+    photoCredit(photo),
+    h('p', { class: 'stat-pill dlg-facts' }, facts.map((fact) => h('span', {}, fact))));
 }
 
 export function openDetails({ trip, site, engine, money, query, history, photos = {}, onChangeDate }) {
@@ -91,22 +106,20 @@ export function openDetails({ trip, site, engine, money, query, history, photos 
   });
 
   dialog.replaceChildren(h('div', { class: 'dlg' },
+    h('span', { class: 'dlg-handle', 'aria-hidden': 'true' }),
     h('header', { class: 'dlg-head' },
       h('div', {},
-        h('p', { class: 'eyebrow' }, 'Flight details'),
         h('h2', { class: 'dlg-title' }, `${ORIGIN_NAMES[site.origin.iata] ?? site.origin.name} → ${info.dest.name}`),
         h('p', { class: 'dlg-sub' }, `${fmtDay(trip.outDate)} – ${fmtDay(trip.backDate)} · ${plural(trip.nights, 'night')} · ${plural(query.adults, 'adult')}`)),
-      h('button', { type: 'button', class: 'dlg-close', 'aria-label': 'Close', onclick: () => dialog.close() }, '×')),
+      h('button', { type: 'button', class: 'orb orb--light dlg-close', 'aria-label': 'Close', onclick: () => dialog.close() }, icon('i-close'))),
     h('div', { class: 'dlg-body' },
       h('div', { class: 'dlg-main' },
-        photos[trip.iata] && h('figure', { class: 'dlg-photo' },
-          photoImg(photos[trip.iata], { width: 720, height: 300, className: 'dlg-img', eager: true, alt: `${info.dest.name}, ${info.dest.country}` }),
-          h('figcaption', {}, photoCredit(photos[trip.iata]))),
+        photoTile(photos[trip.iata], info),
         itineraryLeg('Outbound', trip, info.out),
         itineraryLeg('Return', trip, info.back),
         fareRules(trip),
         destinationFacts(info, site),
-        calendar && h('section', { class: 'info-card' }, h('h4', {}, 'Change dates — cheapest return by departure day'), calendar),
+        calendar && h('section', { class: 'info-card' }, h('h4', {}, 'Change dates'), h('p', { class: 'info-sub' }, 'Cheapest return by departure day.'), calendar),
         priceHistory({ points: history[trip.iata], current: trip.pricePp, money })),
       h('aside', { class: 'dlg-side' }, priceBox({ trip, info, site, money, query })))));
   dialog.showModal();

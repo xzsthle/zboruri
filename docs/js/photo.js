@@ -26,7 +26,8 @@ export function photoImg(photo, { width, height, className = '', eager = false, 
     alt: alt ?? photo.alt ?? '',
     loading: eager ? 'eager' : 'lazy',
     decoding: 'async',
-    style: HEX_COLOR.test(photo.avgColor ?? '') ? { 'background-color': photo.avgColor } : null,
+    // The photo's average colour shows while it loads (read by `img { background-color: var(--ph) }`).
+    style: HEX_COLOR.test(photo.avgColor ?? '') ? { '--ph': photo.avgColor } : null,
   });
 }
 

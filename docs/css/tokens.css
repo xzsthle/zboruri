@@ -99,6 +99,7 @@ p { margin: 0; }
 a { color: inherit; }
 button, select, input { font: inherit; color: inherit; }
 button { cursor: pointer; }
+img { background-color: var(--ph, transparent); }
 button:disabled { cursor: default; }
 
 /* Components set their own display; `hidden` must still win. */

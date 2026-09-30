@@ -4,7 +4,7 @@
 import { $, h, icon } from './dom.js';
 import { matchesQuery } from './data.js';
 import { departSpec } from './query.js';
-import { flagEmoji, fmtDay, fmtMonthLong, fmtShort, plural } from './format.js';
+import { fmtDay, fmtMonthLong, fmtShort, plural } from './format.js';
 import { monthChips, priceCalendar, stayPresets, stepper, tabs } from './pickers.js';
 import { photoImg } from './photo.js';
 
@@ -82,7 +82,7 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
           role: 'option', id: `sw-opt-${i}`, class: i === comboIndex ? 'combo-option is-active' : 'combo-option', 'aria-selected': String(i === comboIndex),
           onmousedown: (event) => { event.preventDefault(); chooseDestination(dest.iata); },
         },
-          h('span', { class: 'combo-icon', 'aria-hidden': 'true' }, anywhere ? icon('i-globe') : photoImg(photos[dest.iata], { width: 40, height: 40, className: 'combo-photo', alt: '' }) ?? flagEmoji(dest.countryCode)),
+          h('span', { class: 'combo-icon', 'aria-hidden': 'true' }, anywhere ? icon('i-globe') : photoImg(photos[dest.iata], { width: 40, height: 40, className: 'combo-photo', alt: '' }) ?? dest.countryCode),
           h('span', { class: 'combo-text' },
             h('strong', {}, anywhere ? 'Everywhere' : `${dest.name} (${dest.iata})`),
             h('span', {}, anywhere ? 'Explore every destination from Chișinău' : dest.airportName ?? dest.country)),

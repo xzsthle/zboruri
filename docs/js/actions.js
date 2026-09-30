@@ -25,10 +25,10 @@ export async function shareTrip({ dest, trip, money, url }) {
     }
   }
   try {
-    await navigator.clipboard.writeText(`${text} — ${url}`);
+    await navigator.clipboard.writeText(`${text}: ${url}`);
     toast('Deal link copied');
   } catch {
-    toast('Couldn’t copy the link — copy it from the address bar');
+    toast('Couldn’t copy the link. Copy it from the address bar.');
   }
 }
 
