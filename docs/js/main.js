@@ -6,6 +6,7 @@ import { initDetails, openDetails } from './details.js';
 import { renderHome } from './home.js';
 import { renderResults } from './results.js';
 import { createSearchWidget } from './widget.js';
+import { initAsk } from './ask.js';
 import { DEFAULT_FILTERS, parseHash, toHash } from './query.js';
 import { CURRENCY_CODES, createMoney, fmtNextScan } from './format.js';
 
@@ -85,6 +86,7 @@ function start({ site, fares, priceHistory, photos }) {
     else { location.hash = '#/'; setTimeout(() => $(target)?.scrollIntoView({ behavior: 'smooth' }), 50); }
   }));
   initDetails();
+  initAsk({ site, navigate });
   render();
 }
 

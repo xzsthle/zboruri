@@ -132,3 +132,11 @@
 .rh-text.has-photo .rh-facts li { background: rgb(255 255 255 / 0.16); color: #fff; box-shadow: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .rh-text.has-photo .rh-facts .icon { color: #c9d4ff; }
 .rh-text.has-photo .photo-credit { top: var(--space-4); bottom: auto; right: var(--space-4); opacity: 0.85; }
+
+/* What the "Ask" box understood, shown above the results. */
+.ask-note {
+  display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg); background: linear-gradient(135deg, #eef1ff, #f6eeff); color: var(--ink); box-shadow: inset 0 0 0 1px #dfe4ff;
+}
+.ask-note .icon { flex: none; width: 1.3rem; height: 1.3rem; color: var(--primary); }
+.ask-note p { font-weight: 600; }

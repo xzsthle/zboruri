@@ -46,6 +46,29 @@ The site at `https://<you>.github.io/<repo>/` is a flight search in the style of
 
 Departure times are real. Arrival times and flight durations are estimated from distance and time zones, and marked "≈".
 
+### Ask in plain English or Romanian
+
+The **Ask** box at the top turns a sentence into a real search. For example: *"beach next week under €80"*, *"weekend în Italia pentru 2"*, *"munte în decembrie"*, *"cel mai ieftin zbor la Londra"*.
+
+1. **Instant understanding** (`docs/js/nl-parser.js`) works with no setup. It knows dates (next week, weekends, months, Crăciun), themes (beach/mare, mountains/munte, ski, city break, Christmas markets…), budgets in € or lei, trip length, travellers, and city and country names in both languages.
+2. **Gemini** handles free-form requests the rules can't ("somewhere warm with good food"). It runs in a Cloudflare Worker (`worker/`), so your Gemini key never reaches the browser.
+
+Either way, the answer is checked (`docs/js/intent.js`): unknown airports are dropped, and dates and numbers are clamped. The results always come from the real fares. The AI only decides what to search for.
+
+#### Turn on Gemini (free)
+
+1. Create a free API key at [aistudio.google.com](https://aistudio.google.com/apikey). The Gemini app subscription doesn't include API access, but the API's free tier is plenty for this.
+2. Create a free Cloudflare account, then in a terminal:
+   ```bash
+   cd worker
+   npx wrangler login                        # opens the browser once
+   npx wrangler secret put GEMINI_API_KEY    # paste the key when asked
+   npx wrangler deploy                       # prints https://zboruri-ai.<you>.workers.dev
+   ```
+3. Put that address plus `/api/search` in `docs/js/config.js` (`AI_ENDPOINT`), then commit.
+
+The Worker only answers requests from your site (`ALLOWED_ORIGINS` in `worker/wrangler.toml`). It limits each visitor to 20 requests a minute, and it never returns Gemini's error details. With a free-tier key there's no bill to run up; the worst case is hitting the daily quota. When that happens, the site quietly falls back to instant understanding.
+
 ## Setup
 
 ### 1. Put it on GitHub

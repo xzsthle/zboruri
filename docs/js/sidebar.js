@@ -51,7 +51,8 @@ function priceGroup(trips, { filters, setFilters, money }) {
   const min = Math.floor(Math.min(...prices));
   const max = Math.ceil(Math.max(...prices));
   const value = filters.maxPrice == null ? max : Math.min(max, Math.max(min, filters.maxPrice));
-  const label = h('output', { class: 'range-value' }, filters.maxPrice == null ? 'Any price' : `Up to ${money.format(value)}`);
+  // Show the budget as set, even when it's below every price on offer.
+  const label = h('output', { class: 'range-value' }, filters.maxPrice == null ? 'Any price' : `Up to ${money.format(filters.maxPrice)}`);
   const input = h('input', {
     type: 'range', class: 'range', min: String(min), max: String(max), step: '1', value: String(value),
     'aria-label': 'Maximum price per person',

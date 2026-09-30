@@ -57,3 +57,12 @@
   .rc-side { grid-template-columns: minmax(0, 1fr); }
   .rc-side .btn-select { grid-column: auto; grid-row: auto; }
 }
+
+@media (max-width: 760px) {
+  .ask { padding-left: var(--space-4); }
+  .ask-input { font-size: var(--text-base); }
+  .ask-submit span { display: none; }
+  .ask-submit { min-height: 2.75rem; padding: 0 1rem; }
+  .ask-examples { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+  .ask-chip { flex: none; }
+}

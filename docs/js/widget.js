@@ -4,7 +4,7 @@
 import { $, h, icon } from './dom.js';
 import { matchesQuery } from './data.js';
 import { departSpec } from './query.js';
-import { flagEmoji, fmtDay, fmtMonthLong, plural } from './format.js';
+import { flagEmoji, fmtDay, fmtMonthLong, fmtShort, plural } from './format.js';
 import { monthChips, priceCalendar, stayPresets, stepper, tabs } from './pickers.js';
 import { photoImg } from './photo.js';
 
@@ -12,6 +12,7 @@ const DESTINATION_LIMIT = 8;
 
 export function describeDepart(depart) {
   const spec = departSpec(depart);
+  if (spec.type === 'range') return `${fmtShort(spec.from)} – ${fmtShort(spec.to)}`;
   if (spec.type === 'date') return fmtDay(spec.date);
   if (spec.type === 'month') {
     const [y, m] = spec.month.split('-').map(Number);
@@ -31,7 +32,11 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
   let openName = null;
   let comboIndex = -1;
 
-  const destName = (iata) => (iata === 'anywhere' ? 'Everywhere' : engine.destinations.get(iata)?.name ?? iata);
+  const destName = (iata) => {
+    if (iata === 'anywhere') return 'Everywhere';
+    if (iata.includes(',')) return draft?.label || `${iata.split(',').length} destinations`;
+    return engine.destinations.get(iata)?.name ?? iata;
+  };
 
   // ---------- popovers ----------
 
@@ -87,7 +92,7 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
   }
 
   function chooseDestination(iata) {
-    update({ to: iata }, { keepOpen: false });
+    update({ to: iata, label: '' }, { keepOpen: false });
     $('sw-to').value = destName(iata); // renderFields skips the focused input, so set it here
     closePopover();
     root.querySelector('[data-pop="depart"]').focus();
@@ -199,7 +204,8 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
   $('sw-others').addEventListener('change', (event) => update({ others: event.target.checked }));
   document.addEventListener('pointerdown', (event) => { if (openName && !root.contains(event.target)) closePopover(); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && openName) closePopover(); });
-  root.addEventListener('submit', (event) => { event.preventDefault(); closePopover(); onSearch(draft); });
+  // A manual search replaces whatever the "Ask" box said.
+  root.addEventListener('submit', (event) => { event.preventDefault(); closePopover(); onSearch({ ...draft, note: '' }); });
 
   return {
     setQuery(query) {

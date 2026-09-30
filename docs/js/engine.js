@@ -23,6 +23,7 @@ export function windowOf(time) {
 
 function departMatches(date, spec) {
   if (spec.type === 'date') return date === spec.date;
+  if (spec.type === 'range') return date >= spec.from && date <= spec.to;
   if (spec.type === 'month') return date.startsWith(spec.month);
   return true;
 }
@@ -89,16 +90,17 @@ export function createEngine(site, fares) {
     return [...liveTrips(iata, query, depart), ...cachedTrips(iata, query, depart)];
   }
 
-  const targets = (iata) => (iata && iata !== 'anywhere' ? [iata] : [...indexed.keys()]);
+  // 'anywhere', one airport, or a comma-separated list of airports.
+  const targets = (to) => (!to || to === 'anywhere' ? [...indexed.keys()] : to.split(',').filter((code) => indexed.has(code)));
 
   /** Results for one destination, filtered and sorted. */
   function search(query, filters) {
     return tripsFor(query.to, query).filter((trip) => passesFilters(trip, filters)).toSorted(SORTS[filters.sort] ?? SORTS.best);
   }
 
-  /** "Everywhere": the best trip per destination, cheapest first. */
+  /** "Everywhere" (or a list of airports): the best trip per destination, cheapest first. */
   function explore(query, filters) {
-    return targets('anywhere').flatMap((iata) => {
+    return targets(query.to).flatMap((iata) => {
       const trips = tripsFor(iata, query).filter((trip) => passesFilters(trip, filters));
       if (trips.length === 0 || !destinations.has(iata)) return [];
       const best = trips.reduce((a, b) => (SORTS.cheapest(a, b) <= 0 ? a : b));

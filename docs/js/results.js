@@ -38,17 +38,22 @@ function monthBars({ engine, query, money, navigate }) {
 
 function renderHead({ site, engine, query, money, navigate, photos }, count) {
   const anywhere = query.to === 'anywhere';
+  const several = query.to.includes(',');
   const dest = engine.destinations.get(query.to);
   const origin = ORIGIN_NAMES[site.origin.iata] ?? site.origin.name;
   const info = dest && flightInfo({ iata: dest.iata, outDate: '2026-01-01', backDate: '2026-01-02' }, site, engine);
   const photo = !anywhere && photos[query.to];
   const banner = photo && photoImg(photo, { width: 1200, height: 420, className: 'rh-img', eager: true, alt: `${dest?.name ?? query.to}` });
+  $('ask-note').hidden = !query.note;
+  $('ask-note').replaceChildren(icon('i-sparkles'), h('p', {}, query.note));
   $('results-head').replaceChildren(
     h('div', { class: banner ? 'rh-text has-photo' : 'rh-text' },
       banner,
       banner && photoCredit(photo),
-      h('p', { class: 'eyebrow' }, anywhere ? 'Explore' : 'Flights'),
-      h('h1', { class: 'rh-title' }, anywhere ? `${origin} to everywhere` : [`${origin} to ${dest?.name ?? query.to} `, h('span', { class: 'rh-flag', 'aria-hidden': 'true' }, flagEmoji(dest?.countryCode))]),
+      h('p', { class: 'eyebrow' }, anywhere || several ? 'Explore' : 'Flights'),
+      h('h1', { class: 'rh-title' }, anywhere || several
+        ? (query.label ? `${origin} → ${query.label}` : `${origin} to ${several ? `${query.to.split(',').length} destinations` : 'everywhere'}`)
+        : [`${origin} to ${dest?.name ?? query.to} `, h('span', { class: 'rh-flag', 'aria-hidden': 'true' }, flagEmoji(dest?.countryCode))]),
       h('p', { class: 'rh-sub' }, [describeDepart(query.depart), describeStay(query), describeTravellers(query.adults), plural(count, anywhere ? 'destination' : 'result')].join(' · ')),
       !anywhere && info && h('ul', { class: 'rh-facts' },
         h('li', {}, icon('i-plane'), 'Direct flights'),
@@ -108,7 +113,28 @@ function dateStrip({ engine, query, money, navigate }) {
       priceCalendar({ prices, selected: selected ?? null, minDate: range.first, maxDate: range.last, money, onPick: (date) => navigate({ ...query, depart: date, back: '' }) })));
 }
 
-function emptyState({ query, navigate, setFilters }) {
+/** When only the budget rules everything out, say what the cheapest option actually costs. */
+function budgetHint({ engine, query, filters, money }) {
+  if (filters.maxPrice == null) return null;
+  const open = { ...filters, maxPrice: null };
+  const prices = query.to === 'anywhere' || query.to.includes(',')
+    ? engine.explore(query, open).map((row) => row.best.pricePp)
+    : engine.search(query, open).map((trip) => trip.pricePp);
+  return prices.length ? Math.min(...prices) : null;
+}
+
+function emptyState(ctx) {
+  const { query, filters, money, navigate, setFilters } = ctx;
+  const cheapest = budgetHint(ctx);
+  if (cheapest != null) {
+    return h('div', { class: 'empty' },
+      icon('i-tag', 'icon empty-icon'),
+      h('h3', {}, `Nothing under ${money.format(filters.maxPrice)} for these dates`),
+      h('p', {}, `The cheapest option costs ${money.format(cheapest)} per person.`),
+      h('div', { class: 'empty-actions' },
+        h('button', { type: 'button', class: 'btn-primary', onclick: () => setFilters({ maxPrice: null }) }, `Show without the budget`),
+        h('button', { type: 'button', class: 'btn-ghost', onclick: () => navigate({ ...query, depart: 'anytime', back: '' }, filters) }, 'Keep the budget, any dates')));
+  }
   return h('div', { class: 'empty' },
     icon('i-search', 'icon empty-icon'),
     h('h3', {}, 'No flights match'),
@@ -155,7 +181,8 @@ function renderEverywhere(ctx, rerender) {
     onSelect: () => navigate({ ...query, to: row.dest.iata }),
   })))]));
   $('results-more').replaceChildren(...[moreButton(ordered.length, rerender)].filter(Boolean));
-  renderFilterSidebar(ctx, [...engine.destinations.keys()].flatMap((iata) => engine.tripsFor(iata, query)));
+  const scope = query.to === 'anywhere' ? [...engine.destinations.keys()] : query.to.split(',');
+  renderFilterSidebar(ctx, scope.flatMap((iata) => engine.tripsFor(iata, query)));
 }
 
 export function renderResults(ctx) {
@@ -165,6 +192,6 @@ export function renderResults(ctx) {
     lastKey = key;
   }
   const rerender = () => renderResults(ctx);
-  if (ctx.query.to === 'anywhere') renderEverywhere(ctx, rerender);
+  if (ctx.query.to === 'anywhere' || ctx.query.to.includes(',')) renderEverywhere(ctx, rerender);
   else renderFlights(ctx, rerender);
 }
