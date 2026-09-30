@@ -6,7 +6,7 @@ compatibility_date = "2026-09-01"
 # Only these sites may call the Worker (the browser enforces it via CORS; the Worker also checks).
 ALLOWED_ORIGINS = "https://xzsthle.github.io,http://localhost:8080"
 # Any Gemini model that supports JSON output works; change it here and redeploy.
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-3.1-flash-lite"
 
 # The key is a secret, never in this file:
 #   npx wrangler secret put GEMINI_API_KEY

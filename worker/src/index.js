@@ -7,7 +7,7 @@ import { buildGeminiRequest, geminiUrl, readGeminiText } from './gemini.js';
 
 const MAX_TEXT = 300;
 const MAX_DESTINATIONS = 150;
-const DEFAULT_MODEL = 'gemini-2.5-flash';
+const DEFAULT_MODEL = 'gemini-3.1-flash-lite';
 const GEMINI_TIMEOUT_MS = 20_000;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const IATA = /^[A-Z]{3}$/;
