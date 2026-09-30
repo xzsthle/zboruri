@@ -342,6 +342,546 @@
       "photographer": "Reinhard Bruckner",
       "photographerUrl": "https://www.pexels.com/@bruggi",
       "pageUrl": "https://www.pexels.com/photo/tiberius-bridge-and-historic-rimini-skyline-29355212/"
+    },
+    "STN": {
+      "id": 14944496,
+      "base": "https://images.pexels.com/photos/14944496/pexels-photo-14944496.jpeg",
+      "avgColor": "#B4A9A3",
+      "alt": "A stunning aerial view of London's modern skyscrapers under overcast skies, showcasing its architectural marvels.",
+      "photographer": "Gonzalo Facello",
+      "photographerUrl": "https://www.pexels.com/@gonchifacello",
+      "pageUrl": "https://www.pexels.com/photo/clouds-over-city-with-skyscrapers-14944496/"
+    },
+    "IST": {
+      "id": 26830271,
+      "base": "https://images.pexels.com/photos/26830271/pexels-photo-26830271.jpeg",
+      "avgColor": "#525655",
+      "alt": "A stunning aerial view capturing Istanbul's Galata Tower and historic cityscape by the Bosphorus.",
+      "photographer": "Julien Goettelmann",
+      "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
+      "pageUrl": "https://www.pexels.com/photo/galata-tower-in-istanbul-26830271/"
+    },
+    "TSF": {
+      "id": 17547031,
+      "base": "https://images.pexels.com/photos/17547031/pexels-photo-17547031.jpeg",
+      "avgColor": "#7E7361",
+      "alt": "Serene view of the Grand Canal and San Simeone Piccolo at sunset, capturing Venice's charm.",
+      "photographer": "Efrem  Efre",
+      "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
+      "pageUrl": "https://www.pexels.com/photo/boats-on-the-grand-canal-in-venice-at-sunset-17547031/"
+    },
+    "TIA": {
+      "id": 11126448,
+      "base": "https://images.pexels.com/photos/11126448/pexels-photo-11126448.jpeg",
+      "avgColor": "#816C5B",
+      "alt": "A stunning aerial view of Tirana's skyline framed by mountains and lush greenery during sunset.",
+      "photographer": "Valter Zhara",
+      "photographerUrl": "https://www.pexels.com/@valter-zhara-164968736",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-city-buildings-11126448/"
+    },
+    "SAW": {
+      "id": 6058661,
+      "base": "https://images.pexels.com/photos/6058661/pexels-photo-6058661.jpeg",
+      "avgColor": "#9C9C9C",
+      "alt": "A monochrome cityscape of İstanbul featuring high-rise buildings and the iconic Galata Tower.",
+      "photographer": "Michael Porter",
+      "photographerUrl": "https://www.pexels.com/@michael-porter-8335405",
+      "pageUrl": "https://www.pexels.com/photo/grayscale-photo-of-city-buildings-6058661/"
+    },
+    "MLA": {
+      "id": 15030744,
+      "base": "https://images.pexels.com/photos/15030744/pexels-photo-15030744.jpeg",
+      "avgColor": "#707988",
+      "alt": "A beautiful cityscape featuring modern apartments and construction along the waterfront.",
+      "photographer": "Boris Hamer",
+      "photographerUrl": "https://www.pexels.com/@borishamer",
+      "pageUrl": "https://www.pexels.com/photo/white-concrete-buildings-near-body-of-water-15030744/"
+    },
+    "GOA": {
+      "id": 38626328,
+      "base": "https://images.pexels.com/photos/38626328/pexels-photo-38626328.jpeg",
+      "avgColor": "#877976",
+      "alt": "Scenic view of colorful residential buildings on Genoa's hillside under cloudy skies.",
+      "photographer": "Anna Frame",
+      "photographerUrl": "https://www.pexels.com/@anna-frame-2160791577",
+      "pageUrl": "https://www.pexels.com/photo/colorful-buildings-of-genoa-against-hillside-38626328/"
+    },
+    "AYT": {
+      "id": 27821553,
+      "base": "https://images.pexels.com/photos/27821553/pexels-photo-27821553.jpeg",
+      "avgColor": "#505D54",
+      "alt": "Stunning aerial cityscape of Kuşadası, showcasing the harbor, Mediterranean Sea, and urban areas.",
+      "photographer": "Julien Goettelmann",
+      "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
+      "pageUrl": "https://www.pexels.com/photo/flying-over-kusadasi-at-dusk-3-27821553/"
+    },
+    "HER": {
+      "id": 37844581,
+      "base": "https://images.pexels.com/photos/37844581/pexels-photo-37844581.jpeg",
+      "avgColor": "#857C81",
+      "alt": "Discover the vibrant cityscape of Heraklion, Crete, captured from above with a stunning view of buildings and mountains.",
+      "photographer": "K",
+      "photographerUrl": "https://www.pexels.com/@kelly",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-heraklion-cityscape-crete-greece-37844581/"
+    },
+    "EVN": {
+      "id": 16206879,
+      "base": "https://images.pexels.com/photos/16206879/pexels-photo-16206879.jpeg",
+      "avgColor": "#819095",
+      "alt": "Captivating view of Yerevan cityscape with Mount Ararat in the background.",
+      "photographer": "Arina Dmitrieva",
+      "photographerUrl": "https://www.pexels.com/@arina-dmitrieva-66352626",
+      "pageUrl": "https://www.pexels.com/photo/town-with-mountains-behind-16206879/"
+    },
+    "BSL": {
+      "id": 31716274,
+      "base": "https://images.pexels.com/photos/31716274/pexels-photo-31716274.jpeg",
+      "avgColor": "#959F9E",
+      "alt": "Charming riverfront view of Basel, Switzerland, showcasing historic architecture along the Rhine River.",
+      "photographer": "Ramon Karolan",
+      "photographerUrl": "https://www.pexels.com/@ramonkaphotography",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-basel-s-historic-riverside-architecture-31716274/"
+    },
+    "CFU": {
+      "id": 33413550,
+      "base": "https://images.pexels.com/photos/33413550/pexels-photo-33413550.jpeg",
+      "avgColor": "#96A5AA",
+      "alt": "Discover the stunning architecture and fortress in Corfu Old Town, Greece.",
+      "photographer": "Nico Hartnauer",
+      "photographerUrl": "https://www.pexels.com/@nico-hartnauer-3133791",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-corfu-old-town-and-fortress-33413550/"
+    },
+    "HRG": {
+      "id": 22643902,
+      "base": "https://images.pexels.com/photos/22643902/pexels-photo-22643902.jpeg",
+      "avgColor": "#7C8B92",
+      "alt": "Stunning aerial view of Hurghada's coastal urban area, Red Sea, Egypt.",
+      "photographer": "Mo Ismail",
+      "photographerUrl": "https://www.pexels.com/@mo-ismail-2130628",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-hurghada-city-over-the-red-sea-22643902/"
+    },
+    "FRA": {
+      "id": 30475302,
+      "base": "https://images.pexels.com/photos/30475302/pexels-photo-30475302.jpeg",
+      "avgColor": "#67676F",
+      "alt": "Stunning cityscape of Frankfurt am Main skyline at dusk with modern skyscrapers.",
+      "photographer": "Fabio Riccobono",
+      "photographerUrl": "https://www.pexels.com/@fabio-riccobono-1227497836",
+      "pageUrl": "https://www.pexels.com/photo/architectural-skyline-of-frankfurt-at-dusk-30475302/"
+    },
+    "BUS": {
+      "id": 33115247,
+      "base": "https://images.pexels.com/photos/33115247/pexels-photo-33115247.jpeg",
+      "avgColor": "#181A27",
+      "alt": "Stunning nighttime view of Batumi's illuminated skyline, showcasing modern architecture and bright city lights.",
+      "photographer": "Павел  Хлыстунов",
+      "photographerUrl": "https://www.pexels.com/@paul",
+      "pageUrl": "https://www.pexels.com/photo/nighttime-cityscape-of-batumi-georgia-s-skyline-33115247/"
+    },
+    "SSH": {
+      "id": 18886767,
+      "base": "https://images.pexels.com/photos/18886767/pexels-photo-18886767.jpeg",
+      "avgColor": "#4F4544",
+      "alt": "A stunning evening view of the illuminated resort area of Sharm El-Sheikh, Egypt, featuring a lit mosque and surrounding mountains.",
+      "photographer": "Vika Glitter",
+      "photographerUrl": "https://www.pexels.com/@vika-glitter-392079",
+      "pageUrl": "https://www.pexels.com/photo/tropical-resort-in-egypt-in-the-evening-18886767/"
+    },
+    "SHJ": {
+      "id": 8319477,
+      "base": "https://images.pexels.com/photos/8319477/pexels-photo-8319477.jpeg",
+      "avgColor": "#88867A",
+      "alt": "A stunning aerial shot of Sharjah cityscape featuring parks, landmarks, and coastline at sunset.",
+      "photographer": "Mikhail Nilov",
+      "photographerUrl": "https://www.pexels.com/@mikhail-nilov",
+      "pageUrl": "https://www.pexels.com/photo/sharjah-at-sunset-8319477/"
+    },
+    "MAD": {
+      "id": 670261,
+      "base": "https://images.pexels.com/photos/670261/pexels-photo-670261.jpeg",
+      "avgColor": "#456F8D",
+      "alt": "A breathtaking aerial view of Madrid's vibrant cityscape under a clear blue sky.",
+      "photographer": "Abhishek Verma",
+      "photographerUrl": "https://www.pexels.com/@abhishek-verma-209130",
+      "pageUrl": "https://www.pexels.com/photo/architectural-photography-of-metropolis-under-stratus-clouds-670261/"
+    },
+    "VIE": {
+      "id": 37801435,
+      "base": "https://images.pexels.com/photos/37801435/pexels-photo-37801435.jpeg",
+      "avgColor": "#94917E",
+      "alt": "A scenic view of Vienna's Belvedere Gardens and city skyline with mountains in the background.",
+      "photographer": "Mehmet Turgut  Kirkgoz",
+      "photographerUrl": "https://www.pexels.com/@tkirkgoz",
+      "pageUrl": "https://www.pexels.com/photo/elegant-view-of-vienna-s-baroque-gardens-and-cityscape-37801435/"
+    },
+    "TFS": {
+      "id": 27596390,
+      "base": "https://images.pexels.com/photos/27596390/pexels-photo-27596390.jpeg",
+      "avgColor": "#629596",
+      "alt": "Explore the vibrant coastal cityscape with modern architecture and scenic ocean views.",
+      "photographer": "Stiven Gonzales",
+      "photographerUrl": "https://www.pexels.com/@stiven-gonzales-1176841953",
+      "pageUrl": "https://www.pexels.com/photo/the-beach-and-ocean-in-front-of-a-building-27596390/"
+    },
+    "MRS": {
+      "id": 38514773,
+      "base": "https://images.pexels.com/photos/38514773/pexels-photo-38514773.jpeg",
+      "avgColor": "#6D7673",
+      "alt": "People walking in front of Gare de Marseille-Blancarde, a historic railway station in Marseille, France.",
+      "photographer": "Bingqian Li",
+      "photographerUrl": "https://www.pexels.com/@bingqian-li-230971044",
+      "pageUrl": "https://www.pexels.com/photo/gare-de-marseille-blancarde-in-france-38514773/"
+    },
+    "RAK": {
+      "id": 30205199,
+      "base": "https://images.pexels.com/photos/30205199/pexels-photo-30205199.jpeg",
+      "avgColor": "#888D87",
+      "alt": "Stunning aerial view of Marrakech cityscape with Atlas Mountains in the background.",
+      "photographer": "Moussa Idrissi",
+      "photographerUrl": "https://www.pexels.com/@mographe",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-marrakech-with-atlas-mountains-30205199/"
+    },
+    "PFO": {
+      "id": 30563626,
+      "base": "https://images.pexels.com/photos/30563626/pexels-photo-30563626.jpeg",
+      "avgColor": "#62777C",
+      "alt": "A comprehensive aerial view of Paphos coastline with clear blue waters.",
+      "photographer": "Atlantic Ambience",
+      "photographerUrl": "https://www.pexels.com/@freestockpro",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-paphos-seaside-cyprus-30563626/"
+    },
+    "DUS": {
+      "id": 19136564,
+      "base": "https://images.pexels.com/photos/19136564/pexels-photo-19136564.jpeg",
+      "avgColor": "#43586D",
+      "alt": "Stunning view of Düsseldorf with Rheinturm and modern architecture reflected in the Rhine River.",
+      "photographer": "Masood Aslami",
+      "photographerUrl": "https://www.pexels.com/@masoodaslami",
+      "pageUrl": "https://www.pexels.com/photo/cityscape-of-dusseldorf-with-rheinturm-19136564/"
+    },
+    "KEF": {
+      "id": 11385273,
+      "base": "https://images.pexels.com/photos/11385273/pexels-photo-11385273.jpeg",
+      "avgColor": "#888783",
+      "alt": "Stunning aerial view of Reykjavík showcasing colorful houses and the bustling urban landscape.",
+      "photographer": "Katrīne Skrebele",
+      "photographerUrl": "https://www.pexels.com/@katrineskrebele",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-houses-in-an-urban-area-11385273/"
+    },
+    "BSZ": {
+      "id": 16993087,
+      "base": "https://images.pexels.com/photos/16993087/pexels-photo-16993087.jpeg",
+      "avgColor": "#819095",
+      "alt": "Stunning aerial view of Bishkek city showcasing urban development and architecture in Kyrgyzstan.",
+      "photographer": "Collab Media",
+      "photographerUrl": "https://www.pexels.com/@collab-media-173741945",
+      "pageUrl": "https://www.pexels.com/photo/cityscape-of-bishkek-16993087/"
+    },
+    "AUH": {
+      "id": 19965889,
+      "base": "https://images.pexels.com/photos/19965889/pexels-photo-19965889.jpeg",
+      "avgColor": "#8E908D",
+      "alt": "Breathtaking view of Abu Dhabi skyline showcasing modern architecture and iconic landmarks.",
+      "photographer": "YFS Visuals",
+      "photographerUrl": "https://www.pexels.com/@yfs-visuals-921252577",
+      "pageUrl": "https://www.pexels.com/photo/the-skyline-of-abu-dhabi-united-arab-emirates-19965889/"
+    },
+    "JED": {
+      "id": 34744916,
+      "base": "https://images.pexels.com/photos/34744916/pexels-photo-34744916.jpeg",
+      "avgColor": "#9EA7AE",
+      "alt": "Morning view of Jeddah Corniche with palm trees and ocean waves, capturing Saudi Arabia's coastal beauty.",
+      "photographer": "Md Amir Umar",
+      "photographerUrl": "https://www.pexels.com/@mdamirumar",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-jeddah-corniche-in-saudi-arabia-34744916/"
+    },
+    "DXB": {
+      "id": 16681181,
+      "base": "https://images.pexels.com/photos/16681181/pexels-photo-16681181.jpeg",
+      "avgColor": "#A7A49D",
+      "alt": "A traditional abra boat sails on Dubai Creek with a city skyline and minaret in the background.",
+      "photographer": "Rcastro creative",
+      "photographerUrl": "https://www.pexels.com/@rcastro-creative-530099892",
+      "pageUrl": "https://www.pexels.com/photo/men-boating-on-dubai-creek-16681181/"
+    },
+    "DOH": {
+      "id": 38941832,
+      "base": "https://images.pexels.com/photos/38941832/pexels-photo-38941832.jpeg",
+      "avgColor": "#2C2A2B",
+      "alt": "Doha cityscape featuring illuminated skyscrapers reflecting on the water at night.",
+      "photographer": "Sajjad Naqvi",
+      "photographerUrl": "https://www.pexels.com/@sajjad-naqvi-1348573",
+      "pageUrl": "https://www.pexels.com/photo/doha-skyline-at-night-with-illuminated-skyscrapers-38941832/"
+    },
+    "VKO": {
+      "id": 5058118,
+      "base": "https://images.pexels.com/photos/5058118/pexels-photo-5058118.jpeg",
+      "avgColor": "#797472",
+      "alt": "Aerial view of Moscow's skyscrapers and urban skyline during twilight, showcasing modern architecture.",
+      "photographer": "Max Avans",
+      "photographerUrl": "https://www.pexels.com/@maxavans",
+      "pageUrl": "https://www.pexels.com/photo/buildings-in-the-city-5058118/"
+    },
+    "DME": {
+      "id": 417374,
+      "base": "https://images.pexels.com/photos/417374/pexels-photo-417374.jpeg",
+      "avgColor": "#271D1B",
+      "alt": "Stunning night view of Moscow's illuminated skyline with reflections on the river.",
+      "photographer": "Pixabay",
+      "photographerUrl": "https://www.pexels.com/@pixabay",
+      "pageUrl": "https://www.pexels.com/photo/city-buildings-near-body-of-water-417374/"
+    },
+    "LED": {
+      "id": 14749518,
+      "base": "https://images.pexels.com/photos/14749518/pexels-photo-14749518.jpeg",
+      "avgColor": "#6A523A",
+      "alt": "Beautiful view of a historic canal and bridge in Saint Petersburg at twilight, reflecting city lights.",
+      "photographer": "Vitali Adutskevich",
+      "photographerUrl": "https://www.pexels.com/@vadutskevich",
+      "pageUrl": "https://www.pexels.com/photo/winter-canal-in-saint-petersburg-in-the-evening-14749518/"
+    },
+    "CMN": {
+      "id": 30362133,
+      "base": "https://images.pexels.com/photos/30362133/pexels-photo-30362133.jpeg",
+      "avgColor": "#6C797F",
+      "alt": "High-angle view of Casablanca's urban skyline under a vibrant blue sky.",
+      "photographer": "Aymane Hanni",
+      "photographerUrl": "https://www.pexels.com/@aymane-hanni-2148955127",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-casablanca-urban-skyline-30362133/"
+    },
+    "DEL": {
+      "id": 28678222,
+      "base": "https://images.pexels.com/photos/28678222/pexels-photo-28678222.jpeg",
+      "avgColor": "#4F4D40",
+      "alt": "A vibrant aerial cityscape of Delhi, showcasing the bustling streets and diverse architecture under warm daylight.",
+      "photographer": "Mohit Hambiria",
+      "photographerUrl": "https://www.pexels.com/@mohit-hambiria-92377455",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-bustling-delhi-cityscape-at-daytime-28678222/"
+    },
+    "WAW": {
+      "id": 38487655,
+      "base": "https://images.pexels.com/photos/38487655/pexels-photo-38487655.jpeg",
+      "avgColor": "#868070",
+      "alt": "Stunning aerial shot of Świętokrzyski Bridge spanning the Vistula River in Warsaw, Poland, with the city skyline.",
+      "photographer": "Wojciech Wyszkowski",
+      "photographerUrl": "https://www.pexels.com/@fotodruk",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-swietokrzyski-bridge-warsaw-poland-38487655/"
+    },
+    "PMI": {
+      "id": 38165001,
+      "base": "https://images.pexels.com/photos/38165001/pexels-photo-38165001.jpeg",
+      "avgColor": "#6F604B",
+      "alt": "A bustling European street with pedestrians and classic architecture under the summer sun.",
+      "photographer": "Michael",
+      "photographerUrl": "https://www.pexels.com/@michael-756151728",
+      "pageUrl": "https://www.pexels.com/photo/sunny-street-view-in-european-city-with-pedestrians-38165001/"
+    },
+    "ACE": {
+      "id": 36916734,
+      "base": "https://images.pexels.com/photos/36916734/pexels-photo-36916734.jpeg",
+      "avgColor": "#72838D",
+      "alt": "View of the scenic townscape with traditional architecture by the coastal promenade in Lanzarote.",
+      "photographer": "MÍTTICA. Galanteo y Coquetería",
+      "photographerUrl": "https://www.pexels.com/@mittica-galanteo-y-coqueteria-78973598",
+      "pageUrl": "https://www.pexels.com/photo/charming-coastal-townscape-in-lanzarote-36916734/"
+    },
+    "BEG": {
+      "id": 34432817,
+      "base": "https://images.pexels.com/photos/34432817/pexels-photo-34432817.jpeg",
+      "avgColor": "#70757B",
+      "alt": "Stunning aerial view of Belgrade cityscape with the Danube river and city skyline in Serbia.",
+      "photographer": "K",
+      "photographerUrl": "https://www.pexels.com/@kelly",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-belgrade-city-and-danube-river-34432817/"
+    },
+    "BOD": {
+      "id": 30732709,
+      "base": "https://images.pexels.com/photos/30732709/pexels-photo-30732709.jpeg",
+      "avgColor": "#535852",
+      "alt": "Elegant historic buildings in Bordeaux, France under a clear blue sky.",
+      "photographer": "TBD Traveller",
+      "photographerUrl": "https://www.pexels.com/@tbd-traveller-2149583744",
+      "pageUrl": "https://www.pexels.com/photo/historic-bordeaux-architecture-under-blue-sky-30732709/"
+    },
+    "FNC": {
+      "id": 10812087,
+      "base": "https://images.pexels.com/photos/10812087/pexels-photo-10812087.jpeg",
+      "avgColor": "#7B7873",
+      "alt": "Aerial view of Funchal, Madeira showcasing red rooftops, residential buildings, and the coastline.",
+      "photographer": "Erik Karits",
+      "photographerUrl": "https://www.pexels.com/@erik-karits-2093459",
+      "pageUrl": "https://www.pexels.com/photo/aerial-shot-of-city-buildings-and-houses-10812087/"
+    },
+    "EIN": {
+      "id": 39799189,
+      "base": "https://images.pexels.com/photos/39799189/pexels-photo-39799189.jpeg",
+      "avgColor": "#8B8577",
+      "alt": "A sleek, modern train at Eindhoven Centraal Station, Holland, showcasing Dutch transport architecture.",
+      "photographer": "Martijn Stoof",
+      "photographerUrl": "https://www.pexels.com/@martijn-stoof-2150654344",
+      "pageUrl": "https://www.pexels.com/photo/modern-train-at-eindhoven-centraal-station-39799189/"
+    },
+    "LIS": {
+      "id": 19295195,
+      "base": "https://images.pexels.com/photos/19295195/pexels-photo-19295195.jpeg",
+      "avgColor": "#AF9C95",
+      "alt": "Aerial view of Lisbon's red rooftops and historic architecture under a cloudy sky.",
+      "photographer": "Taras Chuiko",
+      "photographerUrl": "https://www.pexels.com/@taraschuiko",
+      "pageUrl": "https://www.pexels.com/photo/birds-eye-view-of-lisbon-cityscape-19295195/"
+    },
+    "AMS": {
+      "id": 32953042,
+      "base": "https://images.pexels.com/photos/32953042/pexels-photo-32953042.jpeg",
+      "avgColor": "#57536A",
+      "alt": "A picturesque view of colorful canal houses reflecting on the water in Amsterdam, Netherlands.",
+      "photographer": "David Rama",
+      "photographerUrl": "https://www.pexels.com/@phreewil",
+      "pageUrl": "https://www.pexels.com/photo/charming-amsterdam-canal-houses-at-twilight-32953042/"
+    },
+    "SXB": {
+      "id": 12273782,
+      "base": "https://images.pexels.com/photos/12273782/pexels-photo-12273782.jpeg",
+      "avgColor": "#8A8280",
+      "alt": "Capture of Strasbourg's historical Old Town showcasing charming architecture along a canal under a clear sky.",
+      "photographer": "Sabina Kallari",
+      "photographerUrl": "https://www.pexels.com/@sabinakallari",
+      "pageUrl": "https://www.pexels.com/photo/waterfront-buildings-in-the-old-town-of-strasbourg-france-12273782/"
+    },
+    "HEL": {
+      "id": 19337103,
+      "base": "https://images.pexels.com/photos/19337103/pexels-photo-19337103.jpeg",
+      "avgColor": "#9DA4AE",
+      "alt": "Scenic Helsinki waterfront featuring the Sky Wheel and iconic Helsinki Cathedral.",
+      "photographer": "Antti Kulmanen",
+      "photographerUrl": "https://www.pexels.com/@antti-kulmanen-221097539",
+      "pageUrl": "https://www.pexels.com/photo/ferris-wheel-in-helsinki-19337103/"
+    },
+    "HAJ": {
+      "id": 28146850,
+      "base": "https://images.pexels.com/photos/28146850/pexels-photo-28146850.jpeg",
+      "avgColor": "#7F8B89",
+      "alt": "Historic building with dome and red roof by a tranquil lake, showcasing beautiful architecture.",
+      "photographer": "Pham Ngoc Anh",
+      "photographerUrl": "https://www.pexels.com/@pham-ngoc-anh-170983008",
+      "pageUrl": "https://www.pexels.com/photo/a-large-building-with-a-clock-tower-and-a-lake-28146850/"
+    },
+    "TBS": {
+      "id": 34890727,
+      "base": "https://images.pexels.com/photos/34890727/pexels-photo-34890727.jpeg",
+      "avgColor": "#666B55",
+      "alt": "Aerial view of city buildings lining a river surrounded by lush trees and urban scenery.",
+      "photographer": "levan simonshvili",
+      "photographerUrl": "https://www.pexels.com/@levsi",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-urban-landscape-with-river-34890727/"
+    },
+    "TLL": {
+      "id": 35838020,
+      "base": "https://images.pexels.com/photos/35838020/pexels-photo-35838020.jpeg",
+      "avgColor": "#615B5F",
+      "alt": "Stunning aerial view of Tallinn's Old Town with red rooftops and modern skyline at sunset.",
+      "photographer": "Sergei  Gussev",
+      "photographerUrl": "https://www.pexels.com/@sergei",
+      "pageUrl": "https://www.pexels.com/photo/charming-rooftop-view-of-tallinn-s-old-town-35838020/"
+    },
+    "RVN": {
+      "id": 37143140,
+      "base": "https://images.pexels.com/photos/37143140/pexels-photo-37143140.jpeg",
+      "avgColor": "#777674",
+      "alt": "A bustling city street lined with modern buildings and pedestrians exploring.",
+      "photographer": "Mingyang LIU",
+      "photographerUrl": "https://www.pexels.com/@mingyang-liu-301813241",
+      "pageUrl": "https://www.pexels.com/photo/urban-street-scene-with-modern-buildings-37143140/"
+    },
+    "AER": {
+      "id": 8627239,
+      "base": "https://images.pexels.com/photos/8627239/pexels-photo-8627239.jpeg",
+      "avgColor": "#8B8C87",
+      "alt": "Picturesque view of Adler town in Russia, showcasing buildings with a mountainous backdrop and cloudy sky.",
+      "photographer": "Irina Balashova",
+      "photographerUrl": "https://www.pexels.com/@irina-a-balashova",
+      "pageUrl": "https://www.pexels.com/photo/brown-and-white-concrete-building-under-the-blue-sky-8627239/"
+    },
+    "ZIA": {
+      "id": 29183526,
+      "base": "https://images.pexels.com/photos/29183526/pexels-photo-29183526.jpeg",
+      "avgColor": "#523821",
+      "alt": "Stunning nighttime cityscape featuring illuminated skyscrapers and a bridge with glowing streetlights.",
+      "photographer": "M.Emin  BİLİR",
+      "photographerUrl": "https://www.pexels.com/@travelerchitect",
+      "pageUrl": "https://www.pexels.com/photo/night-view-of-modern-cityscape-with-bridge-and-skyscrapers-29183526/"
+    },
+    "HKT": {
+      "id": 39550188,
+      "base": "https://images.pexels.com/photos/39550188/pexels-photo-39550188.jpeg",
+      "avgColor": "#7D93AB",
+      "alt": "Stunning aerial view of Patong Beach in Phuket, Thailand, with blue skies and cityscape.",
+      "photographer": "Pimon Kumsri",
+      "photographerUrl": "https://www.pexels.com/@pimonphotography",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-patong-beach-and-cityscape-39550188/"
+    },
+    "EWR": {
+      "id": 1461370,
+      "base": "https://images.pexels.com/photos/1461370/pexels-photo-1461370.jpeg",
+      "avgColor": "#7E7C81",
+      "alt": "A dramatic view of the skyscrapers of New York City captured from the Brooklyn Bridge.",
+      "photographer": "Vlad Alexandru Popa",
+      "photographerUrl": "https://www.pexels.com/@vladalex94",
+      "pageUrl": "https://www.pexels.com/photo/commercial-buildings-1461370/"
+    },
+    "JFK": {
+      "id": 18388935,
+      "base": "https://images.pexels.com/photos/18388935/pexels-photo-18388935.jpeg",
+      "avgColor": "#7E837D",
+      "alt": "Impressive cityscape of New York City featuring the iconic One World Trade Center amidst modern skyscrapers.",
+      "photographer": "Denil Dominic",
+      "photographerUrl": "https://www.pexels.com/@denil",
+      "pageUrl": "https://www.pexels.com/photo/one-wtc-in-nyc-18388935/"
+    },
+    "MLE": {
+      "id": 9149355,
+      "base": "https://images.pexels.com/photos/9149355/pexels-photo-9149355.jpeg",
+      "avgColor": "#647F94",
+      "alt": "Colorful aerial view of Malé, Maldives showcasing cityscape and ocean coastline.",
+      "photographer": "Asad Photo Maldives",
+      "photographerUrl": "https://www.pexels.com/@asadphoto",
+      "pageUrl": "https://www.pexels.com/photo/white-and-green-houses-near-blue-sea-9149355/"
+    },
+    "VTE": {
+      "id": 12568963,
+      "base": "https://images.pexels.com/photos/12568963/pexels-photo-12568963.jpeg",
+      "avgColor": "#72665A",
+      "alt": "Two Buddhist monks walking on a sunny sidewalk in Vientiane, Laos with umbrellas for shade.",
+      "photographer": "Elizabeth Dove",
+      "photographerUrl": "https://www.pexels.com/@elizabeth-dove-256415316",
+      "pageUrl": "https://www.pexels.com/photo/photo-of-monks-holding-an-umbrella-12568963/"
+    },
+    "BRU": {
+      "id": 28530781,
+      "base": "https://images.pexels.com/photos/28530781/pexels-photo-28530781.jpeg",
+      "avgColor": "#759099",
+      "alt": "Aerial view of Brussels city with iconic landmarks and lush greenery.",
+      "photographer": "X1ntao ZHOU",
+      "photographerUrl": "https://www.pexels.com/@x1ntao-zhou-1257907212",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-cityscape-view-of-brussels-skyline-28530781/"
+    },
+    "CDG": {
+      "id": 5822697,
+      "base": "https://images.pexels.com/photos/5822697/pexels-photo-5822697.jpeg",
+      "avgColor": "#7B675E",
+      "alt": "Stunning aerial view of Paris showcasing iconic cityscape and architecture.",
+      "photographer": "Constanze  Marie",
+      "photographerUrl": "https://www.pexels.com/@constanze-marie-3872134",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-city-buildings-5822697/"
+    },
+    "DUB": {
+      "id": 33999754,
+      "base": "https://images.pexels.com/photos/33999754/pexels-photo-33999754.jpeg",
+      "avgColor": "#7C878B",
+      "alt": "Scenic view of Dublin's Ha'penny Bridge over the River Liffey amidst urban architecture and vibrant city life.",
+      "photographer": "Adrien Olichon",
+      "photographerUrl": "https://www.pexels.com/@adrien-olichon-1257089",
+      "pageUrl": "https://www.pexels.com/photo/vibrant-dublin-cityscape-with-iconic-river-view-33999754/"
     }
   }
 }
