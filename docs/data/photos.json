@@ -882,6 +882,69 @@
       "photographer": "Adrien Olichon",
       "photographerUrl": "https://www.pexels.com/@adrien-olichon-1257089",
       "pageUrl": "https://www.pexels.com/photo/vibrant-dublin-cityscape-with-iconic-river-view-33999754/"
+    },
+    "UFA": {
+      "id": 8957986,
+      "base": "https://images.pexels.com/photos/8957986/pexels-photo-8957986.jpeg",
+      "avgColor": "#41484E",
+      "alt": "A stunning cityscape of Ufa at dusk showcasing high-rise buildings and a mountain backdrop.",
+      "photographer": "Эдуард Галеев",
+      "photographerUrl": "https://www.pexels.com/@galeevraw",
+      "pageUrl": "https://www.pexels.com/photo/buildings-at-the-city-8957986/"
+    },
+    "GYD": {
+      "id": 38215764,
+      "base": "https://images.pexels.com/photos/38215764/pexels-photo-38215764.jpeg",
+      "avgColor": "#819DB2",
+      "alt": "Stunning view of Baku's skyline featuring modern architecture under clear skies.",
+      "photographer": "Ahmet AZAKLI",
+      "photographerUrl": "https://www.pexels.com/@blazearth",
+      "pageUrl": "https://www.pexels.com/photo/beautiful-skyline-of-baku-with-modern-architecture-38215764/"
+    },
+    "SPX": {
+      "id": 10586819,
+      "base": "https://images.pexels.com/photos/10586819/pexels-photo-10586819.jpeg",
+      "avgColor": "#A28E83",
+      "alt": "Aerial view of historic mosques with Cairo cityscape backdrop, showcasing Islamic architecture.",
+      "photographer": "Simon Berger",
+      "photographerUrl": "https://www.pexels.com/@simon73",
+      "pageUrl": "https://www.pexels.com/photo/the-mosque-madrasa-of-sultan-hassan-10586819/"
+    },
+    "KZN": {
+      "id": 7015701,
+      "base": "https://images.pexels.com/photos/7015701/pexels-photo-7015701.jpeg",
+      "avgColor": "#9F9D98",
+      "alt": "A vibrant city street in Kazan, showcasing historic architecture.",
+      "photographer": "Dmitry Sidorov",
+      "photographerUrl": "https://www.pexels.com/@dmitry-sidorov-2775764",
+      "pageUrl": "https://www.pexels.com/photo/national-museum-of-the-republic-tatarstan-in-russia-7015701/"
+    },
+    "MSQ": {
+      "id": 16180503,
+      "base": "https://images.pexels.com/photos/16180503/pexels-photo-16180503.jpeg",
+      "avgColor": "#84878E",
+      "alt": "Vibrant cityscape of Minsk's downtown with historical buildings and urban park.",
+      "photographer": "Vitali Adutskevich",
+      "photographerUrl": "https://www.pexels.com/@vadutskevich",
+      "pageUrl": "https://www.pexels.com/photo/victory-square-in-minsk-16180503/"
+    },
+    "MIA": {
+      "id": 9400835,
+      "base": "https://images.pexels.com/photos/9400835/pexels-photo-9400835.jpeg",
+      "avgColor": "#626B68",
+      "alt": "Aerial shot of Miami's skyline with watercraft patterns on the ocean surface.",
+      "photographer": "Mikhail Nilov",
+      "photographerUrl": "https://www.pexels.com/@mikhail-nilov",
+      "pageUrl": "https://www.pexels.com/photo/high-rise-buildings-near-body-of-water-9400835/"
+    },
+    "BWN": {
+      "id": 35851017,
+      "base": "https://images.pexels.com/photos/35851017/pexels-photo-35851017.jpeg",
+      "avgColor": "#7A6A8F",
+      "alt": "Stunning view of Sultan Omar Ali Saifuddin Mosque reflecting in the water at sunset in Brunei.",
+      "photographer": "Bojána Noémi Molnár",
+      "photographerUrl": "https://www.pexels.com/@bojana-noemi-molnar-3779409",
+      "pageUrl": "https://www.pexels.com/photo/sultan-omar-ali-saifuddin-mosque-at-sunset-in-brunei-35851017/"
     }
   }
 }
