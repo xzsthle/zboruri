@@ -1,5 +1,5 @@
 // In-browser flight search over the scanner's data: pairs live Wizz Air one-way fares for any dates,
-// blends in cached round trips for other airlines, and answers the calendar / month questions.
+// blends in cached round trips for other airlines (direct or with stops), and answers the calendar / month questions.
 
 import { isWeekendTrip } from './data.js';
 import { departSpec } from './query.js';
@@ -38,7 +38,11 @@ export const SORTS = {
   soonest: (a, b) => a.outDate.localeCompare(b.outDate) || a.pricePp - b.pricePp,
 };
 
+/** '0' direct, '1' one stop, '2' two or more: the most stops in either direction. */
+export const stopClass = (trip) => String(Math.min(2, trip.stops ?? 0));
+
 function passesFilters(trip, filters) {
+  if (filters.stops?.length && !filters.stops.includes(stopClass(trip))) return false;
   if (filters.airlines?.length && !filters.airlines.includes(trip.airline)) return false;
   if (filters.outWin?.length && !filters.outWin.includes(windowOf(trip.outTime))) return false;
   if (filters.backWin?.length && !filters.backWin.includes(windowOf(trip.backTime))) return false;
@@ -68,7 +72,7 @@ export function createEngine(site, fares) {
         .map(({ out, back, nights }) => ({
           iata, outDate: out.date, outTime: out.time, backDate: back.date, backTime: back.time, nights,
           pricePp: Math.round((out.eur + back.eur) * 100) / 100, outEur: out.eur, backEur: back.eur,
-          airline: 'Wizz Air', airlineCode: 'W6', source: 'wizz', stops: 0, bookingUrl: null,
+          airline: 'Wizz Air', airlineCode: 'W6', source: 'wizz', stops: 0, outStops: 0, backStops: 0, bookingUrl: null,
         }));
     });
   }
@@ -81,7 +85,9 @@ export function createEngine(site, fares) {
       .map((trip) => ({
         iata, outDate: trip.outDate, outTime: trip.outTimes?.[0] ?? null, backDate: trip.backDate, backTime: trip.backTimes?.[0] ?? null,
         nights: trip.nights, pricePp: trip.totalEur, airline: trip.airline ?? trip.airlineCode ?? 'Other airline',
-        airlineCode: trip.airlineCode ?? '', source: 'travelpayouts', stops: trip.stops ?? 0, bookingUrl: trip.bookingUrl ?? null,
+        airlineCode: trip.airlineCode ?? '', source: 'travelpayouts', bookingUrl: trip.bookingUrl ?? null,
+        stops: trip.stops ?? 0, outStops: trip.outStops ?? trip.stops ?? 0, backStops: trip.backStops ?? trip.stops ?? 0,
+        outMinutes: trip.outMinutes ?? null, backMinutes: trip.backMinutes ?? null,
       }));
   }
 

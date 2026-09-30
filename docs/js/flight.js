@@ -1,9 +1,10 @@
 // Flight details derived for a trip: airports, estimated durations and arrivals, and the booking link.
 
-import { distanceKm, estimateArrival, estimateMinutes } from './geo.js';
+import { distanceKm, estimateArrival, estimateMinutes, fmtDuration } from './geo.js';
 import { safeBookingUrl } from './format.js';
 
-function leg({ date, time, from, to, minutes }) {
+/** One direction. `estimated`: the flight time comes from distance (direct Wizz Air), not the airline's itinerary. */
+function leg({ date, time, from, to, minutes, stops, estimated }) {
   return {
     date,
     from,
@@ -11,6 +12,8 @@ function leg({ date, time, from, to, minutes }) {
     dep: time,
     arr: estimateArrival({ date, time, fromZone: from.timeZone, toZone: to.timeZone, minutes }),
     minutes,
+    stops,
+    estimated,
   };
 }
 
@@ -22,8 +25,14 @@ export function flightInfo(trip, site, engine) {
     dest,
     km,
     minutes,
-    out: leg({ date: trip.outDate, time: trip.outTime, from: site.origin, to: dest, minutes }),
-    back: leg({ date: trip.backDate, time: trip.backTime, from: dest, to: site.origin, minutes }),
+    out: leg({
+      date: trip.outDate, time: trip.outTime, from: site.origin, to: dest,
+      minutes: trip.outMinutes ?? minutes, stops: trip.outStops ?? trip.stops ?? 0, estimated: trip.outMinutes == null,
+    }),
+    back: leg({
+      date: trip.backDate, time: trip.backTime, from: dest, to: site.origin,
+      minutes: trip.backMinutes ?? minutes, stops: trip.backStops ?? trip.stops ?? 0, estimated: trip.backMinutes == null,
+    }),
   };
 }
 
@@ -36,6 +45,13 @@ export function bookingLink(trip, site, adults) {
 }
 
 export const bookLabel = (trip) => (trip.source === 'travelpayouts' ? 'Check price on Aviasales' : `Book on ${trip.airline}`);
+
+/** "Direct", "1 stop", "2 stops" */
+export const stopsLabel = (stops) => (stops > 0 ? `${stops} stop${stops === 1 ? '' : 's'}` : 'Direct');
+
+// "≈" marks times estimated from distance; the airlines' own itinerary times are shown as they are.
+export const durationLabel = (leg) => (leg.minutes == null ? null : `${leg.estimated ? '≈ ' : ''}${fmtDuration(leg.minutes)}`);
+export const arrivalLabel = (leg) => (leg.arr ? `${leg.estimated ? '≈ ' : ''}${leg.arr.time}` : '—');
 
 /** Two-letter badge for the airline column, e.g. "W6". */
 export const airlineBadge = (trip) => (trip.airlineCode || trip.airline.slice(0, 2)).toUpperCase();

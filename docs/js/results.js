@@ -44,7 +44,9 @@ function banner({ site, engine, query, photos }, count) {
   const dest = engine.destinations.get(query.to);
   const info = dest && flightInfo({ iata: dest.iata, outDate: '2026-01-01', backDate: '2026-01-02' }, site, engine);
   const photo = photos[query.to];
-  const facts = info ? ['Direct', info.minutes && `≈ ${fmtDuration(info.minutes)}`, info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean) : [];
+  // Destinations only reachable with a connection get no distance-based flight time.
+  const direct = dest?.direct !== false;
+  const facts = info ? [direct ? 'Direct' : 'With a stop', direct && info.minutes && `≈ ${fmtDuration(info.minutes)}`, info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean) : [];
   return h('div', { class: 'rh-banner photo-tile has-scrim' },
     photoImg(photo, { width: 1000, height: 400, className: 'cover rh-img', eager: true, alt: dest?.name ?? query.to }) ?? colorBlock(query.to, 'cover'),
     dest && h('span', { class: 'tag-pill rh-country' }, dest.country),
@@ -151,7 +153,7 @@ function emptyState(ctx) {
     ]);
   }
   return emptyTile('i-search', 'No flights match', 'Try other dates, a longer stay, or fewer filters.', [
-    h('button', { type: 'button', class: 'btn-ghost is-sunk', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false }) }, 'Clear filters'),
+    h('button', { type: 'button', class: 'btn-ghost is-sunk', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], stops: [], maxPrice: null, weekend: false }) }, 'Clear filters'),
     h('button', { type: 'button', class: 'btn-primary', onclick: () => navigate({ ...query, depart: 'anytime', back: '' }) }, 'Search anytime'),
   ]);
 }

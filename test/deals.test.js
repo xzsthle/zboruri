@@ -78,6 +78,13 @@ test('summarizeTrips drops duplicate date pairs on the same airline, keeping the
   assert.equal(summary.dealCount, 1);
 });
 
+test('summarizeTrips says whether a destination can be reached without a stop', () => {
+  const direct = summarizeTrips(dest, [{ ...trip('2026-10-01', '2026-10-04', 90), stops: 1 }, trip('2026-10-05', '2026-10-08', 120)], config);
+  const onlyVia = summarizeTrips(dest, [{ ...trip('2026-10-01', '2026-10-04', 90), stops: 1 }], config);
+  assert.equal(direct.direct, true);
+  assert.equal(onlyVia.direct, false);
+});
+
 test('summarizeTrips handles a destination without any trips', () => {
   const summary = summarizeTrips(dest, [], config);
   assert.equal(summary.cheapest, null);

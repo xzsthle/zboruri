@@ -29,6 +29,8 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
   const limits = { min: site.rules.minNights, max: site.rules.maxNights };
   const range = engine.dateRange() ?? { first: site.generatedAt.slice(0, 10), last: site.generatedAt.slice(0, 10) };
   let draft = null;
+  // "Direct flights only" is a results filter (stops = ['0']), applied when the viewer searches.
+  let directOnly = false;
   let openName = null;
   let comboIndex = -1;
 
@@ -215,14 +217,17 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
   $('sw-to').addEventListener('keydown', onComboKey);
   $('sw-to').addEventListener('blur', () => setTimeout(() => { if (openName === 'to') { closePopover(); renderFields(); } }, 120));
   $('sw-others').addEventListener('change', (event) => update({ others: event.target.checked }));
+  $('sw-direct').addEventListener('change', (event) => { directOnly = event.target.checked; });
   document.addEventListener('pointerdown', (event) => { if (openName && !root.contains(event.target)) closePopover(); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && openName) closePopover(); });
   // A manual search replaces whatever the "Ask" box said.
-  root.addEventListener('submit', (event) => { event.preventDefault(); closePopover(); onSearch({ ...draft, note: '' }); });
+  root.addEventListener('submit', (event) => { event.preventDefault(); closePopover(); onSearch({ ...draft, note: '' }, { stops: directOnly ? ['0'] : [] }); });
 
   return {
-    setQuery(query) {
+    setQuery(query, filters = {}) {
       draft = { ...query };
+      directOnly = filters.stops?.length === 1 && filters.stops[0] === '0';
+      $('sw-direct').checked = directOnly;
       setExpanded(false); // a new search folds the phone form back into its summary
       renderFields();
     },

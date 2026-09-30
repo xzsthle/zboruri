@@ -51,6 +51,12 @@ test('formatAlerts groups trips by destination, cheapest first, with booking lin
   ].join('\n'));
 });
 
+test('formatAlerts names the airline and the stops of a connecting trip', () => {
+  const [message] = formatAlerts([alert(BUD, { ...trip('2026-10-09', '2026-10-12', 55, 3), airline: 'Turkish Airlines', stops: 1, source: 'travelpayouts' })], context);
+  assert.match(message.text, /Fri 9 Oct 16:30 → Mon 12 Oct · 3 nights · Turkish Airlines · 1 stop/);
+  assert.match(message.text, /Check price on Aviasales/);
+});
+
 test('formatAlerts splits many destinations over several messages so none is dropped', () => {
   const messages = formatAlerts(
     [alert(BUD, trip('2026-10-09', '2026-10-12', 45, 3)), alert(BGY, trip('2026-10-05', '2026-10-07', 20, 2))],

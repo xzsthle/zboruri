@@ -6,5 +6,5 @@
   "daysAhead": 120,
   "maxDealsPerDestination": 10,
   "requestDelayMs": 1200,
-  "directFlightsOnly": true
+  "directFlightsOnly": false
 }

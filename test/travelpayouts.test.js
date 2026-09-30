@@ -34,6 +34,7 @@ test('parsePrices turns rows into round trips keyed by destination airport', () 
       outDate: '2026-10-10', outTimes: ['06:30'],
       backDate: '2026-10-14', backTimes: ['21:05'],
       nights: 4, totalEur: 58, airlineCode: 'VF', stops: 0,
+      outStops: 0, backStops: 0, outMinutes: null, backMinutes: null,
       bookingUrl: 'https://www.aviasales.com/search/RMO1010IST14101?t=abc',
       source: 'travelpayouts',
     },
@@ -51,6 +52,13 @@ test('parsePrices skips rows outside the window, stay length or with bad data', 
   ];
   const trips = parsePrices({ success: true, data: rows }, options);
   assert.deepEqual(trips.map((t) => [t.destIata, t.trip.totalEur, t.trip.stops]), [['BUD', 45.5, 1]]);
+});
+
+test('parsePrices keeps the stops and flight time of each direction; stops is the most in either', () => {
+  const [{ trip }] = parsePrices({ success: true, data: [row({ transfers: 1, return_transfers: 2, duration_to: 310, duration_back: 455 })] }, options);
+  assert.deepEqual([trip.outStops, trip.backStops, trip.stops, trip.outMinutes, trip.backMinutes], [1, 2, 2, 310, 455]);
+  const [{ trip: odd }] = parsePrices({ success: true, data: [row({ transfers: 'x', duration_to: -5, duration_back: '90' })] }, options);
+  assert.deepEqual([odd.outStops, odd.outMinutes, odd.backMinutes], [0, null, 90]);
 });
 
 test('parsePrices adds the affiliate marker and refuses links that are not site paths', () => {

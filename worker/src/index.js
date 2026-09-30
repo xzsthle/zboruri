@@ -6,7 +6,8 @@ import { sanitizeIntent } from '../../docs/js/intent.js';
 import { buildGeminiRequest, geminiUrl, readGeminiText } from './gemini.js';
 
 const MAX_TEXT = 300;
-const MAX_DESTINATIONS = 150;
+// With connecting flights the site can list a few hundred destinations.
+const MAX_DESTINATIONS = 500;
 const DEFAULT_MODEL = 'gemini-3.1-flash-lite';
 const GEMINI_TIMEOUT_MS = 20_000;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;

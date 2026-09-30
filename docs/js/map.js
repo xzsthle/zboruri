@@ -120,7 +120,8 @@ function placePills(canvas, pills) {
 /** `bestDeals` maps destination code → cheapest deal under the current filters. */
 export function renderMap({ data, bestDeals, selectedIata, money, onSelect }) {
   const canvas = $('map-canvas');
-  const places = data.destinations.filter(hasCoords);
+  // Direct routes only: places reached with a connection would stretch the map across the world.
+  const places = data.destinations.filter((dest) => hasCoords(dest) && dest.direct !== false);
   if (!hasCoords(data.origin) || places.length === 0) {
     canvas.replaceChildren(h('p', { class: 'section-meta' }, 'The map appears after the next scan.'));
     return;

@@ -47,7 +47,7 @@ function start({ site, fares, priceHistory, photos }) {
     render();
   };
 
-  const widget = createSearchWidget({ site, engine, photos, getMoney: money, onSearch: (query) => navigate(query) });
+  const widget = createSearchWidget({ site, engine, photos, getMoney: money, onSearch: (query, filters) => navigate(query, filters) });
 
   function context() {
     return {
@@ -75,7 +75,7 @@ function start({ site, fares, priceHistory, photos }) {
     document.body.dataset.view = route.view;
     $('view-home').hidden = isSearch;
     $('view-search').hidden = !isSearch;
-    widget.setQuery(route.query);
+    widget.setQuery(route.query, route.filters);
     $('currency').value = currency;
     markNav();
     if (isSearch) renderResults(context());

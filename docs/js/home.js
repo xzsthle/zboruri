@@ -83,5 +83,7 @@ export function renderHome({ site, engine, query, money, navigate, photos }) {
 
   const bestDeals = new Map(deals.map((row) => [row.dest.iata, { totalEur: row.best.pricePp, outDate: row.best.outDate }]));
   renderMap({ data: site, bestDeals, selectedIata: null, money, onSelect: (iata) => navigate({ ...query, to: iata }) });
-  $('map-meta').textContent = `${plural(total, 'destination')} · ${plural(bestDeals.size, 'deal')} under ${money.format(limit)}. Tap one to search it.`;
+  const direct = site.destinations.filter((dest) => dest.direct !== false).length;
+  const viaStop = total - direct;
+  $('map-meta').textContent = `${plural(direct, 'direct route')}${viaStop ? ` · ${viaStop} more with a stop` : ''} · ${plural(bestDeals.size, 'deal')} under ${money.format(limit)}. Tap one to search it.`;
 }

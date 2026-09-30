@@ -1,6 +1,6 @@
 // Travelpayouts / Aviasales Data API: cached round-trip prices for every airline (Fly One, HiSky, Ajet,
-// Turkish, LOT…). Prices come from searches other people made recently, so they are labelled as
-// "check price" rather than live. Needs a free token; the reference files (names, coordinates) are public.
+// Turkish, LOT…), direct or with connections. Prices come from searches other people made recently, so
+// they are labelled as "check price" rather than live. Needs a free token; the reference files are public.
 
 import { daysBetween } from './dates.js';
 import { HttpError } from './http.js';
@@ -41,6 +41,10 @@ function bookingLink(link, marker) {
   return marker ? `${url}${url.includes('?') ? '&' : '?'}marker=${encodeURIComponent(marker)}` : url;
 }
 
+// Stops and minutes are per direction; anything unusable becomes 0 stops / unknown time.
+const stopsOf = (value) => (Number.isInteger(Number(value)) && Number(value) > 0 ? Number(value) : 0);
+const minutesOf = (value) => (Number(value) > 0 ? Math.round(Number(value)) : null);
+
 function toTrip(row, { fromIso, toIso, minNights, maxNights, marker }) {
   const outDate = localDate(row.departure_at);
   const backDate = localDate(row.return_at);
@@ -61,7 +65,12 @@ function toTrip(row, { fromIso, toIso, minNights, maxNights, marker }) {
       nights,
       totalEur: Math.round(price * 100) / 100,
       airlineCode: typeof row.airline === 'string' ? row.airline : null,
-      stops: (Number(row.transfers) || 0) + (Number(row.return_transfers) || 0),
+      // The most stops in either direction: what "direct" / "1 stop" filters look at.
+      stops: Math.max(stopsOf(row.transfers), stopsOf(row.return_transfers)),
+      outStops: stopsOf(row.transfers),
+      backStops: stopsOf(row.return_transfers),
+      outMinutes: minutesOf(row.duration_to),
+      backMinutes: minutesOf(row.duration_back),
       bookingUrl: bookingLink(row.link, marker),
       source: 'travelpayouts',
     },

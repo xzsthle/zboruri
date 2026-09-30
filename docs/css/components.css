@@ -284,5 +284,8 @@
 .art--sand { background: var(--sand); color: var(--ink); }
 .art-code { position: absolute; left: 7%; bottom: 6%; font-family: var(--font-display); font-size: clamp(0.75rem, 26cqmin, 7rem); font-stretch: 125%; font-weight: 800; line-height: 0.9; }
 .photo-tile > .art-block .art-code { bottom: auto; top: 30%; }
+/* Wide banners keep their title bottom-left, so the code sits top-right. */
+.rh-banner > .art-block .art-code,
+.dlg-photo > .art-block .art-code { top: 14%; right: 5%; left: auto; }
 /* A colour block stays flat: no photo, so no scrim. */
 .photo-tile:has(> .art-block)::after { content: none; }

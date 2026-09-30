@@ -16,21 +16,30 @@ export async function loadReference({ reference, log }) {
   }
 }
 
+// With connections, one month can hold hundreds of round trips to the same city; the site only needs the cheapest.
+const MAX_TRIPS_PER_DESTINATION = 40;
+
+/** Keeps the `limit` cheapest trips for each destination (input order otherwise kept). */
+export function capPerDestination(found, limit = MAX_TRIPS_PER_DESTINATION) {
+  const byDestination = Map.groupBy(found, ({ destIata }) => destIata);
+  return [...byDestination.values()].flatMap((trips) => trips.toSorted((a, b) => a.trip.totalEur - b.trip.totalEur).slice(0, limit));
+}
+
 /**
- * Cached fares for every airline via Travelpayouts. Optional: without a token it's off, and any failure
+ * Cached fares for every airline via Travelpayouts, direct or with connections (config.directFlightsOnly). Optional: without a token it's off, and any failure
  * leaves the run on live Wizz Air data alone. An auth failure is flagged so the job can tell the user.
  */
 export async function scanOtherAirlines({ travelpayouts, config, origin, fromIso, toIso, log }) {
   if (!travelpayouts) return { found: [], status: { status: 'off' } };
   try {
-    const found = await travelpayouts.fetchTrips({
+    const found = capPerDestination(await travelpayouts.fetchTrips({
       origin,
       fromIso,
       toIso,
       minNights: config.minNights,
       maxNights: config.maxNights,
       directOnly: config.directFlightsOnly,
-    });
+    }));
     log.info(`Other airlines: ${found.length} cached round trips from Travelpayouts`);
     return { found, status: { status: 'ok', trips: found.length } };
   } catch (error) {

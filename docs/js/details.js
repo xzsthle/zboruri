@@ -4,9 +4,9 @@ import { $, h, icon } from './dom.js';
 import { downloadIcs, shareTrip } from './actions.js';
 import { priceHistory } from './history-chart.js';
 import { priceCalendar } from './pickers.js';
-import { fmtDuration, hoursBetween, nowIn } from './geo.js';
+import { hoursBetween, nowIn } from './geo.js';
 import { fmtDay, ORIGIN_NAMES, plural } from './format.js';
-import { bookingLink, bookLabel, flightInfo } from './flight.js';
+import { arrivalLabel, bookingLink, bookLabel, durationLabel, flightInfo, stopsLabel } from './flight.js';
 import { toHash } from './query.js';
 import { photoImg } from './photo.js';
 import { colorBlock } from './art.js';
@@ -24,16 +24,17 @@ function itineraryLeg(label, trip, leg) {
     h('header', { class: 'it-head' },
       h('span', { class: 'it-label' }, label),
       h('strong', {}, fmtDay(leg.date)),
-      h('span', { class: 'it-sub' }, `${trip.airline} · ${trip.stops > 0 ? plural(trip.stops, 'stop') : 'Direct'}`)),
+      h('span', { class: 'it-sub' }, `${trip.airline} · ${stopsLabel(leg.stops)}`)),
     h('ol', { class: 'it-timeline' },
       h('li', { class: 'it-stop' },
         h('time', {}, leg.dep ?? '—'),
         h('div', {}, h('strong', {}, placeLine(leg.from)), h('span', {}, `${cityOf(leg.from)}, ${leg.from.country}`))),
       h('li', { class: 'it-flight' },
         icon('i-plane'),
-        leg.minutes ? `≈ ${fmtDuration(leg.minutes)} flight` : 'Flight time unknown'),
+        leg.minutes == null ? 'Flight time unknown'
+          : leg.stops > 0 ? `${durationLabel(leg)} in total, with ${stopsLabel(leg.stops)}` : `${durationLabel(leg)} flight`),
       h('li', { class: 'it-stop' },
-        h('time', {}, leg.arr ? `≈ ${leg.arr.time}` : '—', leg.arr?.nextDay && h('sup', {}, '+1')),
+        h('time', {}, arrivalLabel(leg), leg.arr?.nextDay && h('sup', {}, '+1')),
         h('div', {}, h('strong', {}, placeLine(leg.to)), h('span', {}, `${cityOf(leg.to)}, ${leg.to.country}`)))));
 }
 
@@ -56,7 +57,7 @@ function destinationFacts(info, site) {
     ['Local time now', dest.timeZone ? nowIn(dest.timeZone) : null],
     ['Time difference', diff == null ? null : diff === 0 ? 'Same as Chișinău' : `${diff > 0 ? '+' : '−'}${Math.abs(diff)} h vs Chișinău`],
     ['Distance', info.km ? `${info.km.toLocaleString('en-US')} km` : null],
-    ['Flight time', info.minutes ? `≈ ${fmtDuration(info.minutes)}` : null],
+    ['Flight time', durationLabel(info.out)],
     ['Local currency', dest.localCurrency],
     ['Airport', dest.airportName ?? null],
   ].filter(([, value]) => value);
@@ -87,7 +88,7 @@ function priceBox({ trip, info, site, money, query }) {
 /** The destination photo (or its colour block) with the route's facts in a stat pill. */
 function photoTile(photo, info) {
   const { dest } = info;
-  const facts = ['Direct', info.minutes && `≈ ${fmtDuration(info.minutes)}`, info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean);
+  const facts = [stopsLabel(info.out.stops), durationLabel(info.out), info.km && `${info.km.toLocaleString('en-US')} km`, dest.localCurrency && `pays in ${dest.localCurrency}`].filter(Boolean);
   return h('div', { class: 'dlg-photo photo-tile has-scrim' },
     photoImg(photo, { width: 720, height: 260, className: 'cover dlg-img', eager: true, alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
     h('span', { class: 'tag-pill dlg-country' }, dest.country),

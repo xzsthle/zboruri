@@ -90,6 +90,8 @@ export function summarizeTrips(dest, trips, config) {
     dealCount: underLimit.length,
     calendar: fareCalendar(sorted),
     airlines: [...new Set(sorted.map((trip) => trip.airline))].sort(),
+    // False when every known trip needs a connection (the route map only draws direct routes).
+    direct: sorted.length === 0 || sorted.some((trip) => !(trip.stops > 0)),
   };
 }
 

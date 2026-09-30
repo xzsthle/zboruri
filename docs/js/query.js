@@ -3,7 +3,8 @@
 //   #/search?to=SOF&depart=2026-10&min=2&max=10&adults=1   results
 
 export const DEFAULT_QUERY = Object.freeze({ to: 'anywhere', depart: 'anytime', back: '', min: 2, max: 10, adults: 1, others: true, label: '', note: '' });
-export const DEFAULT_FILTERS = Object.freeze({ sort: 'best', airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false });
+// stops: '0' direct, '1' one stop, '2' two or more (the most stops in either direction); empty = any.
+export const DEFAULT_FILTERS = Object.freeze({ sort: 'best', airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false, stops: [] });
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const RANGE = /^(\d{4}-\d{2}-\d{2})\.\.(\d{4}-\d{2}-\d{2})$/;
@@ -11,6 +12,7 @@ const MONTH = /^\d{4}-\d{2}$/;
 const IATA = /^[A-Z]{3}$/;
 const SORTS = new Set(['best', 'cheapest', 'soonest']);
 const WINDOWS = new Set(['night', 'morning', 'afternoon', 'evening']);
+const STOP_CLASSES = new Set(['0', '1', '2']);
 
 const clampInt = (value, min, max, fallback) => {
   const n = Number.parseInt(value, 10);
@@ -54,6 +56,7 @@ export function parseHash(hash, rules) {
     backWin: list(params.get('ret'), (w) => WINDOWS.has(w)),
     maxPrice: params.has('maxp') ? clampInt(params.get('maxp'), 1, 100_000, null) : null,
     weekend: params.get('wknd') === '1',
+    stops: list(params.get('stops'), (s) => STOP_CLASSES.has(s)),
   };
   return { view: path.startsWith('/search') ? 'search' : 'home', query, filters };
 }
@@ -76,5 +79,6 @@ export function toHash(query, filters = DEFAULT_FILTERS) {
   put('ret', filters.backWin.join(','), '');
   put('maxp', filters.maxPrice, null);
   if (filters.weekend) params.set('wknd', '1');
+  put('stops', (filters.stops ?? []).join(','), '');
   return `#/search?${params}`;
 }

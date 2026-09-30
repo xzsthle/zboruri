@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createEngine, windowOf } from '../docs/js/engine.js';
 import { distanceKm, estimateArrival, estimateMinutes, fmtDuration, hoursBetween, nowIn } from '../docs/js/geo.js';
 import { DEFAULT_FILTERS, DEFAULT_QUERY, departSpec, parseHash, toHash } from '../docs/js/query.js';
+import { flightInfo } from '../docs/js/flight.js';
 
 const site = {
   origin: { iata: 'RMO', lat: 46.93, lon: 28.93, timeZone: 'Europe/Chisinau' },
@@ -69,6 +70,35 @@ test('filters by departure window, airline, max price and cached fares', () => {
   );
 });
 
+// Istanbul with one direct and two connecting cached trips (4 nights each).
+const via = (stops, backStops, totalEur, outDate) => ({
+  outDate, outTimes: ['09:00'], backDate: `2026-11-${String(Number(outDate.slice(8)) + 4).padStart(2, '0')}`, backTimes: ['18:00'], nights: 4,
+  totalEur, airline: 'Turkish Airlines', airlineCode: 'TK', source: 'travelpayouts', bookingUrl: null,
+  stops: Math.max(stops, backStops), outStops: stops, backStops, outMinutes: stops ? 330 : 95, backMinutes: backStops ? 410 : 100,
+});
+const connecting = createEngine(
+  { ...site, destinations: [...site.destinations, { iata: 'IST', name: 'Istanbul', country: 'Turkey', lat: 41.26, lon: 28.74, timeZone: 'Europe/Istanbul' }] },
+  { destinations: { IST: { out: [], back: [], cached: [via(0, 0, 120, '2026-11-02'), via(1, 0, 90, '2026-11-03'), via(1, 2, 70, '2026-11-04')] } } },
+);
+
+test('the stops filter keeps direct, one-stop or two-plus-stop trips (the most stops in either direction)', () => {
+  const prices = (stops) => connecting.search(query({ to: 'IST' }), filters({ stops, sort: 'cheapest' })).map((t) => t.pricePp);
+  assert.deepEqual(prices([]), [70, 90, 120]);
+  assert.deepEqual(prices(['0']), [120]);
+  assert.deepEqual(prices(['1']), [90]);
+  assert.deepEqual(prices(['1', '2']), [70, 90]);
+});
+
+test('cached trips keep the stops and flight time per direction; flightInfo prefers them to the estimate', () => {
+  const [trip] = connecting.search(query({ to: 'IST' }), filters({ stops: ['1'] }));
+  assert.deepEqual([trip.outStops, trip.backStops, trip.outMinutes, trip.backMinutes], [1, 0, 330, 100]);
+  const info = flightInfo(trip, { ...site, origin: { ...site.origin } }, connecting);
+  assert.deepEqual([info.out.stops, info.out.minutes, info.out.estimated], [1, 330, false]);
+  assert.equal(info.out.arr.time, '15:30', '09:00 + 5h30, and Istanbul is an hour ahead of Chișinău in November');
+  const [live] = engine.search(query({ to: 'SOF' }), filters());
+  assert.deepEqual([flightInfo(live, site, engine).out.stops, flightInfo(live, site, engine).out.estimated], [0, true]);
+});
+
 test('explore returns the cheapest trip per destination, cheapest destination first', () => {
   const rows = engine.explore(query(), filters());
   assert.deepEqual(rows.map((r) => [r.dest.iata, r.best.pricePp, r.count]), [['SOF', 22, 4], ['BUD', 30, 2]]);
@@ -122,7 +152,7 @@ test('local time now and the time difference between airports', () => {
 
 test('query and filters round-trip through the URL hash', () => {
   const q = { ...DEFAULT_QUERY, to: 'SOF', depart: '2026-10', min: 3, max: 5, adults: 2 };
-  const f = { ...DEFAULT_FILTERS, sort: 'cheapest', airlines: ['Wizz Air'], outWin: ['morning'], maxPrice: 50, weekend: true };
+  const f = { ...DEFAULT_FILTERS, sort: 'cheapest', airlines: ['Wizz Air'], outWin: ['morning'], maxPrice: 50, weekend: true, stops: ['0', '1'] };
   const parsed = parseHash(toHash(q, f), site.rules);
   assert.equal(parsed.view, 'search');
   assert.deepEqual(parsed.query, q);
@@ -134,6 +164,7 @@ test('parseHash clamps or drops anything unexpected', () => {
   assert.deepEqual(junk.query, { ...DEFAULT_QUERY, adults: 9 });
   assert.equal(junk.filters.sort, 'best');
   assert.deepEqual(junk.filters.outWin, []);
+  assert.deepEqual(parseHash('#/search?stops=0,7,x,2', site.rules).filters.stops, ['0', '2']);
   assert.equal(parseHash('', site.rules).view, 'home');
   assert.deepEqual(departSpec('2026-10-24'), { type: 'date', date: '2026-10-24' });
   assert.deepEqual(departSpec('whenever'), { type: 'anytime' });

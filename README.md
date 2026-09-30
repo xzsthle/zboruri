@@ -5,7 +5,7 @@
 Twice a day, this checks **every flight route out of Chișinău (RMO)** for cheap **return trips**. When it finds new ones it sends them to you on **Telegram** and updates a premium **deals dashboard** website.
 
 - **Live Wizz Air fares:** every Wizz Air route, read from their own fare calendar.
-- **Every other airline (optional):** Fly One, HiSky, Ajet, Turkish, LOT, Lufthansa and more, through the free Travelpayouts / Aviasales Data API.
+- **Every other airline (optional):** Fly One, HiSky, Ajet, Turkish, LOT, Lufthansa and more, direct or with a stop, through the free Travelpayouts / Aviasales Data API.
 
 Everything runs on free tiers: GitHub Actions does the scheduling, GitHub Pages hosts the site, and Telegram delivers the alerts.
 
@@ -33,7 +33,7 @@ The site at `https://<you>.github.io/<repo>/` is a flight search in the style of
   - **Best / Cheapest / Soonest** tabs, each with its top price.
   - A **date strip** with the cheapest price for each departure day, and a cheapest-month bar chart.
   - Flight cards: departure time → estimated arrival, flight time, direct, airline, price per person and total.
-- **Filters:** outbound and return departure times (with counts), airlines (with their lowest price), max price, and weekend trips only.
+- **Filters:** stops (direct / 1 stop / 2+, with counts and lowest price), outbound and return departure times, airlines (with their lowest price), max price, and weekend trips only.
 - **Everywhere:** every destination with its best trip for your dates, as picture cards.
 - **Flight details:**
   - A timeline with full airport names and local times across time zones.
@@ -44,7 +44,7 @@ The site at `https://<you>.github.io/<repo>/` is a flight search in the style of
 - **Home:** cheapest destinations, weekend escapes, cheapest months to fly, a route map and an FAQ.
 - **Currency switch** (EUR / MDL / RON / USD). Every search is a **shareable link**.
 
-Departure times are real. Arrival times and flight durations are estimated from distance and time zones, and marked "≈".
+Departure times are real. For Wizz Air, arrival times and flight durations are estimated from distance and time zones, and marked "≈". For other airlines (including connections) the journey time comes from the fare itself.
 
 ### Ask in plain English or Romanian
 
@@ -124,7 +124,7 @@ Missing Telegram secrets, or a rejected Travelpayouts token, make the run fail w
 | `daysAhead`              | `120`     | How far ahead to search (max 365)                            |
 | `maxDealsPerDestination` | `10`      | Cheapest date combinations kept per destination              |
 | `requestDelayMs`         | `1200`    | Pause between Wizz Air requests, so they don't rate-limit us |
-| `directFlightsOnly`      | `true`    | Other airlines: only direct flights (no connections)         |
+| `directFlightsOnly`      | `false`   | Other airlines: `true` keeps only direct flights; `false` also finds connections (1–2 stops) |
 
 To change the schedule, edit the two `cron` lines in [.github/workflows/scan.yml](.github/workflows/scan.yml). They're in UTC.
 

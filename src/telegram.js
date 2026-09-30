@@ -39,10 +39,11 @@ function formatGroup([best, ...others]) {
   const more = others.length > 0 ? `+${plural(others.length, 'more date')}` : '';
   const link = trip.bookingUrl ? `<a href="${escapeHtml(trip.bookingUrl)}">${bookLabel(trip)}</a>` : '';
   const airline = trip.airline ? ` · ${escapeHtml(trip.airline)}` : '';
+  const stops = trip.stops > 0 ? ` · ${plural(trip.stops, 'stop')}` : '';
   return [
     '',
     `${flagEmoji(place.countryCode)} <b>${escapeHtml(place.name)}</b>, ${escapeHtml(place.country)} — <b>${formatEur(trip.totalEur)}</b>`,
-    `${formatLeg(trip.outDate, trip.outTimes)} → ${formatLeg(trip.backDate, trip.backTimes)} · ${plural(trip.nights, 'night')}${airline}`,
+    `${formatLeg(trip.outDate, trip.outTimes)} → ${formatLeg(trip.backDate, trip.backTimes)} · ${plural(trip.nights, 'night')}${airline}${stops}`,
     ...[[link, more].filter(Boolean).join(' · ')].filter(Boolean),
   ];
 }

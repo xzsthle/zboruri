@@ -1,7 +1,7 @@
 // Results filter sidebar: stops, departure times (each direction), airlines, max price, weekend trips.
 
 import { $, h, icon } from './dom.js';
-import { TIME_WINDOWS, windowOf } from './engine.js';
+import { stopClass, TIME_WINDOWS, windowOf } from './engine.js';
 
 const toggle = (list, value) => (list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
@@ -45,6 +45,25 @@ function airlineGroup(trips, { filters, setFilters, money }) {
   })));
 }
 
+const STOP_OPTIONS = [['0', 'Direct'], ['1', '1 stop'], ['2', '2+ stops']];
+
+/** Direct / 1 stop / 2+ stops, each with how many trips it has and its cheapest price. */
+function stopsGroup(trips, { filters, setFilters, money }) {
+  const byClass = Map.groupBy(trips, stopClass);
+  return group('Stops', ...STOP_OPTIONS.map(([key, label]) => {
+    const matching = byClass.get(key) ?? [];
+    const checked = filters.stops.includes(key);
+    return checkRow({
+      label,
+      hint: matching.length ? `from ${money.format(Math.min(...matching.map((trip) => trip.pricePp)))}` : 'None for these dates',
+      count: matching.length,
+      checked,
+      disabled: matching.length === 0 && !checked,
+      onChange: () => setFilters({ stops: toggle(filters.stops, key) }),
+    });
+  }));
+}
+
 function priceGroup(trips, { filters, setFilters, money }) {
   if (trips.length === 0) return null;
   const prices = trips.map((trip) => trip.pricePp);
@@ -63,7 +82,7 @@ function priceGroup(trips, { filters, setFilters, money }) {
 }
 
 const activeCount = (filters) =>
-  filters.airlines.length + filters.outWin.length + filters.backWin.length + (filters.maxPrice != null ? 1 : 0) + (filters.weekend ? 1 : 0);
+  filters.airlines.length + filters.outWin.length + filters.backWin.length + filters.stops.length + (filters.maxPrice != null ? 1 : 0) + (filters.weekend ? 1 : 0);
 
 /**
  * `trips` are all trips for the current search before filters, so counts show what each filter would give.
@@ -75,9 +94,9 @@ export function renderFilterSidebar(ctx, trips) {
   $('filters').replaceChildren(
     h('div', { class: 'filters-head' },
       h('h2', {}, 'Filters'),
-      active > 0 && h('button', { type: 'button', class: 'link-btn', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], maxPrice: null, weekend: false }) }, `Clear all (${active})`),
+      active > 0 && h('button', { type: 'button', class: 'link-btn', onclick: () => setFilters({ airlines: [], outWin: [], backWin: [], stops: [], maxPrice: null, weekend: false }) }, `Clear all (${active})`),
       closeSheet && h('button', { type: 'button', class: 'orb orb--sunk orb--sm filters-close', 'aria-label': 'Close filters', onclick: closeSheet }, icon('i-close'))),
-    group('Stops', checkRow({ label: 'Direct', hint: 'Every flight shown is non-stop', checked: true, disabled: true, onChange: () => {} })),
+    stopsGroup(trips, ctx),
     group('Trip type', checkRow({
       label: 'Weekend trips only', hint: 'Leave Thu–Sat, back Sun or Mon', checked: filters.weekend,
       onChange: () => setFilters({ weekend: !filters.weekend }),
