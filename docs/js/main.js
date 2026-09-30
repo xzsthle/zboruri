@@ -33,7 +33,7 @@ async function fetchJson(url) {
   return res.json();
 }
 
-function start({ site, fares, priceHistory }) {
+function start({ site, fares, priceHistory, photos }) {
   const engine = createEngine(site, fares);
   let currency = CURRENCY_CODES.includes(readCurrency()) ? readCurrency() : 'EUR';
   let route = parseHash(location.hash, site.rules);
@@ -46,13 +46,13 @@ function start({ site, fares, priceHistory }) {
     render();
   };
 
-  const widget = createSearchWidget({ site, engine, getMoney: money, onSearch: (query) => navigate(query) });
+  const widget = createSearchWidget({ site, engine, photos, getMoney: money, onSearch: (query) => navigate(query) });
 
   function context() {
     return {
-      site, engine, history: priceHistory, query: route.query, filters: route.filters, money: money(), navigate, setFilters,
+      site, engine, photos, history: priceHistory, query: route.query, filters: route.filters, money: money(), navigate, setFilters,
       openTrip: (trip) => openDetails({
-        trip, site, engine, money: money(), query: route.query, history: priceHistory,
+        trip, site, engine, photos, money: money(), query: route.query, history: priceHistory,
         onChangeDate: (iata, date) => navigate({ ...route.query, to: iata, depart: date, back: '' }),
       }),
     };
@@ -95,12 +95,14 @@ function showError(error) {
 
 async function load() {
   try {
-    const [site, fares, priceHistory] = await Promise.all([
+    const [site, fares, priceHistory, photos] = await Promise.all([
       fetchJson('data/deals.json'),
       fetchJson('data/fares.json').catch(() => ({ destinations: {} })),
       fetchJson('data/history.json').then((body) => body.destinations ?? {}).catch(() => ({})),
+      // Photos are optional: without them the drawn landscapes are used.
+      fetchJson('data/photos.json').then((body) => body.destinations ?? {}).catch(() => ({})),
     ]);
-    start({ site, fares, priceHistory });
+    start({ site, fares, priceHistory, photos });
   } catch (error) {
     showError(error);
   }

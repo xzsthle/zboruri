@@ -7,6 +7,7 @@ import { createFileStore } from './store.js';
 import { createTelegramNotifier } from './telegram.js';
 import { createReferenceClient, createTravelpayoutsClient } from './travelpayouts.js';
 import { createWizzClient } from './wizz.js';
+import { createPexelsClient } from './photos.js';
 
 const fromRoot = (path) => fileURLToPath(new URL(`../${path}`, import.meta.url));
 
@@ -16,6 +17,7 @@ const WIZZ_HTTP = { retries: 2, backoffMs: 5_000, timeoutMs: 15_000 };
 const RETRY_COOLDOWN_MS = 60_000;
 // Never retry sendMessage: a retry after a timeout can deliver the same alert twice.
 const TELEGRAM_HTTP = { retries: 0, timeoutMs: 15_000 };
+const PEXELS_HTTP = { retries: 1, backoffMs: 3_000, timeoutMs: 20_000 };
 // The Travelpayouts reference files are a few MB each.
 const TRAVELPAYOUTS_HTTP = { retries: 2, backoffMs: 3_000, timeoutMs: 60_000 };
 
@@ -50,6 +52,8 @@ async function main() {
     wizz: createWizzClient(http),
     travelpayouts: createOtherAirlinesClient(process.env),
     reference: createReferenceClient(createHttp(TRAVELPAYOUTS_HTTP)),
+    // Destination photos: optional, only with a PEXELS_API_KEY secret.
+    pexels: process.env.PEXELS_API_KEY?.trim() ? createPexelsClient(createHttp(PEXELS_HTTP), { apiKey: process.env.PEXELS_API_KEY.trim() }) : null,
     getRates: () => fetchEurRates(http.getJson),
     notifier,
     store: createFileStore({
@@ -57,6 +61,7 @@ async function main() {
       siteDataPath: fromRoot('docs/data/deals.json'),
       historyPath: fromRoot('docs/data/history.json'),
       faresPath: fromRoot('docs/data/fares.json'),
+      photosPath: fromRoot('docs/data/photos.json'),
     }),
     clock: { now: () => new Date() },
     pause: () => sleep(config.requestDelayMs),

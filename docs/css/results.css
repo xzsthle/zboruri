@@ -118,3 +118,17 @@
 .empty-icon { width: 2.5rem; height: 2.5rem; color: var(--ink-3); }
 .empty p { color: var(--ink-2); }
 .empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-top: var(--space-3); }
+
+/* ---------- Destination banner ---------- */
+
+.rh-text.has-photo {
+  position: relative; isolation: isolate; display: grid; align-content: end; min-height: 17rem;
+  padding: var(--space-8); overflow: hidden; border-radius: var(--radius-xl); color: #fff; box-shadow: var(--shadow-md);
+}
+.rh-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.rh-text.has-photo::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(8 12 40 / 0.05) 20%, rgb(8 12 40 / 0.78) 100%); }
+.rh-text.has-photo .eyebrow { color: #c9d4ff; }
+.rh-text.has-photo .rh-sub { color: rgb(255 255 255 / 0.88); }
+.rh-text.has-photo .rh-facts li { background: rgb(255 255 255 / 0.16); color: #fff; box-shadow: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.rh-text.has-photo .rh-facts .icon { color: #c9d4ff; }
+.rh-text.has-photo .photo-credit { top: var(--space-4); bottom: auto; right: var(--space-4); opacity: 0.85; }

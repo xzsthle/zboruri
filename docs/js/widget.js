@@ -6,6 +6,7 @@ import { matchesQuery } from './data.js';
 import { departSpec } from './query.js';
 import { flagEmoji, fmtDay, fmtMonthLong, plural } from './format.js';
 import { monthChips, priceCalendar, stayPresets, stepper, tabs } from './pickers.js';
+import { photoImg } from './photo.js';
 
 const DESTINATION_LIMIT = 8;
 
@@ -22,7 +23,7 @@ export function describeDepart(depart) {
 export const describeStay = (query) => (query.back ? fmtDay(query.back) : `${query.min}–${query.max} nights`);
 export const describeTravellers = (adults) => plural(adults, 'adult');
 
-export function createSearchWidget({ site, engine, getMoney, onSearch }) {
+export function createSearchWidget({ site, engine, getMoney, photos = {}, onSearch }) {
   const root = $('search-widget');
   const limits = { min: site.rules.minNights, max: site.rules.maxNights };
   const range = engine.dateRange() ?? { first: site.generatedAt.slice(0, 10), last: site.generatedAt.slice(0, 10) };
@@ -76,7 +77,7 @@ export function createSearchWidget({ site, engine, getMoney, onSearch }) {
           role: 'option', id: `sw-opt-${i}`, class: i === comboIndex ? 'combo-option is-active' : 'combo-option', 'aria-selected': String(i === comboIndex),
           onmousedown: (event) => { event.preventDefault(); chooseDestination(dest.iata); },
         },
-          h('span', { class: 'combo-icon', 'aria-hidden': 'true' }, anywhere ? icon('i-globe') : flagEmoji(dest.countryCode)),
+          h('span', { class: 'combo-icon', 'aria-hidden': 'true' }, anywhere ? icon('i-globe') : photoImg(photos[dest.iata], { width: 40, height: 40, className: 'combo-photo', alt: '' }) ?? flagEmoji(dest.countryCode)),
           h('span', { class: 'combo-text' },
             h('strong', {}, anywhere ? 'Everywhere' : `${dest.name} (${dest.iata})`),
             h('span', {}, anywhere ? 'Explore every destination from Chișinău' : dest.airportName ?? dest.country)),
@@ -191,7 +192,8 @@ export function createSearchWidget({ site, engine, getMoney, onSearch }) {
     field.addEventListener('click', () => (openName === field.dataset.pop ? closePopover() : openPopover(field.dataset.pop)));
   });
   $('sw-to').addEventListener('focus', () => { $('sw-to').select(); comboIndex = -1; openPopover('to'); });
-  $('sw-to').addEventListener('input', () => { comboIndex = 0; if (openName !== 'to') openPopover('to'); else renderDestinations(); });
+  // Typing highlights the first matching city (index 1), so Enter picks it rather than "Everywhere".
+  $('sw-to').addEventListener('input', () => { comboIndex = $('sw-to').value.trim() ? 1 : 0; if (openName !== 'to') openPopover('to'); else renderDestinations(); });
   $('sw-to').addEventListener('keydown', onComboKey);
   $('sw-to').addEventListener('blur', () => setTimeout(() => { if (openName === 'to') { closePopover(); renderFields(); } }, 120));
   $('sw-others').addEventListener('change', (event) => update({ others: event.target.checked }));

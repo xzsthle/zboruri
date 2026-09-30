@@ -75,6 +75,8 @@ function memoryStore({ state = emptyState(), history = emptyHistory() } = {}) {
     writeHistory: async (value) => { writes.history = value; },
     writeSiteData: async (data) => { writes.site = data; },
     writeFares: async (data) => { writes.fares = data; },
+    readPhotos: async () => ({ version: 1, destinations: {} }),
+    writePhotos: async (data) => { writes.photos = data; },
   };
 }
 
@@ -97,6 +99,7 @@ function makeDeps(overrides = {}) {
     wizz: fakeWizz(),
     travelpayouts: null,
     reference: fakeReference(),
+    pexels: null,
     getRates: async () => ({ EUR: 1, MDL: 20, RON: 5, USD: 1.1, GBP: 0.9 }),
     notifier: fakeNotifier(),
     store: memoryStore(),
@@ -261,4 +264,25 @@ test('run still publishes when the reference data cannot be loaded', async () =>
   assert.equal(deps.store.writes.site.destinations.find((d) => d.iata === 'BUD').airportName, undefined);
   assert.equal(result.otherAirlines.trips, 1, 'cached trips for unknown places are skipped, not fatal');
   assert.match(deps.warnings.join('\n'), /Reference data unavailable/);
+});
+
+test('run adds a photo per destination when Pexels is configured', async () => {
+  const searched = [];
+  const pexels = {
+    search: async (query) => {
+      searched.push(query);
+      const id = searched.length;
+      return [{ id, width: 4000, height: 3000, src: { original: `https://images.pexels.com/photos/${id}/p.jpeg` }, photographer: 'Ana', avg_color: '#112233' }];
+    },
+  };
+  const deps = makeDeps({ pexels });
+  await run(deps);
+  assert.deepEqual(searched.toSorted(), ['Bergamo Italy city', 'Budapest Hungary city']);
+  assert.deepEqual(Object.keys(deps.store.writes.photos.destinations).toSorted(), ['BGY', 'BUD']);
+});
+
+test('run leaves photos alone without a Pexels key', async () => {
+  const deps = makeDeps();
+  await run(deps);
+  assert.equal(deps.store.writes.photos, undefined);
 });

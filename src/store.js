@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { emptyState, normalizeState } from './state.js';
 import { emptyHistory, normalizeHistory } from './history.js';
+import { emptyPhotos, normalizePhotos } from './photos.js';
 
 async function writeJson(path, data, { pretty }) {
   await mkdir(dirname(path), { recursive: true });
@@ -25,7 +26,7 @@ async function readJsonIfExists(path) {
  * Alert history lives in data/ (pretty, so diffs stay readable). The public site files in docs/data/
  * are compact, since the website downloads them on every visit.
  */
-export function createFileStore({ statePath, siteDataPath, historyPath, faresPath }) {
+export function createFileStore({ statePath, siteDataPath, historyPath, faresPath, photosPath }) {
   return {
     readState: async () => {
       const raw = await readJsonIfExists(statePath);
@@ -39,5 +40,10 @@ export function createFileStore({ statePath, siteDataPath, historyPath, faresPat
     writeHistory: (history) => writeJson(historyPath, history, { pretty: false }),
     writeSiteData: (data) => writeJson(siteDataPath, data, { pretty: false }),
     writeFares: (data) => writeJson(faresPath, data, { pretty: false }),
+    readPhotos: async () => {
+      const raw = await readJsonIfExists(photosPath);
+      return raw === null ? emptyPhotos() : normalizePhotos(raw);
+    },
+    writePhotos: (photos) => writeJson(photosPath, photos, { pretty: true }),
   };
 }

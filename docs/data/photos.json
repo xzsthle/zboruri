@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "destinations": {
+    "SOF": {
+      "id": 28702047,
+      "base": "https://images.pexels.com/photos/28702047/pexels-photo-28702047.jpeg",
+      "avgColor": "#44889F",
+      "alt": "The iconic domes of Alexander Nevsky Cathedral against a clear blue sky in Sofia, Bulgaria.",
+      "photographer": "Uiliam Nörnberg",
+      "photographerUrl": "https://www.pexels.com/@uiliamnornberg",
+      "pageUrl": "https://www.pexels.com/photo/alexander-nevsky-cathedral-in-sofia-bulgaria-28702047/"
+    },
+    "WRO": {
+      "id": 38635474,
+      "base": "https://images.pexels.com/photos/38635474/pexels-photo-38635474.jpeg",
+      "avgColor": "#8D8E93",
+      "alt": "Picturesque riverside view of Wrocław with historic and modern architecture under a blue sky.",
+      "photographer": "Travel Photographer",
+      "photographerUrl": "https://www.pexels.com/@travel-photographer-127255675",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-wroclaw-s-river-and-architecture-38635474/"
+    },
+    "BUD": {
+      "id": 34431055,
+      "base": "https://images.pexels.com/photos/34431055/pexels-photo-34431055.jpeg",
+      "avgColor": "#171717",
+      "alt": "Black and white aerial view of St. Stephen's Basilica illuminated at night in Budapest, Hungary.",
+      "photographer": "K",
+      "photographerUrl": "https://www.pexels.com/@kelly",
+      "pageUrl": "https://www.pexels.com/photo/st-stephen-s-basilica-in-budapest-at-night-34431055/"
+    },
+    "GHV": {
+      "id": 13798548,
+      "base": "https://images.pexels.com/photos/13798548/pexels-photo-13798548.jpeg",
+      "avgColor": "#797873",
+      "alt": "Aerial shot of the vibrant town square in Brașov, showcasing historic architecture and bustling activity.",
+      "photographer": "Alina Gheordunescu",
+      "photographerUrl": "https://www.pexels.com/@alina-gheordunescu-139434964",
+      "pageUrl": "https://www.pexels.com/photo/view-of-a-town-square-13798548/"
+    },
+    "BLQ": {
+      "id": 1541363,
+      "base": "https://images.pexels.com/photos/1541363/pexels-photo-1541363.jpeg",
+      "avgColor": "#87766D",
+      "alt": "Aerial shot of Bologna, Italy showcasing its historic red rooftops and medieval architecture.",
+      "photographer": "Adrienn",
+      "photographerUrl": "https://www.pexels.com/@adrienn-638530",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-bologna-s-historic-rooftops-1541363/"
+    },
+    "BTS": {
+      "id": 38713613,
+      "base": "https://images.pexels.com/photos/38713613/pexels-photo-38713613.jpeg",
+      "avgColor": "#6B696A",
+      "alt": "Stunning view of Bratislava's skyline with historic and modern architecture.",
+      "photographer": "Lajos Kristóf Kántor",
+      "photographerUrl": "https://www.pexels.com/@lajos-kristof-kantor-2158796893",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-bratislava-cityscape-38713613/"
+    },
+    "CRL": {
+      "id": 14192312,
+      "base": "https://images.pexels.com/photos/14192312/pexels-photo-14192312.jpeg",
+      "avgColor": "#71747B",
+      "alt": "View of Brussels' iconic Palais de Justice with parked cars and urban landscape.",
+      "photographer": "Ivan Dražić",
+      "photographerUrl": "https://www.pexels.com/@ivan-drazic-20457695",
+      "pageUrl": "https://www.pexels.com/photo/cars-parked-in-front-of-the-law-courts-building-in-brussels-14192312/"
+    },
+    "TRN": {
+      "id": 33040847,
+      "base": "https://images.pexels.com/photos/33040847/pexels-photo-33040847.jpeg",
+      "avgColor": "#8C8889",
+      "alt": "Discover the stunning cityscape of Turin with the iconic Mole Antonelliana and the Alps in the background.",
+      "photographer": "Ariadne Barroso",
+      "photographerUrl": "https://www.pexels.com/@titiaariadne",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-turin-featuring-mole-antonelliana-33040847/"
+    },
+    "VRN": {
+      "id": 39315116,
+      "base": "https://images.pexels.com/photos/39315116/pexels-photo-39315116.jpeg",
+      "avgColor": "#6F8593",
+      "alt": "Stunning aerial view of Verona cityscape, featuring the Adige River winding through historic architecture under a clear blue sky.",
+      "photographer": "Michael",
+      "photographerUrl": "https://www.pexels.com/@michael-756151728",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-verona-with-adige-river-39315116/"
+    },
+    "ATH": {
+      "id": 14754006,
+      "base": "https://images.pexels.com/photos/14754006/pexels-photo-14754006.jpeg",
+      "avgColor": "#73625A",
+      "alt": "Stunning aerial view of Athens showing a vibrant cityscape with autumn colors.",
+      "photographer": "Alex Does Pictures",
+      "photographerUrl": "https://www.pexels.com/@alex-does-pictures-33201512",
+      "pageUrl": "https://www.pexels.com/photo/golden-trees-growing-on-city-streets-14754006/"
+    },
+    "BGY": {
+      "id": 8430360,
+      "base": "https://images.pexels.com/photos/8430360/pexels-photo-8430360.jpeg",
+      "avgColor": "#687A7E",
+      "alt": "Aerial view of Bergamo with iconic clock tower and historic architecture on a sunny day.",
+      "photographer": "Mikhail Nilov",
+      "photographerUrl": "https://www.pexels.com/@mikhail-nilov",
+      "pageUrl": "https://www.pexels.com/photo/bergamo-cityscape-with-civic-tower-8430360/"
+    },
+    "VCE": {
+      "id": 10768374,
+      "base": "https://images.pexels.com/photos/10768374/pexels-photo-10768374.jpeg",
+      "avgColor": "#A68985",
+      "alt": "Panoramic aerial view of Venice showcasing red rooftops, towers, and historic architecture under a cloudy sky.",
+      "photographer": "Sandra Filipe",
+      "photographerUrl": "https://www.pexels.com/@sandra-filipe-64798",
+      "pageUrl": "https://www.pexels.com/photo/aerial-footage-of-an-old-town-10768374/"
+    },
+    "PRG": {
+      "id": 16922421,
+      "base": "https://images.pexels.com/photos/16922421/pexels-photo-16922421.jpeg",
+      "avgColor": "#978A77",
+      "alt": "Explore the historic charm of Prague's bridges and architecture with this stunning aerial cityscape.",
+      "photographer": "Diego F. Parra",
+      "photographerUrl": "https://www.pexels.com/@diego-f-parra-33199",
+      "pageUrl": "https://www.pexels.com/photo/a-view-of-prague-16922421/"
+    },
+    "MXP": {
+      "id": 15939547,
+      "base": "https://images.pexels.com/photos/15939547/pexels-photo-15939547.jpeg",
+      "avgColor": "#606875",
+      "alt": "Explore the stunning Gothic architecture of the Duomo di Milano, Italy's iconic cathedral.",
+      "photographer": "Lauren Cuddy",
+      "photographerUrl": "https://www.pexels.com/@laurencuddy",
+      "pageUrl": "https://www.pexels.com/photo/cathedral-of-milan-15939547/"
+    },
+    "WMI": {
+      "id": 28299448,
+      "base": "https://images.pexels.com/photos/28299448/pexels-photo-28299448.jpeg",
+      "avgColor": "#8E9C9C",
+      "alt": "Skyline of Warsaw with modern buildings and a train passing amidst the greenery.",
+      "photographer": "Aibek Skakov",
+      "photographerUrl": "https://www.pexels.com/@aibek-skakov-418917601",
+      "pageUrl": "https://www.pexels.com/photo/a-train-on-a-track-28299448/"
+    },
+    "LCA": {
+      "id": 33794339,
+      "base": "https://images.pexels.com/photos/33794339/pexels-photo-33794339.jpeg",
+      "avgColor": "#8A9BAB",
+      "alt": "A scenic street along the coast in Larnaca, Cyprus with clear blue skies, waterfront, and walking pedestrians.",
+      "photographer": "Valeria Drozdova",
+      "photographerUrl": "https://www.pexels.com/@valeria-drozdova-2148646707",
+      "pageUrl": "https://www.pexels.com/photo/sunny-coastal-street-view-in-larnaca-cyprus-33794339/"
+    },
+    "CGN": {
+      "id": 28079669,
+      "base": "https://images.pexels.com/photos/28079669/pexels-photo-28079669.jpeg",
+      "avgColor": "#201B15",
+      "alt": "View of Cologne Cathedral and Hohenzollern Bridge illuminated at night, reflecting in the Rhine River",
+      "photographer": "Pham Ngoc Anh",
+      "photographerUrl": "https://www.pexels.com/@pham-ngoc-anh-170983008",
+      "pageUrl": "https://www.pexels.com/photo/cologne-cathedral-at-night-with-the-river-and-bridge-in-the-background-28079669/"
+    },
+    "OTP": {
+      "id": 10560194,
+      "base": "https://images.pexels.com/photos/10560194/pexels-photo-10560194.jpeg",
+      "avgColor": "#657B89",
+      "alt": "Aerial view of Bucharest cityscape with green parks and skyline under clear blue sky.",
+      "photographer": "Botond Czapp",
+      "photographerUrl": "https://www.pexels.com/@botond-czapp-37729641",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-city-buildings-10560194/"
+    },
+    "HHN": {
+      "id": 19429101,
+      "base": "https://images.pexels.com/photos/19429101/pexels-photo-19429101.jpeg",
+      "avgColor": "#516371",
+      "alt": "Picturesque Römerplatz in Frankfurt with historic buildings and St. Nicholas Church.",
+      "photographer": "Masood Aslami",
+      "photographerUrl": "https://www.pexels.com/@masoodaslami",
+      "pageUrl": "https://www.pexels.com/photo/church-and-tenements-on-frankfurter-romer-in-frankfurt-19429101/"
+    },
+    "HAM": {
+      "id": 19082991,
+      "base": "https://images.pexels.com/photos/19082991/pexels-photo-19082991.jpeg",
+      "avgColor": "#888C8B",
+      "alt": "A busy day at Hamburg's harbor featuring the Elbphilharmonie, historic ships, and clock tower.",
+      "photographer": "Paparazzi Ratzfatzzi",
+      "photographerUrl": "https://www.pexels.com/@paparazziratzfatzzi",
+      "pageUrl": "https://www.pexels.com/photo/tourist-part-of-the-port-in-hamburg-on-river-elbe-19082991/"
+    },
+    "FMM": {
+      "id": 4213372,
+      "base": "https://images.pexels.com/photos/4213372/pexels-photo-4213372.jpeg",
+      "avgColor": "#79726F",
+      "alt": "A stunning aerial view of Munich at sunset, showcasing the city's skyline and architecture.",
+      "photographer": "Anastasia  Shuraeva",
+      "photographerUrl": "https://www.pexels.com/@anastasia-shuraeva",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-city-buildings-4213372/"
+    },
+    "ALC": {
+      "id": 16046608,
+      "base": "https://images.pexels.com/photos/16046608/pexels-photo-16046608.jpeg",
+      "avgColor": "#667282",
+      "alt": "Aerial view of Alicante marina with boats and historic architecture under a clear blue sky.",
+      "photographer": "Emilio Sánchez  Hernández",
+      "photographerUrl": "https://www.pexels.com/@emilio-sanchez-hernandez-285921208",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-alicante-16046608/"
+    },
+    "STR": {
+      "id": 36484328,
+      "base": "https://images.pexels.com/photos/36484328/pexels-photo-36484328.jpeg",
+      "avgColor": "#454442",
+      "alt": "Cityscape of Stuttgart viewed through a window with a focus on historical architecture.",
+      "photographer": "photomood_55",
+      "photographerUrl": "https://www.pexels.com/@photo55",
+      "pageUrl": "https://www.pexels.com/photo/stuttgart-city-view-through-window-frame-36484328/"
+    },
+    "BVA": {
+      "id": 29731403,
+      "base": "https://images.pexels.com/photos/29731403/pexels-photo-29731403.jpeg",
+      "avgColor": "#152324",
+      "alt": "Breathtaking cityscape of Paris at night from the Eiffel Tower's perspective.",
+      "photographer": "Artūras Kokorevas",
+      "photographerUrl": "https://www.pexels.com/@kokorevas",
+      "pageUrl": "https://www.pexels.com/photo/stunning-night-view-of-paris-from-eiffel-tower-29731403/"
+    },
+    "BCN": {
+      "id": 6030879,
+      "base": "https://images.pexels.com/photos/6030879/pexels-photo-6030879.jpeg",
+      "avgColor": "#91949B",
+      "alt": "Stunning aerial view of Barcelona city skyline with the ocean in the background.",
+      "photographer": "Serinus",
+      "photographerUrl": "https://www.pexels.com/@serinus",
+      "pageUrl": "https://www.pexels.com/photo/an-aerial-view-of-congested-city-buildings-near-the-sea-6030879/"
+    },
+    "BER": {
+      "id": 36937027,
+      "base": "https://images.pexels.com/photos/36937027/pexels-photo-36937027.jpeg",
+      "avgColor": "#6C7A87",
+      "alt": "Wide view of Berlin's Brandenburg Gate and TV Tower on a clear day.",
+      "photographer": "Max Kladitin",
+      "photographerUrl": "https://www.pexels.com/@max-kladitin-456997122",
+      "pageUrl": "https://www.pexels.com/photo/brandenburg-gate-and-berlin-tv-tower-view-36937027/"
+    },
+    "MLH": {
+      "id": 31716262,
+      "base": "https://images.pexels.com/photos/31716262/pexels-photo-31716262.jpeg",
+      "avgColor": "#98A19E",
+      "alt": "Captivating view of Basel's skyline and the Rhine River at sunset, showcasing modern architecture.",
+      "photographer": "Ramon Karolan",
+      "photographerUrl": "https://www.pexels.com/@ramonkaphotography",
+      "pageUrl": "https://www.pexels.com/photo/scenic-basel-skyline-over-rhine-at-sunset-31716262/"
+    },
+    "NUE": {
+      "id": 8405817,
+      "base": "https://images.pexels.com/photos/8405817/pexels-photo-8405817.jpeg",
+      "avgColor": "#958A88",
+      "alt": "A stunning view of Nuremberg's historic skyline with iconic church towers and a vibrant sky.",
+      "photographer": "Lander Lai",
+      "photographerUrl": "https://www.pexels.com/@lander-lai-64457665",
+      "pageUrl": "https://www.pexels.com/photo/old-towns-skyline-8405817/"
+    },
+    "CPH": {
+      "id": 34776817,
+      "base": "https://images.pexels.com/photos/34776817/pexels-photo-34776817.jpeg",
+      "avgColor": "#8D949A",
+      "alt": "A sunny winter day along Copenhagen's waterfront, showcasing historic architecture.",
+      "photographer": "Charlie Jordan",
+      "photographerUrl": "https://www.pexels.com/@cjordan",
+      "pageUrl": "https://www.pexels.com/photo/sunny-day-by-waterfront-in-copenhagen-denmark-34776817/"
+    },
+    "DTM": {
+      "id": 13612319,
+      "base": "https://images.pexels.com/photos/13612319/pexels-photo-13612319.jpeg",
+      "avgColor": "#37495F",
+      "alt": "Twilight view of illuminated modern buildings reflecting on Dortmund's peaceful riverside.",
+      "photographer": "Norbert Ueing",
+      "photographerUrl": "https://www.pexels.com/@norbert-ueing-315693495",
+      "pageUrl": "https://www.pexels.com/photo/modern-residential-buildings-reflecting-in-river-13612319/"
+    },
+    "VLC": {
+      "id": 11223105,
+      "base": "https://images.pexels.com/photos/11223105/pexels-photo-11223105.jpeg",
+      "avgColor": "#80858B",
+      "alt": "Stunning aerial shot of modern architectural landmark surrounded by urban cityscape.",
+      "photographer": "Salvatore De Lellis",
+      "photographerUrl": "https://www.pexels.com/@salvatore-de-lellis-107015876",
+      "pageUrl": "https://www.pexels.com/photo/photo-of-a-modern-building-11223105/"
+    },
+    "LGW": {
+      "id": 14936005,
+      "base": "https://images.pexels.com/photos/14936005/pexels-photo-14936005.jpeg",
+      "avgColor": "#201F1D",
+      "alt": "Dramatic night view of London's skyline featuring modern skyscrapers and the historical Tower of London.",
+      "photographer": "Manzoni Studios",
+      "photographerUrl": "https://www.pexels.com/@manzoni-studios-59597719",
+      "pageUrl": "https://www.pexels.com/photo/20-fenchurch-street-skyscraper-and-tower-of-london-at-night-14936005/"
+    },
+    "LTN": {
+      "id": 16771428,
+      "base": "https://images.pexels.com/photos/16771428/pexels-photo-16771428.png",
+      "avgColor": "#94A9A8",
+      "alt": "Captivating aerial view of Westminster Palace, Big Ben, and River Thames in London, UK.",
+      "photographer": "Gianluca Pugliese",
+      "photographerUrl": "https://www.pexels.com/@gianluca-pugliese-556984722",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-london-16771428/"
+    },
+    "NCE": {
+      "id": 27926173,
+      "base": "https://images.pexels.com/photos/27926173/pexels-photo-27926173.jpeg",
+      "avgColor": "#6D6E70",
+      "alt": "A stunning view of a historic clock tower with the cityscape of Nice, France in the background.",
+      "photographer": "Serinus",
+      "photographerUrl": "https://www.pexels.com/@serinus",
+      "pageUrl": "https://www.pexels.com/photo/a-city-skyline-with-a-clock-tower-in-the-middle-27926173/"
+    },
+    "FCO": {
+      "id": 7947008,
+      "base": "https://images.pexels.com/photos/7947008/pexels-photo-7947008.jpeg",
+      "avgColor": "#A19F93",
+      "alt": "Captivating view of historic architecture and green pine trees in a European city.",
+      "photographer": "SHVETS production",
+      "photographerUrl": "https://www.pexels.com/@shvets-production",
+      "pageUrl": "https://www.pexels.com/photo/green-trees-near-ancient-city-buildings-7947008/"
+    },
+    "NAP": {
+      "id": 36069168,
+      "base": "https://images.pexels.com/photos/36069168/pexels-photo-36069168.jpeg",
+      "avgColor": "#696252",
+      "alt": "A vibrant aerial view of Naples's diverse architecture, capturing the city's essence.",
+      "photographer": "Enzo Cetrangolo",
+      "photographerUrl": "https://www.pexels.com/@enzo-cetrangolo-2159461903",
+      "pageUrl": "https://www.pexels.com/photo/colorful-naples-cityscape-view-36069168/"
+    },
+    "RHO": {
+      "id": 33151490,
+      "base": "https://images.pexels.com/photos/33151490/pexels-photo-33151490.jpeg",
+      "avgColor": "#70898E",
+      "alt": "Beautiful view of the historic fortress in Rhodes, Greece, with vibrant cityscape and waterfront.",
+      "photographer": "Mark Thomas",
+      "photographerUrl": "https://www.pexels.com/@tomo",
+      "pageUrl": "https://www.pexels.com/photo/medieval-fortress-in-rhodes-by-the-sea-33151490/"
+    },
+    "RMI": {
+      "id": 29355212,
+      "base": "https://images.pexels.com/photos/29355212/pexels-photo-29355212.jpeg",
+      "avgColor": "#5F7485",
+      "alt": "Scenic view of Tiberius Bridge over the Marecchia River in Rimini, Italy.",
+      "photographer": "Reinhard Bruckner",
+      "photographerUrl": "https://www.pexels.com/@bruggi",
+      "pageUrl": "https://www.pexels.com/photo/tiberius-bridge-and-historic-rimini-skyline-29355212/"
+    }
+  }
+}

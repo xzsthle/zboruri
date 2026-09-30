@@ -45,6 +45,8 @@ jobs:
           # Optional: fares for every airline (free token from travelpayouts.com); the marker earns commission.
           TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
           TRAVELPAYOUTS_MARKER: ${{ secrets.TRAVELPAYOUTS_MARKER }}
+          # Optional: destination photos (free key from pexels.com/api).
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 
       # Runs even if the Telegram alert failed, so the website and alert history still update.
       - name: Commit refreshed deals

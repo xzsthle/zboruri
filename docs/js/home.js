@@ -5,14 +5,15 @@ import { destinationCard } from './card.js';
 import { renderMap } from './map.js';
 import { DEFAULT_FILTERS } from './query.js';
 import { flightInfo } from './flight.js';
+import { photoImg } from './photo.js';
 import { flagEmoji, fmtAgo, fmtDay, fmtMonthLong, plural } from './format.js';
 
 const POPULAR_COUNT = 8;
 const WEEKEND_COUNT = 4;
 
-function weekendCard({ dest, best }, { money, onSelect }) {
+function weekendCard({ dest, best }, { money, photo, onSelect }) {
   return h('button', { type: 'button', class: 'wk', onclick: onSelect },
-    h('span', { class: 'wk-flag', 'aria-hidden': 'true' }, flagEmoji(dest.countryCode)),
+    h('span', { class: 'wk-flag', 'aria-hidden': 'true' }, photoImg(photo, { width: 56, height: 56, className: 'wk-photo', alt: '' }) ?? flagEmoji(dest.countryCode)),
     h('span', { class: 'wk-text' }, h('strong', {}, dest.name), h('span', {}, `${fmtDay(best.outDate)} → ${fmtDay(best.backDate)}`)),
     h('span', { class: 'wk-price' }, money.format(best.pricePp)),
     icon('i-arrow', 'icon wk-arrow'));
@@ -34,7 +35,7 @@ function monthsChart({ engine, query, money, navigate }) {
     }));
 }
 
-export function renderHome({ site, engine, query, money, navigate }) {
+export function renderHome({ site, engine, query, money, navigate, photos }) {
   const explore = engine.explore(query, DEFAULT_FILTERS);
   const weekends = engine.explore(query, { ...DEFAULT_FILTERS, weekend: true }).slice(0, WEEKEND_COUNT);
   const limit = site.rules.maxReturnPriceEur;
@@ -48,10 +49,10 @@ export function renderHome({ site, engine, query, money, navigate }) {
     h('li', {}, 'updated ', h('strong', {}, fmtAgo(site.generatedAt))));
 
   $('popular-grid').replaceChildren(...explore.slice(0, POPULAR_COUNT).map((row) => destinationCard({
-    ...row, money, info: flightInfo(row.best, site, engine), onSelect: go(row.dest.iata),
+    ...row, money, photo: photos[row.dest.iata], info: flightInfo(row.best, site, engine), onSelect: go(row.dest.iata),
   })));
   $('weekend-list').replaceChildren(...(weekends.length
-    ? weekends.map((row) => weekendCard(row, { money, onSelect: go(row.dest.iata) }))
+    ? weekends.map((row) => weekendCard(row, { money, photo: photos[row.dest.iata], onSelect: go(row.dest.iata) }))
     : [h('p', { class: 'muted' }, 'No weekend trips right now.')]));
   $('weekend-all').onclick = () => navigate({ ...query, to: 'anywhere' }, { weekend: true });
   $('popular-all').onclick = () => navigate({ ...query, to: 'anywhere' });

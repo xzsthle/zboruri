@@ -79,6 +79,9 @@ Go to **Settings → Secrets and variables → Actions → New repository secret
 | `TELEGRAM_CHAT_ID`     | your chat id                  | yes      |
 | `TRAVELPAYOUTS_TOKEN`  | Travelpayouts API token       | for other airlines |
 | `TRAVELPAYOUTS_MARKER` | Travelpayouts partner marker  | optional |
+| `PEXELS_API_KEY`       | Pexels API key ([pexels.com/api](https://www.pexels.com/api/)) | for destination photos |
+
+Destination photos come from Pexels. The scanner fetches one landscape photo per destination with the key, and caches it (with the photographer credit) in `docs/data/photos.json`. After the first run it only asks Pexels about new destinations. The key never reaches the website: the site only loads the image URLs.
 
 ### 6. Run it once
 

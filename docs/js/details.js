@@ -8,6 +8,7 @@ import { fmtDuration, hoursBetween, nowIn } from './geo.js';
 import { flagEmoji, fmtDay, ORIGIN_NAMES, plural } from './format.js';
 import { bookingLink, bookLabel, flightInfo } from './flight.js';
 import { toHash } from './query.js';
+import { photoCredit, photoImg } from './photo.js';
 
 const WIZZ_BASIC = {
   included: ['One personal item under the seat (40 × 30 × 20 cm)', 'Direct flight, no stops'],
@@ -79,7 +80,7 @@ function priceBox({ trip, info, site, money, query }) {
       : 'Seen by other travellers recently — confirm the price before booking.'));
 }
 
-export function openDetails({ trip, site, engine, money, query, history, onChangeDate }) {
+export function openDetails({ trip, site, engine, money, query, history, photos = {}, onChangeDate }) {
   const info = flightInfo(trip, site, engine);
   const dialog = $('details');
   const range = engine.dateRange();
@@ -98,6 +99,9 @@ export function openDetails({ trip, site, engine, money, query, history, onChang
       h('button', { type: 'button', class: 'dlg-close', 'aria-label': 'Close', onclick: () => dialog.close() }, '×')),
     h('div', { class: 'dlg-body' },
       h('div', { class: 'dlg-main' },
+        photos[trip.iata] && h('figure', { class: 'dlg-photo' },
+          photoImg(photos[trip.iata], { width: 720, height: 300, className: 'dlg-img', eager: true, alt: `${info.dest.name}, ${info.dest.country}` }),
+          h('figcaption', {}, photoCredit(photos[trip.iata]))),
         itineraryLeg('Outbound', trip, info.out),
         itineraryLeg('Return', trip, info.back),
         fareRules(trip),

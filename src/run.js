@@ -3,6 +3,7 @@ import { fareLegs, flattenDeals, summarizeTrips, wizzTrips } from './deals.js';
 import { updateHistory } from './history.js';
 import { mergeSources } from './merge.js';
 import { loadReference, scanOtherAirlines } from './other-airlines.js';
+import { updatePhotos } from './photos.js';
 import { scanAll } from './scan.js';
 import { buildFaresData, buildSiteData } from './site-data.js';
 import { markAlerted, selectAlerts, updateState } from './state.js';
@@ -95,6 +96,10 @@ export async function run(deps) {
   await store.writeFares(buildFaresData({ now, merged, legs }));
   await store.writeHistory(updateHistory(await store.readHistory(), cheapest, today));
   await store.writeState(state);
+  if (deps.pexels) {
+    const photos = await updatePhotos({ pexels: deps.pexels, destinations: summaries, existing: await store.readPhotos(), log, pause: deps.pause });
+    await store.writePhotos(photos);
+  }
   if (error) throw error;
   return { deals: flattenDeals(summaries).length, alerts: alertIatas.length, failed, otherAirlines: others.status };
 }

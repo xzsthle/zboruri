@@ -7,6 +7,7 @@ import { priceCalendar } from './pickers.js';
 import { describeDepart, describeStay, describeTravellers } from './widget.js';
 import { departSpec } from './query.js';
 import { flightInfo } from './flight.js';
+import { photoCredit, photoImg } from './photo.js';
 import { fmtDuration } from './geo.js';
 import { flagEmoji, fmtShort, ORIGIN_NAMES, parseDay, plural } from './format.js';
 
@@ -35,13 +36,17 @@ function monthBars({ engine, query, money, navigate }) {
     }, h('span', { class: 'mb-price' }, money.format(price)), h('span', { class: 'mb-bar', 'aria-hidden': 'true' }), h('span', { class: 'mb-label' }, MONTHS[Number(month.slice(5)) - 1]))));
 }
 
-function renderHead({ site, engine, query, money, navigate }, count) {
+function renderHead({ site, engine, query, money, navigate, photos }, count) {
   const anywhere = query.to === 'anywhere';
   const dest = engine.destinations.get(query.to);
   const origin = ORIGIN_NAMES[site.origin.iata] ?? site.origin.name;
   const info = dest && flightInfo({ iata: dest.iata, outDate: '2026-01-01', backDate: '2026-01-02' }, site, engine);
+  const photo = !anywhere && photos[query.to];
+  const banner = photo && photoImg(photo, { width: 1200, height: 420, className: 'rh-img', eager: true, alt: `${dest?.name ?? query.to}` });
   $('results-head').replaceChildren(
-    h('div', { class: 'rh-text' },
+    h('div', { class: banner ? 'rh-text has-photo' : 'rh-text' },
+      banner,
+      banner && photoCredit(photo),
       h('p', { class: 'eyebrow' }, anywhere ? 'Explore' : 'Flights'),
       h('h1', { class: 'rh-title' }, anywhere ? `${origin} to everywhere` : [`${origin} to ${dest?.name ?? query.to} `, h('span', { class: 'rh-flag', 'aria-hidden': 'true' }, flagEmoji(dest?.countryCode))]),
       h('p', { class: 'rh-sub' }, [describeDepart(query.depart), describeStay(query), describeTravellers(query.adults), plural(count, anywhere ? 'destination' : 'result')].join(' · ')),
@@ -146,7 +151,7 @@ function renderEverywhere(ctx, rerender) {
       h('span', { class: 'st-label' }, label), h('span', { class: 'st-value' }, rows.length ? (key === 'soonest' ? fmtShort(ordered[0].best.outDate) : money.format(rows[0].best.pricePp)) : '—'))));
   $('date-strip').replaceChildren();
   $('result-list').replaceChildren(...(ordered.length === 0 ? [emptyState(ctx)] : [h('div', { class: 'dest-grid' }, ordered.slice(0, visibleCount).map((row) => destinationCard({
-    ...row, money, info: flightInfo(row.best, site, engine),
+    ...row, money, photo: ctx.photos[row.dest.iata], info: flightInfo(row.best, site, engine),
     onSelect: () => navigate({ ...query, to: row.dest.iata }),
   })))]));
   $('results-more').replaceChildren(...[moreButton(ordered.length, rerender)].filter(Boolean));

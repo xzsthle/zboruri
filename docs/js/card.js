@@ -5,6 +5,7 @@ import { landscape } from './art.js';
 import { fmtDuration } from './geo.js';
 import { flagEmoji, fmtDay, fmtShort, plural } from './format.js';
 import { airlineBadge } from './flight.js';
+import { photoCredit, photoImg } from './photo.js';
 
 function legRow(label, trip, leg) {
   const duration = leg.minutes == null ? 'Direct' : `≈ ${fmtDuration(leg.minutes)}`;
@@ -45,10 +46,13 @@ export function resultCard({ trip, info, money, adults, badges = [], onSelect })
       h('button', { type: 'button', class: 'btn-select', onclick: onSelect }, 'Select', icon('i-arrow'))));
 }
 
-export function destinationCard({ dest, best, count, info, money, onSelect }) {
+export function destinationCard({ dest, best, count, info, money, photo, onSelect }) {
   return h('article', { class: 'dc' },
     h('button', { type: 'button', class: 'dc-hit', onclick: onSelect, 'aria-label': `${dest.name}, ${dest.country}: from ${money.format(best.pricePp)} return` }),
-    h('div', { class: 'dc-art' }, landscape(dest.iata), h('span', { class: 'dc-flag', 'aria-hidden': 'true' }, flagEmoji(dest.countryCode))),
+    h('div', { class: 'dc-art' },
+      photoImg(photo, { width: 480, height: 270, className: 'dc-photo', alt: `${dest.name}, ${dest.country}` }) ?? landscape(dest.iata),
+      h('span', { class: 'dc-flag', 'aria-hidden': 'true' }, flagEmoji(dest.countryCode)),
+      photoCredit(photo)),
     h('div', { class: 'dc-body' },
       h('div', { class: 'dc-row' },
         h('div', {}, h('h3', { class: 'dc-name' }, dest.name), h('p', { class: 'dc-country' }, dest.country)),
