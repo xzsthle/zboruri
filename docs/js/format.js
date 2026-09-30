@@ -23,6 +23,15 @@ export function fmtShort(iso) {
   return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`;
 }
 
+/** "24–26 Oct", or "30 Oct – 2 Nov" across months */
+export function fmtShortRange(fromIso, toIso) {
+  const from = parseDay(fromIso);
+  const to = parseDay(toIso);
+  return from.getUTCMonth() === to.getUTCMonth()
+    ? `${from.getUTCDate()}–${fmtShort(toIso)}`
+    : `${fmtShort(fromIso)} – ${fmtShort(toIso)}`;
+}
+
 /** "October 2026" */
 export const fmtMonthLong = (year, monthIndex) => `${MONTHS_LONG[monthIndex]} ${year}`;
 

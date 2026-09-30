@@ -15,7 +15,8 @@ body[data-view='home'] .topnav { position: absolute; top: var(--frame-inset); le
 .brand-mark { width: 36px; height: 36px; flex: none; }
 .brand-word { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
 /* Over the photo the mark flips to white with a black route. */
-body[data-view='home'] .topnav .brand { color: #fff; }
+/* On the photo the brand gets the same glass as the nav pills, so it reads over bright cloud. */
+body[data-view='home'] .topnav .brand { height: 44px; padding: 4px 16px 4px 4px; border-radius: var(--r-pill); background: rgb(17 17 19 / 0.5); color: #fff; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 body[data-view='home'] .topnav .brand-mark { filter: invert(1); }
 
 .topnav-links { display: flex; gap: 6px; }
@@ -39,7 +40,7 @@ body[data-view='home'] .topnav .brand-mark { filter: invert(1); }
 
 /* Glass on the photo */
 body[data-view='home'] .topnav-links a,
-body[data-view='home'] .nav-pill { background: rgb(17 17 19 / 0.45); color: #fff; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+body[data-view='home'] .nav-pill { background: rgb(17 17 19 / 0.5); color: #fff; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 body[data-view='home'] .topnav-links a:hover { background: rgb(17 17 19 / 0.6); }
 body[data-view='home'] .topnav-links a[aria-current='page'] { background: #fff; color: var(--ink); }
 body[data-view='home'] .topnav :focus-visible { outline-color: #fff; }

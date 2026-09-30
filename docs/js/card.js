@@ -1,9 +1,9 @@
 // Result cards: a flight card (outbound + return legs, price, Select) and an "Everywhere" destination card.
 
 import { h, icon } from './dom.js';
-import { landscape } from './art.js';
+import { colorBlock } from './art.js';
 import { fmtDuration } from './geo.js';
-import { flagEmoji, fmtDay, fmtShort, plural } from './format.js';
+import { fmtDay, fmtShortRange, plural } from './format.js';
 import { airlineBadge } from './flight.js';
 import { photoCredit, photoImg } from './photo.js';
 
@@ -46,19 +46,22 @@ export function resultCard({ trip, info, money, adults, badges = [], onSelect })
       h('button', { type: 'button', class: 'btn-select', onclick: onSelect }, 'Select', icon('i-arrow'))));
 }
 
-export function destinationCard({ dest, best, count, info, money, photo, onSelect }) {
-  return h('article', { class: 'dc' },
+/** A photo tile: country and price pills on top, the city and a stat pill at the bottom. */
+export function destinationCard({ dest, best, count, info, money, photo, onSelect, featured = false }) {
+  const size = featured ? 760 : 520;
+  return h('article', { class: featured ? 'dc photo-tile has-scrim is-featured' : 'dc photo-tile has-scrim' },
+    photoImg(photo, { width: size, height: size, className: 'cover dc-photo', alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
     h('button', { type: 'button', class: 'dc-hit', onclick: onSelect, 'aria-label': `${dest.name}, ${dest.country}: from ${money.format(best.pricePp)} return` }),
-    h('div', { class: 'dc-art' },
-      photoImg(photo, { width: 480, height: 270, className: 'dc-photo', alt: `${dest.name}, ${dest.country}` }) ?? landscape(dest.iata),
-      h('span', { class: 'dc-flag', 'aria-hidden': 'true' }, flagEmoji(dest.countryCode)),
-      photoCredit(photo)),
+    h('span', { class: 'tag-pill dc-country' }, dest.country),
+    h('span', { class: 'price-pill dc-price' }, h('small', {}, 'from'), money.format(best.pricePp)),
     h('div', { class: 'dc-body' },
-      h('div', { class: 'dc-row' },
-        h('div', {}, h('h3', { class: 'dc-name' }, dest.name), h('p', { class: 'dc-country' }, dest.country)),
-        h('p', { class: 'dc-price' }, h('small', {}, 'from'), money.format(best.pricePp))),
-      h('p', { class: 'dc-meta' },
-        h('span', {}, icon('i-plane'), info.minutes ? `Direct · ≈ ${fmtDuration(info.minutes)}` : 'Direct'),
-        h('span', {}, icon('i-calendar'), `${fmtShort(best.outDate)} – ${fmtShort(best.backDate)}`)),
-      h('p', { class: 'dc-count' }, `${plural(count, 'date option')} · ${best.airline}`)));
+      h('h3', { class: 'dc-name' }, dest.name),
+      h('p', { class: 'stat-pill dc-stats' },
+        h('span', {}, info.minutes ? `Direct · ≈ ${fmtDuration(info.minutes)}` : 'Direct'),
+        h('span', {}, fmtShortRange(best.outDate, best.backDate))),
+      featured && h('p', { class: 'dc-count' }, `${plural(count, 'date option')} · ${best.airline}`)),
+    featured
+      ? h('span', { class: 'dc-notch', 'aria-hidden': 'true' }, h('span', { class: 'orb orb--lg' }, icon('i-external')))
+      : h('span', { class: 'orb orb--light dc-orb', 'aria-hidden': 'true' }, icon('i-external')),
+    photoCredit(photo));
 }

@@ -167,35 +167,38 @@
 
   <main id="view-home" class="view">
     <section class="container section" id="popular-section" aria-labelledby="popular-heading">
-      <div class="section-head">
-        <div>
-          <h2 id="popular-heading">Cheapest destinations right now</h2>
-          <p class="section-sub">The best return fare to each city, for any dates</p>
-        </div>
-        <button type="button" class="link-btn" id="popular-all">Explore everywhere<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <div class="section-head is-centered">
+        <h2 id="popular-heading">Cheapest right now</h2>
+        <p class="section-sub">Best return fare per city, for any dates.</p>
       </div>
-      <div class="dest-grid" id="popular-grid"></div>
+      <div class="dest-grid is-bento" id="popular-grid"></div>
+      <div class="dashes" id="popular-dashes" aria-hidden="true"></div>
     </section>
 
-    <section class="container section split" aria-label="Weekends and months">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <h2>Weekend escapes</h2>
-            <p class="section-sub">Leave Thursday to Saturday, back by Monday</p>
-          </div>
-          <button type="button" class="link-btn" id="weekend-all">All weekends<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    <section class="container bento-row" aria-label="Weekends, cheapest months and how it works">
+      <div class="tile wk-tile">
+        <div class="tile-head">
+          <h2>Weekends</h2>
+          <p class="tile-sub">Out Thursday to Saturday, back by Monday.</p>
         </div>
         <div class="wk-list" id="weekend-list"></div>
+        <button type="button" class="pill-orb" id="weekend-all">All weekends<span class="orb"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
       </div>
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <h2>Cheapest months to fly</h2>
-            <p class="section-sub">Lowest return fare leaving each month — tap one</p>
-          </div>
+      <div class="tile months-tile">
+        <div class="tile-head">
+          <h2>Cheapest months</h2>
+          <p class="tile-sub">Lowest return fare by departure month. Tap one to search it.</p>
         </div>
         <div id="months-chart"></div>
+      </div>
+      <div class="tile tile--dark how-tile" id="why">
+        <h2 class="how-title" id="how-heading">Every route, twice a day</h2>
+        <ul class="how-list">
+          <li>Every route from Chișinău, checked every morning and evening.</li>
+          <li>Any dates, paired for you in your browser.</li>
+          <li>A Telegram alert when a price drops under the limit.</li>
+        </ul>
+        <p class="stat-pill how-stats" id="how-stats"></p>
       </div>
     </section>
 
@@ -215,25 +218,15 @@
       </div>
     </section>
 
-    <section class="container section" id="why" aria-labelledby="why-heading">
-      <div class="section-head"><div><h2 id="why-heading">Why search with Zboruri</h2></div></div>
-      <ul class="why-grid">
-        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span><h3>Every route, twice a day</h3><p>All destinations from Chișinău are re-checked every morning and evening, so prices are never more than half a day old.</p></li>
-        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span><h3>Any dates, instantly</h3><p>Search a day, a whole month or anytime — the search pairs every outbound and return fare for you in the browser.</p></li>
-        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span><h3>Price calendars</h3><p>See the cheapest day to leave, the cheapest month to fly and how prices moved over time.</p></li>
-        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></span><h3>Telegram alerts</h3><p>Get a message the moment a destination drops under your price limit — and only then.</p></li>
-      </ul>
-    </section>
-
     <section class="container section faq" id="faq" aria-labelledby="faq-heading">
-      <div class="section-head"><div><h2 id="faq-heading">Good to know</h2></div></div>
+      <div class="faq-head"><h2 id="faq-heading">Good to know</h2></div>
       <div class="faq-list">
-        <details><summary>Where do the prices come from?</summary><p>Wizz Air prices are read from Wizz Air’s own fare calendar for every route from Chișinău, twice a day. When other airlines are switched on, their prices come from Aviasales and are prices other travellers saw recently — those are marked “Recent price”.</p></details>
-        <details><summary>Why can the price differ on the airline’s website?</summary><p>Fares change all the time and seats sell out. We show the lowest fare when we last checked (see “updated” at the top). Always confirm the final price on the booking page.</p></details>
-        <details><summary>What does the price include?</summary><p>It’s the cheapest return fare for one adult. For Wizz Air that’s the Basic fare with one small personal item under the seat (40 × 30 × 20 cm). Cabin trolleys, checked bags and seats cost extra.</p></details>
-        <details><summary>Are the flight times exact?</summary><p>Departure times are real. Arrival times and flight durations are estimated from the distance and the time zones at each airport, and marked with “≈”.</p></details>
-        <details><summary>How do the Telegram alerts work?</summary><p>Twice a day the scanner looks for destinations that newly have a return trip under your price limit, or got at least €1 cheaper, and sends them to your Telegram — never the same deal twice.</p></details>
-        <details><summary>Can I search for more than one traveller?</summary><p>Yes — pick the number of adults in the search. Prices stay per person and the total for everyone is shown next to them. Child fares may differ on the airline’s site.</p></details>
+        <details><summary><span>Where do the prices come from?</span><span class="orb orb--sunk orb--sm faq-toggle" aria-hidden="true"></span></summary><p>Wizz Air prices are read from Wizz Air’s own fare calendar for every route from Chișinău, twice a day. When other airlines are switched on, their prices come from Aviasales and are prices other travellers saw recently — those are marked “Recent price”.</p></details>
+        <details><summary><span>Why can the price differ on the airline’s website?</span><span class="orb orb--sunk orb--sm faq-toggle" aria-hidden="true"></span></summary><p>Fares change all the time and seats sell out. We show the lowest fare when we last checked (see “updated” at the top). Always confirm the final price on the booking page.</p></details>
+        <details><summary><span>What does the price include?</span><span class="orb orb--sunk orb--sm faq-toggle" aria-hidden="true"></span></summary><p>It’s the cheapest return fare for one adult. For Wizz Air that’s the Basic fare with one small personal item under the seat (40 × 30 × 20 cm). Cabin trolleys, checked bags and seats cost extra.</p></details>
+        <details><summary><span>Are the flight times exact?</span><span class="orb orb--sunk orb--sm faq-toggle" aria-hidden="true"></span></summary><p>Departure times are real. Arrival times and flight durations are estimated from the distance and the time zones at each airport, and marked with “≈”.</p></details>
+        <details><summary><span>How do the Telegram alerts work?</span><span class="orb orb--sunk orb--sm faq-toggle" aria-hidden="true"></span></summary><p>Twice a day the scanner looks for destinations that newly have a return trip under your price limit, or got at least €1 cheaper, and sends them to your Telegram — never the same deal twice.</p></details>
+        <details><summary><span>Can I search for more than one traveller?</span><span class="orb orb--sunk orb--sm faq-toggle" aria-hidden="true"></span></summary><p>Yes — pick the number of adults in the search. Prices stay per person and the total for everyone is shown next to them. Child fares may differ on the airline’s site.</p></details>
       </div>
     </section>
   </main>

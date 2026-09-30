@@ -278,3 +278,13 @@
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
+
+/* ---------- Fallback art: a flat colour block with the airport code ---------- */
+
+.art-block { position: relative; display: block; width: 100%; height: 100%; background: var(--clay); color: #fff; container-type: size; }
+.art-block.cover { position: absolute; inset: 0; z-index: -2; }
+.art--charcoal { background: var(--charcoal); }
+.art--fog { background: var(--fog); color: var(--ink); }
+.art--sand { background: var(--sand); color: var(--ink); }
+.art-code { position: absolute; left: 7%; bottom: 6%; font-family: var(--font-display); font-size: clamp(0.75rem, 26cqmin, 7rem); font-stretch: 125%; font-weight: 800; line-height: 0.9; }
+.photo-tile > .art-block .art-code { bottom: auto; top: 30%; }

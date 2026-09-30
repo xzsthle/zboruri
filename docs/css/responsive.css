@@ -39,11 +39,56 @@
   .nav-status { display: none; }
 }
 
-/* ---------- Not yet restyled (results, details, home): replaced in later phases ---------- */
+/* ---------- Home ---------- */
 
 @media (max-width: 1100px) {
-  .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #popular-grid.is-bento { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .wk-tile,
+  .months-tile { grid-column: span 6; }
+  .how-tile { grid-column: 1 / -1; }
+  .how-list { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-6); }
 }
+
+@media (max-width: 980px) {
+  .dest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 860px) {
+  #popular-grid.is-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wk-tile,
+  .months-tile { grid-column: 1 / -1; }
+  .faq { grid-template-columns: minmax(0, 1fr); }
+  .faq-head { position: static; }
+}
+
+@media (max-width: 760px) {
+  /* The bento becomes a swipe carousel with pagination dashes. */
+  #popular-grid.is-bento {
+    grid-template-columns: none;
+    grid-template-rows: 420px;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scroll-padding-inline: var(--gutter);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  #popular-grid.is-bento > * { grid-column: auto; grid-row: auto; scroll-snap-align: start; }
+  #popular-grid .is-featured .dc-name { font-size: var(--fs-h2); }
+  #popular-grid .is-featured .dc-body { padding: 20px 76px 20px 20px; }
+  #popular-grid .is-featured .dc-stats { min-height: 30px; padding: 0 var(--space-3); font-size: var(--fs-xs); }
+  #popular-grid .is-featured .dc-stats > span + span { margin-left: var(--space-2); padding-left: var(--space-2); }
+  #popular-dashes { display: flex; }
+  .dest-grid { grid-template-columns: minmax(0, 1fr); }
+  .how-list { grid-template-columns: minmax(0, 1fr); }
+  .faq-list summary { font-size: var(--fs-base); }
+  .faq-list details p { padding-right: 0; }
+}
+
+/* ---------- Not yet restyled (results, details, home): replaced in later phases ---------- */
 
 @media (max-width: 980px) {
   .results-layout { grid-template-columns: minmax(0, 1fr); }
@@ -52,7 +97,6 @@
   .filters-toggle { display: inline-flex; justify-self: start; }
   .results-head { grid-template-columns: minmax(0, 1fr); }
   .month-bars { overflow-x: auto; }
-  .split { grid-template-columns: minmax(0, 1fr); }
   .dlg-body { grid-template-columns: minmax(0, 1fr); }
   .dlg-side { position: static; order: -1; }
   .rc { grid-template-columns: minmax(0, 1fr); }
@@ -66,11 +110,9 @@
   .pc-month + .pc-month { display: none; }
   .leg { grid-template-columns: 4rem minmax(4rem, 1fr) 4rem; row-gap: var(--space-2); }
   .leg-airline { grid-column: 1 / -1; }
-  .why-grid { grid-template-columns: minmax(0, 1fr); }
   .sort-tab { padding: var(--space-3); }
   .dlg-head,
   .dlg-body { padding: var(--space-5); }
-  .months-chart { gap: var(--space-2); height: 13rem; }
 }
 
 @media (max-width: 420px) {
