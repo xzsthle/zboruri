@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Simplified mark for tiny sizes: a solid Z route on black. -->
-  <rect width="64" height="64" rx="18" fill="#111113"/>
-  <path d="M19 20 H45 L19 45 H45" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><mask id="n"><rect x="-8" y="-8" width="144" height="144" fill="#fff"/><circle cx="0" cy="64" r="11"/><circle cx="128" cy="64" r="11"/></mask><rect width="128" height="128" rx="34" fill="#2b2be0" mask="url(#n)"/><path d="M50 4c4.4 0 7 4.2 7 9.5V37l36 21.5c1.3.8 2 2.1 2 3.6v5.1c0 1.4-1.4 2.4-2.7 1.9L57 58.5v19.3l10.6 7.6c.9.6 1.4 1.7 1.4 2.8v3.1c0 1.2-1.2 2.1-2.4 1.7L50 88.3l-16.6 4.7c-1.2.4-2.4-.5-2.4-1.7v-3.1c0-1.1.5-2.2 1.4-2.8L43 77.8V58.5L7.7 69.1C6.4 69.6 5 68.6 5 67.2v-5.1c0-1.5.7-2.8 2-3.6L43 37V13.5C43 8.2 45.6 4 50 4z" fill="#fff" transform="translate(68 60) rotate(45) scale(1.04) translate(-50 -50)"/></svg>

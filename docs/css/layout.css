@@ -11,13 +11,12 @@ body[data-view='home'] .topnav { position: absolute; top: var(--frame-inset); le
 
 .topnav-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--space-4); max-width: var(--container); margin-inline: auto; min-height: 44px; }
 
-.brand { display: inline-flex; align-items: center; gap: 10px; justify-self: start; color: var(--ink); text-decoration: none; }
-.brand-mark { width: 36px; height: 36px; flex: none; }
-.brand-word { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+.brand { display: inline-flex; align-items: center; justify-self: start; color: var(--ink); text-decoration: none; }
+/* The logo: ticket badge + outlined wordmark; the word follows currentColor. */
+.brand-logo { display: block; width: auto; height: 30px; aspect-ratio: 520 / 90; }
 /* Over the photo the mark flips to white with a black route. */
 /* On the photo the brand gets the same glass as the nav pills, so it reads over bright cloud. */
-body[data-view='home'] .topnav .brand { height: 44px; padding: 4px 16px 4px 4px; border-radius: var(--r-pill); background: rgb(17 17 19 / 0.5); color: #fff; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-body[data-view='home'] .topnav .brand-mark { filter: invert(1); }
+body[data-view='home'] .topnav .brand { height: 44px; padding: 0 16px 0 7px; border-radius: var(--r-pill); background: rgb(17 17 19 / 0.5); color: #fff; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
 .topnav-links { display: flex; gap: 6px; }
 .topnav-links a,
@@ -163,7 +162,7 @@ body[data-view='search'] .hero-stats { display: none; }
 .site-footer { margin-top: var(--section-gap); padding: var(--space-12) 0 var(--space-10); border-top: 1px solid var(--line); color: var(--ink-2); }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--space-10) var(--space-16); }
 .footer-brand { display: grid; align-content: start; gap: var(--space-4); max-width: 26rem; }
-.footer-brand .brand-mark { width: 32px; height: 32px; }
+.footer-brand .brand-logo { height: 28px; }
 .footer-brand p { font-size: var(--fs-sm); }
 .footer-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); }
 .footer-cols h3 { margin-bottom: var(--space-3); color: var(--ink); font-size: var(--fs-sm); font-weight: 600; }

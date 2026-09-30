@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/assets/logo-mark.svg" width="96" alt="Zboruri logo"></p>
+<p align="center"><img src="docs/assets/logo.svg" width="320" alt="Zboruri"></p>
 
 # Zboruri ✈️
 

@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Zboruri">
-  <rect width="128" height="128" rx="36" fill="#111113"/>
-  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M37 39 H89" stroke-width="12"/>
-    <path d="M89 39 L39 90" stroke-width="9.5" stroke-dasharray="0 11.9"/>
-    <path d="M39 90 H70" stroke-width="12"/>
-  </g>
-  <path transform="translate(72 69) rotate(-24 16 16)" fill="#fff" d="M30 16c0 1.4-1.2 2.2-2.6 2.2H20l-6.2 9.6h-3.4l3.4-9.6H8l-2.6 3.6H3l1.6-5.8L3 10.2h2.4L8 13.8h5.8L10.4 4.2h3.4L20 13.8h7.4c1.4 0 2.6.8 2.6 2.2z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Zboruri"><mask id="zb-notch"><rect x="-8" y="-8" width="144" height="144" fill="#fff"/><circle cx="0" cy="64" r="11"/><circle cx="128" cy="64" r="11"/></mask><rect width="128" height="128" rx="34" fill="#2b2be0" mask="url(#zb-notch)"/><path d="M50 4c4.4 0 7 4.2 7 9.5V37l36 21.5c1.3.8 2 2.1 2 3.6v5.1c0 1.4-1.4 2.4-2.7 1.9L57 58.5v19.3l10.6 7.6c.9.6 1.4 1.7 1.4 2.8v3.1c0 1.2-1.2 2.1-2.4 1.7L50 88.3l-16.6 4.7c-1.2.4-2.4-.5-2.4-1.7v-3.1c0-1.1.5-2.2 1.4-2.8L43 77.8V58.5L7.7 69.1C6.4 69.6 5 68.6 5 67.2v-5.1c0-1.5.7-2.8 2-3.6L43 37V13.5C43 8.2 45.6 4 50 4z" fill="#fff" transform="translate(68 60) rotate(45) scale(1.04) translate(-50 -50)"/></svg>
