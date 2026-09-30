@@ -21,6 +21,8 @@
   .hero { --capsule-half: 102px; }
   .topnav-links { justify-content: flex-start; margin-inline: calc(-1 * var(--space-2)); padding-inline: var(--space-2); }
   .hero-kicker { padding: 8px 16px; border-radius: 18px; font-size: var(--fs-lg); }
+  /* Portrait frame: keep the plane (right of centre in the photo) in view, and lift it clear of the headline. */
+  .hero-photo { inset: -12% 0 auto; height: 112%; object-position: 70% 50%; }
   .sw-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sw-field.sw-to { grid-column: 1 / -1; }
   .sw-submit { grid-column: auto; padding-inline: var(--space-5); }

@@ -89,7 +89,8 @@ body[data-view='home'] .topnav :focus-visible { outline-color: #fff; }
   background: var(--fog);
   color: #fff;
 }
-.hero-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 35%; }
+/* The plane flies in the upper part of the frame; the darker clouds below sit behind the wordmark. */
+.hero-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 95%; }
 /* The one scrim, behind the text at the bottom of the photo. */
 .hero-frame::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 45%, rgb(0 0 0 / 0.55)); pointer-events: none; }
 
