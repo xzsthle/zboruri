@@ -945,6 +945,42 @@
       "photographer": "Bojána Noémi Molnár",
       "photographerUrl": "https://www.pexels.com/@bojana-noemi-molnar-3779409",
       "pageUrl": "https://www.pexels.com/photo/sultan-omar-ali-saifuddin-mosque-at-sunset-in-brunei-35851017/"
+    },
+    "VNO": {
+      "id": 20303298,
+      "base": "https://images.pexels.com/photos/20303298/pexels-photo-20303298.jpeg",
+      "avgColor": "#76838B",
+      "alt": "A beautiful view of Vilnius city featuring historic architecture and a prominent church tower under a clear sky.",
+      "photographer": "Mr Alex Photography",
+      "photographerUrl": "https://www.pexels.com/@mralexphotography",
+      "pageUrl": "https://www.pexels.com/photo/church-of-st-johns-towering-over-houses-in-vilnius-lithuania-20303298/"
+    },
+    "TGD": {
+      "id": 9526645,
+      "base": "https://images.pexels.com/photos/9526645/pexels-photo-9526645.jpeg",
+      "avgColor": "#97715C",
+      "alt": "Scenic aerial view of Podgorica, Montenegro at sunset featuring vibrant skies and urban architecture.",
+      "photographer": "Alexander Nadrilyanski",
+      "photographerUrl": "https://www.pexels.com/@aleksandar069",
+      "pageUrl": "https://www.pexels.com/photo/aerial-shot-of-a-city-9526645/"
+    },
+    "SHA": {
+      "id": 16460876,
+      "base": "https://images.pexels.com/photos/16460876/pexels-photo-16460876.jpeg",
+      "avgColor": "#727878",
+      "alt": "A stunning view of Shanghai's skyline featuring modern skyscrapers and iconic architecture.",
+      "photographer": "TonyNojmanSK",
+      "photographerUrl": "https://www.pexels.com/@tonynojmansk-186688133",
+      "pageUrl": "https://www.pexels.com/photo/modern-skyscrapers-in-downtown-16460876/"
+    },
+    "TAS": {
+      "id": 38009563,
+      "base": "https://images.pexels.com/photos/38009563/pexels-photo-38009563.jpeg",
+      "avgColor": "#283C3D",
+      "alt": "Stunning aerial photo of a park in Tashkent, Uzbekistan highlighting its architecture and natural beauty.",
+      "photographer": "Zokir",
+      "photographerUrl": "https://www.pexels.com/@zokirkodirov",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-tashkent-landmark-park-in-summer-38009563/"
     }
   }
 }
