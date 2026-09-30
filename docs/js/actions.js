@@ -13,15 +13,9 @@ export function toast(message) {
   toastTimer = setTimeout(() => { el.hidden = true; }, 2600);
 }
 
-function dealLink(iata) {
-  const url = new URL(location.href);
-  url.searchParams.set('dest', iata);
-  return url.href;
-}
-
-export async function shareDeal({ dest, trip, money }) {
-  const url = dealLink(dest.iata);
-  const text = `${dest.name}: ${money.format(trip.totalEur)} return, ${fmtDay(trip.outDate)} → ${fmtDay(trip.backDate)}`;
+/** Share a trip via the native share sheet, falling back to copying the link. */
+export async function shareTrip({ dest, trip, money, url }) {
+  const text = `${dest.name}: ${money.format(trip.pricePp)} return, ${fmtDay(trip.outDate)} → ${fmtDay(trip.backDate)}`;
   if (navigator.share) {
     try {
       await navigator.share({ title: 'Zboruri flight deal', text, url });
@@ -65,20 +59,20 @@ function vevent({ uid, date, times, summary, description }) {
     `SUMMARY:${escapeIcs(summary)}`, `DESCRIPTION:${escapeIcs(description)}`, 'END:VEVENT'];
 }
 
-export function buildIcs({ dest, trip, origin, priceText }) {
-  const details = `Return trip found by Zboruri for ${priceText} (${trip.airline}). ${trip.bookingUrl ?? ''}`.trim();
+export function buildIcs({ dest, trip, origin, priceText, bookingUrl }) {
+  const details = `Return trip found by Zboruri for ${priceText} per person (${trip.airline}). ${bookingUrl ?? ''}`.trim();
   return [
     'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Zboruri//Flight deals//EN', 'CALSCALE:GREGORIAN',
-    ...vevent({ uid: `${trip.outDate}-${origin.iata}-${dest.iata}@zboruri`, date: trip.outDate, times: trip.outTimes,
+    ...vevent({ uid: `${trip.outDate}-${origin.iata}-${dest.iata}@zboruri`, date: trip.outDate, times: trip.outTime ? [trip.outTime] : [],
       summary: `✈ ${origin.iata} → ${dest.iata} · ${dest.name}`, description: details }),
-    ...vevent({ uid: `${trip.backDate}-${dest.iata}-${origin.iata}@zboruri`, date: trip.backDate, times: trip.backTimes,
+    ...vevent({ uid: `${trip.backDate}-${dest.iata}-${origin.iata}@zboruri`, date: trip.backDate, times: trip.backTime ? [trip.backTime] : [],
       summary: `✈ ${dest.iata} → ${origin.iata} · back home (local time)`, description: details }),
     'END:VCALENDAR',
   ].join('\r\n');
 }
 
-export function downloadIcs({ dest, trip, origin, money }) {
-  const ics = buildIcs({ dest, trip, origin, priceText: money.format(trip.totalEur) });
+export function downloadIcs({ dest, trip, origin, money, bookingUrl }) {
+  const ics = buildIcs({ dest, trip, origin, bookingUrl, priceText: money.format(trip.pricePp) });
   const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
   const link = Object.assign(document.createElement('a'), { href: url, download: `zboruri-${dest.iata.toLowerCase()}-${trip.outDate}.ics` });
   link.click();

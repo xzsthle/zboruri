@@ -6,14 +6,14 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Zboruri — cheap flights from Chișinău</title>
-  <meta name="description" content="Cheap return flights from Chișinău (RMO) on every airline, checked every morning and evening, with Telegram alerts.">
-  <meta name="theme-color" content="#dfe3ea">
+  <meta name="description" content="Search cheap return flights from Chișinău (RMO) to anywhere. Live Wizz Air prices, price calendars and Telegram alerts, updated twice a day.">
+  <meta name="theme-color" content="#0b1442">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zboruri">
   <meta property="og:title" content="Zboruri — cheap flights from Chișinău">
-  <meta property="og:description" content="Every route from Chișinău checked twice a day. Return trips under €60, straight to Telegram.">
+  <meta property="og:description" content="Search every route from Chișinău. Live prices, price calendars and alerts, updated twice a day.">
   <meta property="og:url" content="https://xzsthle.github.io/zboruri/">
   <meta property="og:image" content="https://xzsthle.github.io/zboruri/assets/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -21,18 +21,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap">
   <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/shell.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/deals.css">
-  <link rel="stylesheet" href="css/detail.css">
-  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/widget.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/results.css">
+  <link rel="stylesheet" href="css/details.css">
   <link rel="stylesheet" href="css/responsive.css">
   <script src="js/main.js" type="module"></script>
 </head>
-<body>
-  <a class="skip-link" href="#deals">Skip to deals</a>
+<body data-view="home">
+  <a class="skip-link" href="#search-widget">Skip to search</a>
 
   <!-- Icon sprite + illustration symbols. Kept renderable (not display:none) so gradients resolve. -->
   <svg class="sprite" aria-hidden="true" focusable="false">
@@ -97,184 +97,181 @@
     <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
     <symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   </svg>
 
-  <div class="shell">
-    <nav class="rail" aria-label="Sections">
-      <ul class="rail-list">
-        <li><a class="rail-link" href="#top" data-spy="top"><span class="rail-icon"><svg class="icon"><use href="#i-plane"/></svg></span><span class="rail-label">Find trips</span></a></li>
-        <li><a class="rail-link" href="#deals" data-spy="deals"><span class="rail-icon"><svg class="icon"><use href="#i-flame"/></svg></span><span class="rail-label">Cheapest now</span></a></li>
-        <li><a class="rail-link" href="#map" data-spy="map"><span class="rail-icon"><svg class="icon"><use href="#i-map"/></svg></span><span class="rail-label">Route map</span></a></li>
-        <li><a class="rail-link" href="#routes" data-spy="routes"><span class="rail-icon"><svg class="icon"><use href="#i-grid"/></svg></span><span class="rail-label">All routes</span></a></li>
-        <li><a class="rail-link" href="#about" data-spy="about"><span class="rail-icon"><svg class="icon"><use href="#i-info"/></svg></span><span class="rail-label">How it works</span></a></li>
-      </ul>
-      <div class="rail-status">
-        <span class="live-orb" aria-hidden="true"><span class="live-dot"></span></span>
-        <span class="rail-label"><strong>Live fares</strong><span id="status-updated">Loading…</span><span id="status-next"></span></span>
+  <header class="topnav">
+    <div class="container topnav-inner">
+      <a class="brand" href="#/" aria-label="Zboruri — home">
+        <img class="brand-mark" src="assets/logo-mark.svg" width="40" height="40" alt="">
+        <span class="brand-text"><span class="brand-word">Zboruri</span><span class="brand-tag">Flights from Chișinău</span></span>
+      </a>
+      <nav class="topnav-links" aria-label="Main">
+        <a href="#/"><svg class="icon" aria-hidden="true"><use href="#i-plane"/></svg>Flights</a>
+        <a href="#" data-nav="explore"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>Explore everywhere</a>
+        <a href="#" data-nav="weekend"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg>Weekend deals</a>
+        <a href="#" data-nav="map-section"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg>Route map</a>
+      </nav>
+      <div class="topnav-right">
+        <span class="live-pill"><span class="live-dot" aria-hidden="true"></span><span id="status-next">Live prices</span></span>
+        <label class="currency-select"><span class="sr-only">Currency</span><select id="currency"></select></label>
       </div>
-    </nav>
-
-    <div class="main" id="top">
-      <header class="topbar">
-        <a class="brand" href="#top" aria-label="Zboruri — home">
-          <img class="brand-mark" src="assets/logo-mark.svg" width="48" height="48" alt="">
-          <span class="brand-text"><span class="brand-word">Zboruri</span><span class="brand-tag">Flight deals · Chișinău</span></span>
-        </a>
-        <label class="search">
-          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-          <span class="sr-only">Search destinations</span>
-          <input id="search" type="search" placeholder="Search a city, country or airport" autocomplete="off" spellcheck="false">
-        </label>
-        <div class="currency" id="currency" role="group" aria-label="Currency"></div>
-      </header>
-
-      <section class="hero" aria-labelledby="hero-heading" data-section="top">
-        <div class="hero-sky" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="eyebrow eyebrow-hero" id="hero-eyebrow">Every airline · twice a day</p>
-          <h1 id="hero-heading">Where can <span class="hero-price" id="limit">€60</span><br>take you?</h1>
-          <p class="hero-sub" id="hero-sub">Every route from Chișinău, checked each morning and evening for cheap return trips.</p>
-        </div>
-        <div class="route-pill">
-          <div class="field"><span class="field-label">From</span><span class="field-value">Chișinău (RMO)</span></div>
-          <svg class="icon swap" aria-hidden="true"><use href="#i-swap"/></svg>
-          <div class="field"><span class="field-label">To</span><span class="field-value">Anywhere</span></div>
-          <span class="divider" aria-hidden="true"></span>
-          <div class="field field-when">
-            <span class="field-label">When</span>
-            <span class="field-value"><span id="hero-when">Next 120 days</span><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
-          </div>
-          <a class="btn-search" href="#deals" id="hero-cta">Show deals</a>
-        </div>
-        <svg class="hero-plane" viewBox="0 0 560 170" aria-hidden="true"><use href="#plane-art"/></svg>
-        <svg class="cloud cloud-1" aria-hidden="true"><use href="#cloud"/></svg>
-        <svg class="cloud cloud-2" aria-hidden="true"><use href="#cloud"/></svg>
-        <svg class="cloud cloud-3" aria-hidden="true"><use href="#cloud"/></svg>
-        <svg class="cloud cloud-4" aria-hidden="true"><use href="#cloud"/></svg>
-        <svg class="cloud cloud-5" aria-hidden="true"><use href="#cloud"/></svg>
-        <svg class="cloud cloud-6" aria-hidden="true"><use href="#cloud"/></svg>
-      </section>
-
-      <section class="insights" id="insights" aria-label="Today at a glance"></section>
-
-      <section class="block" id="deals" aria-labelledby="deals-heading" data-section="deals">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Live deals</p>
-            <h2 id="deals-heading">Cheapest right now</h2>
-            <p class="section-meta" id="showcase-meta"></p>
-          </div>
-          <div class="carousel-nav">
-            <button class="nav-btn" type="button" id="carousel-prev" aria-label="Scroll deals left"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
-            <button class="nav-btn" type="button" id="carousel-next" aria-label="Scroll deals right"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
-          </div>
-        </div>
-
-        <div class="toolbar" role="toolbar" aria-label="Filter and sort deals">
-          <nav class="tabs" id="months" aria-label="Departure month"></nav>
-          <div class="toolbar-row">
-            <div class="chips" id="stay" role="group" aria-label="Trip length"></div>
-            <div class="selects">
-              <label class="select"><span class="sr-only">Airline</span><svg class="icon" aria-hidden="true"><use href="#i-plane"/></svg><select id="airline"></select></label>
-              <label class="select"><span class="sr-only">Sort by</span><svg class="icon" aria-hidden="true"><use href="#i-sort"/></svg>
-                <select id="sort">
-                  <option value="price">Cheapest first</option>
-                  <option value="soonest">Soonest first</option>
-                  <option value="longest">Longest stay</option>
-                </select>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel" id="carousel" aria-label="Destinations with deals"></div>
-        <article class="detail" id="detail" aria-live="polite"></article>
-      </section>
-
-      <section class="block map-block" id="map" aria-labelledby="map-heading" data-section="map">
-        <div class="map-card">
-          <div class="map-head">
-            <div>
-              <p class="eyebrow eyebrow-dark">Network</p>
-              <h2 id="map-heading">Route map</h2>
-              <p class="section-meta" id="map-meta">Every destination from Chișinău. Tap one to see its deals.</p>
-            </div>
-            <ul class="map-legend" aria-label="Legend">
-              <li><span class="legend-dot is-deal"></span>Deal under your limit</li>
-              <li><span class="legend-dot"></span>Flies, above the limit</li>
-            </ul>
-          </div>
-          <div class="map-canvas" id="map-canvas"></div>
-        </div>
-      </section>
-
-      <div class="block lower">
-        <section class="routes" id="routes" aria-labelledby="routes-heading" data-section="routes">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Destinations</p>
-              <h2 id="routes-heading">All routes</h2>
-              <p class="section-meta">Cheapest return per destination</p>
-            </div>
-          </div>
-          <ul class="route-grid" id="route-grid"></ul>
-        </section>
-
-        <aside class="best" id="best" aria-labelledby="best-heading">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Editor’s pick</p>
-              <h2 id="best-heading">Best deal</h2>
-            </div>
-          </div>
-          <article class="offer">
-            <p class="offer-kicker">Cheapest escape right now</p>
-            <p class="offer-price"><span id="offer-price">—</span><small>return</small></p>
-            <p class="offer-dest" id="offer-dest"></p>
-            <p class="offer-dates" id="offer-dates"></p>
-            <a class="offer-cta" id="offer-cta" href="#deals" hidden>Grab it<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-            <svg class="offer-art" viewBox="0 0 220 220" aria-hidden="true">
-              <circle cx="132" cy="70" r="50" fill="#ff3d7f"/>
-              <g transform="translate(108 46) scale(2)" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></g>
-              <g fill="#e9edfb"><rect x="8" y="150" width="30" height="64" rx="3"/><rect x="40" y="126" width="34" height="88" rx="3"/><rect x="76" y="162" width="28" height="52" rx="3"/></g>
-              <g fill="#1f2e86" opacity=".22"><rect x="14" y="158" width="6" height="8" rx="1"/><rect x="26" y="158" width="6" height="8" rx="1"/><rect x="14" y="174" width="6" height="8" rx="1"/><rect x="47" y="136" width="7" height="9" rx="1"/><rect x="60" y="136" width="7" height="9" rx="1"/><rect x="47" y="152" width="7" height="9" rx="1"/><rect x="60" y="168" width="7" height="9" rx="1"/><rect x="83" y="172" width="6" height="8" rx="1"/></g>
-              <path d="M148 128 V112 a6 6 0 0 1 6 -6 h18 a6 6 0 0 1 6 6 V128" fill="none" stroke="#5b4ee6" stroke-width="7"/>
-              <rect x="130" y="126" width="66" height="82" rx="14" fill="#7b6cff"/>
-              <rect x="147" y="137" width="6" height="60" rx="3" fill="#6a5cf0"/>
-              <rect x="173" y="137" width="6" height="60" rx="3" fill="#6a5cf0"/>
-              <circle cx="145" cy="211" r="6" fill="#23285a"/><circle cx="181" cy="211" r="6" fill="#23285a"/>
-            </svg>
-          </article>
-        </aside>
-      </div>
-
-      <section class="block about" id="about" aria-labelledby="about-heading" data-section="about">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">How it works</p>
-            <h2 id="about-heading">Built to catch the drops</h2>
-          </div>
-        </div>
-        <ol class="steps">
-          <li class="step"><span class="step-num">01</span><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span><strong id="step-routes">Scans every route</strong><span id="step-routes-text">Live Wizz Air fare calendars for every destination from Chișinău, plus cached fares for all other airlines.</span></li>
-          <li class="step"><span class="step-num">02</span><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg></span><strong>Pairs return trips</strong><span id="step-trips-text">Every out-and-back combination is priced in euros and kept if it’s under your limit.</span></li>
-          <li class="step"><span class="step-num">03</span><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></span><strong>Pings you on Telegram</strong><span>Only when a destination newly has a deal or gets cheaper — twice a day, never spam.</span></li>
-        </ol>
-        <footer class="footer">
-          <a class="brand brand-small" href="#top" aria-label="Zboruri — back to top">
-            <img class="brand-mark" src="assets/logo-mark.svg" width="36" height="36" alt="">
-            <span class="brand-text"><span class="brand-word">Zboruri</span><span class="brand-tag">Flight deals · Chișinău</span></span>
-          </a>
-          <div class="footer-notes">
-            <p class="fine-print" id="sources-note">Live fares from Wizz Air.</p>
-            <p class="fine-print">Prices are the lowest fare for one adult with a small under-seat bag, converted at the day’s rate. They move fast — always confirm before booking.</p>
-            <p class="fine-print failed" id="failed" hidden></p>
-          </div>
-        </footer>
-      </section>
     </div>
-  </div>
+  </header>
 
+  <section class="hero-band" aria-label="Search flights">
+    <svg class="hero-plane" viewBox="0 0 560 170" aria-hidden="true"><use href="#plane-art"/></svg>
+    <div class="container hero-inner">
+      <h1 class="hero-title">Find cheap flights from Chișinău<span> to anywhere.</span></h1>
+      <form class="search-widget" id="search-widget" role="search" autocomplete="off" novalidate>
+        <div class="sw-fields">
+          <div class="sw-field sw-from">
+            <span class="sw-label">From</span>
+            <span class="sw-value"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Chișinău (RMO)</span>
+          </div>
+          <div class="sw-field sw-to">
+            <label class="sw-label" for="sw-to">To</label>
+            <input id="sw-to" class="sw-input" data-pop="to" role="combobox" aria-expanded="false" aria-controls="sw-pop-to" aria-autocomplete="list" placeholder="Country, city or airport" spellcheck="false">
+            <div class="sw-pop sw-pop-list" id="sw-pop-to" hidden></div>
+          </div>
+          <div class="sw-field sw-depart">
+            <button type="button" class="sw-button" data-pop="depart" aria-expanded="false" aria-controls="sw-pop-depart" aria-haspopup="dialog">
+              <span class="sw-label">Depart</span><span class="sw-value" id="sw-depart-value">Anytime</span>
+            </button>
+            <div class="sw-pop sw-pop-cal" id="sw-pop-depart" role="dialog" aria-label="Choose departure date" hidden></div>
+          </div>
+          <div class="sw-field sw-back">
+            <button type="button" class="sw-button" data-pop="back" aria-expanded="false" aria-controls="sw-pop-back" aria-haspopup="dialog">
+              <span class="sw-label">Return</span><span class="sw-value" id="sw-back-value">2–10 nights</span>
+            </button>
+            <div class="sw-pop sw-pop-cal sw-pop-right" id="sw-pop-back" role="dialog" aria-label="Choose return" hidden></div>
+          </div>
+          <div class="sw-field sw-pax">
+            <button type="button" class="sw-button" data-pop="pax" aria-expanded="false" aria-controls="sw-pop-pax" aria-haspopup="dialog">
+              <span class="sw-label">Travellers</span><span class="sw-value" id="sw-pax-value">1 adult</span>
+            </button>
+            <div class="sw-pop sw-pop-small sw-pop-right" id="sw-pop-pax" role="dialog" aria-label="Travellers" hidden></div>
+          </div>
+          <button type="submit" class="sw-submit">Search<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="sw-options">
+          <label class="sw-check"><input type="checkbox" checked disabled><span class="sw-box" aria-hidden="true"></span>Direct flights only</label>
+          <label class="sw-check"><input type="checkbox" id="sw-others" checked><span class="sw-box" aria-hidden="true"></span>Include other airlines</label>
+          <span class="sw-note">Return prices, per person</span>
+        </div>
+      </form>
+      <ul class="hero-stats" id="hero-stats"></ul>
+    </div>
+  </section>
+
+  <main id="view-home" class="view">
+    <section class="container section" id="popular-section" aria-labelledby="popular-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="popular-heading">Cheapest destinations right now</h2>
+          <p class="section-sub">The best return fare to each city, for any dates</p>
+        </div>
+        <button type="button" class="link-btn" id="popular-all">Explore everywhere<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="dest-grid" id="popular-grid"></div>
+    </section>
+
+    <section class="container section split" aria-label="Weekends and months">
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Weekend escapes</h2>
+            <p class="section-sub">Leave Thursday to Saturday, back by Monday</p>
+          </div>
+          <button type="button" class="link-btn" id="weekend-all">All weekends<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="wk-list" id="weekend-list"></div>
+      </div>
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Cheapest months to fly</h2>
+            <p class="section-sub">Lowest return fare leaving each month — tap one</p>
+          </div>
+        </div>
+        <div id="months-chart"></div>
+      </div>
+    </section>
+
+    <section class="container section" id="map-section" aria-labelledby="map-heading">
+      <div class="map-card">
+        <div class="map-head">
+          <div>
+            <h2 id="map-heading">Where can you fly from Chișinău?</h2>
+            <p class="section-sub" id="map-meta"></p>
+          </div>
+          <ul class="map-legend" aria-label="Legend">
+            <li><span class="legend-dot is-deal"></span>Deal</li>
+            <li><span class="legend-dot"></span>Flies there</li>
+          </ul>
+        </div>
+        <div class="map-canvas" id="map-canvas"></div>
+      </div>
+    </section>
+
+    <section class="container section" id="why" aria-labelledby="why-heading">
+      <div class="section-head"><div><h2 id="why-heading">Why search with Zboruri</h2></div></div>
+      <ul class="why-grid">
+        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span><h3>Every route, twice a day</h3><p>All destinations from Chișinău are re-checked every morning and evening, so prices are never more than half a day old.</p></li>
+        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span><h3>Any dates, instantly</h3><p>Search a day, a whole month or anytime — the search pairs every outbound and return fare for you in the browser.</p></li>
+        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span><h3>Price calendars</h3><p>See the cheapest day to leave, the cheapest month to fly and how prices moved over time.</p></li>
+        <li class="why"><span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></span><h3>Telegram alerts</h3><p>Get a message the moment a destination drops under your price limit — and only then.</p></li>
+      </ul>
+    </section>
+
+    <section class="container section faq" id="faq" aria-labelledby="faq-heading">
+      <div class="section-head"><div><h2 id="faq-heading">Good to know</h2></div></div>
+      <div class="faq-list">
+        <details><summary>Where do the prices come from?</summary><p>Wizz Air prices are read from Wizz Air’s own fare calendar for every route from Chișinău, twice a day. When other airlines are switched on, their prices come from Aviasales and are prices other travellers saw recently — those are marked “Recent price”.</p></details>
+        <details><summary>Why can the price differ on the airline’s website?</summary><p>Fares change all the time and seats sell out. We show the lowest fare when we last checked (see “updated” at the top). Always confirm the final price on the booking page.</p></details>
+        <details><summary>What does the price include?</summary><p>It’s the cheapest return fare for one adult. For Wizz Air that’s the Basic fare with one small personal item under the seat (40 × 30 × 20 cm). Cabin trolleys, checked bags and seats cost extra.</p></details>
+        <details><summary>Are the flight times exact?</summary><p>Departure times are real. Arrival times and flight durations are estimated from the distance and the time zones at each airport, and marked with “≈”.</p></details>
+        <details><summary>How do the Telegram alerts work?</summary><p>Twice a day the scanner looks for destinations that newly have a return trip under your price limit, or got at least €1 cheaper, and sends them to your Telegram — never the same deal twice.</p></details>
+        <details><summary>Can I search for more than one traveller?</summary><p>Yes — pick the number of adults in the search. Prices stay per person and the total for everyone is shown next to them. Child fares may differ on the airline’s site.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <main id="view-search" class="view" hidden>
+    <div class="container results-page">
+      <div class="results-head" id="results-head"></div>
+      <div class="results-layout">
+        <aside class="filters" id="filters" aria-label="Filters"></aside>
+        <div class="results-main">
+          <div class="sort-tabs" id="sort-tabs" role="tablist" aria-label="Sort results"></div>
+          <div id="date-strip"></div>
+          <div id="result-list" class="result-list" aria-live="polite"></div>
+          <div id="results-more" class="results-more"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#/" aria-label="Zboruri — home">
+          <img class="brand-mark" src="assets/logo-mark.svg" width="36" height="36" alt="">
+          <span class="brand-text"><span class="brand-word">Zboruri</span><span class="brand-tag">Flights from Chișinău</span></span>
+        </a>
+        <p>Cheap return flights from Chișinău, found twice a day. Free, no account, no ads.</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer">
+        <div><h3>Explore</h3><a href="#" data-nav="explore">Everywhere</a><a href="#" data-nav="weekend">Weekend deals</a><a href="#" data-nav="map-section">Route map</a></div>
+        <div><h3>Help</h3><a href="#" data-nav="faq">Good to know</a><a href="#" data-nav="why">How it works</a></div>
+      </nav>
+      <p class="footer-note">Prices are the lowest return fare for one adult with a small personal item, converted at the day’s exchange rate. Always confirm on the airline’s site before booking. Zboruri isn’t affiliated with any airline.</p>
+    </div>
+  </footer>
+
+  <dialog id="details" class="details" aria-label="Flight details"></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 </body>
 </html>

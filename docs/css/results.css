@@ -1,0 +1,120 @@
+/* Results: header with month bars, filter sidebar, sort tabs, date strip, flight cards. */
+
+.results-page { padding-top: var(--space-10); }
+
+.results-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--space-6) var(--space-10); margin-bottom: var(--space-10); }
+.rh-title { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-2); font-family: var(--font-display); font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+.rh-flag { font-size: 0.8em; }
+.rh-sub { margin-top: var(--space-2); color: var(--ink-2); }
+.rh-facts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
+.rh-facts li { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.35rem 0.8rem; border-radius: var(--radius-pill); background: var(--surface); color: var(--ink-2); font-size: var(--text-sm); font-weight: 600; box-shadow: inset 0 0 0 1px var(--line); }
+.rh-facts .icon { width: 0.95rem; height: 0.95rem; color: var(--primary); }
+.filters-toggle { display: none; }
+
+.month-bars { display: flex; align-items: flex-end; gap: var(--space-2); height: 7rem; }
+.month-bar { display: grid; grid-template-rows: auto 1fr auto; justify-items: center; gap: 4px; width: 3.25rem; height: 100%; padding: 0; border: 0; background: none; }
+.mb-price { color: var(--ink-3); font-size: 0.68rem; font-weight: 700; }
+.mb-bar { align-self: end; width: 100%; height: 100%; border-radius: 8px 8px 3px 3px; background: #c7d2ff; transform: scaleY(var(--fill)); transform-origin: bottom; transition: background-color var(--duration-fast); }
+.mb-label { color: var(--ink-3); font-size: var(--text-xs); font-weight: 700; }
+.month-bar:hover .mb-bar { background: #9db0ff; }
+.month-bar.is-cheapest .mb-bar { background: #7fd9b0; }
+.month-bar.is-cheapest .mb-price { color: var(--good); }
+.month-bar.is-active .mb-bar { background: var(--primary); }
+.month-bar.is-active .mb-label { color: var(--primary); }
+
+.results-layout { display: grid; grid-template-columns: 17.5rem minmax(0, 1fr); gap: var(--space-10); align-items: start; }
+/* minmax(0, 1fr): the scrolling date strip must not widen the column (and the whole page with it). */
+.results-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); min-width: 0; }
+.results-head > * { min-width: 0; }
+.month-bars { max-width: 100%; overflow-x: auto; }
+
+/* ---------- Filters ---------- */
+
+.filters { position: sticky; top: var(--space-6); display: grid; gap: var(--space-2); padding: var(--space-6); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-md); }
+.filters-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: var(--space-3); }
+.filters-head h2 { font-size: var(--text-lg); }
+.fg { display: grid; gap: var(--space-2); padding: var(--space-5) 0; border-top: 1px solid var(--line); }
+.fg-title { font-size: var(--text-sm); font-weight: 800; }
+.fg-sub { display: grid; gap: var(--space-1); }
+.fg-sub + .fg-sub { margin-top: var(--space-3); }
+.fg-subtitle { color: var(--ink-3); font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.check { position: relative; display: grid; grid-template-columns: 1.15rem minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: 0.3rem 0; cursor: pointer; }
+.check input { position: absolute; opacity: 0; }
+.check-box { width: 1.15rem; height: 1.15rem; border: 2px solid var(--line-strong); border-radius: 5px; transition: background-color var(--duration-fast), border-color var(--duration-fast); }
+.check input:checked + .check-box { border-color: var(--primary); background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 0.75rem no-repeat; }
+.check input:focus-visible + .check-box { outline: 3px solid color-mix(in srgb, var(--primary) 45%, transparent); outline-offset: 2px; }
+.check-text { display: grid; font-size: var(--text-sm); font-weight: 600; line-height: 1.3; }
+.check-text small { color: var(--ink-3); font-size: var(--text-xs); font-weight: 500; }
+.check-count { color: var(--ink-3); font-size: var(--text-xs); font-weight: 600; }
+.check.is-disabled { opacity: 0.5; cursor: default; }
+.range { width: 100%; accent-color: var(--primary); }
+.range-value { font-weight: 800; }
+.range-ends { display: flex; justify-content: space-between; color: var(--ink-3); font-size: var(--text-xs); }
+
+/* ---------- Sort tabs + date strip ---------- */
+
+.sort-tabs { display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; overflow: hidden; border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+.sort-tab { display: grid; gap: 2px; padding: var(--space-4) var(--space-5); border: 0; border-bottom: 3px solid transparent; background: none; text-align: left; transition: background-color var(--duration-fast); }
+.sort-tab + .sort-tab { border-left: 1px solid var(--line); }
+.sort-tab:hover { background: var(--surface-soft); }
+.st-label { font-weight: 800; }
+.st-value { color: var(--ink-2); font-size: var(--text-sm); }
+.sort-tab[aria-selected='true'] { border-bottom-color: var(--primary); background: var(--primary-soft); }
+.sort-tab[aria-selected='true'] .st-label { color: var(--primary); }
+
+.strip { display: flex; gap: var(--space-2); overflow-x: auto; padding-bottom: var(--space-2); scrollbar-width: thin; }
+.strip-day { display: grid; flex: 0 0 7.5rem; gap: 2px; padding: var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-md); background: var(--surface); text-align: left; box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow var(--duration-fast); }
+.strip-day:hover:not(:disabled) { box-shadow: inset 0 0 0 1px var(--primary); }
+.strip-day:disabled { opacity: 0.45; }
+.sd-day { color: var(--ink-2); font-size: var(--text-xs); font-weight: 700; }
+.sd-price { font-weight: 800; }
+.strip-day.is-cheapest .sd-price { color: var(--good); }
+.strip-day.is-selected { background: var(--primary); box-shadow: none; }
+.strip-day.is-selected .sd-day,
+.strip-day.is-selected .sd-price { color: #fff; }
+
+.calendar-toggle { margin-top: var(--space-3); border-radius: var(--radius-md); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.calendar-toggle summary { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-5); color: var(--primary); font-weight: 700; cursor: pointer; list-style: none; }
+.calendar-toggle summary::-webkit-details-marker { display: none; }
+.calendar-toggle .pc { padding: var(--space-4) var(--space-6) var(--space-6); }
+
+/* ---------- Flight cards ---------- */
+
+.result-list { display: grid; gap: var(--space-4); }
+.rc { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-md); transition: box-shadow var(--duration-normal); }
+.rc:hover { box-shadow: 0 2px 4px rgb(15 22 51 / 0.05), 0 24px 40px -22px rgb(15 22 51 / 0.35); }
+.rc-legs { display: grid; gap: var(--space-5); padding: var(--space-6); }
+.leg { display: grid; grid-template-columns: 11rem 4.5rem minmax(6rem, 1fr) 4.5rem; align-items: center; gap: var(--space-4); }
+.leg-airline { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.al-badge { display: grid; place-items: center; flex: none; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-sm); background: var(--primary-soft); color: var(--primary); font-size: var(--text-xs); font-weight: 800; }
+.leg-meta { display: grid; min-width: 0; line-height: 1.3; }
+.leg-meta strong { font-size: var(--text-sm); }
+.leg-meta span { overflow: hidden; color: var(--ink-3); font-size: var(--text-xs); white-space: nowrap; text-overflow: ellipsis; }
+.leg-point { display: grid; line-height: 1.2; }
+.leg-point strong { font-size: var(--text-lg); font-weight: 800; white-space: nowrap; }
+.leg-point strong sup { margin-left: 2px; color: var(--high); font-size: 0.6rem; }
+.leg-point span { color: var(--ink-3); font-size: var(--text-sm); font-weight: 600; }
+.leg-point.is-end { text-align: right; }
+.leg-path { display: grid; justify-items: center; gap: 2px; color: var(--ink-3); font-size: var(--text-xs); }
+.leg-line { position: relative; display: grid; place-items: center; width: 100%; height: 1rem; }
+.leg-line::before { content: ''; position: absolute; inset: 50% 0 auto; height: 2px; border-radius: 2px; background: var(--line-strong); }
+.leg-plane { position: relative; width: 0.95rem; height: 0.95rem; padding: 1px; background: var(--surface); color: var(--ink-3); transform: rotate(45deg); }
+.leg-stops { color: var(--good); font-weight: 700; }
+
+.rc-side { display: grid; align-content: center; gap: var(--space-2); padding: var(--space-6); border-left: 1px solid var(--line); background: var(--surface-soft); }
+.rc-badges { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.rc-price { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.rc-price small { color: var(--ink-3); font-family: var(--font-ui); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0; }
+.rc-total,
+.rc-stay { color: var(--ink-2); font-size: var(--text-sm); }
+.btn-select { margin-top: var(--space-2); }
+.btn-select .icon { transition: transform var(--duration-fast); }
+.btn-select:hover .icon { transform: translateX(3px); }
+
+.results-more { display: grid; justify-items: center; }
+.btn-more span { color: var(--ink-3); font-weight: 500; }
+
+.empty { display: grid; justify-items: center; gap: var(--space-3); padding: var(--space-16) var(--space-6); border-radius: var(--radius-lg); background: var(--surface); text-align: center; box-shadow: var(--shadow-md); }
+.empty-icon { width: 2.5rem; height: 2.5rem; color: var(--ink-3); }
+.empty p { color: var(--ink-2); }
+.empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-top: var(--space-3); }

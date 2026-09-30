@@ -1,102 +1,30 @@
-// Entry point: loads the scanner's JSON and wires every view to one piece of state kept in the URL.
+// Entry point: loads the scanner's data, builds the search engine, and routes between Home and Results.
 
 import { $, h } from './dom.js';
-import { allDeals, filterDeals, groupByDestination, matchesQuery } from './data.js';
-import { initRail, renderChrome } from './chrome.js';
-import { initToolbar, renderCurrency, renderToolbar } from './filters.js';
-import { renderInsights } from './insights.js';
-import { renderMap } from './map.js';
-import { renderOffer, renderRoutes } from './routes.js';
-import { centerSelectedCard, initCarouselNav, renderShowcase } from './showcase.js';
-import { CURRENCY_CODES, createMoney } from './format.js';
+import { createEngine } from './engine.js';
+import { initDetails, openDetails } from './details.js';
+import { renderHome } from './home.js';
+import { renderResults } from './results.js';
+import { createSearchWidget } from './widget.js';
+import { DEFAULT_FILTERS, parseHash, toHash } from './query.js';
+import { CURRENCY_CODES, createMoney, fmtNextScan } from './format.js';
 
-const DATA_URL = 'data/deals.json';
-const HISTORY_URL = 'data/history.json';
 const CURRENCY_KEY = 'zboruri:currency';
-const DEFAULTS = { month: null, dest: null, query: '', sort: 'price', stay: 'any', airline: 'all', currency: 'EUR', allRoutes: false };
-// URL parameter ↔ state field.
-const PARAMS = { month: 'month', dest: 'dest', q: 'query', sort: 'sort', stay: 'stay', airline: 'airline', cur: 'currency' };
 
-function storedCurrency() {
+function readCurrency() {
   try {
-    return localStorage.getItem(CURRENCY_KEY);
+    return localStorage.getItem(CURRENCY_KEY) ?? 'EUR';
   } catch {
-    return null; // private mode or blocked storage: fall back to EUR
+    return 'EUR'; // private mode or blocked storage
   }
 }
 
-function rememberCurrency(code) {
+function saveCurrency(code) {
   try {
     localStorage.setItem(CURRENCY_KEY, code);
   } catch {
-    // Storage is only a convenience; the URL still carries the choice.
+    // Only a convenience; the page still works in euros.
   }
-}
-
-function readUrlState() {
-  const params = new URLSearchParams(location.search);
-  const fromUrl = Object.fromEntries(Object.entries(PARAMS).map(([param, key]) => [key, params.get(param) ?? DEFAULTS[key]]));
-  const currency = CURRENCY_CODES.includes(fromUrl.currency) && params.has('cur') ? fromUrl.currency : storedCurrency() ?? 'EUR';
-  return { ...DEFAULTS, ...fromUrl, currency };
-}
-
-function writeUrlState(state) {
-  const url = new URL(location.href);
-  Object.entries(PARAMS).forEach(([param, key]) => {
-    const value = typeof state[key] === 'string' ? state[key].trim() : state[key];
-    if (value && value !== DEFAULTS[key]) url.searchParams.set(param, value);
-    else url.searchParams.delete(param);
-  });
-  history.replaceState(null, '', url);
-}
-
-function createApp(data, history) {
-  const deals = allDeals(data);
-  let state = readUrlState();
-
-  const render = () => {
-    const money = createMoney(data.rates, state.currency);
-    const matching = filterDeals(deals, state);
-    const groups = groupByDestination(matching);
-    const selected = groups.find(([first]) => first.dest.iata === state.dest) ?? groups[0] ?? null;
-    const bestDeals = new Map(groups.map(([first]) => [first.dest.iata, first.trip]));
-
-    renderChrome(data, deals, money);
-    renderCurrency(data, money.code, (currency) => { rememberCurrency(currency); setState({ currency }); });
-    renderToolbar({ data, deals: filterDeals(deals, { ...state, month: null }), allDeals: deals, state, setState });
-    renderInsights({ data, deals: matching, money });
-    renderShowcase({
-      data, groups, selected, money, history,
-      emptyMessage: state.query ? `No deals match “${state.query.trim()}” with these filters.` : 'No deals match these filters.',
-      onSelect: (iata) => { setState({ dest: iata }); centerSelectedCard(); },
-    });
-    renderMap({
-      data, bestDeals, selectedIata: selected?.[0].dest.iata ?? null, money,
-      onSelect: (iata) => { setState({ dest: bestDeals.has(iata) ? iata : state.dest }); $('deals').scrollIntoView({ block: 'start' }); centerSelectedCard(); },
-    });
-    renderRoutes({
-      data,
-      destinations: data.destinations.filter((dest) => matchesQuery(dest, state.query)),
-      expanded: state.allRoutes || Boolean(state.query.trim()),
-      money,
-      onExpand: () => setState({ allRoutes: true }),
-    });
-    renderOffer(deals, money);
-  };
-
-  function setState(patch) {
-    state = { ...state, ...patch };
-    writeUrlState(state);
-    render();
-  }
-
-  initCarouselNav();
-  initToolbar(setState);
-  initRail();
-  const search = $('search');
-  search.value = state.query;
-  search.addEventListener('input', () => setState({ query: search.value, dest: null }));
-  render();
 }
 
 async function fetchJson(url) {
@@ -105,20 +33,74 @@ async function fetchJson(url) {
   return res.json();
 }
 
+function start({ site, fares, priceHistory }) {
+  const engine = createEngine(site, fares);
+  let currency = CURRENCY_CODES.includes(readCurrency()) ? readCurrency() : 'EUR';
+  let route = parseHash(location.hash, site.rules);
+  const money = () => createMoney(site.rates, currency);
+
+  const navigate = (query, filters = {}) => { location.hash = toHash(query, { ...DEFAULT_FILTERS, ...filters }); };
+  const setFilters = (patch) => {
+    route = { ...route, filters: { ...route.filters, ...patch } };
+    window.history.replaceState(null, '', toHash(route.query, route.filters));
+    render();
+  };
+
+  const widget = createSearchWidget({ site, engine, getMoney: money, onSearch: (query) => navigate(query) });
+
+  function context() {
+    return {
+      site, engine, history: priceHistory, query: route.query, filters: route.filters, money: money(), navigate, setFilters,
+      openTrip: (trip) => openDetails({
+        trip, site, engine, money: money(), query: route.query, history: priceHistory,
+        onChangeDate: (iata, date) => navigate({ ...route.query, to: iata, depart: date, back: '' }),
+      }),
+    };
+  }
+
+  function render() {
+    const isSearch = route.view === 'search';
+    document.body.dataset.view = route.view;
+    $('view-home').hidden = isSearch;
+    $('view-search').hidden = !isSearch;
+    widget.setQuery(route.query);
+    $('currency').value = currency;
+    if (isSearch) renderResults(context());
+    else renderHome(context());
+  }
+
+  window.addEventListener('hashchange', () => {
+    route = parseHash(location.hash, site.rules);
+    render();
+    window.scrollTo({ top: 0 });
+  });
+  $('currency').replaceChildren(...CURRENCY_CODES.filter((code) => code === 'EUR' || Number.isFinite(site.rates?.[code])).map((code) => h('option', { value: code }, code)));
+  $('currency').addEventListener('change', (event) => { currency = event.target.value; saveCurrency(currency); render(); });
+  $('status-next').textContent = `Next price check ${fmtNextScan()}`;
+  document.querySelectorAll('[data-nav]').forEach((link) => link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const target = link.dataset.nav;
+    if (target === 'explore') navigate({ ...route.query, to: 'anywhere' });
+    else if (target === 'weekend') navigate({ ...route.query, to: 'anywhere' }, { weekend: true });
+    else { location.hash = '#/'; setTimeout(() => $(target)?.scrollIntoView({ behavior: 'smooth' }), 50); }
+  }));
+  initDetails();
+  render();
+}
+
 function showError(error) {
-  $('carousel').replaceChildren(h('div', { class: 'deal-empty' }, h('p', {}, 'Couldn’t load today’s fares. Refresh in a moment.')));
-  $('status-updated').textContent = 'Offline';
-  console.error('Failed to load deals', error);
+  $('view-home').replaceChildren(h('div', { class: 'container load-error' }, h('h2', {}, 'Couldn’t load today’s fares'), h('p', {}, 'Please refresh in a moment.')));
+  console.error('Failed to load flight data', error);
 }
 
 async function load() {
   try {
-    // Price history is optional: without it the detail panel simply shows "tracking since today".
-    const [data, history] = await Promise.all([
-      fetchJson(DATA_URL),
-      fetchJson(HISTORY_URL).then((body) => body.destinations ?? {}).catch(() => ({})),
+    const [site, fares, priceHistory] = await Promise.all([
+      fetchJson('data/deals.json'),
+      fetchJson('data/fares.json').catch(() => ({ destinations: {} })),
+      fetchJson('data/history.json').then((body) => body.destinations ?? {}).catch(() => ({})),
     ]);
-    createApp(data, history);
+    start({ site, fares, priceHistory });
   } catch (error) {
     showError(error);
   }

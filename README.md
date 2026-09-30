@@ -20,17 +20,31 @@ GitHub Actions (08:00 + 21:00)
        └─ commits docs/data/*.json → GitHub Pages dashboard
 ```
 
-## The dashboard
+## The website
 
-The website at `https://<you>.github.io/<repo>/` has:
+The site at `https://<you>.github.io/<repo>/` is a flight search in the style of Skyscanner, built over the scanner's data. The scanner publishes every day's one-way fares (`docs/data/fares.json`), so the page can pair any dates you choose.
 
-- **Insights:** cheapest return, number of deals, typical deal and best weekend trip. They update with your filters.
-- **Smart filters:** departure month, trip length (weekends, 2–4 nights, 5+ nights), airline, sort order, and a city search that ignores accents.
-- **Currency switch:** EUR, MDL, RON or USD, at the day's exchange rate. Your choice is remembered.
-- **A card for each deal:** every date option, **Share** (native share sheet or copy link) and **Add to calendar** (`.ics` with both flights).
-- **Fare calendar:** a heatmap of the cheapest return starting on each day, plus a **price history** chart that fills in with every scan.
-- **Route map:** every destination from Chișinău, with deals highlighted.
-- **Shareable links:** filters and the selected destination are kept in the page address.
+- **Search widget:** From · To · Depart · Return · Travellers.
+  - **To:** destination autocomplete (flags, airports, "from €X" prices), or "Everywhere".
+  - **Depart:** a specific day on a two-month **price calendar** (cheap / average / higher days coloured), a whole month, or anytime.
+  - **Return:** a trip-length range, or an exact return date on its own price calendar.
+  - **Travellers:** number of adults; totals are shown for everyone.
+- **Results:**
+  - **Best / Cheapest / Soonest** tabs, each with its top price.
+  - A **date strip** with the cheapest price for each departure day, and a cheapest-month bar chart.
+  - Flight cards: departure time → estimated arrival, flight time, direct, airline, price per person and total.
+- **Filters:** outbound and return departure times (with counts), airlines (with their lowest price), max price, and weekend trips only.
+- **Everywhere:** every destination with its best trip for your dates, as picture cards.
+- **Flight details:**
+  - A timeline with full airport names and local times across time zones.
+  - What the Wizz Air Basic fare includes.
+  - Destination facts: local time, time difference, distance, flight time, currency.
+  - A change-dates calendar and price history.
+  - **Book**, **Share** and **Add to calendar** (`.ics`).
+- **Home:** cheapest destinations, weekend escapes, cheapest months to fly, a route map and an FAQ.
+- **Currency switch** (EUR / MDL / RON / USD). Every search is a **shareable link**.
+
+Departure times are real. Arrival times and flight durations are estimated from distance and time zones, and marked "≈".
 
 ## Setup
 

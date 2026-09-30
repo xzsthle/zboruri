@@ -45,12 +45,17 @@ function hillPath(random, baseY, amplitude) {
   return `M0 ${points[0][1].toFixed(1)} ${curves.join(' ')} L320 200 L0 200 Z`;
 }
 
+// The same destination can be drawn on several (possibly hidden) views; a gradient id that points
+// into a hidden copy doesn't paint, so every drawing gets its own id.
+let drawings = 0;
+
 /** A sky, a sun and three layers of hills, sized to cover its container. */
 export function landscape(iata) {
   const seed = hashCode(iata);
   const random = seededRandom(seed);
   const scene = SCENES[seed % SCENES.length];
-  const gradientId = `sky-${iata}`;
+  drawings += 1;
+  const gradientId = `sky-${iata}-${drawings}`;
   const layers = [
     [120, 44],
     [148, 34],
