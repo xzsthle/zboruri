@@ -84,6 +84,8 @@
   #popular-dashes { display: flex; }
   .dest-grid { grid-template-columns: minmax(0, 1fr); }
   .how-list { grid-template-columns: minmax(0, 1fr); }
+  /* The map keeps a readable size and scrolls sideways. */
+  .map-canvas { min-width: 640px; }
   .faq-list summary { font-size: var(--fs-base); }
   .faq-list details p { padding-right: 0; }
 }

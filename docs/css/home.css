@@ -164,48 +164,76 @@
 .how-list li { padding: var(--space-3) 0; border-top: 1px solid rgb(255 255 255 / 0.12); }
 .how-stats { align-self: flex-start; margin-top: auto; }
 
-/* ---------- Route map ---------- */
+/* ---------- Route map: a white tile, ink arcs, accent deals, pill labels ---------- */
 
-.map-card {
-  position: relative; isolation: isolate; overflow: hidden; padding: clamp(1.5rem, 1rem + 2vw, 3rem); border-radius: var(--radius-xl);
-  background:
-    radial-gradient(40rem 22rem at 70% 0%, rgb(47 91 255 / 0.3), transparent 70%),
-    radial-gradient(30rem 20rem at 0% 100%, rgb(255 61 127 / 0.12), transparent 70%),
-    linear-gradient(170deg, #16207a 0%, #0b1133 100%);
-  color: #fff; box-shadow: var(--shadow-lg);
-}
-.map-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-6); }
-.map-head h2 { font-family: var(--font-display); font-size: var(--text-h2); font-weight: 700; letter-spacing: -0.03em; }
-.map-head .section-sub { color: rgb(255 255 255 / 0.65); }
-.map-legend { display: flex; gap: var(--space-5); margin: 0; padding: 0; list-style: none; color: rgb(255 255 255 / 0.75); font-size: var(--text-xs); }
+.map-tile { display: grid; gap: var(--space-5); }
+.map-head { display: grid; justify-items: start; }
+.map-head h2 { font-size: var(--fs-h2); font-weight: 500; line-height: 1.15; letter-spacing: -0.025em; }
+.map-legend { display: flex; gap: var(--space-5); margin: var(--space-3) 0 0; padding: 0; list-style: none; color: var(--ink-2); font-size: var(--fs-xs); }
 .map-legend li { display: inline-flex; align-items: center; gap: var(--space-2); }
-.legend-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: #8ea0ff; opacity: 0.6; }
-.legend-dot.is-deal { background: var(--yellow); opacity: 1; box-shadow: 0 0 0 4px rgb(255 216 74 / 0.2); }
-.map-canvas { position: relative; margin-top: var(--space-8); border-radius: var(--radius-lg); background-image: radial-gradient(circle, rgb(255 255 255 / 0.09) 1.2px, transparent 1.6px); background-size: 18px 18px; }
+.legend-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-4); }
+.legend-dot.is-deal { background: var(--accent); }
+.map-scroll { overflow-x: auto; scrollbar-width: none; }
+.map-scroll::-webkit-scrollbar { display: none; }
+.map-canvas { position: relative; }
 .map-svg { display: block; width: 100%; height: auto; overflow: visible; }
-.map-grid { stroke: rgb(255 255 255 / 0.06); stroke-width: 1; fill: none; }
-.map-arc { fill: none; stroke: rgb(255 255 255 / 0.14); stroke-width: 1.2; }
-.map-arc.is-deal { stroke: url(#arc-deal); stroke-width: 1.8; }
-.map-arc.is-selected { stroke: var(--yellow); stroke-width: 3; }
+.map-grid { fill: none; stroke: var(--line); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.map-arc { fill: none; stroke: rgb(17 17 19 / 0.15); stroke-width: 1px; }
+.map-arc.is-deal { stroke: var(--accent); stroke-width: 1.5px; }
+.map-arc.is-selected { stroke: var(--black); stroke-width: 2.5px; }
 .map-dest { cursor: pointer; outline: none; }
-.map-dot { fill: #8ea0ff; opacity: 0.65; transition: transform var(--duration-normal) var(--ease-spring); transform-box: fill-box; transform-origin: center; }
-.map-dest.is-deal .map-dot { fill: var(--yellow); opacity: 1; }
-.map-halo { fill: var(--yellow); opacity: 0.18; }
+.map-hit { fill: transparent; }
+.map-dest:focus-visible .map-hit { stroke: var(--ink); stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.map-dot { fill: var(--ink-4); transition: fill var(--t-fast) var(--ease); }
+/* Deals: 7px accent with a 2px white ring (the inner half of the 4px stroke sits under the fill). */
+.map-dest.is-deal .map-dot { fill: var(--accent); stroke: #fff; stroke-width: 4px; paint-order: stroke; vector-effect: non-scaling-stroke; }
 .map-dest:hover .map-dot,
-.map-dest:focus-visible .map-dot { transform: scale(1.6); }
-.map-dest:focus-visible .map-halo { opacity: 0.45; }
-.map-label { fill: #fff; font-family: var(--font-ui); font-size: 13px; font-weight: 700; paint-order: stroke; stroke: rgb(11 17 51 / 0.85); stroke-width: 4px; }
-.map-label-price { fill: var(--yellow); }
-.map-origin-dot { fill: #fff; }
-.map-origin-ring { fill: none; stroke: #fff; stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: ring 2.6s ease-out infinite; }
-@keyframes ring { from { transform: scale(0.6); opacity: 0.9; } to { transform: scale(2.6); opacity: 0; } }
-.map-origin-label { fill: #fff; font-family: var(--font-display); font-size: 15px; font-weight: 800; paint-order: stroke; stroke: rgb(11 17 51 / 0.85); stroke-width: 4px; }
-.map-tip {
-  position: absolute; z-index: 3; min-width: 11rem; padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); background: #fff; color: var(--ink);
-  font-size: var(--text-sm); line-height: 1.4; pointer-events: none; box-shadow: var(--shadow-pop); transform: translate(-50%, calc(-100% - 14px));
+.map-dest:focus-visible .map-dot { fill: var(--black); }
+.map-origin-dot { fill: var(--black); stroke: #fff; stroke-width: 4px; paint-order: stroke; vector-effect: non-scaling-stroke; }
+
+.map-pill {
+  position: absolute;
+  z-index: 2;
+  left: var(--x);
+  top: var(--y);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: var(--r-pill);
+  background: var(--tile);
+  color: var(--ink);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: var(--shadow-float);
+  pointer-events: none;
 }
-.map-tip strong { display: block; }
-.map-tip span { color: var(--ink-2); font-size: var(--text-xs); }
+.map-pill strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+.map-pill.is-origin { background: var(--black); color: #fff; font-weight: 600; }
+.map-pill.is-right { translate: 10px -50%; }
+.map-pill.is-left { translate: calc(-100% - 10px) -50%; }
+.map-pill.is-top { translate: -50% calc(-100% - 10px); }
+.map-pill.is-bottom { translate: -50% 10px; }
+.map-tip {
+  position: absolute;
+  z-index: 3;
+  left: var(--x);
+  top: var(--y);
+  min-width: 11rem;
+  padding: 10px 14px;
+  border-radius: var(--r-inner);
+  background: var(--tile);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+  pointer-events: none;
+  box-shadow: var(--shadow-float);
+  translate: -50% calc(-100% - 14px);
+}
+.map-tip strong { display: block; font-weight: 600; }
+.map-tip span { color: var(--ink-2); font-size: var(--fs-xs); }
 
 /* ---------- Good to know ---------- */
 

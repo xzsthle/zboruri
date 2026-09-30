@@ -6,7 +6,7 @@ import { fmtDay, ORIGIN_NAMES } from './format.js';
 const WIDTH = 1000;
 const HEIGHT = 560;
 const MARGIN_DEG = 3;
-const LABELLED_DEALS = 7;
+const LABELLED_DEALS = 6;
 
 const hasCoords = (place) => Number.isFinite(place?.lat) && Number.isFinite(place?.lon);
 
@@ -64,14 +64,18 @@ function tooltip(dest, deal, money) {
       : h('span', {}, 'No fares in range'));
 }
 
-function destinationNode({ dest, point, deal, isSelected, money, canvas, onSelect }) {
+// Positions over the SVG are percentages, handed to CSS as custom properties.
+const placeAt = (el, [x, y]) => {
+  el.style.setProperty('--x', `${((x / WIDTH) * 100).toFixed(3)}%`);
+  el.style.setProperty('--y', `${((y / HEIGHT) * 100).toFixed(3)}%`);
+  return el;
+};
+
+function destinationNode({ dest, point, deal, isSelected, money, canvas, onSelect, unit }) {
   const [x, y] = point;
   const showTip = () => {
     canvas.querySelector('.map-tip')?.remove();
-    const tip = tooltip(dest, deal, money);
-    tip.style.setProperty('left', `${(x / WIDTH) * 100}%`);
-    tip.style.setProperty('top', `${(y / HEIGHT) * 100}%`);
-    canvas.append(tip);
+    canvas.append(placeAt(tooltip(dest, deal, money), point));
   };
   const hideTip = () => canvas.querySelector('.map-tip')?.remove();
   const classes = ['map-dest', deal ? 'is-deal' : '', isSelected ? 'is-selected' : ''].filter(Boolean).join(' ');
@@ -87,13 +91,30 @@ function destinationNode({ dest, point, deal, isSelected, money, canvas, onSelec
     onfocus: showTip,
     onblur: hideTip,
   },
-    deal && s('circle', { class: 'map-halo', cx: x.toFixed(1), cy: y.toFixed(1), r: '13' }),
-    s('circle', { class: 'map-dot', cx: x.toFixed(1), cy: y.toFixed(1), r: deal ? '5.5' : '4' }));
+    // A larger invisible target, then the dot: 5px grey, or 7px accent with a white ring for deals.
+    s('circle', { class: 'map-hit', cx: x.toFixed(1), cy: y.toFixed(1), r: (10 * unit).toFixed(2) }),
+    s('circle', { class: 'map-dot', cx: x.toFixed(1), cy: y.toFixed(1), r: ((deal ? 3.5 : 2.5) * unit).toFixed(2) }));
 }
 
-function label(dest, [x, y], deal, money) {
-  return s('text', { class: 'map-label', x: (x + 10).toFixed(1), y: (y - 9).toFixed(1) },
-    dest.iata, s('tspan', { class: 'map-label-price', dx: '5' }, money.format(deal.totalEur)));
+const SIDES = ['is-right', 'is-left', 'is-top', 'is-bottom'];
+const overlaps = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+
+/** Puts each pill on the first side of its dot where it overlaps nothing placed so far; drops it otherwise. */
+function placePills(canvas, pills) {
+  const bounds = canvas.getBoundingClientRect();
+  const placed = [];
+  pills.forEach((pill) => {
+    canvas.append(pill);
+    const side = SIDES.find((candidate) => {
+      pill.classList.remove(...SIDES);
+      pill.classList.add(candidate);
+      const box = pill.getBoundingClientRect();
+      const inside = box.left >= bounds.left && box.right <= bounds.right && box.top >= bounds.top && box.bottom <= bounds.bottom;
+      return inside && !placed.some((other) => overlaps(box, other));
+    });
+    if (side) placed.push(pill.getBoundingClientRect());
+    else pill.remove(); // still in the tooltip on hover/focus
+  });
 }
 
 /** `bestDeals` maps destination code → cheapest deal under the current filters. */
@@ -106,26 +127,36 @@ export function renderMap({ data, bestDeals, selectedIata, money, onSelect }) {
   }
   const proj = projection([data.origin, ...places]);
   const origin = proj.project(data.origin);
+  // SVG units per CSS pixel, so dots keep their size in pixels however wide the map is drawn.
+  const unit = WIDTH / Math.max(1, canvas.clientWidth || WIDTH);
   const ordered = places.toSorted((a, b) => Number(bestDeals.has(a.iata)) - Number(bestDeals.has(b.iata)) || Number(a.iata === selectedIata) - Number(b.iata === selectedIata));
-  const labelled = new Set([...bestDeals.entries()].sort(([, a], [, b]) => a.totalEur - b.totalEur).slice(0, LABELLED_DEALS).map(([iata]) => iata));
+  const labelled = [...bestDeals.entries()].sort(([, a], [, b]) => a.totalEur - b.totalEur).slice(0, LABELLED_DEALS);
 
   const arcs = ordered.map((dest) => s('path', {
     class: ['map-arc', bestDeals.has(dest.iata) ? 'is-deal' : '', dest.iata === selectedIata ? 'is-selected' : ''].filter(Boolean).join(' '),
     d: arcPath(origin, proj.project(dest)),
+    'vector-effect': 'non-scaling-stroke',
   }));
   const nodes = ordered.map((dest) => destinationNode({
-    dest, point: proj.project(dest), deal: bestDeals.get(dest.iata), isSelected: dest.iata === selectedIata, money, canvas, onSelect,
+    dest, point: proj.project(dest), deal: bestDeals.get(dest.iata), isSelected: dest.iata === selectedIata, money, canvas, onSelect, unit,
   }));
-  const labels = ordered.filter((dest) => labelled.has(dest.iata)).map((dest) => label(dest, proj.project(dest), bestDeals.get(dest.iata), money));
 
   canvas.replaceChildren(s('svg', { class: 'map-svg', viewBox: `0 0 ${WIDTH} ${HEIGHT}`, role: 'group', 'aria-label': 'Route map from Chișinău' },
-    s('defs', {}, s('linearGradient', { id: 'arc-deal', x1: '0', y1: '0', x2: '1', y2: '0' },
-      s('stop', { offset: '0', 'stop-color': '#ff3d7f' }), s('stop', { offset: '1', 'stop-color': '#ffd84a' }))),
     graticule(proj),
     arcs,
     nodes,
-    labels,
-    s('circle', { class: 'map-origin-ring', cx: origin[0].toFixed(1), cy: origin[1].toFixed(1), r: '9' }),
-    s('circle', { class: 'map-origin-dot', cx: origin[0].toFixed(1), cy: origin[1].toFixed(1), r: '7' }),
-    s('text', { class: 'map-origin-label', x: (origin[0] + 14).toFixed(1), y: (origin[1] + 5).toFixed(1) }, ORIGIN_NAMES[data.origin.iata] ?? data.origin.name)));
+    s('circle', { class: 'map-origin-dot', cx: origin[0].toFixed(1), cy: origin[1].toFixed(1), r: (5 * unit).toFixed(2) })));
+
+  const byIata = new Map(places.map((place) => [place.iata, place]));
+  placePills(canvas, [
+    placeAt(h('span', { class: 'map-pill is-origin', 'aria-hidden': 'true' }, ORIGIN_NAMES[data.origin.iata] ?? data.origin.name), origin),
+    ...labelled.filter(([iata]) => byIata.has(iata)).map(([iata, deal]) =>
+      placeAt(h('span', { class: 'map-pill', 'aria-hidden': 'true' }, iata, h('strong', {}, money.format(deal.totalEur))), proj.project(byIata.get(iata)))),
+  ]);
+
+  // On phones the map scrolls sideways: start with Chișinău in view.
+  const scroller = canvas.parentElement;
+  if (scroller.scrollWidth > scroller.clientWidth) {
+    scroller.scrollLeft = (origin[0] / WIDTH) * canvas.clientWidth - scroller.clientWidth * 0.7;
+  }
 }
