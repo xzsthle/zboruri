@@ -5,7 +5,7 @@ import { colorBlock } from './art.js';
 import { fmtDuration } from './geo.js';
 import { fmtDay, fmtShortRange, plural } from './format.js';
 import { airlineBadge } from './flight.js';
-import { photoCredit, photoImg } from './photo.js';
+import { photoImg } from './photo.js';
 
 function legRow(label, trip, leg) {
   const duration = leg.minutes == null ? 'Direct' : `≈ ${fmtDuration(leg.minutes)}`;
@@ -58,6 +58,5 @@ export function destinationCard({ dest, best, count, info, money, photo, onSelec
       featured && h('p', { class: 'dc-count' }, `${plural(count, 'date option')} · ${best.airline}`)),
     featured
       ? h('span', { class: 'dc-notch', 'aria-hidden': 'true' }, h('span', { class: 'orb orb--lg' }, icon('i-external')))
-      : h('span', { class: 'orb orb--light dc-orb', 'aria-hidden': 'true' }, icon('i-external')),
-    photoCredit(photo));
+      : h('span', { class: 'orb orb--light dc-orb', 'aria-hidden': 'true' }, icon('i-external')));
 }

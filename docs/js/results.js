@@ -9,7 +9,7 @@ import { priceCalendar } from './pickers.js';
 import { describeDepart, describeStay, describeTravellers } from './widget.js';
 import { departSpec } from './query.js';
 import { flightInfo } from './flight.js';
-import { photoCredit, photoImg } from './photo.js';
+import { photoImg } from './photo.js';
 import { fmtDuration } from './geo.js';
 import { fmtShort, ORIGIN_NAMES, parseDay, plural } from './format.js';
 
@@ -48,7 +48,6 @@ function banner({ site, engine, query, photos }, count) {
   return h('div', { class: 'rh-banner photo-tile has-scrim' },
     photoImg(photo, { width: 1000, height: 400, className: 'cover rh-img', eager: true, alt: dest?.name ?? query.to }) ?? colorBlock(query.to, 'cover'),
     dest && h('span', { class: 'tag-pill rh-country' }, dest.country),
-    photoCredit(photo),
     h('div', { class: 'rh-body' },
       h('h1', { class: 'rh-title' }, `${origin} → ${dest?.name ?? query.to}`),
       facts.length > 0 && h('p', { class: 'stat-pill rh-facts' }, facts.map((fact) => h('span', {}, fact)))));

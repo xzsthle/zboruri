@@ -24,7 +24,6 @@
 
 .dlg-photo { height: 260px; margin: 0; }
 .dlg-country { position: absolute; z-index: 2; top: 16px; left: 16px; }
-.dlg-photo .photo-credit { top: 16px; right: 16px; left: auto; max-width: 55%; opacity: 1; }
 .dlg-facts { position: absolute; z-index: 2; left: 16px; bottom: 16px; max-width: calc(100% - 32px); }
 
 .it-leg,

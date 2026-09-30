@@ -8,7 +8,7 @@ import { fmtDuration, hoursBetween, nowIn } from './geo.js';
 import { fmtDay, ORIGIN_NAMES, plural } from './format.js';
 import { bookingLink, bookLabel, flightInfo } from './flight.js';
 import { toHash } from './query.js';
-import { photoCredit, photoImg } from './photo.js';
+import { photoImg } from './photo.js';
 import { colorBlock } from './art.js';
 
 const WIZZ_BASIC = {
@@ -91,7 +91,6 @@ function photoTile(photo, info) {
   return h('div', { class: 'dlg-photo photo-tile has-scrim' },
     photoImg(photo, { width: 720, height: 260, className: 'cover dlg-img', eager: true, alt: `${dest.name}, ${dest.country}` }) ?? colorBlock(dest.iata, 'cover'),
     h('span', { class: 'tag-pill dlg-country' }, dest.country),
-    photoCredit(photo),
     h('p', { class: 'stat-pill dlg-facts' }, facts.map((fact) => h('span', {}, fact))));
 }
 

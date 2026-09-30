@@ -128,21 +128,6 @@ body[data-view='home'] .topnav :focus-visible { outline-color: #fff; }
   mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
 }
 
-.hero-credit {
-  position: absolute;
-  top: 84px;
-  right: clamp(16px, 2vw, 28px);
-  padding: 4px 10px;
-  border-radius: var(--r-pill);
-  background: rgb(17 17 19 / 0.55);
-  color: #fff;
-  font-size: var(--fs-xs);
-  text-decoration: none;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.hero-credit:hover { text-decoration: underline; }
-.hero-credit:focus-visible { outline-color: #fff; }
 
 .hero-search { position: relative; z-index: 2; margin-top: calc(-1 * var(--capsule-half)); }
 

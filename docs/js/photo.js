@@ -30,10 +30,3 @@ export function photoImg(photo, { width, height, className = '', eager = false, 
     style: HEX_COLOR.test(photo.avgColor ?? '') ? { '--ph': photo.avgColor } : null,
   });
 }
-
-/** "Photo: Name / Pexels" credit, linked as the Pexels API guidelines ask. */
-export function photoCredit(photo, className = 'photo-credit') {
-  if (!isSafe(photo)) return null;
-  const href = photo.pageUrl ?? 'https://www.pexels.com/';
-  return h('a', { class: className, href, target: '_blank', rel: 'noopener noreferrer' }, `Photo: ${photo.photographer} / Pexels`);
-}
