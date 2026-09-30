@@ -39,6 +39,12 @@ export function roundTrips(outbound, inbound, { minNights, maxNights }) {
   );
 }
 
+/** Cheapest one-way fare per day in each direction, [[date, times, eur], …], so the website can pair any dates. */
+export function fareLegs({ outbound, inbound }, rates) {
+  const compact = (fares) => cheapestPerDate(toEurFares(fares, rates)).map(({ date, times, priceEur }) => [date, times, priceEur]);
+  return { out: compact(outbound), back: compact(inbound) };
+}
+
 /** Every live Wizz Air round trip for one scanned destination, priced in euros. */
 export function wizzTrips({ dest, outbound, inbound }, { rates, config, linkFor }) {
   return roundTrips(

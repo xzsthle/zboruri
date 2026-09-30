@@ -5,7 +5,7 @@ import { createHttp, sleep } from './http.js';
 import { run } from './run.js';
 import { createFileStore } from './store.js';
 import { createTelegramNotifier } from './telegram.js';
-import { createTravelpayoutsClient } from './travelpayouts.js';
+import { createReferenceClient, createTravelpayoutsClient } from './travelpayouts.js';
 import { createWizzClient } from './wizz.js';
 
 const fromRoot = (path) => fileURLToPath(new URL(`../${path}`, import.meta.url));
@@ -49,12 +49,14 @@ async function main() {
     config,
     wizz: createWizzClient(http),
     travelpayouts: createOtherAirlinesClient(process.env),
+    reference: createReferenceClient(createHttp(TRAVELPAYOUTS_HTTP)),
     getRates: () => fetchEurRates(http.getJson),
     notifier,
     store: createFileStore({
       statePath: fromRoot('data/state.json'),
       siteDataPath: fromRoot('docs/data/deals.json'),
       historyPath: fromRoot('docs/data/history.json'),
+      faresPath: fromRoot('docs/data/fares.json'),
     }),
     clock: { now: () => new Date() },
     pause: () => sleep(config.requestDelayMs),

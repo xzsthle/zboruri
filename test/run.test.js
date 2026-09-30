@@ -40,13 +40,27 @@ function fakeTravelpayouts({ fail = null } = {}) {
     nights: 3, totalEur: 35, airlineCode: 'VF', stops: 0, bookingUrl: 'https://www.aviasales.com/search/x', source: 'travelpayouts',
   };
   return {
-    fetchReference: async () => ({
-      placeFor: (iata) => ({ SAW })[iata] ?? null,
-      airlineName: (code) => ({ VF: 'Ajet' })[code] ?? null,
-    }),
     fetchTrips: async () => {
       if (fail) throw fail;
       return [{ destIata: 'SAW', trip: tpTrip }];
+    },
+  };
+}
+
+const AIRPORTS = {
+  RMO: { airportName: 'Chișinău International Airport', timeZone: 'Europe/Chisinau' },
+  BUD: { airportName: 'Budapest Ferenc Liszt', timeZone: 'Europe/Budapest' },
+};
+
+function fakeReference({ fail = false } = {}) {
+  return {
+    fetchReference: async () => {
+      if (fail) throw new Error('offline');
+      return {
+        placeFor: (iata) => ({ SAW })[iata] ?? null,
+        airlineName: (code) => ({ VF: 'Ajet' })[code] ?? null,
+        airportInfo: (iata) => AIRPORTS[iata] ?? {},
+      };
     },
   };
 }
@@ -60,6 +74,7 @@ function memoryStore({ state = emptyState(), history = emptyHistory() } = {}) {
     readHistory: async () => history,
     writeHistory: async (value) => { writes.history = value; },
     writeSiteData: async (data) => { writes.site = data; },
+    writeFares: async (data) => { writes.fares = data; },
   };
 }
 
@@ -81,6 +96,7 @@ function makeDeps(overrides = {}) {
     config,
     wizz: fakeWizz(),
     travelpayouts: null,
+    reference: fakeReference(),
     getRates: async () => ({ EUR: 1, MDL: 20, RON: 5, USD: 1.1, GBP: 0.9 }),
     notifier: fakeNotifier(),
     store: memoryStore(),
@@ -214,4 +230,35 @@ test('run fails without overwriting data when Wizz Air returns no prices at all'
   const deps = makeDeps({ wizz: fakeWizz([], { BUD: empty, BGY: empty }) });
   await assert.rejects(run(deps), /no prices for any route/);
   assert.equal(deps.store.writes.site, undefined);
+});
+
+test('run publishes one-way fares and cached trips for the search page', async () => {
+  const deps = makeDeps({ travelpayouts: fakeTravelpayouts() });
+  await run(deps);
+  const { fares } = deps.store.writes;
+  assert.equal(fares.generatedAt, NOW.toISOString());
+  assert.deepEqual(fares.destinations.BUD, { out: [['2026-10-01', ['10:00'], 20]], back: [['2026-10-04', ['10:00'], 20]], cached: [] });
+  assert.equal(fares.destinations.SAW.cached.length, 1);
+  assert.equal(fares.destinations.SAW.cached[0].airline, 'Ajet');
+  assert.deepEqual(fares.destinations.SAW.out, []);
+});
+
+test('run adds airport names and time zones from the reference data', async () => {
+  const deps = makeDeps();
+  await run(deps);
+  const { site } = deps.store.writes;
+  assert.equal(site.origin.airportName, 'Chișinău International Airport');
+  assert.equal(site.origin.timeZone, 'Europe/Chisinau');
+  const bud = site.destinations.find((d) => d.iata === 'BUD');
+  assert.equal(bud.airportName, 'Budapest Ferenc Liszt');
+  assert.equal(bud.timeZone, 'Europe/Budapest');
+});
+
+test('run still publishes when the reference data cannot be loaded', async () => {
+  const deps = makeDeps({ reference: fakeReference({ fail: true }), travelpayouts: fakeTravelpayouts() });
+  const result = await run(deps);
+  assert.ok(deps.store.writes.site);
+  assert.equal(deps.store.writes.site.destinations.find((d) => d.iata === 'BUD').airportName, undefined);
+  assert.equal(result.otherAirlines.trips, 1, 'cached trips for unknown places are skipped, not fatal');
+  assert.match(deps.warnings.join('\n'), /Reference data unavailable/);
 });

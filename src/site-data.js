@@ -38,3 +38,16 @@ export function buildSiteData({ now, origin, config, summaries, state, failed, r
     failed,
   };
 }
+
+/**
+ * docs/data/fares.json: the raw material for the website's search. Live Wizz Air one-way fares per day
+ * (paired client-side for any dates) plus cached round trips for other airlines.
+ */
+export function buildFaresData({ now, merged, legs }) {
+  const destinations = Object.fromEntries(merged.map(({ dest, trips }) => [dest.iata, {
+    out: legs[dest.iata]?.out ?? [],
+    back: legs[dest.iata]?.back ?? [],
+    cached: trips.filter((trip) => trip.source === 'travelpayouts'),
+  }]));
+  return { generatedAt: now.toISOString(), currency: 'EUR', destinations };
+}

@@ -25,6 +25,7 @@ const toPlace = (city) => ({
   countryCode: city.countryCode,
   lat: city.latitude ?? null,
   lon: city.longitude ?? null,
+  localCurrency: city.currencyCode ?? null,
 });
 
 /** The origin plus every real airport it has a direct flight to ("All Airports" groups are fake stations). */

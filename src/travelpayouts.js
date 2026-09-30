@@ -99,7 +99,22 @@ export function buildReference({ airports, cities, countries, airlines }) {
     };
   };
   const airlineName = (code) => airlineByCode.get(code)?.name ?? null;
-  return { placeFor, airlineName };
+  const airportInfo = (iata) => {
+    const airport = airportByCode.get(iata);
+    return airport ? { airportName: airport.name, timeZone: airport.time_zone } : {};
+  };
+  return { placeFor, airlineName, airportInfo };
+}
+
+/** The public reference files (no token needed): places, airport names, time zones, airline names. */
+export function createReferenceClient(http) {
+  async function fetchReference() {
+    const [airports, cities, countries, airlines] = await Promise.all(
+      ['airports', 'cities', 'countries', 'airlines'].map((name) => http.getJson(`${DATA_URL}/${name}.json`)),
+    );
+    return buildReference({ airports, cities, countries, airlines });
+  }
+  return { fetchReference };
 }
 
 export function createTravelpayoutsClient(http, { token, marker = '' }) {
@@ -132,12 +147,5 @@ export function createTravelpayoutsClient(http, { token, marker = '' }) {
     return trips;
   }
 
-  async function fetchReference() {
-    const [airports, cities, countries, airlines] = await Promise.all(
-      ['airports', 'cities', 'countries', 'airlines'].map((name) => http.getJson(`${DATA_URL}/${name}.json`)),
-    );
-    return buildReference({ airports, cities, countries, airlines });
-  }
-
-  return { fetchPrices, fetchTrips, fetchReference };
+  return { fetchPrices, fetchTrips };
 }

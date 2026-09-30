@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { cheapestPerDate, flattenDeals, roundTrips, summarizeTrips, toEurFares, wizzTrips } from '../src/deals.js';
+import { cheapestPerDate, fareLegs, flattenDeals, roundTrips, summarizeTrips, toEurFares, wizzTrips } from '../src/deals.js';
 
 const rates = { EUR: 1, MDL: 20 };
 const fare = (date, amount) => ({ date, times: ['10:00'], amount, currency: 'MDL' });
@@ -93,4 +93,9 @@ test('flattenDeals pairs every deal with its destination', () => {
   assert.equal(rest.length, 0);
   assert.deepEqual(first.destination, { iata: 'BGY', name: 'Milan Bergamo', country: 'Italy', countryCode: 'IT' });
   assert.equal(first.trip, deal);
+});
+
+test('fareLegs keeps the cheapest one-way fare per day in euros, for the search page', () => {
+  const legs = fareLegs({ outbound: [fare('2026-10-01', 400), fare('2026-10-01', 200)], inbound: [fare('2026-10-04', 600)] }, rates);
+  assert.deepEqual(legs, { out: [['2026-10-01', ['10:00'], 10]], back: [['2026-10-04', ['10:00'], 30]] });
 });

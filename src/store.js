@@ -25,7 +25,7 @@ async function readJsonIfExists(path) {
  * Alert history lives in data/ (pretty, so diffs stay readable). The public site files in docs/data/
  * are compact, since the website downloads them on every visit.
  */
-export function createFileStore({ statePath, siteDataPath, historyPath }) {
+export function createFileStore({ statePath, siteDataPath, historyPath, faresPath }) {
   return {
     readState: async () => {
       const raw = await readJsonIfExists(statePath);
@@ -38,5 +38,6 @@ export function createFileStore({ statePath, siteDataPath, historyPath }) {
     },
     writeHistory: (history) => writeJson(historyPath, history, { pretty: false }),
     writeSiteData: (data) => writeJson(siteDataPath, data, { pretty: false }),
+    writeFares: (data) => writeJson(faresPath, data, { pretty: false }),
   };
 }

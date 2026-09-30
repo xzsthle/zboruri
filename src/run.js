@@ -1,10 +1,10 @@
 import { addDays, dateWindows, toIsoDate } from './dates.js';
-import { flattenDeals, summarizeTrips, wizzTrips } from './deals.js';
+import { fareLegs, flattenDeals, summarizeTrips, wizzTrips } from './deals.js';
 import { updateHistory } from './history.js';
 import { mergeSources } from './merge.js';
-import { scanOtherAirlines } from './other-airlines.js';
+import { loadReference, scanOtherAirlines } from './other-airlines.js';
 import { scanAll } from './scan.js';
-import { buildSiteData } from './site-data.js';
+import { buildFaresData, buildSiteData } from './site-data.js';
 import { markAlerted, selectAlerts, updateState } from './state.js';
 import { formatAlerts } from './telegram.js';
 import { bookingUrl, MAX_WINDOW_DAYS } from './wizz.js';
@@ -58,7 +58,8 @@ async function scanWizz({ config, wizz, rates, today, pause, cooldown, log }) {
 
   const linkFor = (dest, outDate, backDate) => bookingUrl(origin.iata, dest, outDate, backDate);
   const priced = results.map((scan) => ({ dest: scan.dest, trips: wizzTrips(scan, { rates, config, linkFor }) }));
-  return { origin, priced, failed, window: { fromIso: windows[0].from, toIso: windows.at(-1).to } };
+  const legs = Object.fromEntries(results.map((scan) => [scan.dest.iata, fareLegs(scan, rates)]));
+  return { origin, priced, legs, failed, window: { fromIso: windows[0].from, toIso: windows.at(-1).to } };
 }
 
 /**
@@ -72,11 +73,15 @@ export async function run(deps) {
   const today = toIsoDate(now.getTime());
 
   const rates = await getRates();
-  const { origin, priced, failed, window } = await scanWizz({ ...deps, rates, today });
-  const others = await scanOtherAirlines({ ...deps, origin: origin.iata, ...window });
+  const { origin: wizzOrigin, priced, legs, failed, window } = await scanWizz({ ...deps, rates, today });
+  const reference = await loadReference(deps);
+  const others = await scanOtherAirlines({ ...deps, origin: wizzOrigin.iata, ...window });
 
-  const merged = mergeSources({ wizz: priced, others: others.found, originIata: origin.iata, ...others.reference });
-  const summaries = merged.map(({ dest, trips }) => summarizeTrips(dest, trips, config));
+  // Airport names and time zones power the flight details (local arrival times) on the website.
+  const withAirport = (place) => ({ ...place, ...reference.airportInfo(place.iata) });
+  const origin = withAirport(wizzOrigin);
+  const merged = mergeSources({ wizz: priced, others: others.found, originIata: origin.iata, ...reference });
+  const summaries = merged.map(({ dest, trips }) => summarizeTrips(withAirport(dest), trips, config));
   const bestPrices = Object.fromEntries(summaries.filter((s) => s.deals.length > 0).map((s) => [s.iata, s.deals[0].totalEur]));
   const cheapest = Object.fromEntries(summaries.filter((s) => s.cheapest).map((s) => [s.iata, s.cheapest.totalEur]));
 
@@ -87,6 +92,7 @@ export async function run(deps) {
 
   const otherAirlinesActive = others.status.status === 'ok';
   await store.writeSiteData(buildSiteData({ now, origin, config, summaries, state, failed, rates, otherAirlinesActive }));
+  await store.writeFares(buildFaresData({ now, merged, legs }));
   await store.writeHistory(updateHistory(await store.readHistory(), cheapest, today));
   await store.writeState(state);
   if (error) throw error;

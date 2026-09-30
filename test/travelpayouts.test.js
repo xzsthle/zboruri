@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  buildReference, createTravelpayoutsClient, departureMonths, parsePrices, TravelpayoutsAuthError,
+  buildReference, createReferenceClient, createTravelpayoutsClient, departureMonths, parsePrices, TravelpayoutsAuthError,
 } from '../src/travelpayouts.js';
 import { HttpError } from '../src/http.js';
 
@@ -67,7 +67,7 @@ test('parsePrices reports API-level errors and unexpected shapes', () => {
 
 test('buildReference resolves airports (or cities) to places and airline codes to names', () => {
   const reference = buildReference({
-    airports: [{ code: 'SAW', city_code: 'IST', country_code: 'TR', coordinates: { lat: 40.9, lon: 29.3 } }],
+    airports: [{ code: 'SAW', name: 'Sabiha Gokcen', time_zone: 'Europe/Istanbul', city_code: 'IST', country_code: 'TR', coordinates: { lat: 40.9, lon: 29.3 } }],
     cities: [{ code: 'IST', name: 'Istanbul', country_code: 'TR', coordinates: { lat: 41, lon: 28.9 } }],
     countries: [{ code: 'TR', name: 'Turkey' }],
     airlines: [{ code: 'VF', name: 'Ajet' }],
@@ -77,6 +77,8 @@ test('buildReference resolves airports (or cities) to places and airline codes t
   assert.equal(reference.placeFor('ZZZ'), null);
   assert.equal(reference.airlineName('VF'), 'Ajet');
   assert.equal(reference.airlineName('ZZ'), null);
+  assert.deepEqual(reference.airportInfo('SAW'), { airportName: 'Sabiha Gokcen', timeZone: 'Europe/Istanbul' });
+  assert.deepEqual(reference.airportInfo('ZZZ'), {});
 });
 
 test('the client sends the token as a header, never in the URL', async () => {
@@ -124,10 +126,10 @@ test('the client turns a rejected token into a clear auth error', async () => {
   });
 });
 
-test('the client loads the four public reference files', async () => {
+test('the reference client loads the four public files without a token', async () => {
   const urls = [];
   const http = { getJson: async (url) => { urls.push(url); return []; } };
-  const reference = await createTravelpayoutsClient(http, { token: 't' }).fetchReference();
+  const reference = await createReferenceClient(http).fetchReference();
   assert.deepEqual(urls.toSorted(), [
     'https://api.travelpayouts.com/data/en/airlines.json',
     'https://api.travelpayouts.com/data/en/airports.json',
