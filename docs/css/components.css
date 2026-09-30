@@ -1,0 +1,280 @@
+/* Shared components: buttons, orbs, chips, segmented controls, checks, switch, pills, tiles, badges, toast. */
+
+/* ---------- Buttons ---------- */
+
+.btn-primary,
+.btn-select,
+.btn-accent,
+.btn-ghost,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 48px;
+  padding: 0 var(--space-6);
+  border: 0;
+  border-radius: var(--r-pill);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.btn-primary .icon,
+.btn-select .icon,
+.btn-accent .icon,
+.btn-ghost .icon,
+.btn-outline .icon { width: 18px; height: 18px; }
+
+.btn-primary,
+.btn-select { background: var(--black); color: #fff; }
+.btn-primary:hover,
+.btn-select:hover { background: #2c2c30; }
+
+/* The accent fill is reserved for "Search" and "Book". */
+.btn-accent { background: var(--accent); color: var(--on-accent); }
+.btn-accent:hover { background: color-mix(in srgb, var(--accent) 86%, #000); }
+
+.btn-ghost { background: var(--tile); color: var(--ink); }
+.tile .btn-ghost,
+.btn-ghost.is-sunk { background: var(--sunk); }
+.btn-ghost:hover { background: var(--line); }
+
+.btn-outline { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.2); }
+.btn-outline:hover { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.5); }
+
+.btn-block { width: 100%; }
+
+.link-btn { padding: 0; border: 0; background: none; color: var(--ink); font-size: var(--fs-sm); font-weight: 500; text-decoration: underline; text-decoration-color: var(--ink-4); text-underline-offset: 3px; }
+.link-btn:hover { text-decoration-color: var(--ink); }
+
+/* ---------- Orbs ---------- */
+
+.orb {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--black);
+  color: #fff;
+  transition: background-color var(--t-fast) var(--ease);
+}
+.orb .icon { width: 18px; height: 18px; transition: transform var(--t-base) var(--ease); }
+.orb:hover { background: #2c2c30; }
+.orb--light { background: var(--tile); color: var(--ink); }
+.orb--light:hover { background: var(--sunk); }
+.orb--sunk { background: var(--sunk); color: var(--ink); }
+.orb--sunk:hover { background: var(--line); }
+.orb--sm { width: 32px; height: 32px; }
+.orb--sm .icon { width: 16px; height: 16px; }
+.orb--lg { width: 56px; height: 56px; }
+.orb:disabled { opacity: 0.35; }
+
+/* ---------- Pill + orb ("See all ↗") ---------- */
+
+.pill-orb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 48px;
+  padding: 4px 4px 4px var(--space-5);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--sunk);
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pill-orb .orb { width: 40px; height: 40px; }
+.pill-orb--canvas { background: var(--tile); }
+.pill-orb--accent { background: rgb(255 255 255 / 0.14); color: var(--on-accent); }
+.pill-orb--accent .orb { background: #fff; color: var(--ink); }
+/* The only hover motion on buttons: the arrow turns from → to ↗. */
+.pill-orb:hover .orb .icon,
+.pill-orb:focus-visible .orb .icon,
+.orb.is-arrow:hover .icon,
+.orb.is-arrow:focus-visible .icon { transform: rotate(-45deg); }
+
+/* ---------- Chips ---------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--sunk);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.chip:hover { background: var(--line); }
+.chip--outline { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
+.chip--outline:hover { background: transparent; box-shadow: inset 0 0 0 1px var(--ink-4); }
+.chip--on-accent { background: transparent; color: var(--on-accent); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45); }
+.chip--on-accent:hover { background: rgb(255 255 255 / 0.12); }
+.chip[aria-pressed='true'],
+.chip.is-selected { background: var(--black); color: #fff; box-shadow: none; }
+
+/* ---------- Segmented control ---------- */
+
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  max-width: 100%;
+  padding: 4px;
+  overflow-x: auto;
+  border-radius: var(--r-pill);
+  background: var(--sunk);
+  scrollbar-width: none;
+}
+.segmented > button {
+  flex: none;
+  height: 36px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.segmented > button:hover { color: var(--ink); }
+.segmented > [aria-selected='true'],
+.segmented > [aria-pressed='true'] { background: var(--tile); color: var(--ink); box-shadow: 0 1px 2px rgb(17 17 19 / 0.1); }
+.segmented > button:disabled { opacity: 0.4; }
+
+/* ---------- Checkbox ---------- */
+
+.check { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: 6px 0; cursor: pointer; }
+.check input { position: absolute; opacity: 0; }
+.check-box { width: 20px; height: 20px; border: 1.5px solid var(--ink-4); border-radius: 6px; background: var(--tile); transition: background-color var(--t-fast), border-color var(--t-fast); }
+.check input:checked + .check-box {
+  border-color: var(--black);
+  background: var(--black) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+.check input:focus-visible + .check-box { outline: 2px solid var(--ink); outline-offset: 2px; }
+.check input:disabled + .check-box { opacity: 0.55; }
+.check-text { display: grid; font-size: var(--fs-sm); line-height: 1.3; }
+.check-text small { color: var(--ink-3); font-size: var(--fs-xs); }
+.check-count { color: var(--ink-3); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }
+.check.is-disabled { cursor: default; opacity: 0.5; }
+
+/* ---------- Switch ---------- */
+
+.switch { position: relative; display: inline-flex; align-items: center; gap: var(--space-3); cursor: pointer; }
+.switch input { position: absolute; opacity: 0; }
+.switch-track { position: relative; flex: none; width: 40px; height: 24px; border-radius: var(--r-pill); background: var(--ink-4); transition: background-color var(--t-fast) var(--ease); }
+.switch-track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: transform var(--t-base) var(--ease); }
+.switch input:checked + .switch-track { background: var(--black); }
+.switch input:checked + .switch-track::after { transform: translateX(16px); }
+.switch input:focus-visible + .switch-track { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* ---------- Pills ---------- */
+
+/* Dark glass stat pill: "Direct · 1h 20m | 641 km | 147 dates" */
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 34px;
+  padding: 0 var(--space-4);
+  overflow: hidden;
+  border-radius: var(--r-pill);
+  background: rgb(17 17 19 / 0.55);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.stat-pill > span { overflow: hidden; text-overflow: ellipsis; }
+.stat-pill > span + span { margin-left: var(--space-3); padding-left: var(--space-3); border-left: 1px solid rgb(255 255 255 / 0.2); }
+.tile--dark .stat-pill { background: rgb(255 255 255 / 0.08); }
+
+/* White price pill on photos: "from €32" */
+.price-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  height: 32px;
+  padding: 0 var(--space-3);
+  align-items: center;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  box-shadow: var(--shadow-float);
+}
+.price-pill small { color: var(--ink-3); font-size: var(--fs-xs); font-weight: 400; }
+
+/* Small label pill on photos: the country */
+.tag-pill { display: inline-flex; align-items: center; height: 28px; padding: 0 var(--space-3); border-radius: var(--r-pill); background: rgb(255 255 255 / 0.92); color: var(--ink); font-size: var(--fs-xs); font-weight: 500; white-space: nowrap; }
+
+/* ---------- Pagination dashes ---------- */
+
+.dashes { display: flex; justify-content: center; gap: 6px; margin-top: var(--space-4); }
+.dash { width: 16px; height: 4px; border-radius: var(--r-pill); background: var(--ink-4); }
+.dash.is-active { width: 28px; background: var(--ink); }
+
+/* ---------- Tiles ---------- */
+
+.tile { border-radius: var(--r-tile); background: var(--tile); padding: clamp(20px, 2vw, 28px); }
+.tile--dark { background: var(--charcoal); color: #fff; }
+.tile--accent { background: var(--accent); color: var(--on-accent); }
+
+.photo-tile { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--r-tile); background: var(--fog); }
+.photo-tile > .cover { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
+/* The only scrim: behind text at the bottom of a photo. */
+.photo-tile.has-scrim::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 45%, rgb(0 0 0 / 0.55)); pointer-events: none; }
+
+/* ---------- Badges ---------- */
+
+.badge { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: var(--r-pill); background: var(--sunk); color: var(--ink); font-size: var(--fs-xs); font-weight: 500; white-space: nowrap; }
+.source { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: var(--fs-xs); }
+.source::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--cheap); }
+.source.is-recent::before { background: var(--ink-4); }
+
+/* ---------- Toast ---------- */
+
+.toast {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+  height: 44px;
+  border-radius: var(--r-pill);
+  background: var(--black);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  box-shadow: var(--shadow-float);
+  translate: -50% 0;
+  animation: rise-in var(--t-base) var(--ease);
+}
+.toast .icon { width: 16px; height: 16px; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
