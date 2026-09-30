@@ -184,7 +184,20 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
 
   // ---------- fields ----------
 
+  // ---------- phone summary pill (search view): the whole form folds into one line ----------
+
+  const summary = root.querySelector('.sw-summary');
+  const setExpanded = (expanded) => {
+    root.closest('.hero-search').classList.toggle('is-expanded', expanded);
+    summary.setAttribute('aria-expanded', String(expanded));
+    summary.querySelector('.sw-summary-orb use').setAttribute('href', expanded ? '#i-close' : '#i-edit');
+  };
+  summary.addEventListener('click', () => setExpanded(summary.getAttribute('aria-expanded') !== 'true'));
+
   function renderFields() {
+    summary.querySelector('.sw-summary-text').textContent =
+      [destName(draft.to), describeDepart(draft.depart), describeStay(draft), describeTravellers(draft.adults)].join(' · ');
+    summary.setAttribute('aria-label', `Edit search: ${summary.querySelector('.sw-summary-text').textContent}`);
     if (document.activeElement !== $('sw-to')) $('sw-to').value = destName(draft.to);
     $('sw-depart-value').textContent = describeDepart(draft.depart);
     $('sw-back-value').textContent = describeStay(draft);
@@ -210,6 +223,7 @@ export function createSearchWidget({ site, engine, getMoney, photos = {}, onSear
   return {
     setQuery(query) {
       draft = { ...query };
+      setExpanded(false); // a new search folds the phone form back into its summary
       renderFields();
     },
   };

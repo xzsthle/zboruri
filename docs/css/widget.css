@@ -2,6 +2,9 @@
 
 .search-widget { position: relative; color: var(--ink); }
 
+/* Phones, search view only: the summary pill stands in for the folded form (see responsive.css). */
+.sw-summary { display: none; }
+
 .sw-fields {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr) auto;
@@ -177,7 +180,8 @@
 
 /* ---------- "Ask" box: a white pill input with a black button (REF-3) ---------- */
 
-.ask-block { display: grid; justify-items: center; gap: var(--space-3); max-width: 46rem; margin: var(--space-8) auto 0; }
+/* minmax(0, 1fr): the text input's intrinsic width must not widen the column on small phones. */
+.ask-block { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; gap: var(--space-3); max-width: 46rem; margin: var(--space-8) auto 0; }
 .ask {
   display: flex;
   align-items: center;

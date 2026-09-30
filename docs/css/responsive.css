@@ -27,7 +27,11 @@
   .sw-submit { grid-column: auto; padding-inline: var(--space-5); }
   .sw-options { gap: var(--space-3) var(--space-6); padding: 0 var(--space-2); }
   .sw-note { margin-left: 0; }
-  .ask-examples { flex-wrap: nowrap; justify-content: flex-start; width: calc(100% + 2 * var(--gutter)); margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); overflow-x: auto; scrollbar-width: none; }
+  .ask-block,
+  .ask-meta { justify-items: stretch; }
+  .ask-engine { justify-self: center; }
+  /* Full-bleed swipe row: stretched, then pulled out to the screen edges. */
+  .ask-examples { flex-wrap: nowrap; justify-content: flex-start; min-width: 0; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); overflow-x: auto; scrollbar-width: none; }
   .ask-chip { flex: none; }
   .ask-submit { padding-inline: var(--space-5); }
   .hero-stats { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; gap: var(--space-2) var(--space-6); }
@@ -35,8 +39,32 @@
   .footer-inner { grid-template-columns: minmax(0, 1fr); }
 }
 
+@media (max-width: 760px) {
+  body[data-view='search'] .sw-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    height: 56px;
+    padding: 0 6px 0 18px;
+    border: 0;
+    border-radius: var(--r-pill);
+    background: var(--tile);
+    box-shadow: var(--shadow-float);
+    text-align: left;
+  }
+  .sw-summary-text { flex: 1; min-width: 0; overflow: hidden; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; }
+  body[data-view='search'] .hero-search:not(.is-expanded) :is(.sw-fields, .sw-options, .ask-block) { display: none; }
+  body[data-view='search'] .hero-search.is-expanded .sw-fields { margin-top: var(--space-3); }
+}
+
 @media (max-width: 560px) {
   .nav-status { display: none; }
+}
+
+/* Below 390px the token's 3.5rem floor would push the wordmark past the frame. */
+@media (max-width: 389px) {
+  .hero-wordmark { font-size: 14vw; }
 }
 
 /* ---------- Home ---------- */
@@ -130,7 +158,9 @@
 
 @media (max-width: 760px) {
   .results-page { padding-top: var(--space-4); }
-  .rh-banner { min-height: 220px; }
+  .rh-banner { min-height: 180px; }
+  /* The Depart popover's "Whole month" tab covers this on phones, and the list comes first. */
+  .results-head > .rh-months { display: none; }
   .rh-body { padding: 16px; }
   .rh-title { font-size: var(--fs-h2); }
   .rh-banner .rh-title { padding: 4px 14px 6px; border-radius: var(--r-inner); }
