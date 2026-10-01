@@ -1008,6 +1008,51 @@
       "photographer": "Tomy Mathew",
       "photographerUrl": "https://www.pexels.com/@tomy-mathew-485479825",
       "pageUrl": "https://www.pexels.com/photo/clouds-over-town-with-trees-15911481/"
+    },
+    "BJV": {
+      "id": 27650966,
+      "base": "https://images.pexels.com/photos/27650966/pexels-photo-27650966.jpeg",
+      "avgColor": "#5F5647",
+      "alt": "Beautiful coastal cityscape with mountains, harbor, and historic architecture.",
+      "photographer": "Muhammed Gündüz",
+      "photographerUrl": "https://www.pexels.com/@muhammed-gunduz-383792461",
+      "pageUrl": "https://www.pexels.com/photo/a-view-of-a-city-and-the-sea-from-a-hill-27650966/"
+    },
+    "ESB": {
+      "id": 29043804,
+      "base": "https://images.pexels.com/photos/29043804/pexels-photo-29043804.jpeg",
+      "avgColor": "#8F8880",
+      "alt": "A stunning panoramic view of Ankara skyline with Kocatepe Mosque and Atakule Tower.",
+      "photographer": "Mehdi",
+      "photographerUrl": "https://www.pexels.com/@mehdi-337113120",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-ankara-cityscape-29043804/"
+    },
+    "AGP": {
+      "id": 26754831,
+      "base": "https://images.pexels.com/photos/26754831/pexels-photo-26754831.jpeg",
+      "avgColor": "#A19690",
+      "alt": "A stunning urban landscape featuring Malaga Cathedral amidst cranes and city buildings.",
+      "photographer": "Taras Chuiko",
+      "photographerUrl": "https://www.pexels.com/@taraschuiko",
+      "pageUrl": "https://www.pexels.com/photo/cathedral-and-construction-cranes-at-buildings-in-malaga-spain-26754831/"
+    },
+    "DLM": {
+      "id": 27821554,
+      "base": "https://images.pexels.com/photos/27821554/pexels-photo-27821554.jpeg",
+      "avgColor": "#53544C",
+      "alt": "Stunning aerial view of Kuşadası, Türkiye, featuring the waterfront and urban architecture at golden hour.",
+      "photographer": "Julien Goettelmann",
+      "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
+      "pageUrl": "https://www.pexels.com/photo/flying-over-kusadasi-at-dusk-5-27821554/"
+    },
+    "VXE": {
+      "id": 18383496,
+      "base": "https://images.pexels.com/photos/18383496/pexels-photo-18383496.jpeg",
+      "avgColor": "#858784",
+      "alt": "A weathered building with a man sitting outside in the urban streets of Mindelo, Cape Verde.",
+      "photographer": "damien Saillet",
+      "photographerUrl": "https://www.pexels.com/@damien-saillet-176521893",
+      "pageUrl": "https://www.pexels.com/photo/man-sitting-by-damaged-building-wall-in-cape-verde-18383496/"
     }
   }
 }
