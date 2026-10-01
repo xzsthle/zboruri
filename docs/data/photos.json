@@ -981,6 +981,33 @@
       "photographer": "Zokir",
       "photographerUrl": "https://www.pexels.com/@zokirkodirov",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-tashkent-landmark-park-in-summer-38009563/"
+    },
+    "BKK": {
+      "id": 11262197,
+      "base": "https://images.pexels.com/photos/11262197/pexels-photo-11262197.jpeg",
+      "avgColor": "#B6B5B1",
+      "alt": "Tranquil infinity pool with reflections of the Bangkok skyline under a calm sky.",
+      "photographer": "Markus Winkler",
+      "photographerUrl": "https://www.pexels.com/@markus-winkler-1430818",
+      "pageUrl": "https://www.pexels.com/photo/city-of-bangkok-under-white-sky-11262197/"
+    },
+    "CIT": {
+      "id": 15858481,
+      "base": "https://images.pexels.com/photos/15858481/pexels-photo-15858481.jpeg",
+      "avgColor": "#838C9B",
+      "alt": "Futuristic urban landscape with modern architecture in Turkestan, featuring illuminated structures at dusk.",
+      "photographer": "rescriptt  rescriptt",
+      "photographerUrl": "https://www.pexels.com/@rescriptt-rescriptt-101153900",
+      "pageUrl": "https://www.pexels.com/photo/modern-architecture-in-the-city-square-of-turkestan-kazakhstan-15858481/"
+    },
+    "TRV": {
+      "id": 15911481,
+      "base": "https://images.pexels.com/photos/15911481/pexels-photo-15911481.jpeg",
+      "avgColor": "#758896",
+      "alt": "Panoramic aerial view of Thiruvananthapuram cityscape with lush greenery and modern architecture.",
+      "photographer": "Tomy Mathew",
+      "photographerUrl": "https://www.pexels.com/@tomy-mathew-485479825",
+      "pageUrl": "https://www.pexels.com/photo/clouds-over-town-with-trees-15911481/"
     }
   }
 }

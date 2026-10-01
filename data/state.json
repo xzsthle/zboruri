@@ -1,11 +1,6 @@
 {
   "version": 2,
   "destinations": {
-    "ALC": {
-      "priceEur": 56.1,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "ATH": {
       "priceEur": 42.97,
       "since": "2026-09-30T08:43:15.488Z",
@@ -32,8 +27,8 @@
       "alerted": false
     },
     "OTP": {
-      "priceEur": 47,
-      "since": "2026-09-30T08:43:15.488Z",
+      "priceEur": 46,
+      "since": "2026-10-01T11:23:26.909Z",
       "alerted": false
     },
     "BUD": {
@@ -46,23 +41,8 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "HHN": {
-      "priceEur": 53.97,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
-    "HAM": {
-      "priceEur": 53.97,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "LCA": {
       "priceEur": 51.86,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
-    "FMM": {
-      "priceEur": 53.97,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
@@ -76,11 +56,6 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "BVA": {
-      "priceEur": 57.36,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "PRG": {
       "priceEur": 47.21,
       "since": "2026-09-30T08:43:15.488Z",
@@ -88,11 +63,6 @@
     },
     "SOF": {
       "priceEur": 29.84,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
-    "STR": {
-      "priceEur": 56.52,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
