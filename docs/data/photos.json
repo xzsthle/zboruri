@@ -1053,6 +1053,15 @@
       "photographer": "damien Saillet",
       "photographerUrl": "https://www.pexels.com/@damien-saillet-176521893",
       "pageUrl": "https://www.pexels.com/photo/man-sitting-by-damaged-building-wall-in-cape-verde-18383496/"
+    },
+    "SVG": {
+      "id": 25036885,
+      "base": "https://images.pexels.com/photos/25036885/pexels-photo-25036885.jpeg",
+      "avgColor": "#6D6C7C",
+      "alt": "Vibrant summer day at the Stavanger waterfront with colorful buildings and boats.",
+      "photographer": "Adam Cole",
+      "photographerUrl": "https://www.pexels.com/@adamcole-photography",
+      "pageUrl": "https://www.pexels.com/photo/view-of-boats-and-buildings-by-the-harbor-in-stavanger-norway-25036885/"
     }
   }
 }
