@@ -1062,6 +1062,69 @@
       "photographer": "Adam Cole",
       "photographerUrl": "https://www.pexels.com/@adamcole-photography",
       "pageUrl": "https://www.pexels.com/photo/view-of-boats-and-buildings-by-the-harbor-in-stavanger-norway-25036885/"
+    },
+    "KRK": {
+      "id": 37459506,
+      "base": "https://images.pexels.com/photos/37459506/pexels-photo-37459506.jpeg",
+      "avgColor": "#405A67",
+      "alt": "Explore the historic and vibrant architecture of Kraków's Market Square, a cultural hub.",
+      "photographer": "Piotr Kalinowski",
+      "photographerUrl": "https://www.pexels.com/@hvitkerist",
+      "pageUrl": "https://www.pexels.com/photo/krakow-s-historical-market-square-architecture-37459506/"
+    },
+    "ARN": {
+      "id": 10445142,
+      "base": "https://images.pexels.com/photos/10445142/pexels-photo-10445142.jpeg",
+      "avgColor": "#494B58",
+      "alt": "Twilight view of Riddarholmen Church and surrounding architecture in Stockholm, reflecting in calm waters.",
+      "photographer": "Miguel Cuenca",
+      "photographerUrl": "https://www.pexels.com/@miguel-cuenca-67882473",
+      "pageUrl": "https://www.pexels.com/photo/a-river-in-a-city-at-dusk-10445142/"
+    },
+    "ORY": {
+      "id": 29731407,
+      "base": "https://images.pexels.com/photos/29731407/pexels-photo-29731407.jpeg",
+      "avgColor": "#132529",
+      "alt": "Stunning nighttime aerial cityscape of Paris highlighting iconic landmarks.",
+      "photographer": "Artūras Kokorevas",
+      "photographerUrl": "https://www.pexels.com/@kokorevas",
+      "pageUrl": "https://www.pexels.com/photo/nighttime-aerial-view-of-paris-cityscape-29731407/"
+    },
+    "PVG": {
+      "id": 37011820,
+      "base": "https://images.pexels.com/photos/37011820/pexels-photo-37011820.jpeg",
+      "avgColor": "#1C1829",
+      "alt": "Dazzling night view of Shanghai's Pudong skyline with the iconic Oriental Pearl Tower reflecting on the water.",
+      "photographer": "K ZHAO",
+      "photographerUrl": "https://www.pexels.com/@k-zhao-44056406",
+      "pageUrl": "https://www.pexels.com/photo/shanghai-pudong-skyline-at-night-37011820/"
+    },
+    "PQC": {
+      "id": 37078366,
+      "base": "https://images.pexels.com/photos/37078366/pexels-photo-37078366.jpeg",
+      "avgColor": "#5D7172",
+      "alt": "Explore the vibrant coastal city from above with sweeping views of the harbor and urban landscape.",
+      "photographer": "Valeria Drozdova",
+      "photographerUrl": "https://www.pexels.com/@valeria-drozdova-2148646707",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-coastal-cityscape-by-the-sea-37078366/"
+    },
+    "SYX": {
+      "id": 5992980,
+      "base": "https://images.pexels.com/photos/5992980/pexels-photo-5992980.jpeg",
+      "avgColor": "#6D7576",
+      "alt": "A breathtaking aerial view of a coastal city with mountains in the background under a clear blue sky.",
+      "photographer": "臻 宋",
+      "photographerUrl": "https://www.pexels.com/@3509466",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-a-coastal-city-5992980/"
+    },
+    "MRU": {
+      "id": 36731927,
+      "base": "https://images.pexels.com/photos/36731927/pexels-photo-36731927.jpeg",
+      "avgColor": "#6689A5",
+      "alt": "Capture of Mauritius' iconic mountains and lagoon under clear blue sky.",
+      "photographer": "Zak H",
+      "photographerUrl": "https://www.pexels.com/@zakh",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-mauritius-mountains-and-lagoon-36731927/"
     }
   }
 }
