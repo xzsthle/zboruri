@@ -1125,6 +1125,33 @@
       "photographer": "Zak H",
       "photographerUrl": "https://www.pexels.com/@zakh",
       "pageUrl": "https://www.pexels.com/photo/scenic-view-of-mauritius-mountains-and-lagoon-36731927/"
+    },
+    "CTA": {
+      "id": 19260575,
+      "base": "https://images.pexels.com/photos/19260575/pexels-photo-19260575.jpeg",
+      "avgColor": "#897461",
+      "alt": "Charming city street with historic buildings and ornate balconies, bustling with vehicles and pedestrians.",
+      "photographer": "Bob West",
+      "photographerUrl": "https://www.pexels.com/@bob-west-746886459",
+      "pageUrl": "https://www.pexels.com/photo/street-in-city-19260575/"
+    },
+    "WDH": {
+      "id": 1261095,
+      "base": "https://images.pexels.com/photos/1261095/pexels-photo-1261095.jpeg",
+      "avgColor": "#343434",
+      "alt": "Intense black and white portrait of a man indoors, focused expression.",
+      "photographer": "Royal Kanyiki",
+      "photographerUrl": "https://www.pexels.com/@royal-kanyiki-527007",
+      "pageUrl": "https://www.pexels.com/photo/man-leaning-on-the-table-1261095/"
+    },
+    "NYO": {
+      "id": 30158443,
+      "base": "https://images.pexels.com/photos/30158443/pexels-photo-30158443.jpeg",
+      "avgColor": "#486996",
+      "alt": "Skyline of Stockholm with historic architecture reflecting on water under a clear sky.",
+      "photographer": "Jakob Stöberl",
+      "photographerUrl": "https://www.pexels.com/@jakob-stoberl-707733482",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-stockholm-skyline-at-daytime-30158443/"
     }
   }
 }
