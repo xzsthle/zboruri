@@ -1152,6 +1152,51 @@
       "photographer": "Jakob Stöberl",
       "photographerUrl": "https://www.pexels.com/@jakob-stoberl-707733482",
       "pageUrl": "https://www.pexels.com/photo/scenic-view-of-stockholm-skyline-at-daytime-30158443/"
+    },
+    "PDL": {
+      "id": 36491850,
+      "base": "https://images.pexels.com/photos/36491850/pexels-photo-36491850.jpeg",
+      "avgColor": "#949FA1",
+      "alt": "Street view of Ponta Delgada with historic architecture and bustling afternoon activity.",
+      "photographer": "Ndumiso  Zimu",
+      "photographerUrl": "https://www.pexels.com/@ndumiso-zimu-282936158",
+      "pageUrl": "https://www.pexels.com/photo/sunny-day-in-historic-portuguese-cityscape-36491850/"
+    },
+    "NQZ": {
+      "id": 18549878,
+      "base": "https://images.pexels.com/photos/18549878/pexels-photo-18549878.jpeg",
+      "avgColor": "#59657B",
+      "alt": "Majestic view of Astana's iconic architecture glowing against evening sky.",
+      "photographer": "Aibek Skakov",
+      "photographerUrl": "https://www.pexels.com/@aibek-skakov-418917601",
+      "pageUrl": "https://www.pexels.com/photo/building-in-astana-in-evening-18549878/"
+    },
+    "SVO": {
+      "id": 11422438,
+      "base": "https://images.pexels.com/photos/11422438/pexels-photo-11422438.jpeg",
+      "avgColor": "#515A59",
+      "alt": "Majestic view of a historic Stalinist skyscraper in Moscow, showcasing Soviet architectural style.",
+      "photographer": "Platon Matakaev",
+      "photographerUrl": "https://www.pexels.com/@platon-matakaev-162269967",
+      "pageUrl": "https://www.pexels.com/photo/facade-of-one-of-the-stalinist-skyscrapers-in-moscow-russia-11422438/"
+    },
+    "KTW": {
+      "id": 20685085,
+      "base": "https://images.pexels.com/photos/20685085/pexels-photo-20685085.jpeg",
+      "avgColor": "#6D717D",
+      "alt": "A juxtaposition of modern glass architecture and historic brick buildings in an urban industrial area.",
+      "photographer": "Bruno Krajski",
+      "photographerUrl": "https://www.pexels.com/@bruno-krajski-518872760",
+      "pageUrl": "https://www.pexels.com/photo/panels-on-building-wall-in-industrial-area-20685085/"
+    },
+    "GDN": {
+      "id": 37572809,
+      "base": "https://images.pexels.com/photos/37572809/pexels-photo-37572809.jpeg",
+      "avgColor": "#2E231F",
+      "alt": "Stunning nighttime view of Gdańsk's old town with lights reflecting off the Motlawa River.",
+      "photographer": "Bartosz Słomkowski",
+      "photographerUrl": "https://www.pexels.com/@bartosz-slomkowski-2161535052",
+      "pageUrl": "https://www.pexels.com/photo/nightscape-of-gdansk-old-town-by-the-river-37572809/"
     }
   }
 }
