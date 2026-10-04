@@ -1224,6 +1224,33 @@
       "photographer": "Necip Duman",
       "photographerUrl": "https://www.pexels.com/@necip-duman-3299706",
       "pageUrl": "https://www.pexels.com/photo/urban-street-view-with-mountain-backdrop-39854372/"
+    },
+    "GVA": {
+      "id": 17462822,
+      "base": "https://images.pexels.com/photos/17462822/pexels-photo-17462822.jpeg",
+      "avgColor": "#7B858E",
+      "alt": "Capture of Mont-Blanc Bridge with flags and cityscape in Geneva, Switzerland.",
+      "photographer": "christine roy",
+      "photographerUrl": "https://www.pexels.com/@christine-roy-559641051",
+      "pageUrl": "https://www.pexels.com/photo/mont-blanc-bridge-in-geneva-17462822/"
+    },
+    "ZNZ": {
+      "id": 17732623,
+      "base": "https://images.pexels.com/photos/17732623/pexels-photo-17732623.jpeg",
+      "avgColor": "#334350",
+      "alt": "A stunning aerial view of Zanzibar's coastline at twilight, showcasing the city's architecture and ocean.",
+      "photographer": "Alex Levis",
+      "photographerUrl": "https://www.pexels.com/@droneafrica",
+      "pageUrl": "https://www.pexels.com/photo/an-aerial-view-of-a-small-town-on-the-coast-17732623/"
+    },
+    "KUL": {
+      "id": 5396569,
+      "base": "https://images.pexels.com/photos/5396569/pexels-photo-5396569.jpeg",
+      "avgColor": "#6B8777",
+      "alt": "Stunning aerial view of Kuala Lumpur showcasing its vibrant urban skyline and iconic skyscrapers.",
+      "photographer": "Sarowar Hussain",
+      "photographerUrl": "https://www.pexels.com/@sarowar-hussain-3111579",
+      "pageUrl": "https://www.pexels.com/photo/cityscape-of-kuala-lumpur-malaysia-5396569/"
     }
   }
 }
