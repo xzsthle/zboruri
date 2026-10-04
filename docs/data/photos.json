@@ -1197,6 +1197,33 @@
       "photographer": "Bartosz Słomkowski",
       "photographerUrl": "https://www.pexels.com/@bartosz-slomkowski-2161535052",
       "pageUrl": "https://www.pexels.com/photo/nightscape-of-gdansk-old-town-by-the-river-37572809/"
+    },
+    "MQM": {
+      "id": 38241150,
+      "base": "https://images.pexels.com/photos/38241150/pexels-photo-38241150.jpeg",
+      "avgColor": "#6C6E6D",
+      "alt": "Overlooking the historic and scenic landscape of Mardin with its unique architecture.",
+      "photographer": "Sümeyye Büşra ŞANLI",
+      "photographerUrl": "https://www.pexels.com/@luminousroams",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-mardin-city-s-old-town-38241150/"
+    },
+    "BRI": {
+      "id": 12464224,
+      "base": "https://images.pexels.com/photos/12464224/pexels-photo-12464224.jpeg",
+      "avgColor": "#747675",
+      "alt": "A stunning drone shot of a lighthouse in an urban coastal cityscape under a clear blue sky.",
+      "photographer": "K",
+      "photographerUrl": "https://www.pexels.com/@kelly",
+      "pageUrl": "https://www.pexels.com/photo/ligthouse-in-city-12464224/"
+    },
+    "ALA": {
+      "id": 39854372,
+      "base": "https://images.pexels.com/photos/39854372/pexels-photo-39854372.jpeg",
+      "avgColor": "#7D7970",
+      "alt": "A vibrant city street with cars, buildings, and a mountain view in the background.",
+      "photographer": "Necip Duman",
+      "photographerUrl": "https://www.pexels.com/@necip-duman-3299706",
+      "pageUrl": "https://www.pexels.com/photo/urban-street-view-with-mountain-backdrop-39854372/"
     }
   }
 }
