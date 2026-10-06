@@ -1260,6 +1260,24 @@
       "photographer": "Ruiz .",
       "photographerUrl": "https://www.pexels.com/@ruiz",
       "pageUrl": "https://www.pexels.com/photo/tokyo-covered-with-fog-15275312/"
+    },
+    "TFN": {
+      "id": 13201073,
+      "base": "https://images.pexels.com/photos/13201073/pexels-photo-13201073.jpeg",
+      "avgColor": "#314351",
+      "alt": "Nighttime view of Puerto de la Cruz's cityscape and waterfront with dramatic skies and city lights.",
+      "photographer": "Tenerife Photos and Images",
+      "photographerUrl": "https://www.pexels.com/@tenerife-photos-and-images-282935795",
+      "pageUrl": "https://www.pexels.com/photo/city-skyline-near-body-of-water-during-night-time-13201073/"
+    },
+    "KRR": {
+      "id": 28038588,
+      "base": "https://images.pexels.com/photos/28038588/pexels-photo-28038588.jpeg",
+      "avgColor": "#5D5C61",
+      "alt": "Twilight view of Krasnodar's skyline with reflection on the river and moonlit sky.",
+      "photographer": "Siarhei Nester",
+      "photographerUrl": "https://www.pexels.com/@siarhei-nester-318033361",
+      "pageUrl": "https://www.pexels.com/photo/a-city-skyline-with-a-river-and-buildings-at-night-28038588/"
     }
   }
 }
