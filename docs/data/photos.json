@@ -1278,6 +1278,24 @@
       "photographer": "Siarhei Nester",
       "photographerUrl": "https://www.pexels.com/@siarhei-nester-318033361",
       "pageUrl": "https://www.pexels.com/photo/a-city-skyline-with-a-river-and-buildings-at-night-28038588/"
+    },
+    "GZP": {
+      "id": 16579451,
+      "base": "https://images.pexels.com/photos/16579451/pexels-photo-16579451.jpeg",
+      "avgColor": "#6E808E",
+      "alt": "Explore the breathtaking aerial view of Alanya's coastline with mountains in the background and vibrant cityscape of Antalya, Türkiye.",
+      "photographer": "Arthur Shuraev",
+      "photographerUrl": "https://www.pexels.com/@arthur-shuraev-67501761",
+      "pageUrl": "https://www.pexels.com/photo/town-by-the-shore-in-egypt-16579451/"
+    },
+    "TRF": {
+      "id": 9319696,
+      "base": "https://images.pexels.com/photos/9319696/pexels-photo-9319696.jpeg",
+      "avgColor": "#605F5D",
+      "alt": "Vibrant city skyline at dusk showcasing modern architecture and skyscrapers under a dramatic sky.",
+      "photographer": "Eswaran Arulkumar",
+      "photographerUrl": "https://www.pexels.com/@eswaran-arulkumar-98491670",
+      "pageUrl": "https://www.pexels.com/photo/a-photo-of-buildings-in-the-city-9319696/"
     }
   }
 }
