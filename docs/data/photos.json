@@ -1296,6 +1296,42 @@
       "photographer": "Eswaran Arulkumar",
       "photographerUrl": "https://www.pexels.com/@eswaran-arulkumar-98491670",
       "pageUrl": "https://www.pexels.com/photo/a-photo-of-buildings-in-the-city-9319696/"
+    },
+    "MAN": {
+      "id": 30193117,
+      "base": "https://images.pexels.com/photos/30193117/pexels-photo-30193117.jpeg",
+      "avgColor": "#737985",
+      "alt": "A quiet urban street scene with historic architecture in early morning light.",
+      "photographer": "Max W",
+      "photographerUrl": "https://www.pexels.com/@max-w-1673439416",
+      "pageUrl": "https://www.pexels.com/photo/historic-street-scene-in-early-morning-light-30193117/"
+    },
+    "BIO": {
+      "id": 9939923,
+      "base": "https://images.pexels.com/photos/9939923/pexels-photo-9939923.jpeg",
+      "avgColor": "#4F452C",
+      "alt": "Aerial view of Bilbao cityscape illuminated at night, showcasing vibrant urban life.",
+      "photographer": "Michel Meuleman",
+      "photographerUrl": "https://www.pexels.com/@mime",
+      "pageUrl": "https://www.pexels.com/photo/aerial-photography-of-city-buildings-during-nighttime-9939923/"
+    },
+    "FAO": {
+      "id": 14677908,
+      "base": "https://images.pexels.com/photos/14677908/pexels-photo-14677908.jpeg",
+      "avgColor": "#BAB5B2",
+      "alt": "Scenic hillside view of Albufeira's white buildings basking in summer sunlight, Portugal.",
+      "photographer": "Artūras Kokorevas",
+      "photographerUrl": "https://www.pexels.com/@kokorevas",
+      "pageUrl": "https://www.pexels.com/photo/house-buildings-in-lisbon-in-sunlight-14677908/"
+    },
+    "KUN": {
+      "id": 4013242,
+      "base": "https://images.pexels.com/photos/4013242/pexels-photo-4013242.jpeg",
+      "avgColor": "#908778",
+      "alt": "Stunning aerial view of historic Kaunas Castle in Lithuania during golden hour, showcasing vibrant skyline.",
+      "photographer": "Erika Žigutytė",
+      "photographerUrl": "https://www.pexels.com/@erika-zigutyte-2362861",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-kaunas-castle-4013242/"
     }
   }
 }

@@ -56,11 +56,6 @@
       "since": "2026-10-06T11:48:47.504Z",
       "alerted": false
     },
-    "LCA": {
-      "priceEur": 51.86,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "FMM": {
       "priceEur": 54.24,
       "since": "2026-10-06T11:48:47.504Z",
@@ -91,11 +86,6 @@
       "since": "2026-10-06T11:48:47.504Z",
       "alerted": false
     },
-    "TRN": {
-      "priceEur": 38.32,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "VCE": {
       "priceEur": 42.97,
       "since": "2026-09-30T08:43:15.488Z",
@@ -113,6 +103,16 @@
     },
     "WRO": {
       "priceEur": 29.84,
+      "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "LCA": {
+      "priceEur": 51.86,
+      "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "TRN": {
+      "priceEur": 38.32,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     }
