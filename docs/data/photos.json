@@ -1350,6 +1350,51 @@
       "photographer": "Perro Cacahuate",
       "photographerUrl": "https://www.pexels.com/@donadie",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-rio-de-janeiro-with-sugarloaf-mountain-34416010/"
+    },
+    "TZL": {
+      "id": 34729774,
+      "base": "https://images.pexels.com/photos/34729774/pexels-photo-34729774.jpeg",
+      "avgColor": "#8E7C70",
+      "alt": "Aerial view of Sarajevo's sprawling cityscape with historic architecture and hills.",
+      "photographer": "Sandin Redzo",
+      "photographerUrl": "https://www.pexels.com/@sandin-redzo-1780184288",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-sarajevo-cityscape-34729774/"
+    },
+    "ICN": {
+      "id": 18495176,
+      "base": "https://images.pexels.com/photos/18495176/pexels-photo-18495176.jpeg",
+      "avgColor": "#2C3556",
+      "alt": "A breathtaking aerial view of a vibrant city illuminated at night.",
+      "photographer": "Gije Cho",
+      "photographerUrl": "https://www.pexels.com/@gije",
+      "pageUrl": "https://www.pexels.com/photo/light-display-over-illuminated-city-at-night-18495176/"
+    },
+    "DPS": {
+      "id": 36947695,
+      "base": "https://images.pexels.com/photos/36947695/pexels-photo-36947695.jpeg",
+      "avgColor": "#717948",
+      "alt": "Stunning aerial shot of lush forest and a traditional village in Bali, Indonesia.",
+      "photographer": "Tom Fisk",
+      "photographerUrl": "https://www.pexels.com/@tomfisk",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-lush-greenery-and-village-in-bali-36947695/"
+    },
+    "AGA": {
+      "id": 30557503,
+      "base": "https://images.pexels.com/photos/30557503/pexels-photo-30557503.jpeg",
+      "avgColor": "#959C94",
+      "alt": "People enjoying a sunny day at a beautiful beach in Agadir, Morocco.",
+      "photographer": "Moussa Idrissi",
+      "photographerUrl": "https://www.pexels.com/@mographe",
+      "pageUrl": "https://www.pexels.com/photo/sunny-day-at-agadir-beach-with-visitors-30557503/"
+    },
+    "HAU": {
+      "id": 25224576,
+      "base": "https://images.pexels.com/photos/25224576/pexels-photo-25224576.jpeg",
+      "avgColor": "#AFA4A8",
+      "alt": "Aerial view of Haugesund, Norway showcasing charming houses and a picturesque waterfront scene.",
+      "photographer": "Adam Cole",
+      "photographerUrl": "https://www.pexels.com/@adamcole-photography",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-houses-in-haugesund-25224576/"
     }
   }
 }
