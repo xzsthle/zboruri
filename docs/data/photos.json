@@ -1332,6 +1332,24 @@
       "photographer": "Erika Žigutytė",
       "photographerUrl": "https://www.pexels.com/@erika-zigutyte-2362861",
       "pageUrl": "https://www.pexels.com/photo/drone-shot-of-kaunas-castle-4013242/"
+    },
+    "RTM": {
+      "id": 164350,
+      "base": "https://images.pexels.com/photos/164350/pexels-photo-164350.jpeg",
+      "avgColor": "#C8C8C7",
+      "alt": "Captivating view of Rotterdam skyline reflecting in water at dusk, showcasing modern architecture.",
+      "photographer": "Pixabay",
+      "photographerUrl": "https://www.pexels.com/@pixabay",
+      "pageUrl": "https://www.pexels.com/photo/high-rise-building-near-body-of-water-164350/"
+    },
+    "SDU": {
+      "id": 34416010,
+      "base": "https://images.pexels.com/photos/34416010/pexels-photo-34416010.jpeg",
+      "avgColor": "#84999C",
+      "alt": "Breathtaking aerial view of Rio de Janeiro, highlighting Sugarloaf Mountain and lush landscapes.",
+      "photographer": "Perro Cacahuate",
+      "photographerUrl": "https://www.pexels.com/@donadie",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-rio-de-janeiro-with-sugarloaf-mountain-34416010/"
     }
   }
 }
