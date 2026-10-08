@@ -1395,6 +1395,15 @@
       "photographer": "Adam Cole",
       "photographerUrl": "https://www.pexels.com/@adamcole-photography",
       "pageUrl": "https://www.pexels.com/photo/drone-shot-of-houses-in-haugesund-25224576/"
+    },
+    "SPC": {
+      "id": 24377112,
+      "base": "https://images.pexels.com/photos/24377112/pexels-photo-24377112.jpeg",
+      "avgColor": "#706664",
+      "alt": "Inviting street scene with vibrant buildings and pedestrians on a cobblestone path.",
+      "photographer": "- landsmann -",
+      "photographerUrl": "https://www.pexels.com/@landsmann-803094805",
+      "pageUrl": "https://www.pexels.com/photo/cobblestone-street-in-town-24377112/"
     }
   }
 }
