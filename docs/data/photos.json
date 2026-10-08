@@ -1404,6 +1404,33 @@
       "photographer": "- landsmann -",
       "photographerUrl": "https://www.pexels.com/@landsmann-803094805",
       "pageUrl": "https://www.pexels.com/photo/cobblestone-street-in-town-24377112/"
+    },
+    "BOM": {
+      "id": 5414582,
+      "base": "https://images.pexels.com/photos/5414582/pexels-photo-5414582.jpeg",
+      "avgColor": "#272527",
+      "alt": "Captivating night view of Mumbai skyline with skyscrapers and reflections on still water.",
+      "photographer": "Vijit Bagh",
+      "photographerUrl": "https://www.pexels.com/@vijit-bagh-3435480",
+      "pageUrl": "https://www.pexels.com/photo/a-city-buildings-with-lights-at-night-5414582/"
+    },
+    "SKD": {
+      "id": 16796308,
+      "base": "https://images.pexels.com/photos/16796308/pexels-photo-16796308.jpeg",
+      "avgColor": "#6F8BA3",
+      "alt": "Explore the vibrant mosaics and historic domes of the Shah-i-Zinda complex in Samarkand, Uzbekistan.",
+      "photographer": "AXP Photography",
+      "photographerUrl": "https://www.pexels.com/@axp-photography-500641970",
+      "pageUrl": "https://www.pexels.com/photo/domes-and-mosaic-buildings-in-mausoleum-in-uzbekistan-16796308/"
+    },
+    "OUL": {
+      "id": 12568197,
+      "base": "https://images.pexels.com/photos/12568197/pexels-photo-12568197.jpeg",
+      "avgColor": "#756242",
+      "alt": "A serene snowy street in Oulu, Finland, illuminated by warm streetlights on a winter night.",
+      "photographer": "Art Merikotka",
+      "photographerUrl": "https://www.pexels.com/@merikotka",
+      "pageUrl": "https://www.pexels.com/photo/sidewalk-covered-with-snow-12568197/"
     }
   }
 }
