@@ -1431,6 +1431,24 @@
       "photographer": "Art Merikotka",
       "photographerUrl": "https://www.pexels.com/@merikotka",
       "pageUrl": "https://www.pexels.com/photo/sidewalk-covered-with-snow-12568197/"
+    },
+    "PEK": {
+      "id": 37506200,
+      "base": "https://images.pexels.com/photos/37506200/pexels-photo-37506200.jpeg",
+      "avgColor": "#6C7E72",
+      "alt": "A stunning aerial view of ancient Chinese architecture with Beijing's city skyline in the background.",
+      "photographer": "Kaca Pic",
+      "photographerUrl": "https://www.pexels.com/@kaca-pic-2153399808",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-beijing-s-ancient-architecture-and-skyline-37506200/"
+    },
+    "LPA": {
+      "id": 38450590,
+      "base": "https://images.pexels.com/photos/38450590/pexels-photo-38450590.jpeg",
+      "avgColor": "#8A919B",
+      "alt": "A scenic view of Las Palmas de Gran Canaria's cityscape and coastline under a blue sky.",
+      "photographer": "Canary Vista ES",
+      "photographerUrl": "https://www.pexels.com/@canary-vista-es-2156886427",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-las-palmas-de-gran-canaria-38450590/"
     }
   }
 }
