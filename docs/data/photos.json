@@ -1449,6 +1449,24 @@
       "photographer": "Canary Vista ES",
       "photographerUrl": "https://www.pexels.com/@canary-vista-es-2156886427",
       "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-las-palmas-de-gran-canaria-38450590/"
+    },
+    "CIA": {
+      "id": 16594761,
+      "base": "https://images.pexels.com/photos/16594761/pexels-photo-16594761.jpeg",
+      "avgColor": "#C2B5A2",
+      "alt": "Aerial view of Rome showcasing historic architecture and vibrant urban landscape.",
+      "photographer": "Hoàng Vũ",
+      "photographerUrl": "https://www.pexels.com/@hoang-vu-257779885",
+      "pageUrl": "https://www.pexels.com/photo/cityscape-of-rome-16594761/"
+    },
+    "NBO": {
+      "id": 15496531,
+      "base": "https://images.pexels.com/photos/15496531/pexels-photo-15496531.jpeg",
+      "avgColor": "#998C84",
+      "alt": "Explore the vibrant skyline of Nairobi with its modern skyscrapers under an overcast sky.",
+      "photographer": "Mukula Igavinchi",
+      "photographerUrl": "https://www.pexels.com/@mukula-igavinchi-443985808",
+      "pageUrl": "https://www.pexels.com/photo/clouds-over-city-15496531/"
     }
   }
 }
