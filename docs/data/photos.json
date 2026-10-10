@@ -1467,6 +1467,24 @@
       "photographer": "Mukula Igavinchi",
       "photographerUrl": "https://www.pexels.com/@mukula-igavinchi-443985808",
       "pageUrl": "https://www.pexels.com/photo/clouds-over-city-15496531/"
+    },
+    "BHX": {
+      "id": 9450542,
+      "base": "https://images.pexels.com/photos/9450542/pexels-photo-9450542.jpeg",
+      "avgColor": "#84898D",
+      "alt": "Aerial shot capturing the modern skyline of Birmingham, England during the day.",
+      "photographer": "Richard Hunter-Rice",
+      "photographerUrl": "https://www.pexels.com/@richhunterrice",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-a-city-9450542/"
+    },
+    "SGN": {
+      "id": 20224478,
+      "base": "https://images.pexels.com/photos/20224478/pexels-photo-20224478.jpeg",
+      "avgColor": "#63645F",
+      "alt": "Scenic view of the iconic Binh Tay Market entrance with surrounding trees and vibrant flags in Ho Chi Minh City, Vietnam.",
+      "photographer": "Tuan Vy",
+      "photographerUrl": "https://www.pexels.com/@tuan-vy-903011268",
+      "pageUrl": "https://www.pexels.com/photo/square-in-front-of-binh-tay-market-20224478/"
     }
   }
 }
