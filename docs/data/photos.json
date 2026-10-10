@@ -1485,6 +1485,33 @@
       "photographer": "Tuan Vy",
       "photographerUrl": "https://www.pexels.com/@tuan-vy-903011268",
       "pageUrl": "https://www.pexels.com/photo/square-in-front-of-binh-tay-market-20224478/"
+    },
+    "OPO": {
+      "id": 25695948,
+      "base": "https://images.pexels.com/photos/25695948/pexels-photo-25695948.jpeg",
+      "avgColor": "#7C858C",
+      "alt": "Stunning aerial shot of the iconic Luís I Bridge spanning the Douro River in Porto, Portugal.",
+      "photographer": "Harry Shum",
+      "photographerUrl": "https://www.pexels.com/@harry-shum-17627821",
+      "pageUrl": "https://www.pexels.com/photo/tram-on-luis-i-bridge-in-porto-25695948/"
+    },
+    "MUC": {
+      "id": 23106809,
+      "base": "https://images.pexels.com/photos/23106809/pexels-photo-23106809.jpeg",
+      "avgColor": "#8E7A6F",
+      "alt": "Aerial photo showcasing the historic architecture and vibrant rooftops of Munich's old town.",
+      "photographer": "Ehsan Haque",
+      "photographerUrl": "https://www.pexels.com/@itsehsanh",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-munich-germany-23106809/"
+    },
+    "NRT": {
+      "id": 20378132,
+      "base": "https://images.pexels.com/photos/20378132/pexels-photo-20378132.jpeg",
+      "avgColor": "#6F87A9",
+      "alt": "Aerial view of Tokyo skyline, featuring the iconic Tokyo Skytree under a clear blue sky.",
+      "photographer": "Rin Gakusho",
+      "photographerUrl": "https://www.pexels.com/@rin-gakusho-280714394",
+      "pageUrl": "https://www.pexels.com/photo/cityscape-of-tokyo-in-japan-20378132/"
     }
   }
 }
