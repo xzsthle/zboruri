@@ -1512,6 +1512,15 @@
       "photographer": "Rin Gakusho",
       "photographerUrl": "https://www.pexels.com/@rin-gakusho-280714394",
       "pageUrl": "https://www.pexels.com/photo/cityscape-of-tokyo-in-japan-20378132/"
+    },
+    "MRV": {
+      "id": 5225908,
+      "base": "https://images.pexels.com/photos/5225908/pexels-photo-5225908.jpeg",
+      "avgColor": "#9A9996",
+      "alt": "Explore the distinct architectural design of Perm's modern cityscape under a clear sky.",
+      "photographer": "Сослан",
+      "photographerUrl": "https://www.pexels.com/@3374640",
+      "pageUrl": "https://www.pexels.com/photo/buildings-in-city-5225908/"
     }
   }
 }
