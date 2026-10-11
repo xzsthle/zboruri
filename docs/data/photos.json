@@ -1521,6 +1521,24 @@
       "photographer": "Сослан",
       "photographerUrl": "https://www.pexels.com/@3374640",
       "pageUrl": "https://www.pexels.com/photo/buildings-in-city-5225908/"
+    },
+    "KUT": {
+      "id": 5876901,
+      "base": "https://images.pexels.com/photos/5876901/pexels-photo-5876901.jpeg",
+      "avgColor": "#596166",
+      "alt": "Explore the stunning aerial view of Kutaisi, Georgia, showcasing vibrant architecture and lush greenery.",
+      "photographer": "Beka Jalagania",
+      "photographerUrl": "https://www.pexels.com/@beka-jalagania-4163577",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-city-5876901/"
+    },
+    "CLJ": {
+      "id": 36789067,
+      "base": "https://images.pexels.com/photos/36789067/pexels-photo-36789067.jpeg",
+      "avgColor": "#908B78",
+      "alt": "A scenic view of Cluj-Napoca city against the backdrop of rolling hills at sunset.",
+      "photographer": "Maxime Max",
+      "photographerUrl": "https://www.pexels.com/@maxime-max-2160523823",
+      "pageUrl": "https://www.pexels.com/photo/cityscape-of-cluj-napoca-with-sunset-hills-36789067/"
     }
   }
 }
