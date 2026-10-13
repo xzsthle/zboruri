@@ -1575,6 +1575,42 @@
       "photographer": "Elina Sazonova",
       "photographerUrl": "https://www.pexels.com/@elina-sazonova",
       "pageUrl": "https://www.pexels.com/photo/waves-crashing-on-shore-4206645/"
+    },
+    "PMF": {
+      "id": 15131947,
+      "base": "https://images.pexels.com/photos/15131947/pexels-photo-15131947.jpeg",
+      "avgColor": "#49493D",
+      "alt": "Scenic view of a European city street with historic architecture and bustling traffic.",
+      "photographer": "Valentin Angel Fernandez",
+      "photographerUrl": "https://www.pexels.com/@vafphotos",
+      "pageUrl": "https://www.pexels.com/photo/a-street-in-the-city-15131947/"
+    },
+    "LEJ": {
+      "id": 5739261,
+      "base": "https://images.pexels.com/photos/5739261/pexels-photo-5739261.jpeg",
+      "avgColor": "#8D868A",
+      "alt": "Explore Leipzig's historic architecture in Germany with clear blue skies and classic buildings.",
+      "photographer": "Antonio Friedemann",
+      "photographerUrl": "https://www.pexels.com/@toni",
+      "pageUrl": "https://www.pexels.com/photo/old-town-in-summer-5739261/"
+    },
+    "OVB": {
+      "id": 11471986,
+      "base": "https://images.pexels.com/photos/11471986/pexels-photo-11471986.jpeg",
+      "avgColor": "#A4A6A5",
+      "alt": "Aerial view of a snow-covered highway with traffic in winter, capturing the urban landscape of Novosibirsk, Russia.",
+      "photographer": "Sergei Skrynnik",
+      "photographerUrl": "https://www.pexels.com/@screeny42",
+      "pageUrl": "https://www.pexels.com/photo/an-aerial-shot-of-a-highway-during-winter-11471986/"
+    },
+    "RIX": {
+      "id": 33694377,
+      "base": "https://images.pexels.com/photos/33694377/pexels-photo-33694377.jpeg",
+      "avgColor": "#676E76",
+      "alt": "Beautiful sunset over Daugava River with a modern cable-stayed bridge and skyline reflections in Riga, Latvia.",
+      "photographer": "Mihail Emelyanov",
+      "photographerUrl": "https://www.pexels.com/@mihail-emelyanov-127740824",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-bridge-at-sunset-in-riga-latvia-33694377/"
     }
   }
 }
