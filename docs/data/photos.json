@@ -1539,6 +1539,42 @@
       "photographer": "Maxime Max",
       "photographerUrl": "https://www.pexels.com/@maxime-max-2160523823",
       "pageUrl": "https://www.pexels.com/photo/cityscape-of-cluj-napoca-with-sunset-hills-36789067/"
+    },
+    "OSR": {
+      "id": 22491857,
+      "base": "https://images.pexels.com/photos/22491857/pexels-photo-22491857.jpeg",
+      "avgColor": "#48707A",
+      "alt": "Aerial view of Orlová, Czech Republic, showcasing urban development amidst lush greenery.",
+      "photographer": "Daniel Gross",
+      "photographerUrl": "https://www.pexels.com/@daniel-gross-1223226538",
+      "pageUrl": "https://www.pexels.com/photo/birds-eye-view-of-a-city-22491857/"
+    },
+    "CMB": {
+      "id": 13722258,
+      "base": "https://images.pexels.com/photos/13722258/pexels-photo-13722258.jpeg",
+      "avgColor": "#747F81",
+      "alt": "Stunning aerial view capturing Colombo's skyline, oceanfront, and Beira Lake.",
+      "photographer": "Isuru Abeysundara",
+      "photographerUrl": "https://www.pexels.com/@isuru-abeysundara-187261227",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-buildings-13722258/"
+    },
+    "OGZ": {
+      "id": 39825243,
+      "base": "https://images.pexels.com/photos/39825243/pexels-photo-39825243.jpeg",
+      "avgColor": "#667068",
+      "alt": "Explore the panoramic aerial view of Rzhev, Russia with lush greenery and residential architecture.",
+      "photographer": "Alexander Gluschenko",
+      "photographerUrl": "https://www.pexels.com/@gluschenko",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-rzhev-urban-landscape-in-summer-39825243/"
+    },
+    "USM": {
+      "id": 4206645,
+      "base": "https://images.pexels.com/photos/4206645/pexels-photo-4206645.jpeg",
+      "avgColor": "#899499",
+      "alt": "Serene view of a tropical beach in Koh Samui, Thailand, with crashing waves and lush greenery.",
+      "photographer": "Elina Sazonova",
+      "photographerUrl": "https://www.pexels.com/@elina-sazonova",
+      "pageUrl": "https://www.pexels.com/photo/waves-crashing-on-shore-4206645/"
     }
   }
 }
