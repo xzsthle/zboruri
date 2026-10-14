@@ -1629,6 +1629,33 @@
       "photographer": "Daniel Cely",
       "photographerUrl": "https://www.pexels.com/@daniel-cely-111152608",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-downtown-bogota-colombia-13823694/"
+    },
+    "IAS": {
+      "id": 3791196,
+      "base": "https://images.pexels.com/photos/3791196/pexels-photo-3791196.jpeg",
+      "avgColor": "#AEA7B3",
+      "alt": "Exterior of aged masonry building with pink walls and forged peaks on roof with rectangular and arched windows near trees under serene sky",
+      "photographer": "Diana ✨",
+      "photographerUrl": "https://www.pexels.com/@didsss",
+      "pageUrl": "https://www.pexels.com/photo/facade-of-old-palace-under-blue-sky-3791196/"
+    },
+    "ZAG": {
+      "id": 27401067,
+      "base": "https://images.pexels.com/photos/27401067/pexels-photo-27401067.jpeg",
+      "avgColor": "#648594",
+      "alt": "Aerial cityscape of Zagreb showcasing historic buildings and modern skyline.",
+      "photographer": "Damir K",
+      "photographerUrl": "https://www.pexels.com/@damir",
+      "pageUrl": "https://www.pexels.com/photo/a-view-of-the-city-from-a-rooftop-27401067/"
+    },
+    "LXR": {
+      "id": 15131542,
+      "base": "https://images.pexels.com/photos/15131542/pexels-photo-15131542.jpeg",
+      "avgColor": "#859096",
+      "alt": "Sailboats moored in Luxor's marina against historic architecture.",
+      "photographer": "Diego F. Parra",
+      "photographerUrl": "https://www.pexels.com/@diego-f-parra-33199",
+      "pageUrl": "https://www.pexels.com/photo/sailboats-moored-in-marina-15131542/"
     }
   }
 }
