@@ -1611,6 +1611,24 @@
       "photographer": "Mihail Emelyanov",
       "photographerUrl": "https://www.pexels.com/@mihail-emelyanov-127740824",
       "pageUrl": "https://www.pexels.com/photo/scenic-view-of-bridge-at-sunset-in-riga-latvia-33694377/"
+    },
+    "HAN": {
+      "id": 19822715,
+      "base": "https://images.pexels.com/photos/19822715/pexels-photo-19822715.jpeg",
+      "avgColor": "#2B3733",
+      "alt": "Dramatic night view of Hanoi cityscape featuring modern architecture and bustling urban life.",
+      "photographer": "Hân Vũ FPV",
+      "photographerUrl": "https://www.pexels.com/@han-vu-fpv-899723554",
+      "pageUrl": "https://www.pexels.com/photo/modern-architecture-of-hanoi-19822715/"
+    },
+    "BOG": {
+      "id": 13823694,
+      "base": "https://images.pexels.com/photos/13823694/pexels-photo-13823694.jpeg",
+      "avgColor": "#968A7C",
+      "alt": "Aerial cityscape of downtown Bogotá featuring modern skyscrapers and urban architecture.",
+      "photographer": "Daniel Cely",
+      "photographerUrl": "https://www.pexels.com/@daniel-cely-111152608",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-downtown-bogota-colombia-13823694/"
     }
   }
 }
