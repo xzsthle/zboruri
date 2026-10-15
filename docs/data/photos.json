@@ -1656,6 +1656,24 @@
       "photographer": "Diego F. Parra",
       "photographerUrl": "https://www.pexels.com/@diego-f-parra-33199",
       "pageUrl": "https://www.pexels.com/photo/sailboats-moored-in-marina-15131542/"
+    },
+    "NOP": {
+      "id": 27821550,
+      "base": "https://images.pexels.com/photos/27821550/pexels-photo-27821550.jpeg",
+      "avgColor": "#59594F",
+      "alt": "Captivating aerial shot of Kuşadası harbor, showcasing the waterfront and cityscape at sunset.",
+      "photographer": "Julien Goettelmann",
+      "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
+      "pageUrl": "https://www.pexels.com/photo/flying-over-kusadasi-at-dusk-4-27821550/"
+    },
+    "TNG": {
+      "id": 10205137,
+      "base": "https://images.pexels.com/photos/10205137/pexels-photo-10205137.jpeg",
+      "avgColor": "#737A82",
+      "alt": "Vibrant street life in downtown Tangier, Morocco, showcasing people and cars on a busy road.",
+      "photographer": "MELIANI Driss",
+      "photographerUrl": "https://www.pexels.com/@droosmo",
+      "pageUrl": "https://www.pexels.com/photo/people-walking-on-the-sidewalk-between-buildings-10205137/"
     }
   }
 }
