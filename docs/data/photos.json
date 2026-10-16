@@ -1683,6 +1683,33 @@
       "photographer": "Efrem  Efre",
       "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
       "pageUrl": "https://www.pexels.com/photo/stunning-aerial-night-view-of-tromso-norway-31305759/"
+    },
+    "POZ": {
+      "id": 19564143,
+      "base": "https://images.pexels.com/photos/19564143/pexels-photo-19564143.jpeg",
+      "avgColor": "#857B71",
+      "alt": "Charming colorful tenements in Poznań's Old Town Square, showcasing historic architecture.",
+      "photographer": "Sergei  Gussev",
+      "photographerUrl": "https://www.pexels.com/@sergei",
+      "pageUrl": "https://www.pexels.com/photo/tenements-in-old-town-in-poznan-in-poland-19564143/"
+    },
+    "MMK": {
+      "id": 12439566,
+      "base": "https://images.pexels.com/photos/12439566/pexels-photo-12439566.jpeg",
+      "avgColor": "#78797B",
+      "alt": "View of Murmansk coast with cargo ships, buildings, and mountains.",
+      "photographer": "Mike Klokov",
+      "photographerUrl": "https://www.pexels.com/@mike-klokov-75708665",
+      "pageUrl": "https://www.pexels.com/photo/cargo-ships-on-the-body-of-water-12439566/"
+    },
+    "GSV": {
+      "id": 8568987,
+      "base": "https://images.pexels.com/photos/8568987/pexels-photo-8568987.jpeg",
+      "avgColor": "#786382",
+      "alt": "Stunning twilight view of a bridge in Saratov, Russia, with vibrant street lights and city skyline.",
+      "photographer": "Ilya A",
+      "photographerUrl": "https://www.pexels.com/@ilya-a-75705862",
+      "pageUrl": "https://www.pexels.com/photo/purple-sky-above-the-city-of-saratov-in-russia-8568987/"
     }
   }
 }
