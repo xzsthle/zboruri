@@ -1719,6 +1719,24 @@
       "photographer": "Luca Nardone",
       "photographerUrl": "https://www.pexels.com/@lucanardone",
       "pageUrl": "https://www.pexels.com/photo/saint-vincent-footbridge-on-the-saone-river-in-lyon-4827690/"
+    },
+    "SVQ": {
+      "id": 13377720,
+      "base": "https://images.pexels.com/photos/13377720/pexels-photo-13377720.jpeg",
+      "avgColor": "#778A99",
+      "alt": "Elevated view of Sevilla's skyline showcasing historic architecture and the Puente del Alamillo.",
+      "photographer": "Emilio Sánchez  Hernández",
+      "photographerUrl": "https://www.pexels.com/@emilio-sanchez-hernandez-285921208",
+      "pageUrl": "https://www.pexels.com/photo/clear-blue-sky-over-the-city-of-seville-in-spain-13377720/"
+    },
+    "COV": {
+      "id": 27304998,
+      "base": "https://images.pexels.com/photos/27304998/pexels-photo-27304998.jpeg",
+      "avgColor": "#545F59",
+      "alt": "Stunning aerial view of Kuşadası harbor, Türkiye during the golden hour with vibrant waterfront and cityscape.",
+      "photographer": "Julien Goettelmann",
+      "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-the-port-of-santorini-greece-27304998/"
     }
   }
 }
