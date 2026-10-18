@@ -1737,6 +1737,15 @@
       "photographer": "Julien Goettelmann",
       "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-the-port-of-santorini-greece-27304998/"
+    },
+    "BLL": {
+      "id": 13519043,
+      "base": "https://images.pexels.com/photos/13519043/pexels-photo-13519043.jpeg",
+      "avgColor": "#635645",
+      "alt": "Aerial view of Horsens, Denmark showcasing urban architecture and vibrant cityscape.",
+      "photographer": "Kao MHG",
+      "photographerUrl": "https://www.pexels.com/@kaomhg",
+      "pageUrl": "https://www.pexels.com/photo/view-on-gdansk-from-top-13519043/"
     }
   }
 }
