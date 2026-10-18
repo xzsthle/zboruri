@@ -1746,6 +1746,33 @@
       "photographer": "Kao MHG",
       "photographerUrl": "https://www.pexels.com/@kaomhg",
       "pageUrl": "https://www.pexels.com/photo/view-on-gdansk-from-top-13519043/"
+    },
+    "UGC": {
+      "id": 39976635,
+      "base": "https://images.pexels.com/photos/39976635/pexels-photo-39976635.jpeg",
+      "avgColor": "#646466",
+      "alt": "Captivating night view of the illuminated Kalta Minor Minaret in Khiva, Uzbekistan. Historical architecture under a starlit sky.",
+      "photographer": "Zeynep Elif Özdemir",
+      "photographerUrl": "https://www.pexels.com/@zeynep-elif-ozdemir-48864746",
+      "pageUrl": "https://www.pexels.com/photo/night-view-of-the-iconic-kalta-minor-minaret-in-khiva-39976635/"
+    },
+    "LJU": {
+      "id": 33275578,
+      "base": "https://images.pexels.com/photos/33275578/pexels-photo-33275578.jpeg",
+      "avgColor": "#555851",
+      "alt": "A vibrant cityscape of Ljubljana, Slovenia, framed by lush greenery and a clear sky.",
+      "photographer": "Dragan Cenic",
+      "photographerUrl": "https://www.pexels.com/@dragancenic",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-ljubljana-cityscape-33275578/"
+    },
+    "RMF": {
+      "id": 28273318,
+      "base": "https://images.pexels.com/photos/28273318/pexels-photo-28273318.jpeg",
+      "avgColor": "#989189",
+      "alt": "Explore the stunning coastline of Marsa Matruh with its golden cliffs and turquoise waters.",
+      "photographer": "NADER AYMAN",
+      "photographerUrl": "https://www.pexels.com/@naderaymanphotography",
+      "pageUrl": "https://www.pexels.com/photo/ageba-beach-a-beautiful-and-serene-coastal-location-28273318/"
     }
   }
 }
