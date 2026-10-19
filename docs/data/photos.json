@@ -1791,6 +1791,15 @@
       "photographer": "Tolga Aslantürk",
       "photographerUrl": "https://www.pexels.com/@tolgaaslanturk",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-castle-and-city-on-the-coast-10785906/"
+    },
+    "AHO": {
+      "id": 16112384,
+      "base": "https://images.pexels.com/photos/16112384/pexels-photo-16112384.jpeg",
+      "avgColor": "#807F7D",
+      "alt": "Picturesque view of Alghero's waterfront with historic architecture and vibrant skyline under a clear sky.",
+      "photographer": "Efrem  Efre",
+      "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
+      "pageUrl": "https://www.pexels.com/photo/skyline-of-alghero-with-view-of-the-alghero-cathedral-in-the-middle-sardinia-italy-16112384/"
     }
   }
 }
