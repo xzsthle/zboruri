@@ -1773,6 +1773,24 @@
       "photographer": "NADER AYMAN",
       "photographerUrl": "https://www.pexels.com/@naderaymanphotography",
       "pageUrl": "https://www.pexels.com/photo/ageba-beach-a-beautiful-and-serene-coastal-location-28273318/"
+    },
+    "BSB": {
+      "id": 1040873,
+      "base": "https://images.pexels.com/photos/1040873/pexels-photo-1040873.jpeg",
+      "avgColor": "#4E4539",
+      "alt": "Stunning sunset view highlighting Brasília's unique modern architecture and reflecting pool.",
+      "photographer": "MESSALA CIULLA",
+      "photographerUrl": "https://www.pexels.com/@messalaciulla",
+      "pageUrl": "https://www.pexels.com/photo/body-of-water-underneath-golden-hour-1040873/"
+    },
+    "ECN": {
+      "id": 10785906,
+      "base": "https://images.pexels.com/photos/10785906/pexels-photo-10785906.jpeg",
+      "avgColor": "#475757",
+      "alt": "Stunning aerial view of a historic coastal fortress surrounded by vibrant city life and deep blue sea.",
+      "photographer": "Tolga Aslantürk",
+      "photographerUrl": "https://www.pexels.com/@tolgaaslanturk",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-castle-and-city-on-the-coast-10785906/"
     }
   }
 }
