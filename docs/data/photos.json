@@ -1800,6 +1800,15 @@
       "photographer": "Efrem  Efre",
       "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
       "pageUrl": "https://www.pexels.com/photo/skyline-of-alghero-with-view-of-the-alghero-cathedral-in-the-middle-sardinia-italy-16112384/"
+    },
+    "ZRH": {
+      "id": 33754554,
+      "base": "https://images.pexels.com/photos/33754554/pexels-photo-33754554.jpeg",
+      "avgColor": "#646661",
+      "alt": "Scenic view of Zurich's historic buildings along the Limmat River, capturing Swiss architectural charm.",
+      "photographer": "Marija Piliskic",
+      "photographerUrl": "https://www.pexels.com/@marija-piliskic-2155438514",
+      "pageUrl": "https://www.pexels.com/photo/historic-zurich-architecture-by-the-limmat-river-33754554/"
     }
   }
 }
