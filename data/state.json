@@ -41,6 +41,11 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
+    "HAM": {
+      "priceEur": 53.49,
+      "since": "2026-10-09T11:39:39.304Z",
+      "alerted": false
+    },
     "LCA": {
       "priceEur": 51.86,
       "since": "2026-09-30T08:43:15.488Z",
@@ -66,6 +71,11 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
+    "SOF": {
+      "priceEur": 29.84,
+      "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
     "TRN": {
       "priceEur": 38.32,
       "since": "2026-09-30T08:43:15.488Z",
@@ -87,16 +97,6 @@
       "alerted": false
     },
     "WRO": {
-      "priceEur": 29.84,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
-    "HAM": {
-      "priceEur": 53.49,
-      "since": "2026-10-09T11:39:39.304Z",
-      "alerted": false
-    },
-    "SOF": {
       "priceEur": 29.84,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
