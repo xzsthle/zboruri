@@ -1809,6 +1809,15 @@
       "photographer": "Marija Piliskic",
       "photographerUrl": "https://www.pexels.com/@marija-piliskic-2155438514",
       "pageUrl": "https://www.pexels.com/photo/historic-zurich-architecture-by-the-limmat-river-33754554/"
+    },
+    "SKP": {
+      "id": 17826810,
+      "base": "https://images.pexels.com/photos/17826810/pexels-photo-17826810.jpeg",
+      "avgColor": "#B1B3B2",
+      "alt": "Monument of Alexander the Great in central Skopje, showcasing urban design.",
+      "photographer": "Markus Winkler",
+      "photographerUrl": "https://www.pexels.com/@markus-winkler-1430818",
+      "pageUrl": "https://www.pexels.com/photo/a-statue-of-a-man-on-a-horse-in-a-square-17826810/"
     }
   }
 }
