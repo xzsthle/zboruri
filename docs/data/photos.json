@@ -1818,6 +1818,15 @@
       "photographer": "Markus Winkler",
       "photographerUrl": "https://www.pexels.com/@markus-winkler-1430818",
       "pageUrl": "https://www.pexels.com/photo/a-statue-of-a-man-on-a-horse-in-a-square-17826810/"
+    },
+    "MEX": {
+      "id": 28577135,
+      "base": "https://images.pexels.com/photos/28577135/pexels-photo-28577135.jpeg",
+      "avgColor": "#646D6A",
+      "alt": "A stunning aerial view of Chapultepec Park with cityscape and mountains in the background.",
+      "photographer": "Erhart Fabian Castillo Castellanos",
+      "photographerUrl": "https://www.pexels.com/@erhart-fabian-castillo-castellanos-179012",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-chapultepec-park-in-mexico-city-28577135/"
     }
   }
 }
