@@ -1845,6 +1845,24 @@
       "photographer": "Héctor Berganza",
       "photographerUrl": "https://www.pexels.com/@hberganza",
       "pageUrl": "https://www.pexels.com/photo/cn-tower-and-toronto-cityscape-at-sunset-25696388/"
+    },
+    "GOI": {
+      "id": 11438923,
+      "base": "https://images.pexels.com/photos/11438923/pexels-photo-11438923.jpeg",
+      "avgColor": "#756B61",
+      "alt": "Vibrant street view in Panaji, India showcasing colorful colonial architecture and bustling traffic.",
+      "photographer": "Samar Mourya",
+      "photographerUrl": "https://www.pexels.com/@samarmourya",
+      "pageUrl": "https://www.pexels.com/photo/photo-of-a-city-street-11438923/"
+    },
+    "GOX": {
+      "id": 5909775,
+      "base": "https://images.pexels.com/photos/5909775/pexels-photo-5909775.jpeg",
+      "avgColor": "#4C4B4F",
+      "alt": "Cityscape of aged shabby buildings with cracks on walls and transport in tropical country",
+      "photographer": "Plato Terentev",
+      "photographerUrl": "https://www.pexels.com/@plato-terentev-3804555",
+      "pageUrl": "https://www.pexels.com/photo/city-district-with-old-buildings-and-shops-5909775/"
     }
   }
 }
