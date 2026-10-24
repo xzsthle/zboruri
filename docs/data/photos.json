@@ -1863,6 +1863,24 @@
       "photographer": "Plato Terentev",
       "photographerUrl": "https://www.pexels.com/@plato-terentev-3804555",
       "pageUrl": "https://www.pexels.com/photo/city-district-with-old-buildings-and-shops-5909775/"
+    },
+    "ONT": {
+      "id": 17770315,
+      "base": "https://images.pexels.com/photos/17770315/pexels-photo-17770315.jpeg",
+      "avgColor": "#46616C",
+      "alt": "Scenic autumn view of Niagara River, showcasing vibrant foliage and city skyline.",
+      "photographer": "Virooshan Theva",
+      "photographerUrl": "https://www.pexels.com/@virooshan-theva-473914859",
+      "pageUrl": "https://www.pexels.com/photo/view-of-the-niagara-falls-and-buildings-on-the-side-of-ontario-canada-in-the-background-17770315/"
+    },
+    "PSA": {
+      "id": 18095206,
+      "base": "https://images.pexels.com/photos/18095206/pexels-photo-18095206.jpeg",
+      "avgColor": "#ACC8D6",
+      "alt": "Iconic Leaning Tower of Pisa with clear sky and clouds, a must-see landmark.",
+      "photographer": "Efrem  Efre",
+      "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
+      "pageUrl": "https://www.pexels.com/photo/leaning-tower-of-pisa-18095206/"
     }
   }
 }
