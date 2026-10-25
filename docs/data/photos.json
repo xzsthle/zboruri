@@ -1881,6 +1881,24 @@
       "photographer": "Efrem  Efre",
       "photographerUrl": "https://www.pexels.com/@efrem-efre-2786187",
       "pageUrl": "https://www.pexels.com/photo/leaning-tower-of-pisa-18095206/"
+    },
+    "ODB": {
+      "id": 37911057,
+      "base": "https://images.pexels.com/photos/37911057/pexels-photo-37911057.jpeg",
+      "avgColor": "#919187",
+      "alt": "Tourists cross the historic Roman bridge in Córdoba with the Mezquita in the background.",
+      "photographer": "Daka",
+      "photographerUrl": "https://www.pexels.com/@daka",
+      "pageUrl": "https://www.pexels.com/photo/crowds-on-roman-bridge-in-cordoba-spain-37911057/"
+    },
+    "CAI": {
+      "id": 29678689,
+      "base": "https://images.pexels.com/photos/29678689/pexels-photo-29678689.jpeg",
+      "avgColor": "#A99980",
+      "alt": "Panoramic view of Cairo featuring historic mosque architecture against the city skyline.",
+      "photographer": "Shady Elfaham",
+      "photographerUrl": "https://www.pexels.com/@shady-elfaham-312593746",
+      "pageUrl": "https://www.pexels.com/photo/historic-cairo-skyline-with-mosque-architecture-29678689/"
     }
   }
 }
