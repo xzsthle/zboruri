@@ -1899,6 +1899,33 @@
       "photographer": "Shady Elfaham",
       "photographerUrl": "https://www.pexels.com/@shady-elfaham-312593746",
       "pageUrl": "https://www.pexels.com/photo/historic-cairo-skyline-with-mosque-architecture-29678689/"
+    },
+    "IBZ": {
+      "id": 37455274,
+      "base": "https://images.pexels.com/photos/37455274/pexels-photo-37455274.jpeg",
+      "avgColor": "#999798",
+      "alt": "Panoramic view of Ibiza's old town architecture and luxury yachts in the marina, Balearic Islands.",
+      "photographer": "Henning K.",
+      "photographerUrl": "https://www.pexels.com/@henning-k-347727209",
+      "pageUrl": "https://www.pexels.com/photo/scenic-view-of-ibiza-s-historic-old-town-and-marina-37455274/"
+    },
+    "HKG": {
+      "id": 31713313,
+      "base": "https://images.pexels.com/photos/31713313/pexels-photo-31713313.jpeg",
+      "avgColor": "#80858B",
+      "alt": "Cityscape featuring towering high-rise buildings against a mountainous backdrop.",
+      "photographer": "King  Ho",
+      "photographerUrl": "https://www.pexels.com/@king",
+      "pageUrl": "https://www.pexels.com/photo/modern-urban-skyline-with-high-rises-31713313/"
+    },
+    "PUJ": {
+      "id": 27868409,
+      "base": "https://images.pexels.com/photos/27868409/pexels-photo-27868409.jpeg",
+      "avgColor": "#6C766B",
+      "alt": "Idyllic tropical beach scene with palm trees, lounge chairs, and umbrellas at an oceanfront resort.",
+      "photographer": "Ettienne Muniz",
+      "photographerUrl": "https://www.pexels.com/@ettienne-muniz-737731356",
+      "pageUrl": "https://www.pexels.com/photo/a-beach-with-lounge-chairs-and-palm-trees-27868409/"
     }
   }
 }
