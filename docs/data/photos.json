@@ -1944,6 +1944,24 @@
       "photographer": "Donovan Kelly",
       "photographerUrl": "https://www.pexels.com/@donovan-kelly-110228397",
       "pageUrl": "https://www.pexels.com/photo/city-buildings-under-the-blue-sky-9623137/"
+    },
+    "KUF": {
+      "id": 9400273,
+      "base": "https://images.pexels.com/photos/9400273/pexels-photo-9400273.jpeg",
+      "avgColor": "#80846D",
+      "alt": "Aerial view of a bustling cityscape featuring diverse building styles and lush greenery.",
+      "photographer": "Александр",
+      "photographerUrl": "https://www.pexels.com/@1386738",
+      "pageUrl": "https://www.pexels.com/photo/aerial-photography-of-trees-and-city-buildings-9400273/"
+    },
+    "MCT": {
+      "id": 35188110,
+      "base": "https://images.pexels.com/photos/35188110/pexels-photo-35188110.jpeg",
+      "avgColor": "#9DA8AA",
+      "alt": "Aerial shot of Muscat's skyline with coastal view and mountains. Ideal for travel and geography content.",
+      "photographer": "Joerg Hartmann",
+      "photographerUrl": "https://www.pexels.com/@joerg-hartmann-626385254",
+      "pageUrl": "https://www.pexels.com/photo/scenic-aerial-view-of-muscat-cityscape-35188110/"
     }
   }
 }
