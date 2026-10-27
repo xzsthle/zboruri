@@ -1926,6 +1926,24 @@
       "photographer": "Ettienne Muniz",
       "photographerUrl": "https://www.pexels.com/@ettienne-muniz-737731356",
       "pageUrl": "https://www.pexels.com/photo/a-beach-with-lounge-chairs-and-palm-trees-27868409/"
+    },
+    "DYU": {
+      "id": 9376000,
+      "base": "https://images.pexels.com/photos/9376000/pexels-photo-9376000.jpeg",
+      "avgColor": "#849D99",
+      "alt": "A wooden pavilion surrounded by greenery in a summer garden in Dushanbe, Tajikistan.",
+      "photographer": "Nicole Densmoor",
+      "photographerUrl": "https://www.pexels.com/@nicole-densmoor-3632088",
+      "pageUrl": "https://www.pexels.com/photo/wooden-bower-in-garden-9376000/"
+    },
+    "YYC": {
+      "id": 9623137,
+      "base": "https://images.pexels.com/photos/9623137/pexels-photo-9623137.jpeg",
+      "avgColor": "#64696F",
+      "alt": "A vibrant view of Calgary's skyline with modern skyscrapers framed by greenery under a clear sky.",
+      "photographer": "Donovan Kelly",
+      "photographerUrl": "https://www.pexels.com/@donovan-kelly-110228397",
+      "pageUrl": "https://www.pexels.com/photo/city-buildings-under-the-blue-sky-9623137/"
     }
   }
 }
