@@ -1962,6 +1962,24 @@
       "photographer": "Joerg Hartmann",
       "photographerUrl": "https://www.pexels.com/@joerg-hartmann-626385254",
       "pageUrl": "https://www.pexels.com/photo/scenic-aerial-view-of-muscat-cityscape-35188110/"
+    },
+    "PMO": {
+      "id": 35644624,
+      "base": "https://images.pexels.com/photos/35644624/pexels-photo-35644624.jpeg",
+      "avgColor": "#436D85",
+      "alt": "Discover the vibrant skyline of Palermo, Sicily capturing historic architecture beneath a bright blue sky.",
+      "photographer": "Elijah Cobb",
+      "photographerUrl": "https://www.pexels.com/@elijahjcobb",
+      "pageUrl": "https://www.pexels.com/photo/palermo-skyline-with-historic-buildings-in-sicily-35644624/"
+    },
+    "YKS": {
+      "id": 10450872,
+      "base": "https://images.pexels.com/photos/10450872/pexels-photo-10450872.jpeg",
+      "avgColor": "#626A7F",
+      "alt": "Aerial shot of a snow-covered city with a prominent church and residential areas.",
+      "photographer": "Александр Максин",
+      "photographerUrl": "https://www.pexels.com/@alexmaksin55",
+      "pageUrl": "https://www.pexels.com/photo/church-in-city-residential-area-in-winter-10450872/"
     }
   }
 }
