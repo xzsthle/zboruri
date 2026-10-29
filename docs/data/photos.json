@@ -1980,6 +1980,15 @@
       "photographer": "Александр Максин",
       "photographerUrl": "https://www.pexels.com/@alexmaksin55",
       "pageUrl": "https://www.pexels.com/photo/church-in-city-residential-area-in-winter-10450872/"
+    },
+    "SZF": {
+      "id": 38786891,
+      "base": "https://images.pexels.com/photos/38786891/pexels-photo-38786891.jpeg",
+      "avgColor": "#484441",
+      "alt": "Samsun park scene with Turkish flags and hillside buildings, capturing city essence.",
+      "photographer": "Nrlh Semiz",
+      "photographerUrl": "https://www.pexels.com/@nrlh-semiz-2160662348",
+      "pageUrl": "https://www.pexels.com/photo/turkish-flags-and-park-view-in-samsun-turkiye-38786891/"
     }
   }
 }
