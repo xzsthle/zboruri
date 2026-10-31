@@ -1998,6 +1998,15 @@
       "photographer": "VALERIE V",
       "photographerUrl": "https://www.pexels.com/@vv97",
       "pageUrl": "https://www.pexels.com/photo/view-of-a-river-at-sunset-21789946/"
+    },
+    "MMX": {
+      "id": 33253308,
+      "base": "https://images.pexels.com/photos/33253308/pexels-photo-33253308.jpeg",
+      "avgColor": "#468193",
+      "alt": "A striking contrast of modern skyscrapers and historic architecture in Malmö, Sweden.",
+      "photographer": "Nik Nikolla",
+      "photographerUrl": "https://www.pexels.com/@nik-nikolla-3298473",
+      "pageUrl": "https://www.pexels.com/photo/malmo-modern-skyline-with-historic-brick-building-33253308/"
     }
   }
 }
