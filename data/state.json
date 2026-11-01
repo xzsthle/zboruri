@@ -51,11 +51,6 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "SOF": {
-      "priceEur": 29.84,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "TRN": {
       "priceEur": 37.3,
       "since": "2026-10-30T11:11:11.077Z",
@@ -77,6 +72,11 @@
       "alerted": false
     },
     "WRO": {
+      "priceEur": 29.84,
+      "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "SOF": {
       "priceEur": 29.84,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
