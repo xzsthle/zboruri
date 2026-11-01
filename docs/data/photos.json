@@ -2007,6 +2007,24 @@
       "photographer": "Nik Nikolla",
       "photographerUrl": "https://www.pexels.com/@nik-nikolla-3298473",
       "pageUrl": "https://www.pexels.com/photo/malmo-modern-skyline-with-historic-brick-building-33253308/"
+    },
+    "ALY": {
+      "id": 6199311,
+      "base": "https://images.pexels.com/photos/6199311/pexels-photo-6199311.jpeg",
+      "avgColor": "#7E726C",
+      "alt": "Panoramic view of Alexandria's bustling waterfront with crowded beach and architectural skyline.",
+      "photographer": "Incredibly Madd",
+      "photographerUrl": "https://www.pexels.com/@incredibly-madd-10716073",
+      "pageUrl": "https://www.pexels.com/photo/city-waterfront-and-people-bathing-6199311/"
+    },
+    "BRQ": {
+      "id": 16885439,
+      "base": "https://images.pexels.com/photos/16885439/pexels-photo-16885439.jpeg",
+      "avgColor": "#757E6D",
+      "alt": "Aerial view of the colorful cityscape of Brno, highlighting its green tower and gothic architecture.",
+      "photographer": "Alex Does Pictures",
+      "photographerUrl": "https://www.pexels.com/@alex-does-pictures-33201512",
+      "pageUrl": "https://www.pexels.com/photo/gothic-green-tower-against-cityscape-16885439/"
     }
   }
 }
