@@ -2025,6 +2025,15 @@
       "photographer": "Alex Does Pictures",
       "photographerUrl": "https://www.pexels.com/@alex-does-pictures-33201512",
       "pageUrl": "https://www.pexels.com/photo/gothic-green-tower-against-cityscape-16885439/"
+    },
+    "SKG": {
+      "id": 37845033,
+      "base": "https://images.pexels.com/photos/37845033/pexels-photo-37845033.jpeg",
+      "avgColor": "#1C2023",
+      "alt": "Stunning aerial night view of Thessaloniki's illuminated waterfront in Greece.",
+      "photographer": "K",
+      "photographerUrl": "https://www.pexels.com/@kelly",
+      "pageUrl": "https://www.pexels.com/photo/aerial-night-view-of-thessaloniki-s-waterfront-37845033/"
     }
   }
 }
