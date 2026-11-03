@@ -2052,6 +2052,42 @@
       "photographer": "Radis B",
       "photographerUrl": "https://www.pexels.com/@radis",
       "pageUrl": "https://www.pexels.com/photo/aktobe-railway-station-in-winter-20591587/"
+    },
+    "SDR": {
+      "id": 15520700,
+      "base": "https://images.pexels.com/photos/15520700/pexels-photo-15520700.jpeg",
+      "avgColor": "#617377",
+      "alt": "Stunning aerial shot of Santander's coastline with a vibrant cityscape and sandy beach in Spain.",
+      "photographer": "Frederick Adegoke Snr.",
+      "photographerUrl": "https://www.pexels.com/@thelionics",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-waves-washing-up-the-beach-in-a-coastal-city-15520700/"
+    },
+    "OSL": {
+      "id": 24259644,
+      "base": "https://images.pexels.com/photos/24259644/pexels-photo-24259644.jpeg",
+      "avgColor": "#989D97",
+      "alt": "Captivating aerial view of Oslo with buildings and greenery under a clear sky.",
+      "photographer": "Cody Whear",
+      "photographerUrl": "https://www.pexels.com/@codywhear",
+      "pageUrl": "https://www.pexels.com/photo/clear-sky-over-buildings-in-city-24259644/"
+    },
+    "KBV": {
+      "id": 4128293,
+      "base": "https://images.pexels.com/photos/4128293/pexels-photo-4128293.jpeg",
+      "avgColor": "#899E95",
+      "alt": "A vibrant aerial view of a bustling cityscape in Thailand showcasing streets, buildings, and a river.",
+      "photographer": "Nextvoyage",
+      "photographerUrl": "https://www.pexels.com/@nextvoyage",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-city-buildings-4128293/"
+    },
+    "LRM": {
+      "id": 28297111,
+      "base": "https://images.pexels.com/photos/28297111/pexels-photo-28297111.jpeg",
+      "avgColor": "#7D7F7E",
+      "alt": "Beautiful lush landscape with river and flowers in La Romana, Dominican Republic.",
+      "photographer": "Brialix Núñez | Photography",
+      "photographerUrl": "https://www.pexels.com/@brialix-nunez-photography-3265846",
+      "pageUrl": "https://www.pexels.com/photo/altos-de-chavon-view-28297111/"
     }
   }
 }
