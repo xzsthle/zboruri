@@ -2034,6 +2034,24 @@
       "photographer": "K",
       "photographerUrl": "https://www.pexels.com/@kelly",
       "pageUrl": "https://www.pexels.com/photo/aerial-night-view-of-thessaloniki-s-waterfront-37845033/"
+    },
+    "CRA": {
+      "id": 7867397,
+      "base": "https://images.pexels.com/photos/7867397/pexels-photo-7867397.jpeg",
+      "avgColor": "#151513",
+      "alt": "The National Theatre in Romania beautifully illuminated at night showcasing its grand architecture.",
+      "photographer": "Diana ✨",
+      "photographerUrl": "https://www.pexels.com/@didsss",
+      "pageUrl": "https://www.pexels.com/photo/illuminated-national-theatre-in-romania-at-night-7867397/"
+    },
+    "AKX": {
+      "id": 20591587,
+      "base": "https://images.pexels.com/photos/20591587/pexels-photo-20591587.jpeg",
+      "avgColor": "#938E8A",
+      "alt": "A snowy day at Aktobe Railway Station, showcasing urban winter life in Kazakhstan.",
+      "photographer": "Radis B",
+      "photographerUrl": "https://www.pexels.com/@radis",
+      "pageUrl": "https://www.pexels.com/photo/aktobe-railway-station-in-winter-20591587/"
     }
   }
 }
