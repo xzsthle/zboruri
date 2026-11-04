@@ -2088,6 +2088,15 @@
       "photographer": "Brialix Núñez | Photography",
       "photographerUrl": "https://www.pexels.com/@brialix-nunez-photography-3265846",
       "pageUrl": "https://www.pexels.com/photo/altos-de-chavon-view-28297111/"
+    },
+    "FEZ": {
+      "id": 38112326,
+      "base": "https://images.pexels.com/photos/38112326/pexels-photo-38112326.jpeg",
+      "avgColor": "#B19468",
+      "alt": "View of the historic tanneries in Fes, Morocco, showcasing traditional leather tanning vats and architecture.",
+      "photographer": "Ramon Karolan",
+      "photographerUrl": "https://www.pexels.com/@ramonkaphotography",
+      "pageUrl": "https://www.pexels.com/photo/historic-tanneries-of-fes-in-warm-daylight-38112326/"
     }
   }
 }
