@@ -1,11 +1,6 @@
 {
   "version": 2,
   "destinations": {
-    "ALC": {
-      "priceEur": 55.98,
-      "since": "2026-11-03T12:37:53.918Z",
-      "alerted": false
-    },
     "ATH": {
       "priceEur": 53.86,
       "since": "2026-11-03T12:37:53.918Z",
@@ -44,16 +39,6 @@
     "CGN": {
       "priceEur": 52.71,
       "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
-    "HHN": {
-      "priceEur": 57.24,
-      "since": "2026-11-03T12:37:53.918Z",
-      "alerted": false
-    },
-    "LCA": {
-      "priceEur": 55.98,
-      "since": "2026-11-03T12:37:53.918Z",
       "alerted": false
     },
     "BGY": {
