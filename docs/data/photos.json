@@ -2097,6 +2097,15 @@
       "photographer": "Ramon Karolan",
       "photographerUrl": "https://www.pexels.com/@ramonkaphotography",
       "pageUrl": "https://www.pexels.com/photo/historic-tanneries-of-fes-in-warm-daylight-38112326/"
+    },
+    "DAC": {
+      "id": 11576092,
+      "base": "https://images.pexels.com/photos/11576092/pexels-photo-11576092.jpeg",
+      "avgColor": "#9EA8A9",
+      "alt": "Captivating view of Dhaka's high-rise buildings under a foggy sky, showcasing modern urban architecture.",
+      "photographer": "Ferdous  Hasan",
+      "photographerUrl": "https://www.pexels.com/@ferdous",
+      "pageUrl": "https://www.pexels.com/photo/city-buildings-on-a-foggy-day-11576092/"
     }
   }
 }
