@@ -2106,6 +2106,15 @@
       "photographer": "Ferdous  Hasan",
       "photographerUrl": "https://www.pexels.com/@ferdous",
       "pageUrl": "https://www.pexels.com/photo/city-buildings-on-a-foggy-day-11576092/"
+    },
+    "YVR": {
+      "id": 29072584,
+      "base": "https://images.pexels.com/photos/29072584/pexels-photo-29072584.jpeg",
+      "avgColor": "#8D9295",
+      "alt": "Stunning view of Vancouver's skyline with mountains and marina in the background.",
+      "photographer": "Luke Lawreszuk",
+      "photographerUrl": "https://www.pexels.com/@luke-lawreszuk-45053",
+      "pageUrl": "https://www.pexels.com/photo/vancouver-skyline-with-mountains-and-marina-29072584/"
     }
   }
 }
