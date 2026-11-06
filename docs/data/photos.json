@@ -2115,6 +2115,15 @@
       "photographer": "Luke Lawreszuk",
       "photographerUrl": "https://www.pexels.com/@luke-lawreszuk-45053",
       "pageUrl": "https://www.pexels.com/photo/vancouver-skyline-with-mountains-and-marina-29072584/"
+    },
+    "FLR": {
+      "id": 36027785,
+      "base": "https://images.pexels.com/photos/36027785/pexels-photo-36027785.jpeg",
+      "avgColor": "#352F31",
+      "alt": "Beautiful nighttime scenery of Florence's Arno River with illuminated buildings and bridge reflections.",
+      "photographer": "Fausto Ferreira",
+      "photographerUrl": "https://www.pexels.com/@fausto-ferreira-2159402204",
+      "pageUrl": "https://www.pexels.com/photo/stunning-night-view-of-florence-arno-river-36027785/"
     }
   }
 }
