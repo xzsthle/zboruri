@@ -2124,6 +2124,24 @@
       "photographer": "Fausto Ferreira",
       "photographerUrl": "https://www.pexels.com/@fausto-ferreira-2159402204",
       "pageUrl": "https://www.pexels.com/photo/stunning-night-view-of-florence-arno-river-36027785/"
+    },
+    "KVO": {
+      "id": 33324507,
+      "base": "https://images.pexels.com/photos/33324507/pexels-photo-33324507.jpeg",
+      "avgColor": "#858E7D",
+      "alt": "Skyline view of Belgrade with a mix of modern and classic architecture under a bright sky.",
+      "photographer": "Nikola Kojević",
+      "photographerUrl": "https://www.pexels.com/@nikola-kojevic-1608684723",
+      "pageUrl": "https://www.pexels.com/photo/belgrade-cityscape-featuring-modern-and-classic-architecture-33324507/"
+    },
+    "STI": {
+      "id": 12927599,
+      "base": "https://images.pexels.com/photos/12927599/pexels-photo-12927599.jpeg",
+      "avgColor": "#6792A2",
+      "alt": "Drone aerial view of Santo Domingo's skyline showcasing urban architecture under a bright blue sky.",
+      "photographer": "Anthony Camilo",
+      "photographerUrl": "https://www.pexels.com/@anthonycg",
+      "pageUrl": "https://www.pexels.com/photo/aerial-shot-of-city-buildings-under-the-blue-sky-12927599/"
     }
   }
 }
