@@ -36,11 +36,6 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "BGY": {
-      "priceEur": 42.97,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "MXP": {
       "priceEur": 52.66,
       "since": "2026-11-06T12:43:08.683Z",
@@ -66,11 +61,6 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "VRN": {
-      "priceEur": 38.32,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "WMI": {
       "priceEur": 47.62,
       "since": "2026-09-30T08:43:15.488Z",
@@ -78,6 +68,16 @@
     },
     "WRO": {
       "priceEur": 29.84,
+      "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "BGY": {
+      "priceEur": 42.97,
+      "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "VRN": {
+      "priceEur": 38.32,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     }
