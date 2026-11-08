@@ -71,13 +71,13 @@
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "WRO": {
-      "priceEur": 29.84,
+    "WMI": {
+      "priceEur": 47.62,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     },
-    "WMI": {
-      "priceEur": 47.62,
+    "WRO": {
+      "priceEur": 29.84,
       "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     }

@@ -2160,6 +2160,15 @@
       "photographer": "Nikolai Kolosov",
       "photographerUrl": "https://www.pexels.com/@nikolai-kolosov",
       "pageUrl": "https://www.pexels.com/photo/bremen-market-square-7018479/"
+    },
+    "MCX": {
+      "id": 40475055,
+      "base": "https://images.pexels.com/photos/40475055/pexels-photo-40475055.jpeg",
+      "avgColor": "#292621",
+      "alt": "Stunning aerial nighttime view of Kirov, showcasing twinkling city lights and vibrant urban landscape.",
+      "photographer": "Tom Shutkin",
+      "photographerUrl": "https://www.pexels.com/@shootkin",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-kirov-at-night-with-city-lights-40475055/"
     }
   }
 }
