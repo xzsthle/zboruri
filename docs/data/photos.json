@@ -2142,6 +2142,24 @@
       "photographer": "Anthony Camilo",
       "photographerUrl": "https://www.pexels.com/@anthonycg",
       "pageUrl": "https://www.pexels.com/photo/aerial-shot-of-city-buildings-under-the-blue-sky-12927599/"
+    },
+    "FUE": {
+      "id": 6160223,
+      "base": "https://images.pexels.com/photos/6160223/pexels-photo-6160223.jpeg",
+      "avgColor": "#96A0A3",
+      "alt": "Scenic waterfront of Puerto del Carmen, Spain with buildings and graffiti under a blue sky.",
+      "photographer": "Gabriela Veronika",
+      "photographerUrl": "https://www.pexels.com/@gabriela-veronika-9756414",
+      "pageUrl": "https://www.pexels.com/photo/city-skyline-under-blue-sky-and-white-clouds-6160223/"
+    },
+    "BRE": {
+      "id": 7018479,
+      "base": "https://images.pexels.com/photos/7018479/pexels-photo-7018479.jpeg",
+      "avgColor": "#878A8F",
+      "alt": "Historic facades in Bremen's famous market square on a clear day.",
+      "photographer": "Nikolai Kolosov",
+      "photographerUrl": "https://www.pexels.com/@nikolai-kolosov",
+      "pageUrl": "https://www.pexels.com/photo/bremen-market-square-7018479/"
     }
   }
 }
