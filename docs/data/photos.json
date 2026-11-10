@@ -2205,6 +2205,24 @@
       "photographer": "Cristian Salinas Cisternas",
       "photographerUrl": "https://www.pexels.com/@icarus",
       "pageUrl": "https://www.pexels.com/photo/people-on-boat-on-river-in-old-town-5612487/"
+    },
+    "KGD": {
+      "id": 9175894,
+      "base": "https://images.pexels.com/photos/9175894/pexels-photo-9175894.jpeg",
+      "avgColor": "#353432",
+      "alt": "Illuminated waterfront view of Kaliningrad, Russia at night, reflecting on the Pregolya River.",
+      "photographer": "Dmitriy_mir )",
+      "photographerUrl": "https://www.pexels.com/@dmitriy_mir-77351353",
+      "pageUrl": "https://www.pexels.com/photo/fischdorf-pregelufer-pregolja-kaliningrad-russia-9175894/"
+    },
+    "GOT": {
+      "id": 291703,
+      "base": "https://images.pexels.com/photos/291703/pexels-photo-291703.jpeg",
+      "avgColor": "#211C19",
+      "alt": "Aerial view of the illuminated Gullbergsvass cityscape at night in Sweden.",
+      "photographer": "invisiblepower",
+      "photographerUrl": "https://www.pexels.com/@invisiblepower",
+      "pageUrl": "https://www.pexels.com/photo/city-during-night-time-291703/"
     }
   }
 }
