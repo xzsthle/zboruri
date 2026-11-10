@@ -2169,6 +2169,42 @@
       "photographer": "Tom Shutkin",
       "photographerUrl": "https://www.pexels.com/@shootkin",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-kirov-at-night-with-city-lights-40475055/"
+    },
+    "EDI": {
+      "id": 5893099,
+      "base": "https://images.pexels.com/photos/5893099/pexels-photo-5893099.jpeg",
+      "avgColor": "#606E73",
+      "alt": "View of Edinburgh's historic architecture against a stunning sunset sky.",
+      "photographer": "Sinitta Leunen",
+      "photographerUrl": "https://www.pexels.com/@sinileunen",
+      "pageUrl": "https://www.pexels.com/photo/brown-concrete-building-under-blue-sky-5893099/"
+    },
+    "BZO": {
+      "id": 28491982,
+      "base": "https://images.pexels.com/photos/28491982/pexels-photo-28491982.jpeg",
+      "avgColor": "#7A807E",
+      "alt": "Stunning aerial view of verdant fields and mountains in the Italian countryside.",
+      "photographer": "K",
+      "photographerUrl": "https://www.pexels.com/@kelly",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-italian-countryside-valley-28491982/"
+    },
+    "SYD": {
+      "id": 38035823,
+      "base": "https://images.pexels.com/photos/38035823/pexels-photo-38035823.jpeg",
+      "avgColor": "#1E1412",
+      "alt": "Stunning night view of Sydney's illuminated skyline with vibrant lights reflecting on water.",
+      "photographer": "Talha Resitoglu",
+      "photographerUrl": "https://www.pexels.com/@talharesitoglu",
+      "pageUrl": "https://www.pexels.com/photo/sydney-skyline-at-night-with-vibrant-lights-38035823/"
+    },
+    "OST": {
+      "id": 5612487,
+      "base": "https://images.pexels.com/photos/5612487/pexels-photo-5612487.jpeg",
+      "avgColor": "#718688",
+      "alt": "Charming canal scene in Brugge, Belgium showcasing historic architecture and a tour boat on a sunny day.",
+      "photographer": "Cristian Salinas Cisternas",
+      "photographerUrl": "https://www.pexels.com/@icarus",
+      "pageUrl": "https://www.pexels.com/photo/people-on-boat-on-river-in-old-town-5612487/"
     }
   }
 }
