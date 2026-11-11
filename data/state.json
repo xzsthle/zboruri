@@ -1,6 +1,11 @@
 {
   "version": 2,
   "destinations": {
+    "ATH": {
+      "priceEur": 59.94,
+      "since": "2026-11-11T12:26:48.932Z",
+      "alerted": false
+    },
     "BLQ": {
       "priceEur": 38.32,
       "since": "2026-09-30T08:43:15.488Z",
@@ -29,6 +34,11 @@
     "BUD": {
       "priceEur": 34.08,
       "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "CGN": {
+      "priceEur": 58.45,
+      "since": "2026-11-11T12:26:48.932Z",
       "alerted": false
     },
     "BGY": {
@@ -67,13 +77,13 @@
       "alerted": false
     },
     "WMI": {
-      "priceEur": 47.62,
-      "since": "2026-09-30T08:43:15.488Z",
+      "priceEur": 45.1,
+      "since": "2026-11-11T12:26:48.932Z",
       "alerted": false
     },
     "WRO": {
-      "priceEur": 29.84,
-      "since": "2026-09-30T08:43:15.488Z",
+      "priceEur": 28.84,
+      "since": "2026-11-11T12:26:48.932Z",
       "alerted": false
     }
   }
