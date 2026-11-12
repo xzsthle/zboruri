@@ -1,11 +1,6 @@
 {
   "version": 2,
   "destinations": {
-    "ATH": {
-      "priceEur": 59.94,
-      "since": "2026-11-11T12:26:48.932Z",
-      "alerted": false
-    },
     "BLQ": {
       "priceEur": 38.32,
       "since": "2026-09-30T08:43:15.488Z",
