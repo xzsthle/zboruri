@@ -46,11 +46,6 @@
       "since": "2026-11-09T13:37:38.538Z",
       "alerted": false
     },
-    "PRG": {
-      "priceEur": 47.21,
-      "since": "2026-09-30T08:43:15.488Z",
-      "alerted": false
-    },
     "SOF": {
       "priceEur": 29.84,
       "since": "2026-09-30T08:43:15.488Z",
@@ -79,6 +74,11 @@
     "WRO": {
       "priceEur": 28.84,
       "since": "2026-11-11T12:26:48.932Z",
+      "alerted": false
+    },
+    "PRG": {
+      "priceEur": 47.21,
+      "since": "2026-09-30T08:43:15.488Z",
       "alerted": false
     }
   }
