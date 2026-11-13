@@ -2232,6 +2232,15 @@
       "photographer": "Petr Ganaj",
       "photographerUrl": "https://www.pexels.com/@ganajp",
       "pageUrl": "https://www.pexels.com/photo/colorful-building-at-tropical-beach-resort-5829049/"
+    },
+    "GAN": {
+      "id": 12858453,
+      "base": "https://images.pexels.com/photos/12858453/pexels-photo-12858453.jpeg",
+      "avgColor": "#6A6B80",
+      "alt": "A stunning aerial view of a city with an airport runway by the ocean at twilight.",
+      "photographer": "Asad Photo Maldives",
+      "photographerUrl": "https://www.pexels.com/@asadphoto",
+      "pageUrl": "https://www.pexels.com/photo/an-aerial-photography-of-city-buildings-near-the-body-of-water-12858453/"
     }
   }
 }
