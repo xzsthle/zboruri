@@ -2241,6 +2241,15 @@
       "photographer": "Asad Photo Maldives",
       "photographerUrl": "https://www.pexels.com/@asadphoto",
       "pageUrl": "https://www.pexels.com/photo/an-aerial-photography-of-city-buildings-near-the-body-of-water-12858453/"
+    },
+    "JTR": {
+      "id": 161342,
+      "base": "https://images.pexels.com/photos/161342/greece-santorini-architecture-island-161342.jpeg",
+      "avgColor": "#945B2E",
+      "alt": "A breathtaking sunset view of a cruise ship near the island of Santorini, Greece.",
+      "photographer": "Pixabay",
+      "photographerUrl": "https://www.pexels.com/@pixabay",
+      "pageUrl": "https://www.pexels.com/photo/white-and-black-ship-161342/"
     }
   }
 }
