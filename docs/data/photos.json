@@ -2250,6 +2250,15 @@
       "photographer": "Pixabay",
       "photographerUrl": "https://www.pexels.com/@pixabay",
       "pageUrl": "https://www.pexels.com/photo/white-and-black-ship-161342/"
+    },
+    "ADB": {
+      "id": 27821555,
+      "base": "https://images.pexels.com/photos/27821555/pexels-photo-27821555.jpeg",
+      "avgColor": "#535145",
+      "alt": "Aerial view of Kuşadası, a vibrant coastal city in Türkiye, during golden hour with waterfront and urban architecture.",
+      "photographer": "Julien Goettelmann",
+      "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
+      "pageUrl": "https://www.pexels.com/photo/flying-over-kusadasi-at-dusk-6-27821555/"
     }
   }
 }
