@@ -2259,6 +2259,15 @@
       "photographer": "Julien Goettelmann",
       "photographerUrl": "https://www.pexels.com/@julien-goettelmann-44396125",
       "pageUrl": "https://www.pexels.com/photo/flying-over-kusadasi-at-dusk-6-27821555/"
+    },
+    "GLA": {
+      "id": 5013578,
+      "base": "https://images.pexels.com/photos/5013578/pexels-photo-5013578.jpeg",
+      "avgColor": "#6F6C68",
+      "alt": "A blend of modern and Victorian architecture in Glasgow, Scotland, showcasing urban contrast.",
+      "photographer": "Sinitta Leunen",
+      "photographerUrl": "https://www.pexels.com/@sinileunen",
+      "pageUrl": "https://www.pexels.com/photo/buildings-on-regent-street-in-glasgow-scotland-5013578/"
     }
   }
 }
