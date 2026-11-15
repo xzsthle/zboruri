@@ -2268,6 +2268,24 @@
       "photographer": "Sinitta Leunen",
       "photographerUrl": "https://www.pexels.com/@sinileunen",
       "pageUrl": "https://www.pexels.com/photo/buildings-on-regent-street-in-glasgow-scotland-5013578/"
+    },
+    "VAR": {
+      "id": 38748080,
+      "base": "https://images.pexels.com/photos/38748080/pexels-photo-38748080.jpeg",
+      "avgColor": "#B9B19A",
+      "alt": "Scenic view of Varna's coastline with beachfront buildings during sunset, showcasing a tranquil summer evening.",
+      "photographer": "Nikolay Demirev",
+      "photographerUrl": "https://www.pexels.com/@nikolaydemirev",
+      "pageUrl": "https://www.pexels.com/photo/sunset-view-of-varna-beachfront-buildings-38748080/"
+    },
+    "MNL": {
+      "id": 37501659,
+      "base": "https://images.pexels.com/photos/37501659/pexels-photo-37501659.jpeg",
+      "avgColor": "#869A9B",
+      "alt": "The iconic Manila Post Office building reflecting on the Pasig River under a bright blue sky.",
+      "photographer": "Clarence Gaspar",
+      "photographerUrl": "https://www.pexels.com/@gasparclarence01",
+      "pageUrl": "https://www.pexels.com/photo/historic-manila-post-office-by-the-pasig-river-37501659/"
     }
   }
 }
