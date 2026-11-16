@@ -2286,6 +2286,24 @@
       "photographer": "Clarence Gaspar",
       "photographerUrl": "https://www.pexels.com/@gasparclarence01",
       "pageUrl": "https://www.pexels.com/photo/historic-manila-post-office-by-the-pasig-river-37501659/"
+    },
+    "LUX": {
+      "id": 38128589,
+      "base": "https://images.pexels.com/photos/38128589/pexels-photo-38128589.jpeg",
+      "avgColor": "#6B8254",
+      "alt": "A picturesque view of Luxembourg City featuring a historic viaduct and modern skyline.",
+      "photographer": "Vijay Aditya M",
+      "photographerUrl": "https://www.pexels.com/@vijay-aditya-m-39373071",
+      "pageUrl": "https://www.pexels.com/photo/luxembourg-city-skyline-with-historic-viaduct-38128589/"
+    },
+    "URA": {
+      "id": 31709055,
+      "base": "https://images.pexels.com/photos/31709055/pexels-photo-31709055.jpeg",
+      "avgColor": "#A8A9BB",
+      "alt": "Aerial view of Astana's modern skyline under a partly cloudy sky.",
+      "photographer": "Aibek Skakov",
+      "photographerUrl": "https://www.pexels.com/@aibek-skakov-418917601",
+      "pageUrl": "https://www.pexels.com/photo/modern-skyline-of-astana-kazakhstan-31709055/"
     }
   }
 }
