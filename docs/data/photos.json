@@ -2304,6 +2304,24 @@
       "photographer": "Aibek Skakov",
       "photographerUrl": "https://www.pexels.com/@aibek-skakov-418917601",
       "pageUrl": "https://www.pexels.com/photo/modern-skyline-of-astana-kazakhstan-31709055/"
+    },
+    "SEZ": {
+      "id": 19730288,
+      "base": "https://images.pexels.com/photos/19730288/pexels-photo-19730288.jpeg",
+      "avgColor": "#54727A",
+      "alt": "A breathtaking aerial view of Mahe Island's pristine coastline and lush landscapes in Seychelles.",
+      "photographer": "Matteo Parisi",
+      "photographerUrl": "https://www.pexels.com/@matteo-parisi-27261509",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-mahe-island-19730288/"
+    },
+    "JRO": {
+      "id": 15993988,
+      "base": "https://images.pexels.com/photos/15993988/pexels-photo-15993988.jpeg",
+      "avgColor": "#7D7F7A",
+      "alt": "A picturesque trail leads to a snowy mountain peak under a clear blue sky.",
+      "photographer": "Balazs Simon",
+      "photographerUrl": "https://www.pexels.com/@balazsimon",
+      "pageUrl": "https://www.pexels.com/photo/trail-with-a-view-of-a-mountain-range-15993988/"
     }
   }
 }
