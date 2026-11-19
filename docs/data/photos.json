@@ -2322,6 +2322,24 @@
       "photographer": "Balazs Simon",
       "photographerUrl": "https://www.pexels.com/@balazsimon",
       "pageUrl": "https://www.pexels.com/photo/trail-with-a-view-of-a-mountain-range-15993988/"
+    },
+    "ZAZ": {
+      "id": 10430436,
+      "base": "https://images.pexels.com/photos/10430436/pexels-photo-10430436.jpeg",
+      "avgColor": "#829AA4",
+      "alt": "Stunning view of Basilica del Pilar in Zaragoza, Spain with the Ebro River under a clear blue sky.",
+      "photographer": "David Vives",
+      "photographerUrl": "https://www.pexels.com/@david-vives-1474251",
+      "pageUrl": "https://www.pexels.com/photo/cathedral-near-river-10430436/"
+    },
+    "FDF": {
+      "id": 5769684,
+      "base": "https://images.pexels.com/photos/5769684/pexels-photo-5769684.jpeg",
+      "avgColor": "#A6A6A7",
+      "alt": "Captivating low angle view of a historic church with a prominent statue against a cloudy sky.",
+      "photographer": "Julia Volk",
+      "photographerUrl": "https://www.pexels.com/@julia-volk",
+      "pageUrl": "https://www.pexels.com/photo/the-church-of-balata-in-low-angle-photography-5769684/"
     }
   }
 }
