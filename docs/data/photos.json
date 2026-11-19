@@ -2340,6 +2340,24 @@
       "photographer": "Julia Volk",
       "photographerUrl": "https://www.pexels.com/@julia-volk",
       "pageUrl": "https://www.pexels.com/photo/the-church-of-balata-in-low-angle-photography-5769684/"
+    },
+    "SJJ": {
+      "id": 38183710,
+      "base": "https://images.pexels.com/photos/38183710/pexels-photo-38183710.jpeg",
+      "avgColor": "#A0968D",
+      "alt": "Aerial view of Sarajevo, showcasing cityscape, red rooftops, and distant mountains.",
+      "photographer": "Gökhan Baykal",
+      "photographerUrl": "https://www.pexels.com/@gkhnbykl",
+      "pageUrl": "https://www.pexels.com/photo/panoramic-view-of-sarajevo-from-above-38183710/"
+    },
+    "ANR": {
+      "id": 14529110,
+      "base": "https://images.pexels.com/photos/14529110/pexels-photo-14529110.jpeg",
+      "avgColor": "#707072",
+      "alt": "A stunning aerial view of Antwerp, Belgium, cityscape at dusk with vibrant sky colors.",
+      "photographer": "Ayşe7",
+      "photographerUrl": "https://www.pexels.com/@ayse7-293441980",
+      "pageUrl": "https://www.pexels.com/photo/city-against-the-sky-at-dusk-14529110/"
     }
   }
 }
