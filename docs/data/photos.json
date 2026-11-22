@@ -2367,6 +2367,15 @@
       "photographer": "Piotr Arnoldes",
       "photographerUrl": "https://www.pexels.com/@piotr-arnoldes-7862031",
       "pageUrl": "https://www.pexels.com/photo/aged-stone-arch-and-residential-buildings-in-old-town-at-sundown-6771579/"
+    },
+    "CAN": {
+      "id": 14230236,
+      "base": "https://images.pexels.com/photos/14230236/pexels-photo-14230236.jpeg",
+      "avgColor": "#4C555E",
+      "alt": "Illuminated skyscrapers of Guangzhou reflecting on the water under a night sky.",
+      "photographer": "Lywin",
+      "photographerUrl": "https://www.pexels.com/@lywin-55237728",
+      "pageUrl": "https://www.pexels.com/photo/illuminated-skyscrapers-reflecting-in-water-at-night-14230236/"
     }
   }
 }
