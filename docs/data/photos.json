@@ -2376,6 +2376,24 @@
       "photographer": "Lywin",
       "photographerUrl": "https://www.pexels.com/@lywin-55237728",
       "pageUrl": "https://www.pexels.com/photo/illuminated-skyscrapers-reflecting-in-water-at-night-14230236/"
+    },
+    "HAV": {
+      "id": 4226101,
+      "base": "https://images.pexels.com/photos/4226101/pexels-photo-4226101.jpeg",
+      "avgColor": "#868E92",
+      "alt": "Beautiful cityscape view of Havana, Cuba with its iconic architecture and waterfront under a clear sky.",
+      "photographer": "alleksana",
+      "photographerUrl": "https://www.pexels.com/@alleksana",
+      "pageUrl": "https://www.pexels.com/photo/clouds-over-city-and-river-4226101/"
+    },
+    "SIN": {
+      "id": 18662417,
+      "base": "https://images.pexels.com/photos/18662417/pexels-photo-18662417.jpeg",
+      "avgColor": "#806B58",
+      "alt": "Night view of Singapore's illuminated skyline and Marina Bay Sands, reflecting vibrant city lights.",
+      "photographer": "Mark Baldovino",
+      "photographerUrl": "https://www.pexels.com/@odlab2",
+      "pageUrl": "https://www.pexels.com/photo/marina-bay-illuminated-at-night-18662417/"
     }
   }
 }
