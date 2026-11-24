@@ -2394,6 +2394,15 @@
       "photographer": "Mark Baldovino",
       "photographerUrl": "https://www.pexels.com/@odlab2",
       "pageUrl": "https://www.pexels.com/photo/marina-bay-illuminated-at-night-18662417/"
+    },
+    "OVD": {
+      "id": 35656240,
+      "base": "https://images.pexels.com/photos/35656240/pexels-photo-35656240.jpeg",
+      "avgColor": "#586669",
+      "alt": "Scenic view of a coastal town in Asturias with mountains in the background, Spain.",
+      "photographer": "Germán Latasa",
+      "photographerUrl": "https://www.pexels.com/@german-latasa-814203747",
+      "pageUrl": "https://www.pexels.com/photo/breathtaking-asturias-landscape-with-coastal-town-35656240/"
     }
   }
 }
