@@ -2403,6 +2403,24 @@
       "photographer": "Germán Latasa",
       "photographerUrl": "https://www.pexels.com/@german-latasa-814203747",
       "pageUrl": "https://www.pexels.com/photo/breathtaking-asturias-landscape-with-coastal-town-35656240/"
+    },
+    "SCO": {
+      "id": 20591581,
+      "base": "https://images.pexels.com/photos/20591581/pexels-photo-20591581.jpeg",
+      "avgColor": "#9E8F8A",
+      "alt": "Scenic view of Aktau's coastline promenade with palm trees and serene sea.",
+      "photographer": "Radis B",
+      "photographerUrl": "https://www.pexels.com/@radis",
+      "pageUrl": "https://www.pexels.com/photo/promenade-in-town-on-caspian-sea-coast-20591581/"
+    },
+    "TZX": {
+      "id": 38773277,
+      "base": "https://images.pexels.com/photos/38773277/pexels-photo-38773277.jpeg",
+      "avgColor": "#577099",
+      "alt": "A stunning aerial view of a coastal city with clear blue skies and the ocean horizon.",
+      "photographer": "Hany Nafady",
+      "photographerUrl": "https://www.pexels.com/@hany-nafady-1829287",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-coastal-cityscape-and-blue-ocean-38773277/"
     }
   }
 }
