@@ -2421,6 +2421,33 @@
       "photographer": "Hany Nafady",
       "photographerUrl": "https://www.pexels.com/@hany-nafady-1829287",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-coastal-cityscape-and-blue-ocean-38773277/"
+    },
+    "PNA": {
+      "id": 17836631,
+      "base": "https://images.pexels.com/photos/17836631/pexels-photo-17836631.jpeg",
+      "avgColor": "#796B60",
+      "alt": "Explore a vibrant street in Pamplona, Spain, featuring a row of colorful residential buildings.",
+      "photographer": "Entdecker Fuchs",
+      "photographerUrl": "https://www.pexels.com/@entdeckerfuchs",
+      "pageUrl": "https://www.pexels.com/photo/alley-in-pamplona-in-spain-17836631/"
+    },
+    "NRN": {
+      "id": 19136576,
+      "base": "https://images.pexels.com/photos/19136576/pexels-photo-19136576.jpeg",
+      "avgColor": "#ABAAA8",
+      "alt": "A modern barge sailing through Düsseldorf's urban river surrounded by contemporary architecture at sunset.",
+      "photographer": "Masood Aslami",
+      "photographerUrl": "https://www.pexels.com/@masoodaslami",
+      "pageUrl": "https://www.pexels.com/photo/modern-hyatt-regency-hotel-in-dusseldorf-19136576/"
+    },
+    "VOG": {
+      "id": 11278154,
+      "base": "https://images.pexels.com/photos/11278154/pexels-photo-11278154.jpeg",
+      "avgColor": "#80908F",
+      "alt": "Dramatic aerial view of The Motherland Calls statue in Volgograd at sunrise, overlooking the cityscape.",
+      "photographer": "Evgeny Kochurov",
+      "photographerUrl": "https://www.pexels.com/@jonnyjpg",
+      "pageUrl": "https://www.pexels.com/photo/drone-shot-of-the-motherland-calls-during-sunrise-11278154/"
     }
   }
 }

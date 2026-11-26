@@ -1,6 +1,21 @@
 {
   "version": 2,
   "destinations": {
+    "ALC": {
+      "priceEur": 51.9,
+      "since": "2026-11-26T01:42:54.597Z",
+      "alerted": false
+    },
+    "ATH": {
+      "priceEur": 50.02,
+      "since": "2026-11-26T01:42:54.597Z",
+      "alerted": false
+    },
+    "BCN": {
+      "priceEur": 55.64,
+      "since": "2026-11-26T01:42:54.597Z",
+      "alerted": false
+    },
     "BLQ": {
       "priceEur": 38.32,
       "since": "2026-09-30T08:43:15.488Z",
@@ -12,8 +27,8 @@
       "alerted": false
     },
     "BTS": {
-      "priceEur": 38.32,
-      "since": "2026-09-30T08:43:15.488Z",
+      "priceEur": 36.16,
+      "since": "2026-11-26T01:42:54.597Z",
       "alerted": false
     },
     "CRL": {
@@ -32,8 +47,23 @@
       "alerted": false
     },
     "CGN": {
-      "priceEur": 53.44,
-      "since": "2026-11-13T12:51:43.610Z",
+      "priceEur": 48.9,
+      "since": "2026-11-26T01:42:54.597Z",
+      "alerted": false
+    },
+    "HHN": {
+      "priceEur": 53.02,
+      "since": "2026-11-26T01:42:54.597Z",
+      "alerted": false
+    },
+    "LCA": {
+      "priceEur": 51.9,
+      "since": "2026-11-26T01:42:54.597Z",
+      "alerted": false
+    },
+    "FMM": {
+      "priceEur": 55.64,
+      "since": "2026-11-26T01:42:54.597Z",
       "alerted": false
     },
     "BGY": {
@@ -42,18 +72,23 @@
       "alerted": false
     },
     "MXP": {
-      "priceEur": 48,
-      "since": "2026-11-09T13:37:38.538Z",
+      "priceEur": 44.4,
+      "since": "2026-11-26T01:42:54.597Z",
       "alerted": false
     },
     "PRG": {
-      "priceEur": 47.21,
-      "since": "2026-09-30T08:43:15.488Z",
+      "priceEur": 45.9,
+      "since": "2026-11-26T01:42:54.597Z",
       "alerted": false
     },
     "SOF": {
       "priceEur": 29.84,
       "since": "2026-09-30T08:43:15.488Z",
+      "alerted": false
+    },
+    "STR": {
+      "priceEur": 55.57,
+      "since": "2026-11-26T01:42:54.597Z",
       "alerted": false
     },
     "TRN": {
