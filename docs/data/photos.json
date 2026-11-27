@@ -2448,6 +2448,15 @@
       "photographer": "Evgeny Kochurov",
       "photographerUrl": "https://www.pexels.com/@jonnyjpg",
       "pageUrl": "https://www.pexels.com/photo/drone-shot-of-the-motherland-calls-during-sunrise-11278154/"
+    },
+    "BGW": {
+      "id": 33047484,
+      "base": "https://images.pexels.com/photos/33047484/pexels-photo-33047484.png",
+      "avgColor": "#778DA3",
+      "alt": "Breathtaking aerial view of Baghdad cityscape with Tigris River, showcasing urban architecture.",
+      "photographer": "Muhammad Nabeel",
+      "photographerUrl": "https://www.pexels.com/@muhammad-nabeel-2709766",
+      "pageUrl": "https://www.pexels.com/photo/aerial-view-of-baghdad-cityscape-over-tigris-river-33047484/"
     }
   }
 }
