@@ -2457,6 +2457,15 @@
       "photographer": "Muhammad Nabeel",
       "photographerUrl": "https://www.pexels.com/@muhammad-nabeel-2709766",
       "pageUrl": "https://www.pexels.com/photo/aerial-view-of-baghdad-cityscape-over-tigris-river-33047484/"
+    },
+    "OLB": {
+      "id": 18660971,
+      "base": "https://images.pexels.com/photos/18660971/pexels-photo-18660971.jpeg",
+      "avgColor": "#777370",
+      "alt": "Captivating view of Olbia harbor with cruise ship and full moon at dusk in Sardinia, Italy.",
+      "photographer": "Christopher Politano",
+      "photographerUrl": "https://www.pexels.com/@christopher-politano-978995",
+      "pageUrl": "https://www.pexels.com/photo/full-moon-in-the-evening-sky-over-the-harbor-in-olbia-italy-18660971/"
     }
   }
 }
